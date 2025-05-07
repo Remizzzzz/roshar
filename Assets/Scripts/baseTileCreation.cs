@@ -7,7 +7,7 @@ public class BaseTile : Tile
     [Range(0.1f, 1f)]
     public float shrinkFactor = 0.9f;
     public bool isFluct=true;
-    public bool isInvocationTile=false;
+    public bool isSummoningTile=false;
     internal Color originalColor;
 
     private void OnEnable(){

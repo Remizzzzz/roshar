@@ -35,4 +35,5 @@ MonoBehaviour:
   m_Flags: 1
   m_ColliderType: 1
   shrinkFactor: 0.95
-  isInvocationTile: 1
+  isFluct: 1
+  isSummoningTile: 1
