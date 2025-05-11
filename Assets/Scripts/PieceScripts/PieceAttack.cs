@@ -10,25 +10,46 @@ public class PieceAttack : MonoBehaviour
     public int range=1;
     public int d4Atk=0;
 
-    private PieceMovement pM; //To reuse the map logic of PieceMovement
+    private int curTurn=1;
+    internal PieceMovement pM; //To reuse the map logic of PieceMovement
     private int curLp;
     private int dmgReduc=0;
     private int curNbAtk;
+    internal bool isAttacking=false;
+
+    //public methods
+    public void decrCurNbAtk(){curNbAtk--;}
+    public int getCurLp() => curLp;
+    public int getCurNbAtk() =>curNbAtk;
     public void damage(int dmg){
         curLp-=(dmg-dmgReduc);
         if (curLp<=0) {
+            TileStateManager.Instance.updateState(pM.getCurPos(),TileState.basic);
+            pM.tileMap.RefreshTile(pM.getCurPos());
             PieceInteractionManager.Instance.remove(pM.getCurPos());
             PieceStateManager.Instance.remove(gameObject);
             Destroy(gameObject);
         }
     }
+
     public void setDmgReduc(int dmgRed){dmgReduc=dmgRed;}
+
     public void heal(int regen){
         curLp+=regen;
         if (curLp>lp) curLp=lp;
     }
+
     //public attackAction();
+
     //Private methods
+    
+    private void refreshMoves(){
+        if (curTurn<TurnManager.Instance.getTurnNumber()){
+            curNbAtk=nbAtk;
+            curTurn=TurnManager.Instance.getTurnNumber();
+        }
+    }
+
     private List<Vector3Int> getReachableTargets(){
         List<Vector3Int> tilesReachables= new List<Vector3Int>{pM.getCurPos()}; //The List where we'll keep our valid coordinates
             if(pM.getOnMap()){
@@ -56,11 +77,20 @@ public class PieceAttack : MonoBehaviour
 
     //On Mouse methods
     void OnMouseDown(){
-        if (TurnManager.Instance.isPlayerTurn(pM.isFluct) && PieceInteractionManager.Instance.combatModeEnabled()){
-            if (!PieceStateManager.Instance.isAttacked(pM.isFluct) && PieceStateManager.Instance.isAttacked(!pM.isFluct)){//If it's not an attack, but a selection to attack (the PlayerTurn bool already indirectly check this condition, but for safety)
+        if (TurnManager.Instance.isPlayerTurn(pM.isFluct) && PieceInteractionManager.Instance.combatModeEnabled()){ //If it's the piece's players turn and combat mode is activated, it's more likely a selection
+            if (!PieceStateManager.Instance.isAttacked(pM.isFluct) && !PieceStateManager.Instance.isAttacked(!pM.isFluct)){//If it's not an attack, but a selection to attack (the PlayerTurn bool already indirectly check this condition, but for safety)
                 // ! Note that the second bool actually check if another piece of the same color is already attacking rather than checking if the piece is attacked, it was useless to create a new method
-                List<Vector3Int> targetsInRange = getReachableTargets();
-                PieceInteractionManager.Instance.areTargeted(targetsInRange,pM.isFluct);
+                if (curNbAtk>0){ //If the piece has an attack remaining this turn
+                    List<Vector3Int> targetsInRange = getReachableTargets();
+                    PieceInteractionManager.Instance.areTargeted(targetsInRange,pM.isFluct);
+                    PieceInteractionManager.Instance.setAttacker(this);
+                    PieceStateManager.Instance.updateState(gameObject, PieceState.attacking,pM.isFluct);
+                    isAttacking=true;
+                }
+            }
+        } else if (PieceInteractionManager.Instance.combatModeEnabled()){//If it's not the turn of the piece's player, that can means the piece is attacked
+            if (PieceStateManager.Instance.isAttacked(pM.isFluct)){ //If the piece is attacked
+                PieceInteractionManager.Instance.attack(pM.getCurPos(),pM.isFluct);
             }
         }
     }
@@ -68,6 +98,7 @@ public class PieceAttack : MonoBehaviour
     void Awake(){
         pM = GetComponent<PieceMovement>();
     }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -78,6 +109,18 @@ public class PieceAttack : MonoBehaviour
     // Update is called once per frame
     void Update() 
     {
+        refreshMoves();
         
+        if (isAttacking && Input.GetMouseButtonDown(0)){
+            isAttacking=false;
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //Get Mouse Position
+            mousePosition.z = 0; 
+            Vector3Int cellPos = pM.tileMap.WorldToCell(mousePosition);
+            if (!PieceInteractionManager.Instance.isATarget(cellPos) && cellPos!=pM.getCurPos()){
+                PieceStateManager.Instance.updateState(gameObject,PieceState.basic,pM.isFluct);
+                PieceInteractionManager.Instance.resetTargets();
+                PieceInteractionManager.Instance.attacker=null;
+            }
+        }
     }
 }

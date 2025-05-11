@@ -11,6 +11,16 @@ public class PieceInteractionManager : MonoBehaviour
     private Dictionary<Vector3Int,GameObject> fluct=new();
     private Dictionary<Vector3Int,GameObject> fus=new();
     private List<Vector3Int> listOfTargets=new();
+    internal PieceAttack attacker; //Only PieceAttack may access it, it's just to simplify the code, no use of creating a method to delete attacker
+    //Debug method
+    public bool isAPiece(Vector3Int coor) {return (fluct.ContainsKey(coor) || fus.ContainsKey(coor));}
+    public PieceAttack getPiece(Vector3Int coor){
+        if (fluct.ContainsKey(coor)) return fluct[coor].GetComponent<PieceAttack>();
+        return fus[coor].GetComponent<PieceAttack>();
+    }
+    //public methods
+    public bool isATarget(Vector3Int coor){return listOfTargets.Contains(coor);}
+    public void setAttacker(PieceAttack a){ attacker=a;}
     public bool combatModeEnabled() {return combatMode;}
     public void setCombatMode(bool mode) {combatMode=mode;}
     public void toggleCombatMode() {combatMode=!combatMode;}
@@ -90,22 +100,37 @@ public class PieceInteractionManager : MonoBehaviour
             listOfTargets.Add(piece);
         }
     }
-    public void resetTargets(List<Vector3Int> pieces, bool isFluct){
-        foreach(Vector3Int piece in pieces){
-            if (isFluct){
+    public void resetTargets(){
+        foreach(Vector3Int piece in listOfTargets){
+            if (attacker.pM.isFluct){
                 if (fus.ContainsKey(piece)){
                     SpriteRenderer sr = fus[piece].GetComponent<SpriteRenderer>();
-                    sr.color = new Color(255f,255f,255f);
+                    sr.color = new Color(1,1,1);
                 }
             } else {
                 if (fluct.ContainsKey(piece)){
                     SpriteRenderer sr = fluct[piece].GetComponent<SpriteRenderer>();
-                    sr.color = new Color(255f,255f,255f);
+                    sr.color = new Color(1,1,1);
                 }
             }
         }
+        listOfTargets.Clear();
     }
-    public void attack(Vector3Int attacker, Vector3Int defender, bool isFluct){
+    public void attack(Vector3Int defender,bool isFluct){
+        if (listOfTargets.Contains(defender)){
+            int dmg = attacker.baseAtk+(attacker.d4Atk*Random.Range(1,5));
+            if (isFluct) {
+                if (fluct[defender]!=null) fluct[defender].GetComponent<PieceAttack>().damage(dmg);
+            }
+            else {
+                if (fus[defender]!=null) fus[defender].GetComponent<PieceAttack>().damage(dmg);
+            }
+            attacker.decrCurNbAtk();
+            attacker.isAttacking=false;
+            PieceStateManager.Instance.updateState(attacker.gameObject,PieceState.basic,attacker.pM.isFluct);
+            resetTargets();
+            attacker=null;
+        }
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

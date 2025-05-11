@@ -17,14 +17,18 @@ public class TileClickUI : MonoBehaviour
 
             Vector3Int cellPos = tilemap.WorldToCell(mouseWorldPos);
             TileBase tile = tilemap.GetTile(cellPos);
-
-            if (tile != null)
-            {
-                coordText.text = "Coordonnées : " + cellPos.ToString() + "\nState : "+TileStateManager.Instance.getState(cellPos).ToString();
-            }
-            else
-            {
-                coordText.text = "Pas de tile ici";
+            if (!PieceInteractionManager.Instance.isAPiece(cellPos)){
+                if (tile != null)
+                {
+                    coordText.text = "Coordonnées : " + cellPos.ToString() + "\nState : "+TileStateManager.Instance.getState(cellPos).ToString();
+                }
+                else
+                {
+                    coordText.text = "No tile here";
+                }
+            } else {
+                PieceAttack p = PieceInteractionManager.Instance.getPiece(cellPos);
+                coordText.text = "Lp : "+p.getCurLp().ToString() + "\nSelection : "+(!PieceStateManager.Instance.isAttacked(p.pM.isFluct) && !PieceStateManager.Instance.isAttacked(!(p.pM.isFluct)))+"\nCurNbAtk : "+p.getCurNbAtk().ToString();
             }
         }
     }

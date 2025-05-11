@@ -326,6 +326,7 @@ GameObject:
   - component: {fileID: 393028338}
   - component: {fileID: 393028337}
   - component: {fileID: 393028336}
+  - component: {fileID: 393028339}
   m_Layer: 0
   m_Name: Fluctuo (1)
   m_TagString: Untagged
@@ -455,6 +456,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &393028339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393028334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad3402983f84fba4ea3b82b39ca0185c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lp: 6
+  baseAtk: 2
+  nbAtk: 1
+  range: 2
+  d4Atk: 0
 --- !u!1 &429188317
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,6 +621,7 @@ GameObject:
   - component: {fileID: 430544275}
   - component: {fileID: 430544274}
   - component: {fileID: 430544273}
+  - component: {fileID: 430544276}
   m_Layer: 0
   m_Name: Fluctuo
   m_TagString: Untagged
@@ -732,6 +751,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &430544276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430544271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad3402983f84fba4ea3b82b39ca0185c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lp: 6
+  baseAtk: 2
+  nbAtk: 1
+  range: 2
+  d4Atk: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,6 +1757,7 @@ GameObject:
   - component: {fileID: 1841820137}
   - component: {fileID: 1841820140}
   - component: {fileID: 1841820139}
+  - component: {fileID: 1841820141}
   m_Layer: 0
   m_Name: Fusionne
   m_TagString: Untagged
@@ -1850,6 +1887,23 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.512
+--- !u!114 &1841820141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841820136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad3402983f84fba4ea3b82b39ca0185c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lp: 6
+  baseAtk: 2
+  nbAtk: 1
+  range: 1
+  d4Atk: 0
 --- !u!1 &1983402005
 GameObject:
   m_ObjectHideFlags: 0
@@ -3432,6 +3486,7 @@ GameObject:
   - component: {fileID: 2071792403}
   - component: {fileID: 2071792402}
   - component: {fileID: 2071792401}
+  - component: {fileID: 2071792404}
   m_Layer: 0
   m_Name: Fusionne (1)
   m_TagString: Untagged
@@ -3561,6 +3616,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2071792404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071792399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad3402983f84fba4ea3b82b39ca0185c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lp: 6
+  baseAtk: 2
+  nbAtk: 1
+  range: 1
+  d4Atk: 0
 --- !u!1 &2093101177
 GameObject:
   m_ObjectHideFlags: 0

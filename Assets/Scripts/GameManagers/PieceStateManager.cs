@@ -32,8 +32,8 @@ public class PieceStateManager : MonoBehaviour
         return !statesFus.ContainsValue(PieceState.moving);    
     }
     public bool isAttacked(bool isFluct){ //For now, not very useful, but for safety and modularity we keep it
-        if (isFluct) return !statesFus.ContainsValue(PieceState.attacking);
-        return !statesFluct.ContainsValue(PieceState.attacking);    
+        if (isFluct) return statesFus.ContainsValue(PieceState.attacking);
+        return statesFluct.ContainsValue(PieceState.attacking);    
     }
     private void addPiece(GameObject p, bool isFluct){
         if (isFluct){
