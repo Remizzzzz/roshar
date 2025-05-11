@@ -2,16 +2,16 @@ using UnityEngine;
 using System.Collections.Generic;
 
 
-public enum PieceState {moving,basic}
+public enum PieceState {moving,basic,attacking}
 public class PieceStateManager : MonoBehaviour
 {
     public static PieceStateManager Instance;
     public GameObject fusionnes;
     public GameObject fluctuomanciens;
-    private Dictionary<PieceMovement, PieceState> statesFus = new();
-    private Dictionary<PieceMovement, PieceState> statesFluct = new();
+    private Dictionary<GameObject, PieceState> statesFus = new(); //The piece state is linked to GameObject because of tiny error in implementation, it's too late to change it now
+    private Dictionary<GameObject, PieceState> statesFluct = new();
 
-    public void updateState(PieceMovement p,PieceState s, bool isFluct){
+    public void updateState(GameObject p,PieceState s, bool isFluct){
         if (isFluct) {
             if (statesFluct.ContainsKey(p)) statesFluct[p]=s;
         }
@@ -19,15 +19,23 @@ public class PieceStateManager : MonoBehaviour
             if (statesFus.ContainsKey(p)) statesFus[p]=s;
         }
     }
-    public PieceState getState(PieceMovement p, bool isFluct){
+    public PieceState getState(GameObject p, bool isFluct){
         if (isFluct) return statesFluct[p];
         return statesFus[p];
+    }
+    public void remove(GameObject g){
+        if (statesFluct.ContainsKey(g)) statesFluct.Remove(g);
+        else if (statesFus.ContainsKey(g)) statesFus.Remove(g);
     }
     public bool canMove(bool isFluct){
         if (isFluct) return !statesFluct.ContainsValue(PieceState.moving);
         return !statesFus.ContainsValue(PieceState.moving);    
     }
-    private void addPiece(PieceMovement p, bool isFluct){
+    public bool isAttacked(bool isFluct){ //For now, not very useful, but for safety and modularity we keep it
+        if (isFluct) return !statesFus.ContainsValue(PieceState.attacking);
+        return !statesFluct.ContainsValue(PieceState.attacking);    
+    }
+    private void addPiece(GameObject p, bool isFluct){
         if (isFluct){
             if (!statesFluct.ContainsKey(p)) statesFluct.Add(p,PieceState.basic);
         } else {
@@ -35,18 +43,16 @@ public class PieceStateManager : MonoBehaviour
         }
     }
     private void initDicts(){
-        PieceMovement[] fus = fusionnes.GetComponentsInChildren<PieceMovement>();
-        PieceMovement[] fluct = fluctuomanciens.GetComponentsInChildren<PieceMovement>();
-        foreach (PieceMovement piece in fus)
+        foreach (Transform piece in fusionnes.transform)
         {
-            if (!statesFus.ContainsKey(piece)){
-                statesFus.Add(piece,PieceState.basic);
+            if (!statesFus.ContainsKey(piece.gameObject)){
+                statesFus.Add(piece.gameObject,PieceState.basic);
 
             }
         }
-        foreach (PieceMovement piece in fluct){
-            if (!statesFluct.ContainsKey(piece)){
-                statesFluct.Add(piece,PieceState.basic);
+        foreach (Transform piece in fluctuomanciens.transform){
+            if (!statesFluct.ContainsKey(piece.gameObject)){
+                statesFluct.Add(piece.gameObject,PieceState.basic);
             }
         }
     }

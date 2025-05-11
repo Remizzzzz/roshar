@@ -1,0 +1,34 @@
+<mxfile host="65bd71144e">
+    <diagram id="tGo0GRVfG_g0ngY8ppvy" name="Page-1">
+        <mxGraphModel dx="1072" dy="487" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="PieceAttack" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="310" y="110" width="160" height="260" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="+ int lp&lt;div&gt;+ int baseAtk&lt;/div&gt;&lt;div&gt;+ int d4Atk&lt;/div&gt;&lt;div&gt;- int curLp&lt;/div&gt;&lt;div&gt;+ int range&lt;/div&gt;&lt;div&gt;- int dmgReduc&lt;/div&gt;&lt;div&gt;+ int nbAtk =1;&lt;/div&gt;&lt;div&gt;-int curAtk&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="2" vertex="1">
+                    <mxGeometry y="26" width="160" height="134" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="2" vertex="1">
+                    <mxGeometry y="160" width="160" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&lt;div&gt;- reachableTarget()&lt;/div&gt;+ damage(int dmg)&lt;div&gt;+ setDmgReduc()&lt;/div&gt;&lt;div&gt;+ heal()&lt;/div&gt;&lt;div&gt;+ attackAction()&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="2" vertex="1">
+                    <mxGeometry y="168" width="160" height="92" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="PieceCombatManager" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="530" y="110" width="350" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;div&gt;+ Instance&lt;/div&gt;&lt;div&gt;+ GameObject fusionnes&lt;/div&gt;&lt;div&gt;+ GameObject fluctomanciens&lt;/div&gt;&lt;div&gt;- Dictionnary&amp;lt;Vector3Int, PieceAttack&amp;gt; flucts&lt;/div&gt;&lt;div&gt;- Dictionnary&amp;lt;Vector3Int, PieceAttack&amp;gt; fus&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="6" vertex="1">
+                    <mxGeometry y="26" width="350" height="104" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="6" vertex="1">
+                    <mxGeometry y="130" width="350" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="&lt;div&gt;- initDicts()&lt;/div&gt;&lt;div&gt;+ attack(Vector3Int attacker, Vector3Int defender)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="6" vertex="1">
+                    <mxGeometry y="138" width="350" height="52" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

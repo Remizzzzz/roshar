@@ -9,15 +9,19 @@ public class TurnManager : MonoBehaviour
     private bool turn=true;
     private bool startingPlayer=true;
     private int turnNumber=1;//Turns start at 1
+    private int hasSummoned=0;//TurnManager manage also the number of summon per turn (only one by default)
     //Public method
     public bool isPlayerTurn(bool isFluct) {return (turn==isFluct);}
     public bool isSummonable(bool isSpecial){
-        //turnText.text = "Summonable ? "+isSpecial.ToString();
-        if (isSpecial) return mapParameters.specialSummoningTurns.Contains(turnNumber);
+        if (hasSummoned==mapParameters.numberOfSummon) return false;
+        if (isSpecial) return (mapParameters.specialSummoningTurns.Contains(turnNumber));
         return mapParameters.summoningTurns.Contains(turnNumber);
     }
+    public void incrSummon(){hasSummoned++;}
     public void updateTurn(){
         turn=!turn;
+        hasSummoned=0;
+        PieceInteractionManager.Instance.setCombatMode(false);
         if (turn && startingPlayer) turnNumber++;
         if (turn) turnText.text = "Fluctuomanciens " + turnNumber.ToString();
         else turnText.text = "Fusionnés " + turnNumber.ToString();
@@ -25,7 +29,6 @@ public class TurnManager : MonoBehaviour
     public int getTurnNumber(){
         return turnNumber;
     }
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
