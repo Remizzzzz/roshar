@@ -4,15 +4,15 @@ using utils;
 public class PieceInteractionManager : MonoBehaviour
 {
     public static PieceInteractionManager Instance;
-    private bool combatMode=false;
     public GameObject fusionnes;
     public GameObject fluctuomanciens; 
     public Color targetColor = new Color(165f/255f,165f/255f,165f/255f);
     private Dictionary<Vector3Int,GameObject> fluct=new();
     private Dictionary<Vector3Int,GameObject> fus=new();
     private List<Vector3Int> listOfTargets=new();
+    private List<Vector3Int> attackRange=new();
     internal PieceAttack attacker; //Only PieceAttack may access it, it's just to simplify the code, no use of creating a method to delete attacker
-    //Debug method
+    //Debug method (used for the status windows in TileClickUI)
     public bool isAPiece(Vector3Int coor) {return (fluct.ContainsKey(coor) || fus.ContainsKey(coor));}
     public PieceAttack getPiece(Vector3Int coor){
         if (fluct.ContainsKey(coor)) return fluct[coor].GetComponent<PieceAttack>();
@@ -21,9 +21,6 @@ public class PieceInteractionManager : MonoBehaviour
     //public methods
     public bool isATarget(Vector3Int coor){return listOfTargets.Contains(coor);}
     public void setAttacker(PieceAttack a){ attacker=a;}
-    public bool combatModeEnabled() {return combatMode;}
-    public void setCombatMode(bool mode) {combatMode=mode;}
-    public void toggleCombatMode() {combatMode=!combatMode;}
     public void updatePos(GameObject p, Vector3Int pos,bool isFluct){
         if (isFluct) {
             //The following process cost less than to add all the map in initDicts
@@ -69,6 +66,7 @@ public class PieceInteractionManager : MonoBehaviour
         else if (fus.ContainsKey(key)) fus.Remove(key);
     }
     public List<Vector3Int> getAttackTargets(List<Vector3Int> tiles, bool isFluct){
+        attackRange.Clear();
         List<Vector3Int> targets = new List<Vector3Int>();
         foreach (Vector3Int tile in tiles){
             if (isFluct){ //If the piece is fluct, its ennemies are fus
@@ -79,6 +77,11 @@ public class PieceInteractionManager : MonoBehaviour
                 if (fluct.ContainsKey(tile)){
                     targets.Add(tile);
                 }
+            }
+            if (TileStateManager.Instance.getState(tile)!=TileState.occupied){
+                TileStateManager.Instance.updateState(tile,TileState.inAttackRange);
+                TileStateManager.Instance.tileMap.RefreshTile(tile);
+                attackRange.Add(tile);
             }
         }
         return targets;
@@ -115,6 +118,13 @@ public class PieceInteractionManager : MonoBehaviour
             }
         }
         listOfTargets.Clear();
+        foreach(Vector3Int tile in attackRange){
+            if (TileStateManager.Instance.getState(tile)!=TileState.occupied){
+                TileStateManager.Instance.updateState(tile,TileState.basic);
+                TileStateManager.Instance.tileMap.RefreshTile(tile);
+            }
+        }
+        attackRange.Clear();
     }
     public void attack(Vector3Int defender,bool isFluct){
         if (listOfTargets.Contains(defender)){
@@ -142,6 +152,5 @@ public class PieceInteractionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 }

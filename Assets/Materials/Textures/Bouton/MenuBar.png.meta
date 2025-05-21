@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5ae5562d2dea55847bf0db1517995929
+guid: ada6250f6965ab5448f18b4a0f85f1e1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1731704320220268200
-    second: "Fusionn\xE9_0"
+      213: 4102213686416880286
+    second: MenuBar_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,10 +48,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 250
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Fusionn\xE9_0"
+      name: MenuBar_0
       rect:
         serializedVersion: 2
-        x: 15
+        x: 0
         y: 0
-        width: 226
-        height: 256
+        width: 1640
+        height: 664
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8a60dbe77ef380810800000000000000
-      internalID: 1731704320220268200
+      spriteID: e92bf930d9dfde830800000000000000
+      internalID: 4102213686416880286
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      "Fusionn\xE9_0": 1731704320220268200
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

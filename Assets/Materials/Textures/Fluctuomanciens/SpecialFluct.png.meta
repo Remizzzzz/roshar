@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5ae5562d2dea55847bf0db1517995929
+guid: 6a457b4e546c3bd46a69aa8ba727552e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1731704320220268200
-    second: "Fusionn\xE9_0"
+      213: 664449636318385312
+    second: SpecialFluct_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Fusionn\xE9_0"
+      name: SpecialFluct_0
       rect:
         serializedVersion: 2
         x: 15
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8a60dbe77ef380810800000000000000
-      internalID: 1731704320220268200
+      spriteID: 0a415ef7c69983900800000000000000
+      internalID: 664449636318385312
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "Fusionn\xE9_0": 1731704320220268200
+      SpecialFluct_0: 664449636318385312
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

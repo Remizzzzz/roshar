@@ -20,6 +20,7 @@ public class BaseTile : Tile
         tileData.transform = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, scale);
         if (TileStateManager.Instance != null) {
             if (TileStateManager.Instance.getState(position)==TileState.reachable) tileData.color = new Color(185f/255f,1f,1f);
+            else if (TileStateManager.Instance.getState(position)==TileState.inAttackRange) tileData.color = new Color(181f/255f,181f/255f,125f/255f);
             else tileData.color = color;
         } else tileData.color = color;
     }

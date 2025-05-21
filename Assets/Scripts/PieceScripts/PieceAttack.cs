@@ -23,11 +23,14 @@ public class PieceAttack : MonoBehaviour
     public int getCurNbAtk() =>curNbAtk;
     public void damage(int dmg){
         curLp-=(dmg-dmgReduc);
-        if (curLp<=0) {
-            TileStateManager.Instance.updateState(pM.getCurPos(),TileState.basic);
+        if (curLp <= 0)
+        {
+            TileStateManager.Instance.updateState(pM.getCurPos(), TileState.basic);
             pM.tileMap.RefreshTile(pM.getCurPos());
             PieceInteractionManager.Instance.remove(pM.getCurPos());
             PieceStateManager.Instance.remove(gameObject);
+            if (pM.isFluct) WinCondition.Instance.UpdateFluctOnMap(false);
+            else WinCondition.Instance.UpdateFusOnMap(false);
             Destroy(gameObject);
         }
     }
@@ -38,8 +41,6 @@ public class PieceAttack : MonoBehaviour
         curLp+=regen;
         if (curLp>lp) curLp=lp;
     }
-
-    //public attackAction();
 
     //Private methods
     
@@ -71,13 +72,13 @@ public class PieceAttack : MonoBehaviour
                 }
             }
             tilesReachables.Remove(pM.getCurPos());
-            //Now that we have all the occupied tiles in range, we select only the one with a valid target on it
+            //Now that we have all the tiles in range, we select only the one with a valid target on it
             return PieceInteractionManager.Instance.getAttackTargets(tilesReachables,pM.isFluct);
     }
 
     //On Mouse methods
     void OnMouseDown(){
-        if (TurnManager.Instance.isPlayerTurn(pM.isFluct) && PieceInteractionManager.Instance.combatModeEnabled()){ //If it's the piece's players turn and combat mode is activated, it's more likely a selection
+        if (TurnManager.Instance.isPlayerTurn(pM.isFluct) && PhaseManager.Instance.CombatPhase()){ //If it's the piece's players turn and combat mode is activated, it's more likely a selection
             if (!PieceStateManager.Instance.isAttacked(pM.isFluct) && !PieceStateManager.Instance.isAttacked(!pM.isFluct)){//If it's not an attack, but a selection to attack (the PlayerTurn bool already indirectly check this condition, but for safety)
                 // ! Note that the second bool actually check if another piece of the same color is already attacking rather than checking if the piece is attacked, it was useless to create a new method
                 if (curNbAtk>0){ //If the piece has an attack remaining this turn
@@ -88,7 +89,7 @@ public class PieceAttack : MonoBehaviour
                     isAttacking=true;
                 }
             }
-        } else if (PieceInteractionManager.Instance.combatModeEnabled()){//If it's not the turn of the piece's player, that can means the piece is attacked
+        } else if (PhaseManager.Instance.CombatPhase()){//If it's not the turn of the piece's player, that can means the piece is attacked
             if (PieceStateManager.Instance.isAttacked(pM.isFluct)){ //If the piece is attacked
                 PieceInteractionManager.Instance.attack(pM.getCurPos(),pM.isFluct);
             }
@@ -110,9 +111,8 @@ public class PieceAttack : MonoBehaviour
     void Update() 
     {
         refreshMoves();
-        
+        //The following code seems to not be working, I'll check into that later
         if (isAttacking && Input.GetMouseButtonDown(0)){
-            isAttacking=false;
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //Get Mouse Position
             mousePosition.z = 0; 
             Vector3Int cellPos = pM.tileMap.WorldToCell(mousePosition);
@@ -120,6 +120,7 @@ public class PieceAttack : MonoBehaviour
                 PieceStateManager.Instance.updateState(gameObject,PieceState.basic,pM.isFluct);
                 PieceInteractionManager.Instance.resetTargets();
                 PieceInteractionManager.Instance.attacker=null;
+                isAttacking=false;
             }
         }
     }

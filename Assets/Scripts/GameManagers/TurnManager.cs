@@ -21,7 +21,6 @@ public class TurnManager : MonoBehaviour
     public void updateTurn(){
         turn=!turn;
         hasSummoned=0;
-        PieceInteractionManager.Instance.setCombatMode(false);
         if (turn && startingPlayer) turnNumber++;
         if (turn) turnText.text = "Fluctuomanciens " + turnNumber.ToString();
         else turnText.text = "Fusionnés " + turnNumber.ToString();

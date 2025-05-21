@@ -6,7 +6,6 @@ public class ButtonLabelEditor : MonoBehaviour
 {
     [TextArea]
     public string label = "Nouveau texte";
-
     private string lastLabel;
 
     void Update()

@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 009fd732d3d19ad40ada706deac0793a, type: 3}
   m_Name: MapParameters
   m_EditorClassIdentifier: 
-  summoningTurns: 0100000002000000040000000500000006000000
+  summoningTurns: 01000000020000000300000004000000050000000600000007000000
   specialSummoningTurns: 0300000007000000
+  numberOfSummon: 1

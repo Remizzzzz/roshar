@@ -45,7 +45,9 @@ public class PieceMovement : MonoBehaviour
 
 
     //Private methods
-
+    private bool phaseValidation() {
+        return ((PhaseManager.Instance.MovementPhase() && onMap)||(PhaseManager.Instance.SummoningPhase()&& !onMap));
+    }
     //refreshMoves is used to refresh curMov
     private void refreshMoves(){
         if (curTurn<TurnManager.Instance.getTurnNumber()){
@@ -140,7 +142,7 @@ public class PieceMovement : MonoBehaviour
 
     //All the onMouse methods are below : they manage almost all interaction with the user, they works only if it's the player's turn (Asking to turn manager)
     void OnMouseDown(){
-        if (TurnManager.Instance.isPlayerTurn(isFluct) && !PieceInteractionManager.Instance.combatModeEnabled()){ //remember, isFluct is P1 or P2
+        if (TurnManager.Instance.isPlayerTurn(isFluct) && phaseValidation() && curMov>0){ //remember, isFluct is P1 or P2
             reachableTiles=null; //reset reachable tiles because of some bugs, didn't find where so I fixed it here
 
             //enable selectedState
@@ -159,36 +161,21 @@ public class PieceMovement : MonoBehaviour
         }
     }
     void OnMouseDrag(){   //Just a visual code for the piece to follow the mouse on drag
-        if (TurnManager.Instance.isPlayerTurn(isFluct) && !PieceInteractionManager.Instance.combatModeEnabled()){
+        if (TurnManager.Instance.isPlayerTurn(isFluct) && phaseValidation() && curMov>0){
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = 0; // Assure que l'objet reste sur le plan 2D
             transform.localPosition = mousePosition;
         }
     }
     void OnMouseUp(){
-        if (TurnManager.Instance.isPlayerTurn(isFluct) && !PieceInteractionManager.Instance.combatModeEnabled()){
-            transform.localScale = new Vector3(1,1,1); // Reset the selected state of the piece
-            sr.sortingOrder=1;
+        transform.localScale = new Vector3(1,1,1); // Reset the selected state of the piece
+        sr.sortingOrder=1;
 
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = 0;
-            cellPos = tileMap.WorldToCell(mousePosition); //Actu the cellPos coordinates to the current cell selected
-            if (!onMap) { //If it's a summon
-                if (cellPos!=curPos ){ //If the player moved the piece
-                    if (isSummonable()){
-                        transform.position = tileMap.GetCellCenterWorld(cellPos); //Move the piece and actu the curPos, toggle the onMap properties.                        
-                        useMove(); //Use the move for the movement (depending of the distance)
-                        TurnManager.Instance.incrSummon(); //Update the nb of summons done this turn
-                        curPos=cellPos;
-                        PieceInteractionManager.Instance.updatePos(gameObject,curPos,isFluct);
-                        TileStateManager.Instance.updateState(curPos,TileState.occupied);
-                        onMap=true;
-                    } else {
-                        transform.position = tileMap.GetCellCenterWorld(curPos); //If it's not a valid destination, return to position
-                    }
-                PieceStateManager.Instance.updateState(gameObject,PieceState.basic,isFluct); //Notify that the piece finished its movement
-                }
-            } else {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0;
+        cellPos = tileMap.WorldToCell(mousePosition); //Actu the cellPos coordinates to the current cell selected
+        if (TurnManager.Instance.isPlayerTurn(isFluct) && PhaseManager.Instance.MovementPhase()){
+            if (onMap) {
                 if (cellPos==curPos ){ //If the player just clicked on the piece : Clicked behaviour
                     transform.position = tileMap.GetCellCenterWorld(curPos);
                     waitClick=true;
@@ -214,6 +201,28 @@ public class PieceMovement : MonoBehaviour
                         }
                         tileMap.RefreshTile(tilePos);
                     }*/
+                }
+            }
+        } else if (TurnManager.Instance.isPlayerTurn(isFluct) && PhaseManager.Instance.SummoningPhase()) {
+            if (!onMap) { //If it's a summon
+                if (cellPos!=curPos ){ //If the player moved the piece
+                    if (isSummonable())
+                    {
+                        transform.position = tileMap.GetCellCenterWorld(cellPos); //Move the piece and actu the curPos, toggle the onMap properties.                        
+                        curMov = 0; //The piece can't move anymore this turn
+                        TurnManager.Instance.incrSummon(); //Update the nb of summons done this turn
+                        curPos = cellPos;
+                        PieceInteractionManager.Instance.updatePos(gameObject, curPos, isFluct);
+                        TileStateManager.Instance.updateState(curPos, TileState.occupied);
+                        onMap = true;
+                        if (isFluct) WinCondition.Instance.UpdateFluctOnMap(true); //Update the number of pieces on the map
+                        else WinCondition.Instance.UpdateFusOnMap(true);
+                    }
+                    else
+                    {
+                        transform.position = tileMap.GetCellCenterWorld(curPos); //If it's not a valid destination, return to position
+                    }
+                PieceStateManager.Instance.updateState(gameObject,PieceState.basic,isFluct); //Notify that the piece finished its movement
                 }
             }
         }
@@ -274,4 +283,6 @@ public class PieceMovement : MonoBehaviour
     public Vector3Int getCurPos() => curPos;
     public Vector3Int[] getNeighbourOffset() =>neighbourOffset;
     public Vector3Int[] getNeighbourOffsetOdd()=> neighbourOffsetOdd;
+    //debug getter
+    public int getCurMov() => curMov;
 }

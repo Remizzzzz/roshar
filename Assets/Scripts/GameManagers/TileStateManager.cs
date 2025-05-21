@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
 
-public enum TileState {reachable,occupied,basic}
+public enum TileState {reachable,occupied,basic,inAttackRange}
 public class TileStateManager : MonoBehaviour
 {
     public static TileStateManager Instance;
