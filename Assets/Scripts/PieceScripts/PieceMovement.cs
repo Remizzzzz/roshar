@@ -12,9 +12,31 @@ public class PieceMovement : MonoBehaviour
     [Range(1,5)] //For now, nbMov's range is between 1 and 5
     public int nbMov=1; //Nb of movement a piece can do
     public bool isSpecial=false; // The special pieces has different summoning turns, this bool is sent to TurnManager in isSummonable
-
+    public bool enhancedTroop = false;
+    
     //public method
-    public void setNbMov(int n){nbMov=n;}
+    public void setNbMov(int n) { nbMov = n; }
+    public List<Vector3Int> detectTilesInRange(Vector3Int center, int range) //A lot of methods need a tile detection algorithm. As I started with PieceMovement, all elements are in it, it's not worth the time of relocating so I create this function here.
+    {
+        List<Vector3Int> validCoor = new List<Vector3Int> { center }; //The List where we'll keep our valid coordinates
+        if (tileMap.GetTile(center)!=null)
+        {
+            List<Vector3Int> search = new List<Vector3Int>(); //The tempList used for searching
+
+            for (int i = 0; i < range; i++) { //range determines the depth of search, each loop is one depth
+                foreach (Vector3Int rSearch in validCoor) { //Search will go through each neighboor of the tiles in validCoor, and add them to validCoor if they're not alreday in it
+                    foreach (Vector3Int neighbour in (Math.Abs(rSearch.y) % 2 == 1 ? neighbourOffsetOdd : neighbourOffset)){ //Change the offset depending on Y (odd or not)
+                        if (!validCoor.Contains(neighbour + rSearch) && !search.Contains(neighbour + rSearch) && tileMap.GetTile(neighbour + rSearch) != null) { //Of course, we don't add coordinates that aren't on the map
+                            search.Add(neighbour + rSearch); //If the coor isn't in valid or search and is in the map add it to search
+                        }
+                    }
+                }
+                validCoor.AddRange(search);
+                search.Clear();
+            }
+        }
+        return validCoor;
+    }
     //private objects
     private int curMov; //The movement the player used with this piece -> Allowing the player to move the same piece two times or more if nbMov>1
     private int curTurn=1; //Used to reset curMov, as it's its only purpose, it's not in TurnManager to simplify. Each piece will reset itself instead of a manager doing it.
@@ -113,30 +135,35 @@ public class PieceMovement : MonoBehaviour
         - The turn on which the piece has been summoned is a summoning turn
         - The max number of summon this turn is not reached (managed by TurnManager)
         */
-        summonable=(tileSelected!=null && tileSelected.isSummoningTile && tileSelected.isFluct==this.isFluct && TileStateManager.Instance.isNotOccupied(cellPos) && TurnManager.Instance.isSummonable(isSpecial));
+        summonable=(tileSelected!=null && tileSelected.isSummoningTile && tileSelected.isFluct==this.isFluct && TileStateManager.Instance.isNotOccupied(cellPos) && TurnManager.Instance.isSummonable(isSpecial, isFluct));
         return summonable;
     } 
-
     //Main method of the class, returns the coordinates of the tiles reachable and update them in the TileStateManager for visual selection
-    private List<Vector3Int> getReachableTiles(){ //Should only be called once onMap is true and if the game has started
-            List<Vector3Int> validCoor= new List<Vector3Int>{curPos}; //The List where we'll keep our valid coordinates
-            if(onMap){
-                List<Vector3Int> search = new List<Vector3Int>(); //The tempList used for searching
+    private List<Vector3Int> getReachableTiles() //Created before detectTilesInRange, not worth modifying
+    { //Should only be called once onMap is true and if the game has started
+        List<Vector3Int> validCoor = new List<Vector3Int> { curPos }; //The List where we'll keep our valid coordinates
+        if (onMap)
+        {
+            List<Vector3Int> search = new List<Vector3Int>(); //The tempList used for searching
 
-                for (int i=0; i<curMov;i++){ //curMov determines the depth of search, each loop is one depth
-                    foreach(Vector3Int rSearch in validCoor){ //Search will go through each neighboor of the tiles in validCoor, and add them to validCoor if they're not alreday in it
-                        foreach(Vector3Int neighbour in (Math.Abs(rSearch.y)%2==1?neighbourOffsetOdd:neighbourOffset)){ //Change the offset depending on Y (odd or not)
-                            if (!validCoor.Contains(neighbour+rSearch) && !search.Contains(neighbour+rSearch) && tileMap.GetTile(neighbour+rSearch)!=null) { //Of course, we don't add coordinates that aren't on the map
-                                if (TileStateManager.Instance.isNotOccupied(neighbour+rSearch)) search.Add(neighbour+rSearch); //If the coor isn't in valid or search or in the map or is occupied, add it to search
-                            }
+            for (int i = 0; i < curMov; i++)
+            { //curMov determines the depth of search, each loop is one depth
+                foreach (Vector3Int rSearch in validCoor)
+                { //Search will go through each neighboor of the tiles in validCoor, and add them to validCoor if they're not alreday in it
+                    foreach (Vector3Int neighbour in (Math.Abs(rSearch.y) % 2 == 1 ? neighbourOffsetOdd : neighbourOffset))
+                    { //Change the offset depending on Y (odd or not)
+                        if (!validCoor.Contains(neighbour + rSearch) && !search.Contains(neighbour + rSearch) && tileMap.GetTile(neighbour + rSearch) != null)
+                        { //Of course, we don't add coordinates that aren't on the map
+                            if (TileStateManager.Instance.isNotOccupied(neighbour + rSearch)) search.Add(neighbour + rSearch); //If the coor isn't in valid or search or in the map or is occupied, add it to search
                         }
                     }
-                    validCoor.AddRange(search);
-                    search.Clear();
                 }
+                validCoor.AddRange(search);
+                search.Clear();
             }
-            validCoor.Remove(curPos); //Want to remove the original position from destination (bc it's dumb) but it don't work, it's not an urgent fix, it's just visual, I'll fix it later
-            return validCoor;
+        }
+        validCoor.Remove(curPos); //Want to remove the original position from destination (bc it's dumb) but it don't work, it's not an urgent fix, it's just visual, I'll fix it later
+        return validCoor;
     }
 
 
@@ -217,6 +244,9 @@ public class PieceMovement : MonoBehaviour
                         onMap = true;
                         if (isFluct) WinCondition.Instance.UpdateFluctOnMap(true); //Update the number of pieces on the map
                         else WinCondition.Instance.UpdateFusOnMap(true);
+                        if (enhancedTroop) TurnManager.Instance.enhancedSummonPerformed(isFluct); //If the troop is enhanced, we notify the turn manager
+
+                        if (TurnManager.Instance.nbSummonVerif()) PhaseManager.Instance.nextPhase(); //Move onto the nextPhase (for accomodation)
                     }
                     else
                     {

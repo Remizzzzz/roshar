@@ -9,11 +9,11 @@ public class PieceAttack : MonoBehaviour
     public int nbAtk =1;
     public int range=1;
     public int d4Atk=0;
+    public int dmgReduc=0;
 
-    private int curTurn=1;
+    private int curTurn = 1;
     internal PieceMovement pM; //To reuse the map logic of PieceMovement
     private int curLp;
-    private int dmgReduc=0;
     private int curNbAtk;
     internal bool isAttacking=false;
 
@@ -35,8 +35,6 @@ public class PieceAttack : MonoBehaviour
         }
     }
 
-    public void setDmgReduc(int dmgRed){dmgReduc=dmgRed;}
-
     public void heal(int regen){
         curLp+=regen;
         if (curLp>lp) curLp=lp;
@@ -51,13 +49,13 @@ public class PieceAttack : MonoBehaviour
         }
     }
 
-    private List<Vector3Int> getReachableTargets(){
+    private List<Vector3Int> getReachableTargets(){ //Created after pM.detectTilesInRange, not worth modifying
         List<Vector3Int> tilesReachables= new List<Vector3Int>{pM.getCurPos()}; //The List where we'll keep our valid coordinates
             if(pM.getOnMap()){
                 List<Vector3Int> search = new List<Vector3Int>(); //The tempList used for searching
 
                 for (int i=0; i<range;i++){ //range determines the depth of search, each loop is one depth
-                    foreach(Vector3Int rSearch in tilesReachables){ //Search will go through each neighboor of the tiles in tilesReachables, and add them to tilesReachables if they're not alreday in it
+                    foreach(Vector3Int rSearch in tilesReachables){ //Search will go through each neighbor of the tiles in tilesReachables, and add them to tilesReachables if they're not alreday in it
                         foreach(Vector3Int neighbour in (Math.Abs(rSearch.y)%2==1?pM.getNeighbourOffsetOdd():pM.getNeighbourOffset())){ //Change the offset depending on Y (odd or not)
                             if (!tilesReachables.Contains(neighbour+rSearch) && !search.Contains(neighbour+rSearch) && pM.tileMap.GetTile(neighbour+rSearch)!=null) { //Of course, we don't add coordinates that aren't on the map
                                 search.Add(neighbour+rSearch); //If the coor isn't in tilesReachable or search and is in the map, add it to search
@@ -103,8 +101,9 @@ public class PieceAttack : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        curLp=lp;
-        curNbAtk=nbAtk;
+        curLp = lp;
+        curNbAtk = nbAtk;
+
     }
 
     // Update is called once per frame
@@ -121,6 +120,31 @@ public class PieceAttack : MonoBehaviour
                 PieceInteractionManager.Instance.resetTargets();
                 PieceInteractionManager.Instance.attacker=null;
                 isAttacking=false;
+            }
+        }
+        if (pM.isFluct) {
+            if (!pM.isSpecial && !pM.enhancedTroop) //If the troop is basic
+            {
+                bool hasFluctNeighbor = false;
+                List<Vector3Int> neighbors = pM.detectTilesInRange(pM.getCurPos(), 1);
+                foreach (Vector3Int neighbor in neighbors)
+                {
+                    if (neighbor != pM.getCurPos())
+                    {
+                        GameObject nPiece = PieceInteractionManager.Instance.getPiece(neighbor);
+                        if (nPiece != null)
+                        {
+                            PieceAttack neighborPiece = nPiece.GetComponent<PieceAttack>();
+                            if (neighborPiece.pM.isFluct)
+                            {
+                                hasFluctNeighbor = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+                if (hasFluctNeighbor) dmgReduc = 1;
+                else dmgReduc = 0;
             }
         }
     }

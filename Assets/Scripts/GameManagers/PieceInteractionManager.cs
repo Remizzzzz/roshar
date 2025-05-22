@@ -14,12 +14,14 @@ public class PieceInteractionManager : MonoBehaviour
     internal PieceAttack attacker; //Only PieceAttack may access it, it's just to simplify the code, no use of creating a method to delete attacker
     //Debug method (used for the status windows in TileClickUI)
     public bool isAPiece(Vector3Int coor) {return (fluct.ContainsKey(coor) || fus.ContainsKey(coor));}
-    public PieceAttack getPiece(Vector3Int coor){
-        if (fluct.ContainsKey(coor)) return fluct[coor].GetComponent<PieceAttack>();
-        return fus[coor].GetComponent<PieceAttack>();
-    }
+
     //public methods
-    public bool isATarget(Vector3Int coor){return listOfTargets.Contains(coor);}
+    public GameObject getPiece(Vector3Int coor) {
+        if (fluct.ContainsKey(coor)) return fluct[coor];
+        else if (fus.ContainsKey(coor)) return fus[coor];
+        return null;
+    }
+    public bool isATarget(Vector3Int coor) { return listOfTargets.Contains(coor); }
     public void setAttacker(PieceAttack a){ attacker=a;}
     public void updatePos(GameObject p, Vector3Int pos,bool isFluct){
         if (isFluct) {

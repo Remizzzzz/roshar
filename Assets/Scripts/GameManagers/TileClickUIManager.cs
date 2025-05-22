@@ -50,8 +50,8 @@ public class TileClickUI : MonoBehaviour
                     statusText.text = "nbFluct"+WinCondition.Instance.fluctOnMap.ToString() + "\n" + "nbFus"+WinCondition.Instance.fusOnMap.ToString();
                 }
             } else {
-                PieceAttack p = PieceInteractionManager.Instance.getPiece(cellPos);
-                statusText.text = "Lp : "+p.getCurLp().ToString() +"\nCurNbAtk : "+p.getCurNbAtk().ToString() + "\nCurMov : "+p.pM.getCurMov().ToString() + "\nCanSummon : "+ TurnManager.Instance.isSummonable(p.pM.isSpecial).ToString();
+                PieceAttack p = PieceInteractionManager.Instance.getPiece(cellPos).GetComponent<PieceAttack>();
+                statusText.text = "Lp : "+p.getCurLp().ToString() +"\nCurNbAtk : "+p.getCurNbAtk().ToString() + "\nCurMov : "+p.pM.getCurMov().ToString() + "\nCanSummon : "+ TurnManager.Instance.isSummonable(p.pM.isSpecial, p.pM.isFluct).ToString() + "\nDmgReduc : "+p.dmgReduc.ToString();
             }
         }
     }
