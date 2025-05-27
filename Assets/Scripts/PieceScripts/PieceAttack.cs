@@ -2,12 +2,17 @@ using UnityEngine;
 using System.Collections.Generic;
 using System;
 
-public class PieceAttack : MonoBehaviour
-{
+public class PieceAttack : MonoBehaviour {
+
+    [Range(1,12)]
     public int lp=6;
+    
+    [Range(1,3)]
+    public int range=1;
+
+    [Range(1,5)]
     public int baseAtk=2;
     public int nbAtk =1;
-    public int range=1;
     public int d4Atk=0;
     public int dmgReduc=0;
 
@@ -122,21 +127,17 @@ public class PieceAttack : MonoBehaviour
                 isAttacking=false;
             }
         }
+
+        bool hasFluctNeighbor = false; //Flag to check if a neighbor is a fluct piece
         if (pM.isFluct) {
-            if (!pM.isSpecial && !pM.enhancedTroop) //If the troop is basic
-            {
-                bool hasFluctNeighbor = false;
-                List<Vector3Int> neighbors = pM.detectTilesInRange(pM.getCurPos(), 1);
-                foreach (Vector3Int neighbor in neighbors)
-                {
-                    if (neighbor != pM.getCurPos())
-                    {
+            if (!pM.isSpecial && !pM.enhancedTroop) {  //If the troop is basic
+                List<Vector3Int> neighbors = pM.detectTilesInRange(pM.getCurPos(), 1); //Get neighboors in range 1
+                foreach (Vector3Int neighbor in neighbors) {
+                    if (neighbor != pM.getCurPos()) {//Avoid checking the current position
                         GameObject nPiece = PieceInteractionManager.Instance.getPiece(neighbor);
-                        if (nPiece != null)
-                        {
+                        if (nPiece != null){
                             PieceAttack neighborPiece = nPiece.GetComponent<PieceAttack>();
-                            if (neighborPiece.pM.isFluct)
-                            {
+                            if (neighborPiece.pM.isFluct) {
                                 hasFluctNeighbor = true;
                                 break;
                             }
