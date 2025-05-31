@@ -8,6 +8,8 @@ public class SkybreakerAbility : Ability
     private int calculateDamage(){
         return Utils.launchD4(1)+1;
     }
+
+    List<Vector3Int> abilityTargets;
     //inherited properties
     [SerializeField] private int _abilityCost = 1;
     public override int abilityCost => _abilityCost;
@@ -15,14 +17,16 @@ public class SkybreakerAbility : Ability
     protected override void ActivateAbility()
     {
         if (TurnManager.Instance.isPlayerTurn(true)){
-            List<Vector3Int> targetsInRange = PieceMovement.detectTilesInRange(CurPos, 1, gameObject.GetComponent<PieceMovement>().tileMap);
+            abilityTargets = PieceMovement.detectTilesInRange(CurPos, 1, gameObject.GetComponent<PieceMovement>().tileMap);
+            PieceInteractionManager.Instance.setTargeter(gameObject); // Set the targeter to this piece
+            PieceInteractionManager.Instance.areTargeted(abilityTargets, true);
         }
     }
 
     protected override void resetAbility()
     {
         PieceStateManager.Instance.updateState(gameObject,PieceState.basic,gameObject.GetComponent<PieceMovement>().isFluct);
-        // TODO: Implement the reset logic
+        PieceInteractionManager.Instance.resetTargets(); // Reset the targets in PieceInteractionManager
         isAbilityActive = false;
     }
     
@@ -33,5 +37,21 @@ public class SkybreakerAbility : Ability
     // Update is called once per frame
     protected override void Update(){
         base.Update();
+        if (Input.GetMouseButtonDown(0) && isAbilityActive) // 0 = left click
+        {
+            Vector3Int mousePosition = Utils.getMousePositionOnTilemap(gameObject.GetComponent<PieceMovement>().tileMap);
+            if (abilityTargets.Contains(mousePosition))
+            {
+                GameObject targetPiece = PieceInteractionManager.Instance.getPiece(mousePosition);
+                targetPiece.GetComponent<PieceAttack>().trueDamage(calculateDamage()); // Deal truedamage to the target piece
+                castAbility(); // Cast the ability and pay the cost
+                resetAbility(); // Reset the ability after damaging the piece
+            }
+            else
+            {
+                PieceInteractionManager.Instance.resetTargets();
+                resetAbility(); // Reset the ability if the target is not valid
+            }
+        }
     }
 }
