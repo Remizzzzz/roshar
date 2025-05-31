@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 15490307}
   - component: {fileID: 15490306}
   - component: {fileID: 15490305}
+  - component: {fileID: 15490309}
   m_Layer: 0
   m_Name: AgilityShape
   m_TagString: Untagged
@@ -325,6 +326,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &15490309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15490303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8fc884107884bf4cbc787bab7ab9e4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basic: {fileID: -306900178996890077, guid: 0533046b84f012e4c8d30872f3672765, type: 3}
+  locked: {fileID: 0}
 --- !u!1 &205083461
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,6 +353,7 @@ GameObject:
   - component: {fileID: 205083465}
   - component: {fileID: 205083464}
   - component: {fileID: 205083463}
+  - component: {fileID: 205083467}
   m_Layer: 0
   m_Name: Archer
   m_TagString: Untagged
@@ -486,6 +502,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &205083467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205083461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8fc884107884bf4cbc787bab7ab9e4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basic: {fileID: -7132172409892320828, guid: d87bd4300e9349b409678324a0ac5216, type: 3}
+  locked: {fileID: 0}
 --- !u!1 &258692136
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,6 +816,7 @@ GameObject:
   - component: {fileID: 393028336}
   - component: {fileID: 393028337}
   - component: {fileID: 393028339}
+  - component: {fileID: 393028340}
   m_Layer: 0
   m_Name: ShardBearer
   m_TagString: Untagged
@@ -934,6 +965,20 @@ MonoBehaviour:
   nbAtk: 1
   d4Atk: 1
   dmgReduc: 0
+--- !u!114 &393028340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393028334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8fc884107884bf4cbc787bab7ab9e4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basic: {fileID: -1834239491726455961, guid: 64eb60169f4ff654aa54a4a1227911ac, type: 3}
+  locked: {fileID: 0}
 --- !u!1 &429188317
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,6 +1128,7 @@ GameObject:
   - component: {fileID: 430544273}
   - component: {fileID: 430544274}
   - component: {fileID: 430544276}
+  - component: {fileID: 430544277}
   m_Layer: 0
   m_Name: Lancer
   m_TagString: Untagged
@@ -1231,6 +1277,20 @@ MonoBehaviour:
   nbAtk: 1
   d4Atk: 0
   dmgReduc: 0
+--- !u!114 &430544277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430544271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8fc884107884bf4cbc787bab7ab9e4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basic: {fileID: -2431034699484946066, guid: 3c2e0ea0d33bfb04ab7e82d3f8f19025, type: 3}
+  locked: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2300,6 +2360,7 @@ GameObject:
   - component: {fileID: 1841820140}
   - component: {fileID: 1841820139}
   - component: {fileID: 1841820141}
+  - component: {fileID: 1841820142}
   m_Layer: 0
   m_Name: WarShape
   m_TagString: Untagged
@@ -2352,7 +2413,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 2027040401011534727, guid: 7537128ce9df80e44b04c8a962ad3786, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.64705884, g: 0.64705884, b: 0.64705884, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2448,6 +2509,20 @@ MonoBehaviour:
   nbAtk: 1
   d4Atk: 0
   dmgReduc: 0
+--- !u!114 &1841820142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841820136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8fc884107884bf4cbc787bab7ab9e4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basic: {fileID: 2027040401011534727, guid: 7537128ce9df80e44b04c8a962ad3786, type: 3}
+  locked: {fileID: 0}
 --- !u!1 &1983402005
 GameObject:
   m_ObjectHideFlags: 0
@@ -4059,6 +4134,7 @@ GameObject:
   - component: {fileID: 2071792401}
   - component: {fileID: 2071792404}
   - component: {fileID: 2071792405}
+  - component: {fileID: 2071792406}
   m_Layer: 0
   m_Name: StormShape
   m_TagString: Untagged
@@ -4179,7 +4255,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 8936400914611561950, guid: 84059c3b698d7594e8167399081f75ae, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8743292, g: 1, b: 0.57924527, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4220,6 +4296,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _abilityCost: 0
+--- !u!114 &2071792406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071792399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8fc884107884bf4cbc787bab7ab9e4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basic: {fileID: 8936400914611561950, guid: 84059c3b698d7594e8167399081f75ae, type: 3}
+  locked: {fileID: 0}
 --- !u!1 &2078945512
 GameObject:
   m_ObjectHideFlags: 0
@@ -4233,6 +4323,8 @@ GameObject:
   - component: {fileID: 2078945516}
   - component: {fileID: 2078945515}
   - component: {fileID: 2078945514}
+  - component: {fileID: 2078945518}
+  - component: {fileID: 2078945519}
   m_Layer: 0
   m_Name: Windrunner
   m_TagString: Untagged
@@ -4267,7 +4359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad3402983f84fba4ea3b82b39ca0185c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lp: 9
+  lp: 10
   range: 1
   baseAtk: 1
   nbAtk: 1
@@ -4288,8 +4380,8 @@ MonoBehaviour:
   tileMap: {fileID: 2015020734}
   isFluct: 1
   nbMov: 2
-  isSpecial: 0
-  enhancedTroop: 1
+  isSpecial: 1
+  enhancedTroop: 0
 --- !u!58 &2078945516
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4370,7 +4462,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1834239491726455961, guid: 64eb60169f4ff654aa54a4a1227911ac, type: 3}
+  m_Sprite: {fileID: 4426021110182810919, guid: 667a2ec9c33a2e840bc14fbf16679a22, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4381,6 +4473,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2078945518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078945512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb2c6403db6ccc44a14879d730909d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnsToLock: 2
+  _abilityCost: 1
+--- !u!114 &2078945519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078945512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8fc884107884bf4cbc787bab7ab9e4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basic: {fileID: 4426021110182810919, guid: 667a2ec9c33a2e840bc14fbf16679a22, type: 3}
+  locked: {fileID: 0}
 --- !u!1 &2093101177
 GameObject:
   m_ObjectHideFlags: 0

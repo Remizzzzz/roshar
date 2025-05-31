@@ -15,6 +15,8 @@ public class StormShapeAbility : Ability
                 PieceInteractionManager.Instance.areTargeted(targetsInRange,false);
                 PieceInteractionManager.Instance.targeter = gameObject;
             }
+        } else {
+            resetAbility(); // Reset the ability if it's not the player's turn or if the turn is not valid
         }
     }
     protected override void resetAbility()
@@ -24,7 +26,6 @@ public class StormShapeAbility : Ability
         PieceStateManager.Instance.updateState(gameObject,PieceState.basic,false);
 
         if (abilityCasted) turn = TurnManager.Instance.getTurnNumber(); // Update the turn to the current turn
-        abilityCasted=false;
     }
 
     protected override void Update()
@@ -41,7 +42,7 @@ public class StormShapeAbility : Ability
                 GameObject hitObject = hit.collider.gameObject;
                 if (PieceInteractionManager.Instance.isATarget(hitObject.GetComponent<PieceMovement>().getCurPos())){ //Verify if the hit object is a target
                     hit.collider.gameObject.GetComponent<PieceAttack>().trueDamage(1); // Decrease the LP of the targeted piece (true damage)
-                    abilityCasted=true;
+                    castAbility(); //Cast the ability and pay the cost
                     resetAbility();
                 } else resetAbility(); // Reset the ability if the hit object is not a target
             } 

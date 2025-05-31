@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Tilemaps;
 using utils;
 public class PieceInteractionManager : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class PieceInteractionManager : MonoBehaviour
     public GameObject fusionnes;
     public GameObject fluctuomanciens; 
     public Color targetColor = new Color(165f/255f,165f/255f,165f/255f);
+    internal Tilemap tileMap;
     private Dictionary<Vector3Int,GameObject> fluct=new();
     private Dictionary<Vector3Int,GameObject> fus=new();
     private List<Vector3Int> listOfTargets=new();
@@ -88,6 +90,25 @@ public class PieceInteractionManager : MonoBehaviour
         }
         return targets;
     }
+
+    public List<Vector3Int> getTargetOnMap(bool isFluct){
+        List<Vector3Int> list = new List<Vector3Int>();
+        if (isFluct){
+            foreach (Vector3Int tile in fluct.Keys){
+                if (tileMap.HasTile(tile)){
+                    list.Add(tile);
+                }
+            }
+        } else {
+            foreach (Vector3Int tile in fus.Keys){
+                if (tileMap.HasTile(tile)){
+                    list.Add(tile);
+                    Debug.Log("Tile " + tile + " is a fus target");
+                }
+            }
+        }
+        return list;
+    }
     public void areTargeted(List<Vector3Int> pieces, bool isFluct){
         listOfTargets.Clear();
         foreach(Vector3Int piece in pieces){
@@ -119,7 +140,7 @@ public class PieceInteractionManager : MonoBehaviour
                         sr.color = new Color(1,1,1);
                     }
                 }
-            }
+            } else Debug.LogWarning("Targeter is null, cannot reset targets' colors.");
         }
         listOfTargets.Clear();
         foreach(Vector3Int tile in attackRange){
@@ -152,6 +173,7 @@ public class PieceInteractionManager : MonoBehaviour
     {
         Instance=this;
         initDicts();
+        tileMap = TileStateManager.Instance.tileMap;
     }
 
     // Update is called once per frame

@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+using utils;
 
 public class #SCRIPTNAME# : Ability
 {
@@ -14,9 +16,9 @@ public class #SCRIPTNAME# : Ability
 
     protected override void resetAbility()
     {
+        PieceStateManager.Instance.updateState(gameObject,PieceState.basic,gameObject.GetComponent<PieceMovement>().isFluct);
         // TODO: Implement the reset logic
         isAbilityActive = false;
-        abilityCasted = true;
     }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created

@@ -10,7 +10,20 @@ public abstract class Ability : MonoBehaviour
     public Vector3Int CurPos => GetComponent<PieceMovement>().getCurPos();
     protected bool isAbilityActive = false; // Flag to check if the ability is currently active
     protected bool abilityCasted = false; // Flag to check if the ability was casted
-
+    private int turnOfCast = -1; // Turn when the ability was casted, used for cooldown or restoration logic
+    protected void castAbility(){
+        if (gameObject.GetComponent<PieceMovement>().isFluct)
+        {
+            stormlight -= abilityCost; // Deduct the stormlight cost
+            Debug.Log("Stormlight used: " + abilityCost + ", Remaining Stormlight: " + stormlight);
+        }
+        else
+        {
+            voidlight -= abilityCost; // Deduct the voidlight cost
+            Debug.Log("Voidlight used: " + abilityCost + ", Remaining Voidlight: " + voidlight);
+        }
+        turnOfCast = TurnManager.Instance.getTurnNumber(); // Update the turn of cast
+    }
 
     //Abstract variables and method to redefine
 
@@ -31,7 +44,6 @@ public abstract class Ability : MonoBehaviour
         PieceStateManager.Instance.updateState(gameObject,PieceState.basic,gameObject.GetComponent<PieceMovement>().isFluct);
         Debug.Log("Reset ability not implemented in base class. Please override this method in derived classes.");
         isAbilityActive = false; // Reset the ability active state
-        abilityCasted=true;
     }
 
     //Private method and variables
@@ -46,22 +58,27 @@ public abstract class Ability : MonoBehaviour
             canRestore = true; // Allow restoration again in the next turn
         }
     }
+    private void restoreAbility(){
+        if (abilityCasted){
+            if (TurnManager.Instance.getTurnNumber() > turnOfCast) // Check if the ability was casted more than one turn ago
+            {
+                abilityCasted = false;
+            }
+        }
+    }
 
-    private void castAbility(){
+    private void startAbility(){
         PieceStateManager.Instance.updateState(gameObject,PieceState.casting,gameObject.GetComponent<PieceMovement>().isFluct);
         isAbilityActive = true; // Set the ability as active
         bool isFluct = gameObject.GetComponent<PieceMovement>().isFluct;
+        Debug.Log("Stormlight: " + stormlight + ", Voidlight: " + voidlight + ", Ability Cost: " + abilityCost + ", Is Fluct: " + isFluct);
         if (isFluct && stormlight >= abilityCost) // Check if the piece is Fluct and has enough stormlight
         {
             ActivateAbility(); // Attempt to activate the ability
-            if (!abilityCasted) return; // If the ability wasn't casted, exit the method
-            else stormlight -= abilityCost; // Deduct the stormlight cost
         }
         else if (!isFluct && voidlight >= abilityCost) // Check if the piece is Fus and has enough voidlight
         {
             ActivateAbility(); // Attempt to activate the ability
-            if (!abilityCasted) return; // If the ability wasn't casted, exit the method
-            voidlight -= abilityCost; // Deduct the voidlight cost
         }
     }
 
@@ -74,6 +91,7 @@ public abstract class Ability : MonoBehaviour
     protected virtual void Update()
     {
         restore();
+        restoreAbility();
         if (Input.GetMouseButtonDown(1)) // 1 = right click
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //Get Mouse Position
@@ -82,7 +100,12 @@ public abstract class Ability : MonoBehaviour
 
             if (cellPos==CurPos && !PieceStateManager.Instance.isCasting())
             {
-                castAbility(); //Start ability routine
+                if (!abilityCasted) startAbility(); //Start ability routine
+            } else {
+                if (isAbilityActive) // If the ability is active, reset it
+                {
+                    resetAbility();
+                }
             }
         }
     }

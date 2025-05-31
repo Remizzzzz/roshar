@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MapParameters
   m_EditorClassIdentifier: 
   summoningTurns: 01000000020000000300000004000000050000000600000007000000
-  specialSummoningTurns: 0300000007000000
+  specialSummoningTurns: 01000000020000000300000004000000050000000600000007000000
   numberOfSummon: 1

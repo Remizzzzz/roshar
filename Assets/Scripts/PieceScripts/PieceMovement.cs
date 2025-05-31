@@ -15,7 +15,6 @@ public class PieceMovement : MonoBehaviour
     public bool enhancedTroop = false;
     
     //public method
-    public void setNbMov(int n) { nbMov = n; }
     public static List<Vector3Int> detectTilesInRange(Vector3Int center, int range, Tilemap tileMap) //A lot of methods need a tile detection algorithm. As I started with PieceMovement, all elements are in it, it's not worth the time of relocating so I create this function here.
     {
         List<Vector3Int> validCoor = new List<Vector3Int> { center }; //The List where we'll keep our valid coordinates
@@ -37,7 +36,14 @@ public class PieceMovement : MonoBehaviour
         }
         return validCoor;
     }
-    //private objects
+    public void lockPiece() {
+        isLocked=true; //Lock the piece, it can't move until it's unlocked
+    }
+    public void unlockPiece() {
+        isLocked=false; //Unlock the piece, it can move again
+    }
+    //private & internal properties
+    private bool isLocked = false; //Used to lock the piece when it is attacked by a Windrunner, so it can't move until it's unlocked
     private int curMov; //The movement the player used with this piece -> Allowing the player to move the same piece two times or more if nbMov>1
     private int curTurn=1; //Used to reset curMov, as it's its only purpose, it's not in TurnManager to simplify. Each piece will reset itself instead of a manager doing it.
     private static Vector3Int[] neighbourOffsetOdd = new Vector3Int[]{ //In an hexagonal point top map, the offset changes depending if y is odd or not.
@@ -59,7 +65,6 @@ public class PieceMovement : MonoBehaviour
     private bool onMap=false; //Managers only manage pieces on board, so pieces each have its own onMap verifier. It is used only for summon
     SpriteRenderer sr; //Only used to drag : when dragging the piece will appear to be above the others
     private bool waitClick=false; //Used for click and go moves
-
     //Cur pos and cellPos are the current coordinates and the destination coordinates : those are the main variables
     private Vector3Int curPos; 
     private Vector3Int cellPos; //New cell selected
@@ -72,9 +77,13 @@ public class PieceMovement : MonoBehaviour
     }
     //refreshMoves is used to refresh curMov
     private void refreshMoves(){
-        if (curTurn<TurnManager.Instance.getTurnNumber()){
-            curMov=nbMov;
-            curTurn=TurnManager.Instance.getTurnNumber();
+        if (!isLocked){
+            if (curTurn<TurnManager.Instance.getTurnNumber()){
+                curMov=nbMov;
+                curTurn=TurnManager.Instance.getTurnNumber();
+            }
+        } else {
+            curMov=0; //If the piece is locked, it can't move
         }
     }
 
