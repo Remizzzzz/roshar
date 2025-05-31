@@ -11,7 +11,7 @@ public class PieceInteractionManager : MonoBehaviour
     private Dictionary<Vector3Int,GameObject> fus=new();
     private List<Vector3Int> listOfTargets=new();
     private List<Vector3Int> attackRange=new();
-    internal PieceAttack attacker; //Only PieceAttack may access it, it's just to simplify the code, no use of creating a method to delete attacker
+    internal GameObject targeter; //Only PieceAttack may access it, it's just to simplify the code, no use of creating a method to delete targeter
     //Debug method (used for the status windows in TileClickUI)
     public bool isAPiece(Vector3Int coor) {return (fluct.ContainsKey(coor) || fus.ContainsKey(coor));}
 
@@ -22,7 +22,7 @@ public class PieceInteractionManager : MonoBehaviour
         return null;
     }
     public bool isATarget(Vector3Int coor) { return listOfTargets.Contains(coor); }
-    public void setAttacker(PieceAttack a){ attacker=a;}
+    public void setTargeter(GameObject a){ targeter=a;}
     public void updatePos(GameObject p, Vector3Int pos,bool isFluct){
         if (isFluct) {
             //The following process cost less than to add all the map in initDicts
@@ -50,13 +50,13 @@ public class PieceInteractionManager : MonoBehaviour
         }
     }
     private void initDicts(){
-        int idCount=-1;
+        int idCount=-100;
         foreach (Transform piece in fusionnes.transform){
             if (!fus.ContainsValue(piece.gameObject)){
                 fus.Add(new Vector3Int(-1,idCount--,0),piece.gameObject);
             }
         }
-        idCount=-1;
+        idCount=-100;
         foreach (Transform piece in fluctuomanciens.transform){
             if (!fluct.ContainsValue(piece.gameObject)){
                 fluct.Add(new Vector3Int(-1,idCount--,0),piece.gameObject);
@@ -107,15 +107,17 @@ public class PieceInteractionManager : MonoBehaviour
     }
     public void resetTargets(){
         foreach(Vector3Int piece in listOfTargets){
-            if (attacker.pM.isFluct){
-                if (fus.ContainsKey(piece)){
-                    SpriteRenderer sr = fus[piece].GetComponent<SpriteRenderer>();
-                    sr.color = new Color(1,1,1);
-                }
-            } else {
-                if (fluct.ContainsKey(piece)){
-                    SpriteRenderer sr = fluct[piece].GetComponent<SpriteRenderer>();
-                    sr.color = new Color(1,1,1);
+            if (targeter!=null){
+                if (targeter.GetComponent<PieceMovement>().isFluct){
+                    if (fus.ContainsKey(piece)){
+                        SpriteRenderer sr = fus[piece].GetComponent<SpriteRenderer>();
+                        sr.color = new Color(1,1,1);
+                    }
+                } else {
+                    if (fluct.ContainsKey(piece)){
+                        SpriteRenderer sr = fluct[piece].GetComponent<SpriteRenderer>();
+                        sr.color = new Color(1,1,1);
+                    }
                 }
             }
         }
@@ -129,6 +131,7 @@ public class PieceInteractionManager : MonoBehaviour
         attackRange.Clear();
     }
     public void attack(Vector3Int defender,bool isFluct){
+        PieceAttack attacker = targeter.GetComponent<PieceAttack>();
         if (listOfTargets.Contains(defender)){
             int dmg = attacker.baseAtk+(attacker.d4Atk*Random.Range(1,5));
             if (isFluct) {
@@ -141,7 +144,7 @@ public class PieceInteractionManager : MonoBehaviour
             attacker.isAttacking=false;
             PieceStateManager.Instance.updateState(attacker.gameObject,PieceState.basic,attacker.pM.isFluct);
             resetTargets();
-            attacker=null;
+            targeter=null;
         }
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c3a50d628cbfc26419017f9cdb734e47
+guid: ea16a0f44df79774bbe9df7e24495e1a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3464506803256694125
-    second: Fluctuomancien_0
+      213: 382818772801866434
+    second: Willshaper_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fluctuomancien_0
+      name: Willshaper_0
       rect:
         serializedVersion: 2
         x: 15
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 39ae5fd0b699befc0800000000000000
-      internalID: -3464506803256694125
+      spriteID: 2cac43645ab005500800000000000000
+      internalID: 382818772801866434
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Fluctuomancien_0: -3464506803256694125
+      Willshaper_0: 382818772801866434
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

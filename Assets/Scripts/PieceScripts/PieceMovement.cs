@@ -16,7 +16,7 @@ public class PieceMovement : MonoBehaviour
     
     //public method
     public void setNbMov(int n) { nbMov = n; }
-    public List<Vector3Int> detectTilesInRange(Vector3Int center, int range) //A lot of methods need a tile detection algorithm. As I started with PieceMovement, all elements are in it, it's not worth the time of relocating so I create this function here.
+    public static List<Vector3Int> detectTilesInRange(Vector3Int center, int range, Tilemap tileMap) //A lot of methods need a tile detection algorithm. As I started with PieceMovement, all elements are in it, it's not worth the time of relocating so I create this function here.
     {
         List<Vector3Int> validCoor = new List<Vector3Int> { center }; //The List where we'll keep our valid coordinates
         if (tileMap.GetTile(center)!=null)
@@ -40,7 +40,7 @@ public class PieceMovement : MonoBehaviour
     //private objects
     private int curMov; //The movement the player used with this piece -> Allowing the player to move the same piece two times or more if nbMov>1
     private int curTurn=1; //Used to reset curMov, as it's its only purpose, it's not in TurnManager to simplify. Each piece will reset itself instead of a manager doing it.
-    private Vector3Int[] neighbourOffsetOdd = new Vector3Int[]{ //In an hexagonal point top map, the offset changes depending if y is odd or not.
+    private static Vector3Int[] neighbourOffsetOdd = new Vector3Int[]{ //In an hexagonal point top map, the offset changes depending if y is odd or not.
         new Vector3Int(0,1,0), //up left
         new Vector3Int(1,1,0), //up right
         new Vector3Int(1,0,0), // right
@@ -48,7 +48,7 @@ public class PieceMovement : MonoBehaviour
         new Vector3Int(0,-1,0), //down left
         new Vector3Int(-1,0,0), //left
     };
-    private Vector3Int[] neighbourOffset = new Vector3Int[]{
+    private static Vector3Int[] neighbourOffset = new Vector3Int[]{
         new Vector3Int(-1,1,0), //up left
         new Vector3Int(0,1,0), //up right
         new Vector3Int(1,0,0), // right
@@ -268,6 +268,11 @@ public class PieceMovement : MonoBehaviour
         sr= GetComponent<SpriteRenderer>();
         //init curMov
         curMov=nbMov;
+        if (tileMap.GetTile(curPos)!=null) {
+            onMap=true;
+            PieceInteractionManager.Instance.updatePos(gameObject, curPos, isFluct);
+            TileStateManager.Instance.updateState(curPos, TileState.occupied);
+        }
     }
 
     // Update is called once per frame

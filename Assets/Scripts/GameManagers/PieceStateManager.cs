@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 
 
-public enum PieceState {moving,basic,attacking}
+public enum PieceState {moving,basic,attacking,casting}
 public class PieceStateManager : MonoBehaviour
 {
     public static PieceStateManager Instance;
@@ -34,6 +34,9 @@ public class PieceStateManager : MonoBehaviour
     public bool isAttacked(bool isFluct){ //For now, not very useful, but for safety and modularity we keep it
         if (isFluct) return statesFus.ContainsValue(PieceState.attacking);
         return statesFluct.ContainsValue(PieceState.attacking);    
+    }
+    public bool isCasting(){
+        return (statesFus.ContainsValue(PieceState.casting) || statesFluct.ContainsValue(PieceState.casting));
     }
     private void addPiece(GameObject p, bool isFluct){
         if (isFluct){

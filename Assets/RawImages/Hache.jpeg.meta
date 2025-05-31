@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6a457b4e546c3bd46a69aa8ba727552e
+guid: c76f2f8519c8a7d44a4abe4831b4da97
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 664449636318385312
-    second: SpecialFluct_0
+      213: 374677648360923393
+    second: Hache_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,10 +48,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 250
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SpecialFluct_0
+      name: Hache_0
       rect:
         serializedVersion: 2
-        x: 15
+        x: 0
         y: 0
-        width: 226
-        height: 256
+        width: 474
+        height: 474
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0a415ef7c69983900800000000000000
-      internalID: 664449636318385312
+      spriteID: 101e4d7065f133500800000000000000
+      internalID: 374677648360923393
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      SpecialFluct_0: 664449636318385312
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

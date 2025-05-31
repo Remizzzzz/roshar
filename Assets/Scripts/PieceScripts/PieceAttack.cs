@@ -39,7 +39,19 @@ public class PieceAttack : MonoBehaviour {
             Destroy(gameObject);
         }
     }
-
+    public void trueDamage(int dmg){
+        curLp-=dmg;
+        if (curLp <= 0)
+        {
+            TileStateManager.Instance.updateState(pM.getCurPos(), TileState.basic);
+            pM.tileMap.RefreshTile(pM.getCurPos());
+            PieceInteractionManager.Instance.remove(pM.getCurPos());
+            PieceStateManager.Instance.remove(gameObject);
+            if (pM.isFluct) WinCondition.Instance.UpdateFluctOnMap(false);
+            else WinCondition.Instance.UpdateFusOnMap(false);
+            Destroy(gameObject);
+        }
+    }
     public void heal(int regen){
         curLp+=regen;
         if (curLp>lp) curLp=lp;
@@ -87,7 +99,7 @@ public class PieceAttack : MonoBehaviour {
                 if (curNbAtk>0){ //If the piece has an attack remaining this turn
                     List<Vector3Int> targetsInRange = getReachableTargets();
                     PieceInteractionManager.Instance.areTargeted(targetsInRange,pM.isFluct);
-                    PieceInteractionManager.Instance.setAttacker(this);
+                    PieceInteractionManager.Instance.setTargeter(gameObject);
                     PieceStateManager.Instance.updateState(gameObject, PieceState.attacking,pM.isFluct);
                     isAttacking=true;
                 }
@@ -123,7 +135,7 @@ public class PieceAttack : MonoBehaviour {
             if (!PieceInteractionManager.Instance.isATarget(cellPos) && cellPos!=pM.getCurPos()){
                 PieceStateManager.Instance.updateState(gameObject,PieceState.basic,pM.isFluct);
                 PieceInteractionManager.Instance.resetTargets();
-                PieceInteractionManager.Instance.attacker=null;
+                PieceInteractionManager.Instance.targeter=null;
                 isAttacking=false;
             }
         }
@@ -131,7 +143,7 @@ public class PieceAttack : MonoBehaviour {
         bool hasFluctNeighbor = false; //Flag to check if a neighbor is a fluct piece
         if (pM.isFluct) {
             if (!pM.isSpecial && !pM.enhancedTroop) {  //If the troop is basic
-                List<Vector3Int> neighbors = pM.detectTilesInRange(pM.getCurPos(), 1); //Get neighboors in range 1
+                List<Vector3Int> neighbors = PieceMovement.detectTilesInRange(pM.getCurPos(), 1,pM.tileMap); //Get neighboors in range 1
                 foreach (Vector3Int neighbor in neighbors) {
                     if (neighbor != pM.getCurPos()) {//Avoid checking the current position
                         GameObject nPiece = PieceInteractionManager.Instance.getPiece(neighbor);
