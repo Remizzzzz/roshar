@@ -28,6 +28,13 @@ namespace utils
             mousePosition.z = 0; 
             return tileMap.WorldToCell(mousePosition); // Convert into tilemap coor
         }
+        public static int launchD4(int nbOfLaunches=1){
+            int total = 0;
+            for (int i=0; i<nbOfLaunches;i++) {
+                total+=UnityEngine.Random.Range(1,5);
+            }
+            return total;
+        }
     }
 }
 

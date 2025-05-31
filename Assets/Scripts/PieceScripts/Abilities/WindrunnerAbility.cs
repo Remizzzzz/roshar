@@ -4,11 +4,13 @@ using utils;
 
 public class WindrunnerAbility : Ability
 {
+    // This ability allows the player to lock a piece for a certain number of turns, preventing it from moving.
+
     //Specific properties for Windrunner ability
     Dictionary<GameObject,int> lockedPieces = new();
     public int turnsToLock = 2; // Number of turns to lock the piece
 
-    // General unherited properties
+    // General inherited properties
     [SerializeField] private int _abilityCost = 1;
     public override int abilityCost => _abilityCost;
     private List<Vector3Int> abilityTargets;

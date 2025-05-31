@@ -4,6 +4,7 @@ using System;
 
 public class StormShapeAbility : Ability
 {
+    // This ability allows the player to target pieces within a range of 2 tiles and deal 1 true damage to them.
     private int turn=-1;
     [SerializeField] private int _abilityCost = 0;
     public override int abilityCost => _abilityCost;
@@ -42,6 +43,8 @@ public class StormShapeAbility : Ability
                 GameObject hitObject = hit.collider.gameObject;
                 if (PieceInteractionManager.Instance.isATarget(hitObject.GetComponent<PieceMovement>().getCurPos())){ //Verify if the hit object is a target
                     hit.collider.gameObject.GetComponent<PieceAttack>().trueDamage(1); // Decrease the LP of the targeted piece (true damage)
+                    Vector3 animPos = hitObject.transform.position+ new Vector3(0, 0.5f, 0); // Adjust the position for the animation 
+                    AnimationManager.Instance.animate(animPos, AnimationCode.stormShape); // Play the lightning animation
                     castAbility(); //Cast the ability and pay the cost
                     resetAbility();
                 } else resetAbility(); // Reset the ability if the hit object is not a target

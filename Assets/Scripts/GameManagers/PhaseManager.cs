@@ -11,10 +11,21 @@ public class PhaseManager : MonoBehaviour
     public bool CombatPhase() {return gamePhase==GamePhase.combat;}
 
     public void nextPhase(){
-        if (MovementPhase()) gamePhase=GamePhase.summon;
+        if (MovementPhase()) {
+            gamePhase=GamePhase.summon;
+            bool isFluctTurn = !TurnManager.Instance.getPlayerTurn(); //Yup, don't try to understand, here getPlayerTurn() returns !isFluctTurn, and below, getPlayerTurn() returns isFluctTurn, idk why
+            if (isFluctTurn){
+                if (TurnManager.Instance.getEnhancedSummonFluct()) gamePhase=GamePhase.combat;
+            } else {
+                if (TurnManager.Instance.getEnhancedSummonFus()) gamePhase=GamePhase.combat;
+            }
+            if (!TurnManager.Instance.mapParameters.summoningTurns.Contains(TurnManager.Instance.getTurnNumber())) gamePhase=GamePhase.combat;
+            
+        }
         else if (SummoningPhase()) gamePhase=GamePhase.combat;
         else if (CombatPhase()) {
             gamePhase=GamePhase.movement;
+            if (PieceInteractionManager.Instance.getTargetOnMap(TurnManager.Instance.getPlayerTurn())==null) gamePhase=GamePhase.summon;
             TurnManager.Instance.updateTurn();
         }
     }

@@ -107,6 +107,9 @@ public class PieceInteractionManager : MonoBehaviour
                 }
             }
         }
+        if (list.Count == 0){
+            return null; //No target found
+        }
         return list;
     }
     public void areTargeted(List<Vector3Int> pieces, bool isFluct){

@@ -42,6 +42,9 @@ public class PieceMovement : MonoBehaviour
     public void unlockPiece() {
         isLocked=false; //Unlock the piece, it can move again
     }
+    public bool IsLocked(){
+        return isLocked; //Return if the piece is locked or not
+    }
     //private & internal properties
     private bool isLocked = false; //Used to lock the piece when it is attacked by a Windrunner, so it can't move until it's unlocked
     private int curMov; //The movement the player used with this piece -> Allowing the player to move the same piece two times or more if nbMov>1

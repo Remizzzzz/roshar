@@ -6,12 +6,12 @@ public class TurnManager : MonoBehaviour
     public static TurnManager Instance;
     public TextMeshProUGUI turnText; // ou public Text turnText;
     public MapParameters mapParameters;
-    private bool turn=true;
+    private bool turn=true; //false if it's the first player turn, true if it's the second player turn
     private bool enhancedSummonFus = false;
     private int enhancedSummonFusTurn = 0;
     private bool enhancedSummonFluct = false;
     private int enhancedSummonFluctTurn = 0;
-    private bool startingPlayer = true;
+    private bool startingPlayer = true; //True if fluctuomanciens start first, false if fusionnes start first
     private int turnNumber=1;//Turns start at 1
     private int hasSummoned=0;//TurnManager manage also the number of summon per turn (only one by default)
     //Public method
@@ -48,6 +48,12 @@ public class TurnManager : MonoBehaviour
     public int getTurnNumber(){
         return turnNumber;
     }
+    public bool getPlayerTurn(){
+        return turn!=startingPlayer; //If true, it's the turn of fluct, if false, it's the turn of fus
+    }
+
+    public bool getEnhancedSummonFus() =>enhancedSummonFus;
+    public bool getEnhancedSummonFluct() =>enhancedSummonFluct;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
