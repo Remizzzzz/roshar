@@ -23,6 +23,7 @@ public abstract class Ability : MonoBehaviour
             Debug.Log("Voidlight used: " + abilityCost + ", Remaining Voidlight: " + voidlight);
         }
         turnOfCast = TurnManager.Instance.getTurnNumber(); // Update the turn of cast
+        abilityCasted=true; // Set the ability as casted
     }
 
     //Abstract variables and method to redefine

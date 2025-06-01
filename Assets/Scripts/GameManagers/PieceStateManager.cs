@@ -38,7 +38,7 @@ public class PieceStateManager : MonoBehaviour
     public bool isCasting(){
         return (statesFus.ContainsValue(PieceState.casting) || statesFluct.ContainsValue(PieceState.casting));
     }
-    private void addPiece(GameObject p, bool isFluct){
+    public void addPiece(GameObject p, bool isFluct){
         if (isFluct){
             if (!statesFluct.ContainsKey(p)) statesFluct.Add(p,PieceState.basic);
         } else {

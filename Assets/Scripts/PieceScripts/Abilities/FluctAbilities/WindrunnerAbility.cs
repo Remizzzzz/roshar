@@ -9,16 +9,16 @@ public class WindrunnerAbility : Ability
     //Specific properties for Windrunner ability
     Dictionary<GameObject,int> lockedPieces = new();
     public int turnsToLock = 2; // Number of turns to lock the piece
+    private List<Vector3Int> abilityTargets;
+
 
     // General inherited properties
     [SerializeField] private int _abilityCost = 1;
     public override int abilityCost => _abilityCost;
-    private List<Vector3Int> abilityTargets;
     protected override void ActivateAbility()
     {
         if (TurnManager.Instance.isPlayerTurn(true)){ 
             abilityTargets = PieceInteractionManager.Instance.getTargetOnMap(false); //Windrunners are Fluct, so the ability targets Fus
-            Debug.Log("Windrunner ability activated. Targets: " + abilityTargets.Count);
             PieceInteractionManager.Instance.setTargeter(gameObject); // Set the targeter to this piece
             PieceInteractionManager.Instance.areTargeted(abilityTargets, true);
             
@@ -29,6 +29,7 @@ public class WindrunnerAbility : Ability
 
     protected override void resetAbility()
     {
+        abilityTargets.Clear(); // Clear the ability targets list
         PieceStateManager.Instance.updateState(gameObject,PieceState.basic,gameObject.GetComponent<PieceMovement>().isFluct);
         isAbilityActive = false;
         PieceInteractionManager.Instance.resetTargets(); // Reset the targets in PieceInteractionManager

@@ -51,6 +51,15 @@ public class PieceInteractionManager : MonoBehaviour
             }
         }
     }
+    public void addPiece(GameObject p, Vector3Int pos, bool isFluct){
+        if (isFluct) {
+            if (!fluct.ContainsKey(pos)) fluct.Add(pos,p);
+            else Debug.LogWarning("Piece already exists at position " + pos + " in fluctuomanciens dictionary.");
+        } else {
+            if (!fus.ContainsKey(pos)) fus.Add(pos,p);
+            else Debug.LogWarning("Piece already exists at position " + pos + " in fusionnes dictionary.");
+        }
+    }
     private void initDicts(){
         int idCount=-100;
         foreach (Transform piece in fusionnes.transform){
@@ -112,7 +121,7 @@ public class PieceInteractionManager : MonoBehaviour
         }
         return list;
     }
-    public void areTargeted(List<Vector3Int> pieces, bool isFluct){
+    public List<Vector3Int> areTargeted(List<Vector3Int> pieces, bool isFluct){
         listOfTargets.Clear();
         foreach(Vector3Int piece in pieces){
             if (isFluct){
@@ -128,18 +137,29 @@ public class PieceInteractionManager : MonoBehaviour
             }
             listOfTargets.Add(piece);
         }
+        return listOfTargets;
     }
-    public void resetTargets(){
+    public void resetTargets(bool allies=false){
         foreach(Vector3Int piece in listOfTargets){
             if (targeter!=null){
-                if (targeter.GetComponent<PieceMovement>().isFluct){
+                if (targeter.GetComponent<PieceMovement>().isFluct && !allies){
                     if (fus.ContainsKey(piece)){
                         SpriteRenderer sr = fus[piece].GetComponent<SpriteRenderer>();
                         sr.color = new Color(1,1,1);
                     }
-                } else {
+                } else if (targeter.GetComponent<PieceMovement>().isFluct && allies){
                     if (fluct.ContainsKey(piece)){
                         SpriteRenderer sr = fluct[piece].GetComponent<SpriteRenderer>();
+                        sr.color = new Color(1,1,1);
+                    }
+                } else if (!targeter.GetComponent<PieceMovement>().isFluct && !allies){
+                    if (fluct.ContainsKey(piece)){
+                        SpriteRenderer sr = fluct[piece].GetComponent<SpriteRenderer>();
+                        sr.color = new Color(1,1,1);
+                    }
+                } else if (!targeter.GetComponent<PieceMovement>().isFluct && allies){
+                    if (fus.ContainsKey(piece)){
+                        SpriteRenderer sr = fus[piece].GetComponent<SpriteRenderer>();
                         sr.color = new Color(1,1,1);
                     }
                 }

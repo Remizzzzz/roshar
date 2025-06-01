@@ -2,15 +2,14 @@ using UnityEngine;
 using System.Collections.Generic;
 using utils;
 
-public class SkybreakerAbility : Ability
+public class LightweaverAbility : Ability
 {
-    //Specific properties for Skybreaker ability
-    private int calculateDamage(){
-        return Utils.launchD4(1)+1;
-    }
 
+    //Ability specific properties
+    public int abilityDamage = 6;
     List<Vector3Int> abilityTargets;
-    //inherited properties
+
+    //Inherited properties
     [SerializeField] private int _abilityCost = 1;
     public override int abilityCost => _abilityCost;
 
@@ -19,12 +18,15 @@ public class SkybreakerAbility : Ability
         if (TurnManager.Instance.isPlayerTurn(true)){
             abilityTargets = PieceMovement.detectTilesInRange(CurPos, 1, gameObject.GetComponent<PieceMovement>().tileMap);
             PieceInteractionManager.Instance.setTargeter(gameObject); // Set the targeter to this piece
-            PieceInteractionManager.Instance.areTargeted(abilityTargets, true);
+            abilityTargets = PieceInteractionManager.Instance.areTargeted(abilityTargets, true);
+        } else {
+            resetAbility();
         }
     }
 
     protected override void resetAbility()
     {
+        abilityTargets.Clear(); // Clear the ability targets list
         PieceStateManager.Instance.updateState(gameObject,PieceState.basic,gameObject.GetComponent<PieceMovement>().isFluct);
         PieceInteractionManager.Instance.resetTargets(); // Reset the targets in PieceInteractionManager
         isAbilityActive = false;
@@ -40,10 +42,10 @@ public class SkybreakerAbility : Ability
         if (Input.GetMouseButtonDown(0) && isAbilityActive) // 0 = left click
         {
             Vector3Int mousePosition = Utils.getMousePositionOnTilemap(gameObject.GetComponent<PieceMovement>().tileMap);
-            if (abilityTargets.Contains(mousePosition))
+            if (abilityTargets.Contains(mousePosition) && mousePosition != CurPos)
             {
                 GameObject targetPiece = PieceInteractionManager.Instance.getPiece(mousePosition);
-                targetPiece.GetComponent<PieceAttack>().trueDamage(calculateDamage()); // Deal truedamage to the target piece
+                targetPiece.GetComponent<PieceAttack>().damage(abilityDamage); // Deal damage to the target piece
                 castAbility(); // Cast the ability and pay the cost
                 resetAbility(); // Reset the ability after damaging the piece
             }

@@ -178,6 +178,26 @@ public class PieceMovement : MonoBehaviour
         return validCoor;
     }
 
+    //getter & setter
+    public bool getOnMap() => onMap;
+    public void setOnMap(bool onMap) => this.onMap = onMap; //Used to set the onMap property, mainly used by the summoning ability of stoneward
+    public Vector3Int getCurPos() => curPos;
+    public void setCurPos(Vector3Int curPos) {
+        this.curPos = curPos; //Used to set the curPos property, mainly used by the summoning ability of stoneward
+        transform.position = tileMap.GetCellCenterWorld(curPos); //Update the position of the piece on the map
+    }
+    public Vector3Int[] getNeighbourOffset() =>neighbourOffset;
+    public Vector3Int[] getNeighbourOffsetOdd()=> neighbourOffsetOdd;
+    //debug getter
+    public int getCurMov() => curMov;
+    public void setCurMov(int curMov) {
+        this.curMov = curMov; //Used to set the curMov property, mainly used by the summoning ability of stoneward
+    }
+    public int getCurTurn() => curTurn; //Used to get the current turn of the piece, mainly used by the summoning ability of stoneward
+    public void setCurTurn(int curTurn) {
+        this.curTurn = curTurn; //Used to set the curTurn property, mainly used by the summoning ability of stoneward
+    }
+
 
     //All the onMouse methods are below : they manage almost all interaction with the user, they works only if it's the player's turn (Asking to turn manager)
     void OnMouseDown(){
@@ -325,11 +345,5 @@ public class PieceMovement : MonoBehaviour
         }
     }
 
-    //getter
-    public bool getOnMap() => onMap;
-    public Vector3Int getCurPos() => curPos;
-    public Vector3Int[] getNeighbourOffset() =>neighbourOffset;
-    public Vector3Int[] getNeighbourOffsetOdd()=> neighbourOffsetOdd;
-    //debug getter
-    public int getCurMov() => curMov;
+
 }

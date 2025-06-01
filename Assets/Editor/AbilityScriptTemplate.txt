@@ -4,6 +4,9 @@ using utils;
 
 public class #SCRIPTNAME# : Ability
 {
+    //Ability specific properties
+
+    //Inherited properties
     [SerializeField] private int _abilityCost = 1;
     public override int abilityCost => _abilityCost;
 
