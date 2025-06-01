@@ -21,8 +21,9 @@ public class PieceAttack : MonoBehaviour {
     private int curLp;
     private int curNbAtk;
     internal bool isAttacking=false;
-
+    private bool isDistracted = false; //To check if the piece is distracted, so it can't attack
     //public methods
+    public bool IsDistracted() => isDistracted;
     public void decrCurNbAtk(){curNbAtk--;}
     public int getCurLp() => curLp;
     public int getCurNbAtk() =>curNbAtk;
@@ -51,6 +52,13 @@ public class PieceAttack : MonoBehaviour {
             else WinCondition.Instance.UpdateFusOnMap(false);
             Destroy(gameObject);
         }
+    }
+
+    public void distractPiece(){
+        isDistracted = true;
+    }
+    public void focusPiece(){
+        isDistracted = false;
     }
     public void heal(int regen){
         curLp+=regen;
@@ -93,7 +101,7 @@ public class PieceAttack : MonoBehaviour {
 
     //On Mouse methods
     void OnMouseDown(){
-        if (TurnManager.Instance.isPlayerTurn(pM.isFluct) && PhaseManager.Instance.CombatPhase()){ //If it's the piece's players turn and combat mode is activated, it's more likely a selection
+        if (TurnManager.Instance.isPlayerTurn(pM.isFluct) && PhaseManager.Instance.CombatPhase() && !isDistracted){ //If it's the piece's players turn and combat mode is activated, it's more likely a selection
             if (!PieceStateManager.Instance.isAttacked(pM.isFluct) && !PieceStateManager.Instance.isAttacked(!pM.isFluct)){//If it's not an attack, but a selection to attack (the PlayerTurn bool already indirectly check this condition, but for safety)
                 // ! Note that the second bool actually check if another piece of the same color is already attacking rather than checking if the piece is attacked, it was useless to create a new method
                 if (curNbAtk>0){ //If the piece has an attack remaining this turn

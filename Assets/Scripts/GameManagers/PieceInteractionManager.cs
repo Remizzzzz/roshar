@@ -122,6 +122,7 @@ public class PieceInteractionManager : MonoBehaviour
         return list;
     }
     public List<Vector3Int> areTargeted(List<Vector3Int> pieces, bool isFluct){
+        Debug.Log(isFluct + "AHHH");
         listOfTargets.Clear();
         foreach(Vector3Int piece in pieces){
             if (isFluct){
@@ -140,6 +141,7 @@ public class PieceInteractionManager : MonoBehaviour
         return listOfTargets;
     }
     public void resetTargets(bool allies=false){
+        Debug.Log("List of targets size: " + listOfTargets.Count);
         foreach(Vector3Int piece in listOfTargets){
             if (targeter!=null){
                 if (targeter.GetComponent<PieceMovement>().isFluct && !allies){
@@ -152,16 +154,18 @@ public class PieceInteractionManager : MonoBehaviour
                         SpriteRenderer sr = fluct[piece].GetComponent<SpriteRenderer>();
                         sr.color = new Color(1,1,1);
                     }
-                } else if (!targeter.GetComponent<PieceMovement>().isFluct && !allies){
+                } else if (!allies){
                     if (fluct.ContainsKey(piece)){
                         SpriteRenderer sr = fluct[piece].GetComponent<SpriteRenderer>();
                         sr.color = new Color(1,1,1);
                     }
-                } else if (!targeter.GetComponent<PieceMovement>().isFluct && allies){
+                } else if (allies){
                     if (fus.ContainsKey(piece)){
                         SpriteRenderer sr = fus[piece].GetComponent<SpriteRenderer>();
                         sr.color = new Color(1,1,1);
                     }
+                } else {
+                    Debug.LogWarning("Target not found in either fluct or fus dictionaries.");
                 }
             } else Debug.LogWarning("Targeter is null, cannot reset targets' colors.");
         }
@@ -199,8 +203,10 @@ public class PieceInteractionManager : MonoBehaviour
         tileMap = TileStateManager.Instance.tileMap;
     }
 
+
     // Update is called once per frame
     void Update()
     {
+
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 
 
-public enum PieceState {moving,basic,attacking,casting,locked}
+public enum PieceState {moving,basic,attacking,casting,locked,distracted}
 public class PieceStateManager : MonoBehaviour
 {
     public static PieceStateManager Instance;

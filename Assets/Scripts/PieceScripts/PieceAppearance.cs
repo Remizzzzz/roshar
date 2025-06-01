@@ -5,6 +5,7 @@ public class PieceAppearance : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public Sprite basic;
     public Sprite locked;
+    public Sprite distracted;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,6 +19,9 @@ public class PieceAppearance : MonoBehaviour
         if (gameObject.GetComponent<PieceMovement>().IsLocked()){
             if (locked != null) spriteRenderer.sprite = locked;
             else Debug.LogWarning("Locked sprite is not assigned for " + gameObject.name);
+        } else if (gameObject.GetComponent<PieceAttack>().IsDistracted()) {
+            if (distracted != null) spriteRenderer.sprite = distracted;
+            else Debug.LogWarning("Distracted sprite is not assigned for " + gameObject.name);
         } else {
             switch (state)
             { //For other possible states

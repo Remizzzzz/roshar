@@ -2,26 +2,24 @@ using UnityEngine;
 using System.Collections.Generic;
 using utils;
 
-public class WindrunnerAbility : Ability
+public class MaskedAbility : Ability
 {
-    // This ability allows the player to lock a piece for a certain number of turns, preventing it from moving.
-
-    //Specific properties for Windrunner ability
-    Dictionary<GameObject,int> lockedPieces = new();
-    public int turnsToLock = 2; // Number of turns to lock the piece
+    //Ability specific properties
+    public Dictionary<GameObject,int> distractedPieces = new();
+    public int turnsToDistract = 2; // Number of turns to distract the piece
     private List<Vector3Int> abilityTargets;
 
-
-    // General inherited properties
+    //Inherited properties
     [SerializeField] private int _abilityCost = 1;
     public override int abilityCost => _abilityCost;
+
     protected override void ActivateAbility()
     {
-        if (TurnManager.Instance.isPlayerTurn(true)){ 
-            abilityTargets = PieceInteractionManager.Instance.getTargetOnMap(false); //Windrunners are Fluct, so the ability targets Fus
+        if (TurnManager.Instance.isPlayerTurn(false) && distractedPieces.Count < 2) // Check if it's the player's turn and if there are less than 2 distracted pieces
+        { 
+            abilityTargets = PieceInteractionManager.Instance.getTargetOnMap(true); // Masked pieces are Fus, so the ability targets Fluct
             PieceInteractionManager.Instance.setTargeter(gameObject); // Set the targeter to this piece
-            abilityTargets = PieceInteractionManager.Instance.areTargeted(abilityTargets, true);
-            
+            abilityTargets = PieceInteractionManager.Instance.areTargeted(abilityTargets, false);
         } else {
             resetAbility(); // Reset the ability if it's not the player's turn
         }
@@ -48,9 +46,9 @@ public class WindrunnerAbility : Ability
             if (abilityTargets.Contains(mousePosition))
             {
                 GameObject targetPiece = PieceInteractionManager.Instance.getPiece(mousePosition);
-                targetPiece.GetComponent<PieceMovement>().lockPiece(); // Lock the target piece
-                PieceStateManager.Instance.updateState(targetPiece, PieceState.locked, targetPiece.GetComponent<PieceMovement>().isFluct);
-                lockedPieces.Add(targetPiece,TurnManager.Instance.getTurnNumber());
+                targetPiece.GetComponent<PieceAttack>().distractPiece(); // distract the target piece
+                PieceStateManager.Instance.updateState(targetPiece, PieceState.distracted, targetPiece.GetComponent<PieceMovement>().isFluct);
+                distractedPieces.Add(targetPiece,TurnManager.Instance.getTurnNumber());
                 castAbility(); // Cast the ability and pay the cost
                 resetAbility(); // Reset the ability after locking the piece
             }
@@ -61,17 +59,17 @@ public class WindrunnerAbility : Ability
         }
 
         GameObject del = null;
-        foreach (GameObject piece in lockedPieces.Keys)
+        foreach (GameObject piece in distractedPieces.Keys)
         {
-            if (TurnManager.Instance.getTurnNumber() - lockedPieces[piece] >= turnsToLock) // Check if the lock duration has passed
+            if (TurnManager.Instance.getTurnNumber() - distractedPieces[piece] > turnsToDistract) // Check if the distract duration has passed
             {
-                piece.GetComponent<PieceMovement>().unlockPiece();
+                piece.GetComponent<PieceAttack>().focusPiece();
                 PieceStateManager.Instance.updateState(piece, PieceState.basic, piece.GetComponent<PieceMovement>().isFluct);
                 del = piece; // Mark the piece for removal
             }
         }
         if (del != null){
-            lockedPieces.Remove(del); // Remove the piece from the locked pieces dictionary
+            distractedPieces.Remove(del); // Remove the piece from the locked pieces dictionary
         }
     }
 }

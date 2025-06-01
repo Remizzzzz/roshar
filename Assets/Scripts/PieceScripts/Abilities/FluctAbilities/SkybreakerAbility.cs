@@ -9,7 +9,7 @@ public class SkybreakerAbility : Ability
         return Utils.launchD4(1)+1;
     }
 
-    List<Vector3Int> abilityTargets;
+    private List<Vector3Int> abilityTargets;
     //inherited properties
     [SerializeField] private int _abilityCost = 4;
     public override int abilityCost => _abilityCost;
@@ -27,9 +27,9 @@ public class SkybreakerAbility : Ability
 
     protected override void resetAbility()
     {
+        PieceInteractionManager.Instance.resetTargets(); // Reset the targets in PieceInteractionManager
         abilityTargets.Clear(); // Clear the ability targets list
         PieceStateManager.Instance.updateState(gameObject,PieceState.basic,gameObject.GetComponent<PieceMovement>().isFluct);
-        PieceInteractionManager.Instance.resetTargets(); // Reset the targets in PieceInteractionManager
         isAbilityActive = false;
     }
     
@@ -52,7 +52,6 @@ public class SkybreakerAbility : Ability
             }
             else
             {
-                PieceInteractionManager.Instance.resetTargets();
                 resetAbility(); // Reset the ability if the target is not valid
             }
         }
