@@ -45,6 +45,19 @@ public class PieceMovement : MonoBehaviour
     public bool IsLocked(){
         return isLocked; //Return if the piece is locked or not
     }
+
+    public void moveTo(Vector3Int newPos){
+        PieceStateManager.Instance.updateState(gameObject,PieceState.moving,isFluct);
+        if (tileMap.GetTile(newPos)!=null){//If the tile selected is on the map
+            transform.position = tileMap.GetCellCenterWorld(newPos);
+            TileStateManager.Instance.updateState(curPos,TileState.basic);
+            curPos=newPos;
+            PieceInteractionManager.Instance.updatePos(gameObject,curPos,isFluct);
+            TileStateManager.Instance.updateState(curPos,TileState.occupied);
+        }
+        PieceStateManager.Instance.updateState(gameObject,PieceState.basic,isFluct); 
+        resetMap();
+    }
     //private & internal properties
     private bool isLocked = false; //Used to lock the piece when it is attacked by a Windrunner, so it can't move until it's unlocked
     private int curMov; //The movement the player used with this piece -> Allowing the player to move the same piece two times or more if nbMov>1

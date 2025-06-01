@@ -101,7 +101,7 @@ public class PieceAttack : MonoBehaviour {
 
     //On Mouse methods
     void OnMouseDown(){
-        if (TurnManager.Instance.isPlayerTurn(pM.isFluct) && PhaseManager.Instance.CombatPhase() && !isDistracted){ //If it's the piece's players turn and combat mode is activated, it's more likely a selection
+        if (TurnManager.Instance.isPlayerTurn(pM.isFluct) && PhaseManager.Instance.CombatPhase() && !isDistracted && !PieceStateManager.Instance.isCasting()){ //If it's the piece's players turn and combat mode is activated, it's more likely a selection
             if (!PieceStateManager.Instance.isAttacked(pM.isFluct) && !PieceStateManager.Instance.isAttacked(!pM.isFluct)){//If it's not an attack, but a selection to attack (the PlayerTurn bool already indirectly check this condition, but for safety)
                 // ! Note that the second bool actually check if another piece of the same color is already attacking rather than checking if the piece is attacked, it was useless to create a new method
                 if (curNbAtk>0){ //If the piece has an attack remaining this turn

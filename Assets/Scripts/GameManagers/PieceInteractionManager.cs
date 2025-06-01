@@ -138,7 +138,8 @@ public class PieceInteractionManager : MonoBehaviour
             }
             listOfTargets.Add(piece);
         }
-        return listOfTargets;
+        List<Vector3Int> result = listOfTargets;
+        return result;
     }
     public void resetTargets(bool allies=false){
         Debug.Log("List of targets size: " + listOfTargets.Count);
