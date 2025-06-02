@@ -19,11 +19,20 @@ public class PieceAttack : MonoBehaviour {
     private int curTurn = 1;
     internal PieceMovement pM; //To reuse the map logic of PieceMovement
     private int curLp;
+    private int oldLp; //Used to reset if a wrong priority order is made
     private int curNbAtk;
     internal int curAtk;
     internal bool isAttacking=false;
     private bool isDistracted = false; //To check if the piece is distracted, so it can't attack
+    private bool immunity = false; //To check if the piece is immune to damage, used for special cases
     //public methods
+    public bool lpChanged => curLp != oldLp; //To check if the LP changed
+    public void resetLp(){
+        curLp = oldLp; //Reset the LP to the old value
+    }
+    public void setImmune(){
+        immunity = true;
+    }
     public bool IsDistracted() => isDistracted;
     public void decrCurNbAtk(){curNbAtk--;}
     public int getCurLp() => curLp;
@@ -32,7 +41,8 @@ public class PieceAttack : MonoBehaviour {
         curAtk += boost;
     }
     public void damage(int dmg){
-        curLp-=(dmg-dmgReduc);
+        if (!immunity) curLp-=(dmg-dmgReduc);
+        else immunity = false; //If the piece is immune, it will not take damage, but the immunity will be removed
         if (curLp <= 0)
         {
             TileStateManager.Instance.updateState(pM.getCurPos(), TileState.basic);
@@ -45,7 +55,8 @@ public class PieceAttack : MonoBehaviour {
         }
     }
     public void trueDamage(int dmg){
-        curLp-=dmg;
+        if (!immunity) curLp-=dmg;
+        else immunity = false; 
         if (curLp <= 0)
         {
             TileStateManager.Instance.updateState(pM.getCurPos(), TileState.basic);
@@ -75,6 +86,7 @@ public class PieceAttack : MonoBehaviour {
         if (curTurn<TurnManager.Instance.getTurnNumber()){
             curNbAtk=nbAtk;
             curAtk = baseAtk;
+            oldLp = curLp; //Save the current LP to check if it changed
             curTurn=TurnManager.Instance.getTurnNumber();
         }
     }
@@ -106,7 +118,7 @@ public class PieceAttack : MonoBehaviour {
 
     //On Mouse methods
     void OnMouseDown(){
-        if (TurnManager.Instance.isPlayerTurn(pM.isFluct) && PhaseManager.Instance.CombatPhase() && !isDistracted && !PieceStateManager.Instance.isCasting()){ //If it's the piece's players turn and combat mode is activated, it's more likely a selection
+        if (TurnManager.Instance.isPlayerTurn(pM.isFluct) && PhaseManager.Instance.CombatPhase() && !isDistracted && !PieceStateManager.Instance.isCasting() && !InterruptionManager.Instance.isInterruptionActive()){ //If it's the piece's players turn and combat mode is activated, it's more likely a selection
             if (!PieceStateManager.Instance.isAttacked(pM.isFluct) && !PieceStateManager.Instance.isAttacked(!pM.isFluct)){//If it's not an attack, but a selection to attack (the PlayerTurn bool already indirectly check this condition, but for safety)
                 // ! Note that the second bool actually check if another piece of the same color is already attacking rather than checking if the piece is attacked, it was useless to create a new method
                 if (curNbAtk>0){ //If the piece has an attack remaining this turn
@@ -119,7 +131,11 @@ public class PieceAttack : MonoBehaviour {
             }
         } else if (PhaseManager.Instance.CombatPhase()){//If it's not the turn of the piece's player, that can means the piece is attacked
             if (PieceStateManager.Instance.isAttacked(pM.isFluct)){ //If the piece is attacked
-                PieceInteractionManager.Instance.attack(pM.getCurPos(),pM.isFluct);
+                if (GetComponent<DeepestAbility>() != null) {
+                    if (GetComponent<DeepestAbility>().getVoidlight() >= GetComponent<DeepestAbility>().abilityCost && !GetComponent<DeepestAbility>().getAbilityCasted()) GetComponent<DeepestAbility>().interruptAttack(); //If the piece has the Deepest ability, interrupt the attack
+                    else PieceInteractionManager.Instance.attack(pM.getCurPos(),pM.isFluct);
+                }
+                else PieceInteractionManager.Instance.attack(pM.getCurPos(),pM.isFluct);
             }
         }
     }
@@ -142,7 +158,7 @@ public class PieceAttack : MonoBehaviour {
     {
         refreshAttack();
         //The following code seems to not be working, I'll check into that later
-        if (isAttacking && Input.GetMouseButtonDown(0)){
+        if (isAttacking && Input.GetMouseButtonDown(0) && !InterruptionManager.Instance.isInterruptionActive()) {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //Get Mouse Position
             mousePosition.z = 0; 
             Vector3Int cellPos = pM.tileMap.WorldToCell(mousePosition);

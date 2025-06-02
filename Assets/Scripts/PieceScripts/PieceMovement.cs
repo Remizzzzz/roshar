@@ -214,7 +214,7 @@ public class PieceMovement : MonoBehaviour
 
     //All the onMouse methods are below : they manage almost all interaction with the user, they works only if it's the player's turn (Asking to turn manager)
     void OnMouseDown(){
-        if (TurnManager.Instance.isPlayerTurn(isFluct) && phaseValidation() && curMov>0){ //remember, isFluct is P1 or P2
+        if (TurnManager.Instance.isPlayerTurn(isFluct) && phaseValidation() && curMov>0 && !InterruptionManager.Instance.isInterruptionActive()){ //remember, isFluct is P1 or P2
             reachableTiles=null; //reset reachable tiles because of some bugs, didn't find where so I fixed it here
 
             //enable selectedState
@@ -233,7 +233,7 @@ public class PieceMovement : MonoBehaviour
         }
     }
     void OnMouseDrag(){   //Just a visual code for the piece to follow the mouse on drag
-        if (TurnManager.Instance.isPlayerTurn(isFluct) && phaseValidation() && curMov>0){
+        if (TurnManager.Instance.isPlayerTurn(isFluct) && phaseValidation() && curMov>0 && !InterruptionManager.Instance.isInterruptionActive()){
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = 0; // Assure que l'objet reste sur le plan 2D
             transform.localPosition = mousePosition;
@@ -246,7 +246,7 @@ public class PieceMovement : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0;
         cellPos = tileMap.WorldToCell(mousePosition); //Actu the cellPos coordinates to the current cell selected
-        if (TurnManager.Instance.isPlayerTurn(isFluct) && PhaseManager.Instance.MovementPhase()){
+        if (TurnManager.Instance.isPlayerTurn(isFluct) && PhaseManager.Instance.MovementPhase() && !InterruptionManager.Instance.isInterruptionActive()){
             if (onMap) {
                 if (cellPos==curPos ){ //If the player just clicked on the piece : Clicked behaviour
                     transform.position = tileMap.GetCellCenterWorld(curPos);

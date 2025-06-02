@@ -175,5 +175,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basic: {fileID: 3023904228931032535, guid: fc1d48b78f9fa644eb1b57160326e7a4, type: 3}
-  locked: {fileID: -1763137882378136958, guid: 97ff9303ccbbaf7449c22c9cdb115966, type: 3}
-  distracted: {fileID: 4202364467603357496, guid: 492ea8011ad2004468a6746d8f269966, type: 3}
+  locked: {fileID: 21300000, guid: 97ff9303ccbbaf7449c22c9cdb115966, type: 3}
+  distracted: {fileID: 21300000, guid: 492ea8011ad2004468a6746d8f269966, type: 3}

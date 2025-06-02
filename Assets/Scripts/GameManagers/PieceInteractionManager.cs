@@ -25,6 +25,11 @@ public class PieceInteractionManager : MonoBehaviour
     }
     public bool isATarget(Vector3Int coor) { return listOfTargets.Contains(coor); }
     public void setTargeter(GameObject a){ targeter=a;}
+    public void addTarget(Vector3Int target){
+        if (!listOfTargets.Contains(target)) {
+            listOfTargets.Add(target);
+        }
+    }
     public void updatePos(GameObject p, Vector3Int pos,bool isFluct){
         if (isFluct) {
             //The following process cost less than to add all the map in initDicts
@@ -112,7 +117,6 @@ public class PieceInteractionManager : MonoBehaviour
             foreach (Vector3Int tile in fus.Keys){
                 if (tileMap.HasTile(tile)){
                     list.Add(tile);
-                    Debug.Log("Tile " + tile + " is a fus target");
                 }
             }
         }
@@ -122,7 +126,6 @@ public class PieceInteractionManager : MonoBehaviour
         return list;
     }
     public List<Vector3Int> areTargeted(List<Vector3Int> pieces, bool isFluct){
-        Debug.Log(isFluct + "AHHH");
         listOfTargets.Clear();
         foreach(Vector3Int piece in pieces){
             if (isFluct){

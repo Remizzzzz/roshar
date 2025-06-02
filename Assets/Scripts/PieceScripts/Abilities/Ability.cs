@@ -49,7 +49,7 @@ public abstract class Ability : MonoBehaviour
 
     //Private method and variables
     private bool canRestore = true; // Flag to check if restoration is allowed (to limit restoration to one time every 8 turns)
-    private void restore(){
+    protected void restore(){
         if (TurnManager.Instance.getTurnNumber()%8 == 0 && canRestore) // Every 8 turns, restore stormlight and voidlight
         {
             stormlight = 6; // Restore stormlight to full
@@ -59,16 +59,17 @@ public abstract class Ability : MonoBehaviour
             canRestore = true; // Allow restoration again in the next turn
         }
     }
-    private void restoreAbility(){
+    protected void restoreAbility(){
         if (abilityCasted){
             if (TurnManager.Instance.getTurnNumber() > turnOfCast) // Check if the ability was casted more than one turn ago
             {
                 abilityCasted = false;
+                turnOfCast = TurnManager.Instance.getTurnNumber(); // Update the turn of cast to the current turn
             }
         }
     }
 
-    private void startAbility(){
+    protected virtual void startAbility(){
         PieceStateManager.Instance.updateState(gameObject,PieceState.casting,gameObject.GetComponent<PieceMovement>().isFluct);
         isAbilityActive = true; // Set the ability as active
         bool isFluct = gameObject.GetComponent<PieceMovement>().isFluct;
@@ -93,7 +94,7 @@ public abstract class Ability : MonoBehaviour
     {
         restore();
         restoreAbility();
-        if (Input.GetMouseButtonDown(1)) // 1 = right click
+        if (Input.GetMouseButtonDown(1) && !InterruptionManager.Instance.isInterruptionActive()) // 1 = right click
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //Get Mouse Position
             mousePosition.z = 0; 
