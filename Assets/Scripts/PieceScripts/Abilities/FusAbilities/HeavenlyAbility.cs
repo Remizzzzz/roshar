@@ -7,11 +7,26 @@ public class HeavenlyAbility : Ability
 {
     //Ability specific properties
     public int alliesTeleportable = 2; // Number of allies that can be teleported
+    public GameObject selectedSpriteAppearanceOne; //Sprites for the first part of the ability
+    public GameObject selectedSpriteAppearanceTwo; 
+    private List<GameObject> selectionSpriteList=new();
     private List<Vector3Int> abilityTargets=new(); 
     private List<PieceMovement> targetedAllies = new List<PieceMovement>(); // List of pieces targeted by the ability
     private bool isTargetingAllies = false; // Flag to indicate if the ability targets allies
     private bool isTargetingTiles = true; // Flag to indicate if the ability targets tiles
     private int alliesTargeted = 0;
+    private void selectAlly(Vector3Int pos){
+        if (alliesTargeted ==1){
+            GameObject selectedOne = Instantiate(selectedSpriteAppearanceOne);
+            selectedOne.transform.position = gameObject.GetComponent<PieceMovement>().tileMap.GetCellCenterWorld(pos);
+            selectionSpriteList.Add(selectedOne);
+        } else if (alliesTargeted ==2){
+            GameObject selectedTwo = Instantiate(selectedSpriteAppearanceTwo);
+            selectedTwo.transform.position = gameObject.GetComponent<PieceMovement>().tileMap.GetCellCenterWorld(pos);
+            selectionSpriteList.Add(selectedTwo);
+        }
+        
+    }
     private void switchPhase(){
         isTargetingAllies = !isTargetingAllies;
         isTargetingTiles = !isTargetingTiles;
@@ -50,6 +65,11 @@ public class HeavenlyAbility : Ability
 
     protected override void resetAbility()
     {
+        foreach(GameObject selectionSprite in selectionSpriteList){
+            Destroy(selectionSprite);
+        }
+        alliesTargeted=0;
+        selectionSpriteList.Clear();
         TileStateManager.Instance.resetMap(); // Reset the tile states
         PieceInteractionManager.Instance.resetTargets(true); // Reset the targets
         abilityTargets.Clear(); // Clear the ability targets list
@@ -74,6 +94,7 @@ public class HeavenlyAbility : Ability
                         targetedAllies.Add(targetPiece.GetComponent<PieceMovement>()); // Add the targeted piece to the list
                     }
                     alliesTargeted++;
+                    selectAlly(mousePosition);
                     if (alliesTargeted >= alliesTeleportable){
                         PieceInteractionManager.Instance.resetTargets(true); // Reset the targets
                         alliesTargeted = targetedAllies.Count; // Set the number of targeted allies to the count of the list

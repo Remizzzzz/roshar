@@ -3653,6 +3653,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alliesTeleportable: 2
+  selectedSpriteAppearanceOne: {fileID: 6653748976031620725, guid: 08b99d38e1dad3144bdda9dbd980b7c7, type: 3}
+  selectedSpriteAppearanceTwo: {fileID: 7689077939838395930, guid: ae3ff845fca96f54d9b99496237f90e9, type: 3}
   _abilityCost: 2
 --- !u!1 &1675737346
 GameObject:
