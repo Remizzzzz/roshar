@@ -35,6 +35,10 @@ namespace utils
             }
             return total;
         }
+
+        public static bool isInstance<T>(object obj){
+            return obj is T;
+        }
     }
 }
 

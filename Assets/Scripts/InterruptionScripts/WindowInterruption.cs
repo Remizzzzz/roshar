@@ -65,9 +65,41 @@ public class WindowInterruption : MonoBehaviour
                 SetOrderInLayer(yesButton, baseOrder + 1);
 
                 yesButton.GetComponent<ButtonForInterruption>().setText("Yes");
-                noButton.GetComponent<ButtonForInterruption>().setColor(Color.green);
+                yesButton.GetComponent<ButtonForInterruption>().setColor(Color.green);
                 yesButton.GetComponent<ButtonForInterruption>().setOnClickAction(() => {
                     caller.GetComponent<DeepestAbility>().acceptActivation();
+                    InterruptionManager.Instance.endInterruption();
+                    InterruptionManager.Instance.destroyWindows(); // Destroy all interruption windows
+                });
+            } else if (caller.GetComponent<MagnifiedAbility>()!=null) {
+                windowText.text = "Do you want to activate the Magnified unit ability ?";
+                // Get the order in layer of the parent SpriteRenderer to set the order of the buttons
+                int baseOrder = GetComponent<SpriteRenderer>().sortingOrder;
+
+                // Button "No"
+                GameObject noButton = Instantiate(button);
+                noButton.transform.SetParent(transform, false);
+                noButton.transform.localPosition = new Vector3(-0.37f, -0.3f, 0);
+                SetOrderInLayer(noButton, baseOrder + 1);
+
+                noButton.GetComponent<ButtonForInterruption>().setText("No");
+                noButton.GetComponent<ButtonForInterruption>().setColor(Color.red);
+                noButton.GetComponent<ButtonForInterruption>().setOnClickAction(() => {
+                    caller.GetComponent<MagnifiedAbility>().cancelActivation();
+                    InterruptionManager.Instance.endInterruption();
+                    InterruptionManager.Instance.destroyWindows(); // Destroy all interruption windows
+                });
+
+                // Button "Yes"
+                GameObject yesButton = Instantiate(button);
+                yesButton.transform.SetParent(transform, false);
+                yesButton.transform.localPosition = new Vector3(0.37f, -0.3f, 0);
+                SetOrderInLayer(yesButton, baseOrder + 1);
+
+                yesButton.GetComponent<ButtonForInterruption>().setText("Yes");
+                yesButton.GetComponent<ButtonForInterruption>().setColor(Color.green);
+                yesButton.GetComponent<ButtonForInterruption>().setOnClickAction(() => {
+                    caller.GetComponent<MagnifiedAbility>().acceptActivation();
                     InterruptionManager.Instance.endInterruption();
                     InterruptionManager.Instance.destroyWindows(); // Destroy all interruption windows
                 });

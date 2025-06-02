@@ -125,21 +125,23 @@ public class PieceInteractionManager : MonoBehaviour
         }
         return list;
     }
-    public List<Vector3Int> areTargeted(List<Vector3Int> pieces, bool isFluct){
+
+    public List<Vector3Int> areTargeted(List<Vector3Int> pieces, bool isFluct){ //Works also as a filter to take only pieces from the zone target
         listOfTargets.Clear();
         foreach(Vector3Int piece in pieces){
             if (isFluct){
                 if (fus.ContainsKey(piece)){ //Redundant because already verified with attack target, but in case another type of target appears, I keep it for modularity
                     SpriteRenderer sr = fus[piece].GetComponent<SpriteRenderer>();
                     sr.color = targetColor;
+                    listOfTargets.Add(piece);
                 }
             } else {
                 if (fluct.ContainsKey(piece)){
                     SpriteRenderer sr = fluct[piece].GetComponent<SpriteRenderer>();
                     sr.color = targetColor;
+                    listOfTargets.Add(piece);
                 }
             }
-            listOfTargets.Add(piece);
         }
         List<Vector3Int> result = listOfTargets;
         return result;
@@ -182,6 +184,43 @@ public class PieceInteractionManager : MonoBehaviour
         }
         attackRange.Clear();
     }
+
+    public bool hasNeighbor<T>(Vector3Int pos, bool player = false, bool isFluct=false) where T : Component { //If player is true, it will only check the player's pieces
+        List<Vector3Int> neighbors = PieceMovement.detectTilesInRange(pos, 1, tileMap);
+        foreach(Vector3Int neighbor in neighbors){
+            if (isAPiece(neighbor) && neighbor!= pos){
+                GameObject piece = getPiece(neighbor);
+                if (player){
+                    if (piece.GetComponent<PieceMovement>().isFluct==isFluct && piece.GetComponent<T>() != null) {
+                        return true; // Found a neighbor piece of type T that belongs to the player
+                    }
+                } else {
+                    if (piece.GetComponent<T>() != null) {
+                        return true; // Found a neighbor piece of type T
+                    }
+                }
+            }
+        }
+        return false; // No neighbor piece of type T found
+    }
+    public T getNeighborComponent<T> (Vector3Int pos, bool player = false, bool isFluct=false) where T : Component {
+        List<Vector3Int> neighbors = PieceMovement.detectTilesInRange(pos, 1, tileMap);
+        foreach(Vector3Int neighbor in neighbors){
+            if (isAPiece(neighbor) && neighbor!= pos){
+                GameObject piece = getPiece(neighbor);
+                if (player){
+                    if (piece.GetComponent<PieceMovement>().isFluct==isFluct && piece.GetComponent<T>() != null) {
+                        return piece.GetComponent<T>(); // Found a neighbor piece of type T that belongs to the player
+                    }
+                } else {
+                    if (piece.GetComponent<T>() != null) {
+                        return piece.GetComponent<T>(); // Return the first found neighbor piece of type T
+                    }
+                }
+            }
+        } 
+        return null; // No neighbor piece of type T found
+    }
     public void attack(Vector3Int defender,bool isFluct){
         PieceAttack attacker = targeter.GetComponent<PieceAttack>();
         if (listOfTargets.Contains(defender)){
@@ -197,6 +236,16 @@ public class PieceInteractionManager : MonoBehaviour
             PieceStateManager.Instance.updateState(attacker.gameObject,PieceState.basic,attacker.pM.isFluct);
             resetTargets();
             targeter=null;
+        }
+    }
+
+    public void protect(int dmgReduction){
+        foreach(Vector3Int target in listOfTargets){
+            if (fluct.ContainsKey(target)){
+                fluct[target].GetComponent<PieceAttack>().isProtected(dmgReduction);
+            } else if (fus.ContainsKey(target)){
+                fus[target].GetComponent<PieceAttack>().isProtected(dmgReduction);
+            }
         }
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created

@@ -43,6 +43,7 @@ public class DeepestAbility : Ability
 
     protected override void resetAbility()
     {
+        attacker = null; // Reset the attacker to null
         PieceStateManager.Instance.updateState(gameObject,PieceState.basic,gameObject.GetComponent<PieceMovement>().isFluct);
         isAbilityActive = false;
     }

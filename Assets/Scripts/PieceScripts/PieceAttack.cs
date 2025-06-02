@@ -25,6 +25,7 @@ public class PieceAttack : MonoBehaviour {
     internal bool isAttacking=false;
     private bool isDistracted = false; //To check if the piece is distracted, so it can't attack
     private bool immunity = false; //To check if the piece is immune to damage, used for special cases
+    private bool Protected = false; //To check if the piece is protected, used for special cases
     //public methods
     public bool lpChanged => curLp != oldLp; //To check if the LP changed
     public void resetLp(){
@@ -33,6 +34,10 @@ public class PieceAttack : MonoBehaviour {
     public void setImmune(){
         immunity = true;
     }
+    public void isProtected(int reduc){ 
+        dmgReduc = reduc; 
+        Protected = true; //Set the piece as protected, so it can take less damage
+    } //Set the damage reduction, used for special cases
     public bool IsDistracted() => isDistracted;
     public void decrCurNbAtk(){curNbAtk--;}
     public int getCurLp() => curLp;
@@ -83,11 +88,15 @@ public class PieceAttack : MonoBehaviour {
     //Private methods
     
     private void refreshAttack(){
-        if (curTurn<TurnManager.Instance.getTurnNumber()){
+        if (curTurn<TurnManager.Instance.getTurnNumber() && TurnManager.Instance.isPlayerTurn(pM.isFluct)){
             curNbAtk=nbAtk;
             curAtk = baseAtk;
             oldLp = curLp; //Save the current LP to check if it changed
             curTurn=TurnManager.Instance.getTurnNumber();
+            if (Protected){
+                Protected = false; //Reset the protection after the turn ends
+                dmgReduc = 0; //Reset the damage reduction after the turn ends
+            }
         }
     }
 
@@ -131,10 +140,27 @@ public class PieceAttack : MonoBehaviour {
             }
         } else if (PhaseManager.Instance.CombatPhase()){//If it's not the turn of the piece's player, that can means the piece is attacked
             if (PieceStateManager.Instance.isAttacked(pM.isFluct)){ //If the piece is attacked
+                Debug.Log(PieceInteractionManager.Instance.hasNeighbor<MagnifiedAbility>(pM.getCurPos(), true, pM.isFluct));
+                
+                //Interruption for attack
                 if (GetComponent<DeepestAbility>() != null) {
                     if (GetComponent<DeepestAbility>().getVoidlight() >= GetComponent<DeepestAbility>().abilityCost && !GetComponent<DeepestAbility>().getAbilityCasted()) GetComponent<DeepestAbility>().interruptAttack(); //If the piece has the Deepest ability, interrupt the attack
                     else PieceInteractionManager.Instance.attack(pM.getCurPos(),pM.isFluct);
+                } else if (PieceInteractionManager.Instance.hasNeighbor<MagnifiedAbility>(pM.getCurPos(), true, pM.isFluct)){
+                    Debug.Log("Neighbor has Magnified Ability");
+                    MagnifiedAbility magAbility = PieceInteractionManager.Instance.getNeighborComponent<MagnifiedAbility>(pM.getCurPos(), true, pM.isFluct);
+                    if (magAbility.getVoidlight() >= magAbility.abilityCost && !magAbility.getAbilityCasted()) {
+                        Debug.Log("Interrupting attack with Magnified Ability");
+                        magAbility.interruptAttack(pM.getCurPos()); //If the neighbor has the Magnified ability, interrupt the attack
+                    } else PieceInteractionManager.Instance.attack(pM.getCurPos(),pM.isFluct);
+                } else if (GetComponent<MagnifiedAbility>()!=null){
+                    if (GetComponent<MagnifiedAbility>().getVoidlight() >= GetComponent<MagnifiedAbility>().abilityCost && !GetComponent<MagnifiedAbility>().getAbilityCasted()) {
+                        GetComponent<MagnifiedAbility>().interruptAttack(pM.getCurPos()); //If the piece has the Magnified ability, interrupt the attack
+                    } else PieceInteractionManager.Instance.attack(pM.getCurPos(),pM.isFluct);
                 }
+
+
+                //Normal attack procedure
                 else PieceInteractionManager.Instance.attack(pM.getCurPos(),pM.isFluct);
             }
         }
@@ -171,8 +197,10 @@ public class PieceAttack : MonoBehaviour {
         }
 
         bool hasFluctNeighbor = false; //Flag to check if a neighbor is a fluct piece
-        if (pM.isFluct) {
+        if (pM.isFluct && !Protected) {
             if (!pM.isSpecial && !pM.enhancedTroop) {  //If the troop is basic
+
+                //This all logic was created AFTER I created hasNeighbor<T>(), that's why I didn't use it
                 List<Vector3Int> neighbors = PieceMovement.detectTilesInRange(pM.getCurPos(), 1,pM.tileMap); //Get neighboors in range 1
                 foreach (Vector3Int neighbor in neighbors) {
                     if (neighbor != pM.getCurPos()) {//Avoid checking the current position
