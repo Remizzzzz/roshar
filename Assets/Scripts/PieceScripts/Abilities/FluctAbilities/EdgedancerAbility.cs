@@ -7,7 +7,7 @@ public class EdgedancerAbility : Ability
     // Ability specific properties
     public int healAmount = 3;
 
-    private List<Vector3Int> abilityTargets;
+    private List<Vector3Int> abilityTargets=new();
     //Inherited properties
     [SerializeField] private int _abilityCost = 1;
     public override int abilityCost => _abilityCost;

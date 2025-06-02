@@ -182,7 +182,7 @@ public class PieceInteractionManager : MonoBehaviour
     public void attack(Vector3Int defender,bool isFluct){
         PieceAttack attacker = targeter.GetComponent<PieceAttack>();
         if (listOfTargets.Contains(defender)){
-            int dmg = attacker.baseAtk+(attacker.d4Atk*Random.Range(1,5));
+            int dmg = attacker.curAtk+(attacker.d4Atk*Random.Range(1,5));
             if (isFluct) {
                 if (fluct[defender]!=null) fluct[defender].GetComponent<PieceAttack>().damage(dmg);
             }

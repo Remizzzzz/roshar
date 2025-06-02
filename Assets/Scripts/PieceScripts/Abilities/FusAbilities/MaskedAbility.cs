@@ -7,7 +7,7 @@ public class MaskedAbility : Ability
     //Ability specific properties
     public Dictionary<GameObject,int> distractedPieces = new();
     public int turnsToDistract = 2; // Number of turns to distract the piece
-    private List<Vector3Int> abilityTargets;
+    private List<Vector3Int> abilityTargets=new();
 
     //Inherited properties
     [SerializeField] private int _abilityCost = 1;

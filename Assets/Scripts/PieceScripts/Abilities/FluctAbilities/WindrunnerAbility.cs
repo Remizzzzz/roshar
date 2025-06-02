@@ -9,7 +9,7 @@ public class WindrunnerAbility : Ability
     //Specific properties for Windrunner ability
     Dictionary<GameObject,int> lockedPieces = new();
     public int turnsToLock = 2; // Number of turns to lock the piece
-    private List<Vector3Int> abilityTargets;
+    private List<Vector3Int> abilityTargets=new();
 
 
     // General inherited properties

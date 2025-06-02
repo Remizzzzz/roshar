@@ -9,7 +9,7 @@ public class SkybreakerAbility : Ability
         return Utils.launchD4(1)+1;
     }
 
-    private List<Vector3Int> abilityTargets;
+    private List<Vector3Int> abilityTargets=new();
     //inherited properties
     [SerializeField] private int _abilityCost = 4;
     public override int abilityCost => _abilityCost;

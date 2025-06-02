@@ -7,7 +7,7 @@ public class HeavenlyAbility : Ability
 {
     //Ability specific properties
     public int alliesTeleportable = 2; // Number of allies that can be teleported
-    private List<Vector3Int> abilityTargets; 
+    private List<Vector3Int> abilityTargets=new(); 
     private List<PieceMovement> targetedAllies = new List<PieceMovement>(); // List of pieces targeted by the ability
     private bool isTargetingAllies = false; // Flag to indicate if the ability targets allies
     private bool isTargetingTiles = true; // Flag to indicate if the ability targets tiles

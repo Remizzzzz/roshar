@@ -20,6 +20,7 @@ public class PieceAttack : MonoBehaviour {
     internal PieceMovement pM; //To reuse the map logic of PieceMovement
     private int curLp;
     private int curNbAtk;
+    internal int curAtk;
     internal bool isAttacking=false;
     private bool isDistracted = false; //To check if the piece is distracted, so it can't attack
     //public methods
@@ -27,6 +28,9 @@ public class PieceAttack : MonoBehaviour {
     public void decrCurNbAtk(){curNbAtk--;}
     public int getCurLp() => curLp;
     public int getCurNbAtk() =>curNbAtk;
+    public void boostAttack(int boost){
+        curAtk += boost;
+    }
     public void damage(int dmg){
         curLp-=(dmg-dmgReduc);
         if (curLp <= 0)
@@ -67,9 +71,10 @@ public class PieceAttack : MonoBehaviour {
 
     //Private methods
     
-    private void refreshMoves(){
+    private void refreshAttack(){
         if (curTurn<TurnManager.Instance.getTurnNumber()){
             curNbAtk=nbAtk;
+            curAtk = baseAtk;
             curTurn=TurnManager.Instance.getTurnNumber();
         }
     }
@@ -128,13 +133,14 @@ public class PieceAttack : MonoBehaviour {
     {
         curLp = lp;
         curNbAtk = nbAtk;
+        curAtk = baseAtk;
 
     }
 
     // Update is called once per frame
     void Update() 
     {
-        refreshMoves();
+        refreshAttack();
         //The following code seems to not be working, I'll check into that later
         if (isAttacking && Input.GetMouseButtonDown(0)){
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //Get Mouse Position

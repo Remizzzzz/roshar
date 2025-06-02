@@ -7,7 +7,7 @@ public class LightweaverAbility : Ability
 
     //Ability specific properties
     public int abilityDamage = 6;
-    List<Vector3Int> abilityTargets;
+    List<Vector3Int> abilityTargets=new();
 
     //Inherited properties
     [SerializeField] private int _abilityCost = 1;
