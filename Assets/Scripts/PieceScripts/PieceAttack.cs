@@ -25,7 +25,7 @@ public class PieceAttack : MonoBehaviour {
     internal bool isAttacking=false;
     private bool isDistracted = false; //To check if the piece is distracted, so it can't attack
     private bool immunity = false; //To check if the piece is immune to damage, used for special cases
-    private bool Protected = false; //To check if the piece is protected, used for special cases
+    internal bool isProtected = false; //To check if the piece is Protected, used for special cases
     //public methods
     public bool lpChanged => curLp != oldLp; //To check if the LP changed
     public void resetLp(){
@@ -34,9 +34,9 @@ public class PieceAttack : MonoBehaviour {
     public void setImmune(){
         immunity = true;
     }
-    public void isProtected(int reduc){ 
+    public void Protect(int reduc){ 
         dmgReduc = reduc; 
-        Protected = true; //Set the piece as protected, so it can take less damage
+        isProtected = true; //Set the piece as Protected, so it can take less damage
     } //Set the damage reduction, used for special cases
     public bool IsDistracted() => isDistracted;
     public void decrCurNbAtk(){curNbAtk--;}
@@ -93,8 +93,8 @@ public class PieceAttack : MonoBehaviour {
             curAtk = baseAtk;
             oldLp = curLp; //Save the current LP to check if it changed
             curTurn=TurnManager.Instance.getTurnNumber();
-            if (Protected){
-                Protected = false; //Reset the protection after the turn ends
+            if (isProtected){
+                isProtected = false; //Reset the protection after the turn ends
                 dmgReduc = 0; //Reset the damage reduction after the turn ends
             }
         }
@@ -197,7 +197,7 @@ public class PieceAttack : MonoBehaviour {
         }
 
         bool hasFluctNeighbor = false; //Flag to check if a neighbor is a fluct piece
-        if (pM.isFluct && !Protected) {
+        if (pM.isFluct && !isProtected) {
             if (!pM.isSpecial && !pM.enhancedTroop) {  //If the troop is basic
 
                 //This all logic was created AFTER I created hasNeighbor<T>(), that's why I didn't use it

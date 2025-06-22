@@ -4,6 +4,7 @@ public enum GamePhase {movement,summon,combat}
 public class PhaseManager : MonoBehaviour
 {
     public static PhaseManager Instance;
+    public bool AnimatePhaseChange = true; //If true, the phase change will be animated, this a flag that an object of the interface use
     private GamePhase gamePhase = GamePhase.summon;
     public GamePhase getPhase(){return gamePhase;}
     public bool MovementPhase() {return gamePhase==GamePhase.movement;}
@@ -28,6 +29,7 @@ public class PhaseManager : MonoBehaviour
             if (PieceInteractionManager.Instance.getTargetOnMap(TurnManager.Instance.getPlayerTurn())==null) gamePhase=GamePhase.summon;
             TurnManager.Instance.updateTurn();
         }
+        AnimatePhaseChange = true; //We set the flag to true, so the interface will animate the phase change
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

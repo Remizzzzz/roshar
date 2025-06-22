@@ -4,7 +4,6 @@ using TMPro; // or UnityEngine.UI
 public class TurnManager : MonoBehaviour
 {
     public static TurnManager Instance;
-    public TextMeshProUGUI turnText; // ou public Text turnText;
     public MapParameters mapParameters;
     private bool turn=true; //false if it's the first player turn, true if it's the second player turn
     private bool enhancedSummonFus = false;
@@ -39,8 +38,6 @@ public class TurnManager : MonoBehaviour
         turn = !turn;
         hasSummoned = 0;
         if (turn && startingPlayer) turnNumber++;
-        if (turn) turnText.text = "Fluctuomanciens " + turnNumber.ToString();
-        else turnText.text = "Fusionnés " + turnNumber.ToString();
 
         if (!turn && (turnNumber - 2 >= enhancedSummonFusTurn)) enhancedSummonFus = false;
         if (turn && (turnNumber - 2 >= enhancedSummonFluctTurn)) enhancedSummonFluct = false;
@@ -49,7 +46,13 @@ public class TurnManager : MonoBehaviour
         return turnNumber;
     }
     public bool getPlayerTurn(){
-        return turn!=startingPlayer; //If true, it's the turn of fluct, if false, it's the turn of fus
+        return turn!=startingPlayer; //If false, it's the turn of fluct, if true, it's the turn of fus
+        /*
+        turn           | true (1st player turn) | false (2d Player turn) | true (1st player turn) | false (2d Player turn)
+        startingPlayer | true (Fluct)           | false (Fus)            | false (Fus)            | true (Fluct)
+        output         | false (Fluct)          | false (Fluct)          | true (Fus)             | true (Fus)
+        So if turn is true, it's the turn of fluct, if false, it's the turn of fus
+        */
     }
 
     public bool getEnhancedSummonFus() =>enhancedSummonFus;
@@ -58,8 +61,6 @@ public class TurnManager : MonoBehaviour
     void Start()
     {
         Instance = this;
-        if (turn) turnText.text = "Fluctuomanciens " + turnNumber.ToString();
-        else turnText.text = "Fusionnés " + turnNumber.ToString();
         //There will be a method getFirstPlayer(), for now, blue always start
         turn=true;
         startingPlayer=true;

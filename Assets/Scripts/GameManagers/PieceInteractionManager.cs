@@ -18,6 +18,8 @@ public class PieceInteractionManager : MonoBehaviour
     public bool isAPiece(Vector3Int coor) {return (fluct.ContainsKey(coor) || fus.ContainsKey(coor));}
 
     //public methods
+    public Dictionary<Vector3Int, GameObject> getFluctDictionnary() { return fluct; }
+    public Dictionary<Vector3Int, GameObject> getFusDictionnary() { return fus; }
     public GameObject getPiece(Vector3Int coor) {
         if (fluct.ContainsKey(coor)) return fluct[coor];
         else if (fus.ContainsKey(coor)) return fus[coor];
@@ -242,14 +244,14 @@ public class PieceInteractionManager : MonoBehaviour
     public void protect(int dmgReduction){
         foreach(Vector3Int target in listOfTargets){
             if (fluct.ContainsKey(target)){
-                fluct[target].GetComponent<PieceAttack>().isProtected(dmgReduction);
+                fluct[target].GetComponent<PieceAttack>().Protect(dmgReduction);
             } else if (fus.ContainsKey(target)){
-                fus[target].GetComponent<PieceAttack>().isProtected(dmgReduction);
+                fus[target].GetComponent<PieceAttack>().Protect(dmgReduction);
             }
         }
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         Instance=this;
         initDicts();

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1aa67b6f56d51e74bb2f58c8ff1de705
+guid: 5821ce108aa1beb4ca29e8a01de92573
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6287293712785014924
-    second: Distracted_0
+      213: 1637954016605795844
+    second: Locked_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Distracted_0
+      name: Locked_0
       rect:
         serializedVersion: 2
-        x: 563
-        y: 92
-        width: 514
-        height: 480
+        x: 687
+        y: 170
+        width: 266
+        height: 323
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 47ff6e20eab0fb8a0800000000000000
-      internalID: -6287293712785014924
+      spriteID: 4067636ff7e2bb610800000000000000
+      internalID: 1637954016605795844
       vertices: []
       indices: 
       edges: []

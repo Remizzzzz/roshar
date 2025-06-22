@@ -43,7 +43,7 @@ public class MagnifiedAbility : Ability
             PieceInteractionManager.Instance.protect(dmgReduction); // Protect the targeted pieces with the damage reduction
             PieceInteractionManager.Instance.resetTargets(true); // Reset the targets after protection
             
-            GetComponent<PieceAttack>().isProtected(dmgReduction);
+            GetComponent<PieceAttack>().Protect(dmgReduction);
             launchAttack(); // Launch the attack with the current targeter and defender
             castAbility(); // Cast the ability to deduct the cost
             resetAbility(); // Reset the ability after activation 
