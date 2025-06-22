@@ -5,8 +5,11 @@ using System;
 public abstract class Ability : MonoBehaviour
 {
     //Variables and method to use
+    public static int Stormlight => stormlight; // Public static property to access stormlight
+    public static int Voidlight => voidlight; // Public static property to access voidlight
     protected static int stormlight = 6; //Fulgiflamme, mana for ability of fluct
     protected static int voidlight = 6; // Néantiflamme, mana for ability of fus
+    
     public Vector3Int CurPos => GetComponent<PieceMovement>().getCurPos();
     protected bool isAbilityActive = false; // Flag to check if the ability is currently active
     protected bool abilityCasted = false; // Flag to check if the ability was casted

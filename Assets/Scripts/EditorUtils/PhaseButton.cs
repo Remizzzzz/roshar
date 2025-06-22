@@ -2,10 +2,9 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class CombatModeButton : MonoBehaviour {
+public class PhaseButton : MonoBehaviour {
     private string combatText = "End of Turn";
-    private string moveText = "Next : Summon Phase";
-    private string summoningText = "Next : Combat Phase";
+    private string nextText = "Next Phase";
     private Color colorSummoning = new Color (60f/255f,100f/255f,1f);
     private Color colorCombat = new Color(182f / 255f, 64f / 255f, 59f / 255f);
     private Color colorMove = new Color(92f / 255f, 201f / 255f, 221f / 255f);
@@ -13,7 +12,7 @@ public class CombatModeButton : MonoBehaviour {
         TMP_Text textComponent = GetComponentInChildren<TMP_Text>();
         Image backgroundImage = GetComponentInChildren<Image>();
         if (PhaseManager.Instance.MovementPhase()){
-            if (textComponent != null) textComponent.text = moveText;
+            if (textComponent != null) textComponent.text = nextText;
             if (backgroundImage != null) backgroundImage.color = colorMove;
         }
         else if (PhaseManager.Instance.CombatPhase()) {
@@ -21,7 +20,7 @@ public class CombatModeButton : MonoBehaviour {
             if (backgroundImage != null) backgroundImage.color = colorCombat;
         }
         else if (PhaseManager.Instance.SummoningPhase()){
-            if (textComponent != null) textComponent.text = summoningText;
+            if (textComponent != null) textComponent.text = nextText;
             if (backgroundImage != null) backgroundImage.color = colorSummoning;
         }
 

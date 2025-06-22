@@ -24,10 +24,12 @@ public class WinCondition : MonoBehaviour
     {
         if (fluctOnMap <= 0 && !TurnManager.Instance.mapParameters.summoningTurns.Contains(TurnManager.Instance.getTurnNumber()))
         {
+            GameData.fusScore ++;
             SceneManager.LoadScene("OdiumVictory");
         }
         else if (fusOnMap <= 0 && !TurnManager.Instance.mapParameters.summoningTurns.Contains(TurnManager.Instance.getTurnNumber()))
         {
+            GameData.fluctScore ++;
             SceneManager.LoadScene("HonorVictory");
         }
     }

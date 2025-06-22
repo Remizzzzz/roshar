@@ -5,12 +5,13 @@ public class TurnManager : MonoBehaviour
 {
     public static TurnManager Instance;
     public MapParameters mapParameters;
-    private bool turn=true; //false if it's the first player turn, true if it's the second player turn
+    private bool turn=true; //true if it's the first player turn, false if it's the second player turn
     private bool enhancedSummonFus = false;
     private int enhancedSummonFusTurn = 0;
+    internal bool newTurn = false;
     private bool enhancedSummonFluct = false;
     private int enhancedSummonFluctTurn = 0;
-    private bool startingPlayer = true; //True if fluctuomanciens start first, false if fusionnes start first
+    private bool startingPlayer = true; //True if fluctuomancers start first, false if fused start first
     private int turnNumber=1;//Turns start at 1
     private int hasSummoned=0;//TurnManager manage also the number of summon per turn (only one by default)
     //Public method
@@ -35,6 +36,7 @@ public class TurnManager : MonoBehaviour
     }
     public void updateTurn()
     {
+        newTurn = true;
         turn = !turn;
         hasSummoned = 0;
         if (turn && startingPlayer) turnNumber++;
@@ -58,11 +60,17 @@ public class TurnManager : MonoBehaviour
     public bool getEnhancedSummonFus() =>enhancedSummonFus;
     public bool getEnhancedSummonFluct() =>enhancedSummonFluct;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    void Awake(){
+        foreach (string troop in mapParameters.unlockedTroops)
+        {
+            GameData.isUnlocked.Add(troop);
+        }
+        Instance = this;
+    }
     void Start()
     {
-        Instance = this;
         //There will be a method getFirstPlayer(), for now, blue always start
-        turn=true;
         startingPlayer=true;
     }
 

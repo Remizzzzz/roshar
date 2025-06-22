@@ -198,7 +198,7 @@ public class PieceAttack : MonoBehaviour {
 
         bool hasFluctNeighbor = false; //Flag to check if a neighbor is a fluct piece
         if (gameObject.name.Contains("Lancer") && !isProtected) { //If the piece is a Lancer and not protected
-                //This all logic was created AFTER I created hasNeighbor<T>(), that's why I didn't use it
+                //This logic was created AFTER I created hasNeighbor<T>(), that's why I didn't use it
                 List<Vector3Int> neighbors = PieceMovement.detectTilesInRange(pM.getCurPos(), 1,pM.tileMap); //Get neighboors in range 1
                 foreach (Vector3Int neighbor in neighbors) {
                     if (neighbor != pM.getCurPos()) {//Avoid checking the current position

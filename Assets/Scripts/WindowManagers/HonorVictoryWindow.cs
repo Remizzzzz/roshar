@@ -2,9 +2,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro; // ou UnityEngine.UI si tu utilises le Text classique
 
-public class OdiumVictoryWindow : MonoBehaviour
+public class HonorVictoryWindow : MonoBehaviour
 {
-    public static OdiumVictoryWindow Instance;
+    public static HonorVictoryWindow Instance;
     public GameObject menuButtonObject;
     public GameObject nextGameButtonObject;
     public TMP_Text victoryText;
@@ -15,12 +15,12 @@ public class OdiumVictoryWindow : MonoBehaviour
     {
         Instance = this;
         if (GameData.fusScore >= GameData.winScore){
-            victoryText.text = "Odium forces won the war !";
+            victoryText.text = "Honor forces won the war !";
             menuButtonObject.SetActive(true);
             nextGameButtonObject.SetActive(false);
         }
         else {
-            victoryText.text = "Odium forces won the battle !\nGet ready for the next one !";
+            victoryText.text = "Honor forces won the battle !\nGet ready for the next one !";
             menuButtonObject.SetActive(false);
             nextGameButtonObject.SetActive(true);
         }

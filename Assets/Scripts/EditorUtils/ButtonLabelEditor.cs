@@ -6,19 +6,23 @@ public class ButtonLabelEditor : MonoBehaviour
 {
     [TextArea]
     public string label = "Nouveau texte";
+    public float size= 20f;
     private string lastLabel;
+    public TMP_FontAsset fontAsset;
 
     void Update()
     {
         if (!Application.isPlaying) {
+            TMP_Text textComponent = GetComponentInChildren<TMP_Text>();
             if (label != lastLabel) {
-                TMP_Text textComponent = GetComponentInChildren<TMP_Text>();
                 if (textComponent != null)
                 {
                     textComponent.text = label;
                     lastLabel = label;
                 }
             }
+            textComponent.fontSize = size;
+            textComponent.font = fontAsset;
         }
     }
 }

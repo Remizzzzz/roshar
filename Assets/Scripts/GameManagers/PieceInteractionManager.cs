@@ -5,8 +5,8 @@ using utils;
 public class PieceInteractionManager : MonoBehaviour
 {
     public static PieceInteractionManager Instance;
-    public GameObject fusionnes;
-    public GameObject fluctuomanciens; 
+    public GameObject fused;
+    public GameObject fluctuomancers; 
     public Color targetColor = new Color(165f/255f,165f/255f,165f/255f);
     internal Tilemap tileMap;
     private Dictionary<Vector3Int,GameObject> fluct=new();
@@ -61,21 +61,21 @@ public class PieceInteractionManager : MonoBehaviour
     public void addPiece(GameObject p, Vector3Int pos, bool isFluct){
         if (isFluct) {
             if (!fluct.ContainsKey(pos)) fluct.Add(pos,p);
-            else Debug.LogWarning("Piece already exists at position " + pos + " in fluctuomanciens dictionary.");
+            else Debug.LogWarning("Piece already exists at position " + pos + " in fluctuomancers dictionary.");
         } else {
             if (!fus.ContainsKey(pos)) fus.Add(pos,p);
-            else Debug.LogWarning("Piece already exists at position " + pos + " in fusionnes dictionary.");
+            else Debug.LogWarning("Piece already exists at position " + pos + " in fused dictionary.");
         }
     }
     private void initDicts(){
         int idCount=-100;
-        foreach (Transform piece in fusionnes.transform){
+        foreach (Transform piece in fused.transform){
             if (!fus.ContainsValue(piece.gameObject)){
                 fus.Add(new Vector3Int(-1,idCount--,0),piece.gameObject);
             }
         }
         idCount=-100;
-        foreach (Transform piece in fluctuomanciens.transform){
+        foreach (Transform piece in fluctuomancers.transform){
             if (!fluct.ContainsValue(piece.gameObject)){
                 fluct.Add(new Vector3Int(-1,idCount--,0),piece.gameObject);
             }
@@ -250,6 +250,21 @@ public class PieceInteractionManager : MonoBehaviour
             }
         }
     }
+
+    public List<GameObject> findName(string name){ // This method will return a list of GameObjects that have the specified name in their PieceAttributes component
+        List<GameObject> foundPieces = new List<GameObject>();
+        foreach(GameObject piece in fluct.Values){
+            if (piece.GetComponent<PieceAttributes>().pieceName == name){
+                foundPieces.Add(piece);
+            }
+        }
+        foreach(GameObject piece in fus.Values){
+            if (piece.GetComponent<PieceAttributes>().pieceName == name){
+                foundPieces.Add(piece);
+            }
+        }
+        return foundPieces;
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -257,7 +272,14 @@ public class PieceInteractionManager : MonoBehaviour
         initDicts();
         tileMap = TileStateManager.Instance.tileMap;
     }
-
+    void Start(){
+        foreach (string troop in GameData.isUnlocked)
+        {
+            foreach (GameObject piece in findName(troop)){
+                piece.SetActive(true); // Activate all unlocked pieces
+            }
+        }
+    }
 
     // Update is called once per frame
     void Update()

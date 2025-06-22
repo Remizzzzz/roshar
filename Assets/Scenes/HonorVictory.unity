@@ -297,9 +297,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 341142812}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a5ce3f10ef92534197e92eded2f1842, type: 3}
+  m_Script: {fileID: 11500000, guid: a910c7e6f5902614ebf0881bdd07bc66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuButtonObject: {fileID: 2127809222}
+  nextGameButtonObject: {fileID: 425980352}
+  victoryText: {fileID: 1830385873}
 --- !u!1 &425980352
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,12 +317,12 @@ GameObject:
   - component: {fileID: 425980355}
   - component: {fileID: 425980354}
   m_Layer: 5
-  m_Name: ReplayButton
+  m_Name: NextButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &425980353
 RectTransform:
   m_ObjectHideFlags: 0
@@ -337,8 +340,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 789, y: -464}
-  m_SizeDelta: {x: 200, y: 60}
+  m_AnchoredPosition: {x: -3.638e-12, y: -472.26}
+  m_SizeDelta: {x: 336.79, y: 76.505}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &425980354
 MonoBehaviour:
@@ -352,7 +355,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad86b63f291eaa24a87a4be0d754f4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  label: Replay
+  label: Next Game
+  size: 50
+  fontAsset: {fileID: 11400000, guid: 85ac09211f29bd1479877afe83751f40, type: 2}
 --- !u!114 &425980355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,7 +401,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 425980356}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 341142814}
+        m_TargetAssemblyTypeName: HonorVictoryWindow, Assembly-CSharp
+        m_MethodName: nextGameButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &425980356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -573,8 +590,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 85ac09211f29bd1479877afe83751f40, type: 2}
+  m_sharedMaterial: {fileID: 32334441594277843, guid: 85ac09211f29bd1479877afe83751f40, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -598,8 +615,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -789,8 +806,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6, y: -379.25}
-  m_SizeDelta: {x: 1934.81, y: 362.68}
+  m_AnchoredPosition: {x: -7.405, y: -385.13}
+  m_SizeDelta: {x: 1934.81, y: 513.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1176045615
 MonoBehaviour:
@@ -911,8 +928,8 @@ Transform:
   m_GameObject: {fileID: 1773342521}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03, y: -0.14, z: 0}
-  m_LocalScale: {x: 5.068978, y: 4.73945, z: 1}
+  m_LocalPosition: {x: 0.06, y: 0.4659, z: 0}
+  m_LocalScale: {x: 5.105225, y: 4.058907, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -951,7 +968,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -741.41003, y: 103.97995}
+  m_AnchoredPosition: {x: -741.41003, y: 179.45001}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1830385873
@@ -1001,8 +1018,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 150
-  m_fontSizeBase: 150
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1110,10 +1127,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Replay
+  m_text: Next Game
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 85ac09211f29bd1479877afe83751f40, type: 2}
+  m_sharedMaterial: {fileID: 32334441594277843, guid: 85ac09211f29bd1479877afe83751f40, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1137,8 +1154,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1208,7 +1225,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2127809223
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1226,8 +1243,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -812, y: -461}
-  m_SizeDelta: {x: 200, y: 60}
+  m_AnchoredPosition: {x: 0.0000076294, y: -472.26}
+  m_SizeDelta: {x: 336.79, y: 76.51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2127809224
 MonoBehaviour:
@@ -1242,6 +1259,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   label: Menu
+  size: 50
+  fontAsset: {fileID: 11400000, guid: 85ac09211f29bd1479877afe83751f40, type: 2}
 --- !u!114 &2127809225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1287,7 +1306,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 341142814}
-        m_TargetAssemblyTypeName: OdiumVictoryWindow, Assembly-CSharp
+        m_TargetAssemblyTypeName: HonorVictoryWindow, Assembly-CSharp
         m_MethodName: menuButton
         m_Mode: 1
         m_Arguments:
@@ -1311,7 +1330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.87169814, g: 0.14309002, b: 0.14309002, a: 1}
+  m_Color: {r: 0.6266206, g: 0.6528301, b: 0.30424345, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

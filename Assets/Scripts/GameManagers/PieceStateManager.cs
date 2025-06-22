@@ -6,8 +6,8 @@ public enum PieceState {moving,basic,attacking,casting,locked,distracted}
 public class PieceStateManager : MonoBehaviour
 {
     public static PieceStateManager Instance;
-    public GameObject fusionnes;
-    public GameObject fluctuomanciens;
+    public GameObject fused;
+    public GameObject fluctuomancers;
     private Dictionary<GameObject, PieceState> statesFus = new(); //The piece state is linked to GameObject because of tiny error in implementation, it's too late to change it now
     private Dictionary<GameObject, PieceState> statesFluct = new();
 
@@ -46,14 +46,14 @@ public class PieceStateManager : MonoBehaviour
         }
     }
     private void initDicts(){
-        foreach (Transform piece in fusionnes.transform)
+        foreach (Transform piece in fused.transform)
         {
             if (!statesFus.ContainsKey(piece.gameObject)){
                 statesFus.Add(piece.gameObject,PieceState.basic);
 
             }
         }
-        foreach (Transform piece in fluctuomanciens.transform){
+        foreach (Transform piece in fluctuomancers.transform){
             if (!statesFluct.ContainsKey(piece.gameObject)){
                 statesFluct.Add(piece.gameObject,PieceState.basic);
             }

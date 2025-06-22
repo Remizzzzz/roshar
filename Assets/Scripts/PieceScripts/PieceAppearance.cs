@@ -12,7 +12,6 @@ public class PieceAppearance : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PieceState state = PieceStateManager.Instance.getState(gameObject, gameObject.GetComponent<PieceMovement>().isFluct);
         if (gameObject.GetComponent<PieceMovement>().IsLocked()){
             AppearanceManager.Instance.isLockedEvent(gameObject);
         } else {

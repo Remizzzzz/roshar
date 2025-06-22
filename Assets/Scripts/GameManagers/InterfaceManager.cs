@@ -9,31 +9,16 @@ public class InterfaceManager : MonoBehaviour
     public TextMeshProUGUI phaseText; 
     public TextMeshProUGUI statusText; 
     public TextMeshProUGUI phaseAnnounceText; 
+    public TextMeshProUGUI StormlightCount;
+    public TextMeshProUGUI VoidlightCount;
 
     void Update()
     {
-        /*if (Input.GetMouseButtonDown(0)) // clic gauche
-        {
-            Vector3 mouseWorldPos = cam.ScreenToWorldPoint(Input.mousePosition);
-            mouseWorldPos.z = 0;
-
-            Vector3Int cellPos = tilemap.WorldToCell(mouseWorldPos);
-            TileBase tile = tilemap.GetTile(cellPos);
-            if (!PieceInteractionManager.Instance.isAPiece(cellPos)){
-                if (tile != null)
-                {
-                    phaseText.text = "Coordonnées : " + cellPos.ToString() + "\nState : "+TileStateManager.Instance.getState(cellPos).ToString();
-                }
-                else
-                {
-                    phaseText.text = "No tile here";
-                }
-            } else {
-                PieceAttack p = PieceInteractionManager.Instance.getPiece(cellPos);
-                phaseText.text = "Lp : "+p.getCurLp().ToString() + "\nSelection : "+(!PieceStateManager.Instance.isAttacked(p.pM.isFluct) && !PieceStateManager.Instance.isAttacked(!(p.pM.isFluct)))+"\nCurNbAtk : "+p.getCurNbAtk().ToString();
-            }
-        }*/
-        phaseText.text = "Phase : "+PhaseManager.Instance.getPhase().ToString()+"\nTurn : "+ (!TurnManager.Instance.getPlayerTurn() ? "Fluctuomanciens " : "Fusionnés ")+TurnManager.Instance.getTurnNumber().ToString();
+        // Update stormlight and voidlight counts
+        StormlightCount.text = Ability.Stormlight.ToString();
+        VoidlightCount.text = Ability.Voidlight.ToString();
+        
+        phaseText.text = "Phase : "+PhaseManager.Instance.getPhase().ToString()+"\nTurn : "+ (!TurnManager.Instance.getPlayerTurn() ? "Fluctuomancers " : "Fused ")+TurnManager.Instance.getTurnNumber().ToString();
         phaseAnnounceText.text = PhaseManager.Instance.CombatPhase()? "Fight !": (PhaseManager.Instance.MovementPhase() ? "Move !" : "Summon !");
         if (Input.GetMouseButtonDown(1)) // clic droit
         {
