@@ -384,8 +384,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 90
+  m_fontSizeBase: 90
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -568,6 +568,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   label: RULES
+  size: 50
+  fontAsset: {fileID: 11400000, guid: 85ac09211f29bd1479877afe83751f40, type: 2}
 --- !u!114 &1002103981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -632,7 +634,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4102213686416880286, guid: ada6250f6965ab5448f18b4a0f85f1e1, type: 3}
+  m_Sprite: {fileID: 4102213686416880286, guid: c7c651e166fdae94db23058f56c32077, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -914,8 +916,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1242,6 +1244,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   label: PLAY
+  size: 90
+  fontAsset: {fileID: 11400000, guid: 85ac09211f29bd1479877afe83751f40, type: 2}
 --- !u!114 &2037572913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1318,7 +1322,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4102213686416880286, guid: ada6250f6965ab5448f18b4a0f85f1e1, type: 3}
+  m_Sprite: {fileID: 4102213686416880286, guid: c7c651e166fdae94db23058f56c32077, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

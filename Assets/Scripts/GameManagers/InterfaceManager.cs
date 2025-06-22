@@ -39,7 +39,7 @@ public class InterfaceManager : MonoBehaviour
             } else {
                 GameObject piece = PieceInteractionManager.Instance.getPiece(cellPos);
                 PieceAttack p = PieceInteractionManager.Instance.getPiece(cellPos).GetComponent<PieceAttack>();
-                statusText.text = piece.GetComponent<PieceAttributes>().pieceName + "\nLp : "+p.getCurLp().ToString() +"\nAttack left : "+p.getCurNbAtk().ToString() + "\nMovement left : "+p.pM.getCurMov().ToString() + "\nDamage Reduction : "+p.dmgReduc.ToString()+"\nDamage : "+(p.d4Atk!=0 ? p.d4Atk.ToString()+" d4 + ":"") + p.baseAtk.ToString();
+                statusText.text = piece.GetComponent<PieceAttributes>().pieceName + "\nLp : "+p.getCurLp().ToString() +"\nAttack left : "+p.getCurNbAtk().ToString() + "\nMovement left : "+p.pM.getCurMov().ToString() + "\nDamage Reduction : "+p.dmgReduc.ToString()+"\nDamage : "+(p.d4Atk!=0 ? p.d4Atk.ToString()+" d4 + ":"") + p.baseAtk.ToString() + (p.pM.isSpecial ? "\nAbility Cost : "+piece.GetComponent<Ability>().abilityCost.ToString() : "");
             }
         }
     }
