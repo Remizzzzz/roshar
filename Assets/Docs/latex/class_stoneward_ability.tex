@@ -1,0 +1,170 @@
+\doxysection{Stoneward\+Ability Class Reference}
+\hypertarget{class_stoneward_ability}{}\label{class_stoneward_ability}\index{StonewardAbility@{StonewardAbility}}
+Inheritance diagram for Stoneward\+Ability\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_stoneward_ability}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{class_stoneward_ability_a20c02fef4e916d2e3b1053eb7a44c711}{minion\+Prefab}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_stoneward_ability_a35fcde1c390d6e5da588cd02c43b7c6f}{Activate\+Ability}} ()
+\begin{DoxyCompactList}\small\item\em Cost of the ability, to be defined in derived classes. \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{class_stoneward_ability_a57f8cfc937e14f5f9f42eacb71dfef97}{reset\+Ability}} ()
+\item 
+override void \mbox{\hyperlink{class_stoneward_ability_aaffbd280bb72c8e64736b44571a269d9}{Start}} ()
+\item 
+override void \mbox{\hyperlink{class_stoneward_ability_a479786800805128042d4029ebb79cb82}{Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_ability}{Ability}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_ability_aae87ed210e03b55201dda2db91968c44}{cast\+Ability}} ()
+\begin{DoxyCompactList}\small\item\em Turn when the ability was casted, used for cooldown or restoration logic. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ability_aa58f84e31e2e80e024db4795e3146be3}{restore}} ()
+\begin{DoxyCompactList}\small\item\em Flag to check if restoration is allowed (to limit restoration to one time every 8 turns) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ability_a4d673a4705f73d6556937e60c906c867}{restore\+Ability}} ()
+\item 
+virtual void \mbox{\hyperlink{class_ability_a654cfec059b15b596a6d023beebf45b6}{start\+Ability}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_stoneward_ability_aeeb061282ab628a9e184b0cc394a1908}\label{class_stoneward_ability_aeeb061282ab628a9e184b0cc394a1908} 
+override int {\bfseries ability\+Cost}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Properties inherited from \mbox{\hyperlink{class_ability}{Ability}}}
+\begin{DoxyCompactItemize}
+\item 
+static int {\bfseries Stormlight}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+static int {\bfseries Voidlight}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Public static property to access stormlight. \end{DoxyCompactList}\item 
+Vector3\+Int {\bfseries Cur\+Pos}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Néantiflamme, mana for ability of fus. \end{DoxyCompactList}\item 
+int {\bfseries ability\+Cost}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_stoneward_ability_ae8a2f33619b50f76f8db701c8e782979}{summon\+Minion}} (Vector3\+Int mouse\+Position)
+\begin{DoxyCompactList}\small\item\em Tiles where the minion can be summoned. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_stoneward_ability_a17bf32c20e6b120782a69a4ec48bf0a7}\label{class_stoneward_ability_a17bf32c20e6b120782a69a4ec48bf0a7} 
+List$<$ Vector3\+Int $>$ {\bfseries summoning\+Tiles} = new()
+\begin{DoxyCompactList}\small\item\em Prefab for the Stoneward minion. \end{DoxyCompactList}\item 
+\Hypertarget{class_stoneward_ability_aeabdab77989e539068b4c8319dbe7cc6}\label{class_stoneward_ability_aeabdab77989e539068b4c8319dbe7cc6} 
+int {\bfseries \+\_\+ability\+Cost} = 2
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_ability}{Ability}}}
+\begin{DoxyCompactItemize}
+\item 
+bool {\bfseries is\+Ability\+Active} = false
+\item 
+bool {\bfseries ability\+Casted} = false
+\begin{DoxyCompactList}\small\item\em Flag to check if the ability is currently active. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes inherited from \mbox{\hyperlink{class_ability}{Ability}}}
+\begin{DoxyCompactItemize}
+\item 
+static int {\bfseries stormlight} = 6
+\begin{DoxyCompactList}\small\item\em Public static property to access voidlight. \end{DoxyCompactList}\item 
+static int {\bfseries voidlight} = 6
+\begin{DoxyCompactList}\small\item\em Fulgiflamme, mana for ability of fluct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_stoneward_ability_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_stoneward_ability_a35fcde1c390d6e5da588cd02c43b7c6f}\index{StonewardAbility@{StonewardAbility}!ActivateAbility@{ActivateAbility}}
+\index{ActivateAbility@{ActivateAbility}!StonewardAbility@{StonewardAbility}}
+\doxysubsubsection{\texorpdfstring{ActivateAbility()}{ActivateAbility()}}
+{\footnotesize\ttfamily \label{class_stoneward_ability_a35fcde1c390d6e5da588cd02c43b7c6f} 
+override void Stoneward\+Ability.\+Activate\+Ability (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Cost of the ability, to be defined in derived classes. 
+
+
+\begin{DoxyItemize}
+\item This method is called to activate the Stoneward ability. It checks if the ability can be activated, detects the tiles in range, and updates the tile states to indicate summoning tiles.
+\end{DoxyItemize}
+
+This method should be overridden in derived classes to implement the specific ability logic
+
+Reimplemented from \mbox{\hyperlink{class_ability_a94737a4e696b9ac6be445a281fd1c5af}{Ability}}.
+
+\Hypertarget{class_stoneward_ability_a57f8cfc937e14f5f9f42eacb71dfef97}\index{StonewardAbility@{StonewardAbility}!resetAbility@{resetAbility}}
+\index{resetAbility@{resetAbility}!StonewardAbility@{StonewardAbility}}
+\doxysubsubsection{\texorpdfstring{resetAbility()}{resetAbility()}}
+{\footnotesize\ttfamily \label{class_stoneward_ability_a57f8cfc937e14f5f9f42eacb71dfef97} 
+override void Stoneward\+Ability.\+reset\+Ability (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_ability_a3abf696afae15065d3e56dca90bd2e17}{Ability}}.
+
+\Hypertarget{class_stoneward_ability_aaffbd280bb72c8e64736b44571a269d9}\index{StonewardAbility@{StonewardAbility}!Start@{Start}}
+\index{Start@{Start}!StonewardAbility@{StonewardAbility}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_stoneward_ability_aaffbd280bb72c8e64736b44571a269d9} 
+override void Stoneward\+Ability.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_ability}{Ability}}.
+
+\Hypertarget{class_stoneward_ability_ae8a2f33619b50f76f8db701c8e782979}\index{StonewardAbility@{StonewardAbility}!summonMinion@{summonMinion}}
+\index{summonMinion@{summonMinion}!StonewardAbility@{StonewardAbility}}
+\doxysubsubsection{\texorpdfstring{summonMinion()}{summonMinion()}}
+{\footnotesize\ttfamily \label{class_stoneward_ability_ae8a2f33619b50f76f8db701c8e782979} 
+void Stoneward\+Ability.\+summon\+Minion (\begin{DoxyParamCaption}\item[{Vector3\+Int}]{mouse\+Position}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tiles where the minion can be summoned. 
+
+
+\begin{DoxyItemize}
+\item This method is called to summon a minion on the selected tile position. It checks if the tile is valid for summoning, instantiates the minion prefab, and updates the necessary managers to register the new minion.
+\end{DoxyItemize}\Hypertarget{class_stoneward_ability_a479786800805128042d4029ebb79cb82}\index{StonewardAbility@{StonewardAbility}!Update@{Update}}
+\index{Update@{Update}!StonewardAbility@{StonewardAbility}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_stoneward_ability_a479786800805128042d4029ebb79cb82} 
+override void Stoneward\+Ability.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyItemize}
+\item This method is called every frame to check for user input and handle the ability activation. If the left mouse button is clicked and the ability is active, it checks if the clicked tile is a valid summoning tile. If it is, it summons a minion at the selected tile position and resets the ability.
+\end{DoxyItemize}
+
+Reimplemented from \mbox{\hyperlink{class_ability_a88d799f38be464be5f0a9a315efb2d0b}{Ability}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_stoneward_ability_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_stoneward_ability_a20c02fef4e916d2e3b1053eb7a44c711}\index{StonewardAbility@{StonewardAbility}!minionPrefab@{minionPrefab}}
+\index{minionPrefab@{minionPrefab}!StonewardAbility@{StonewardAbility}}
+\doxysubsubsection{\texorpdfstring{minionPrefab}{minionPrefab}}
+{\footnotesize\ttfamily \label{class_stoneward_ability_a20c02fef4e916d2e3b1053eb7a44c711} 
+Game\+Object Stoneward\+Ability.\+minion\+Prefab}
+
+
+\begin{DoxyItemize}
+\item This class implements the Stoneward ability, which allows a piece to summon a minion on a tile. It inherits from the \doxylink{class_ability}{Ability} class and overrides the necessary methods to implement the specific logic for summoning a minion. The ability can only be activated during the player\textquotesingle{}s turn and targets tiles within a range of 1 tile. 
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/rzong/\+Desktop/\+ISART/\+Admission\+\_\+\+Preparation/\+Unity\+Project/\+Roshar/\+Assets/\+Scripts/\+Piece\+Scripts/\+Abilities/\+Fluct\+Abilities/Stoneward\+Ability.\+cs\end{DoxyCompactItemize}

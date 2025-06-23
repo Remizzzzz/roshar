@@ -1,0 +1,136 @@
+\doxysection{Storm\+Shape\+Ability Class Reference}
+\hypertarget{class_storm_shape_ability}{}\label{class_storm_shape_ability}\index{StormShapeAbility@{StormShapeAbility}}
+Inheritance diagram for Storm\+Shape\+Ability\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_storm_shape_ability}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_storm_shape_ability_afea85d7b9d794382da5c73a49dfdbedc}{Activate\+Ability}} ()
+\begin{DoxyCompactList}\small\item\em Cost of the ability, to be defined in derived classes. \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{class_storm_shape_ability_a1dffc052a60cd5db5350321900c122d7}{reset\+Ability}} ()
+\item 
+override void \mbox{\hyperlink{class_storm_shape_ability_aace04c33f674a851599ce64dfc830d13}{Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_ability}{Ability}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_ability_aae87ed210e03b55201dda2db91968c44}{cast\+Ability}} ()
+\begin{DoxyCompactList}\small\item\em Turn when the ability was casted, used for cooldown or restoration logic. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ability_aa58f84e31e2e80e024db4795e3146be3}{restore}} ()
+\begin{DoxyCompactList}\small\item\em Flag to check if restoration is allowed (to limit restoration to one time every 8 turns) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ability_a4d673a4705f73d6556937e60c906c867}{restore\+Ability}} ()
+\item 
+virtual void \mbox{\hyperlink{class_ability_a654cfec059b15b596a6d023beebf45b6}{start\+Ability}} ()
+\item 
+virtual void {\bfseries Start} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_storm_shape_ability_a64e0c60ebead19fc9ef949b1219d832e}\label{class_storm_shape_ability_a64e0c60ebead19fc9ef949b1219d832e} 
+override int {\bfseries ability\+Cost}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Properties inherited from \mbox{\hyperlink{class_ability}{Ability}}}
+\begin{DoxyCompactItemize}
+\item 
+static int {\bfseries Stormlight}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+static int {\bfseries Voidlight}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Public static property to access stormlight. \end{DoxyCompactList}\item 
+Vector3\+Int {\bfseries Cur\+Pos}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Néantiflamme, mana for ability of fus. \end{DoxyCompactList}\item 
+int {\bfseries ability\+Cost}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_storm_shape_ability_ae7fa80dc35358bebb1abadc2c0712bf8}{turn}} =-\/1
+\item 
+\Hypertarget{class_storm_shape_ability_a77a45ed8441ddea910213f2c0aefb4e5}\label{class_storm_shape_ability_a77a45ed8441ddea910213f2c0aefb4e5} 
+int {\bfseries \+\_\+ability\+Cost} = 0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_ability}{Ability}}}
+\begin{DoxyCompactItemize}
+\item 
+bool {\bfseries is\+Ability\+Active} = false
+\item 
+bool {\bfseries ability\+Casted} = false
+\begin{DoxyCompactList}\small\item\em Flag to check if the ability is currently active. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes inherited from \mbox{\hyperlink{class_ability}{Ability}}}
+\begin{DoxyCompactItemize}
+\item 
+static int {\bfseries stormlight} = 6
+\begin{DoxyCompactList}\small\item\em Public static property to access voidlight. \end{DoxyCompactList}\item 
+static int {\bfseries voidlight} = 6
+\begin{DoxyCompactList}\small\item\em Fulgiflamme, mana for ability of fluct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_storm_shape_ability_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_storm_shape_ability_afea85d7b9d794382da5c73a49dfdbedc}\index{StormShapeAbility@{StormShapeAbility}!ActivateAbility@{ActivateAbility}}
+\index{ActivateAbility@{ActivateAbility}!StormShapeAbility@{StormShapeAbility}}
+\doxysubsubsection{\texorpdfstring{ActivateAbility()}{ActivateAbility()}}
+{\footnotesize\ttfamily \label{class_storm_shape_ability_afea85d7b9d794382da5c73a49dfdbedc} 
+override void Storm\+Shape\+Ability.\+Activate\+Ability (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Cost of the ability, to be defined in derived classes. 
+
+
+\begin{DoxyItemize}
+\item This method is called to activate the Storm\+Shape ability. It checks if the ability can be activated, detects the tiles in range, and updates the \doxylink{class_piece_interaction_manager}{Piece\+Interaction\+Manager} to set the targets.
+\end{DoxyItemize}
+
+This method should be overridden in derived classes to implement the specific ability logic
+
+Reimplemented from \mbox{\hyperlink{class_ability_a94737a4e696b9ac6be445a281fd1c5af}{Ability}}.
+
+\Hypertarget{class_storm_shape_ability_a1dffc052a60cd5db5350321900c122d7}\index{StormShapeAbility@{StormShapeAbility}!resetAbility@{resetAbility}}
+\index{resetAbility@{resetAbility}!StormShapeAbility@{StormShapeAbility}}
+\doxysubsubsection{\texorpdfstring{resetAbility()}{resetAbility()}}
+{\footnotesize\ttfamily \label{class_storm_shape_ability_a1dffc052a60cd5db5350321900c122d7} 
+override void Storm\+Shape\+Ability.\+reset\+Ability (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_ability_a3abf696afae15065d3e56dca90bd2e17}{Ability}}.
+
+\Hypertarget{class_storm_shape_ability_aace04c33f674a851599ce64dfc830d13}\index{StormShapeAbility@{StormShapeAbility}!Update@{Update}}
+\index{Update@{Update}!StormShapeAbility@{StormShapeAbility}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_storm_shape_ability_aace04c33f674a851599ce64dfc830d13} 
+override void Storm\+Shape\+Ability.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyItemize}
+\item This method is called every frame to check for user input and handle the ability activation. If the left mouse button is clicked and the ability is active, it checks if the clicked tile is a valid target. If it is, it deals 1 true damage to the target piece and plays a lightning animation.
+\end{DoxyItemize}
+
+Reimplemented from \mbox{\hyperlink{class_ability_a88d799f38be464be5f0a9a315efb2d0b}{Ability}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_storm_shape_ability_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_storm_shape_ability_ae7fa80dc35358bebb1abadc2c0712bf8}\index{StormShapeAbility@{StormShapeAbility}!turn@{turn}}
+\index{turn@{turn}!StormShapeAbility@{StormShapeAbility}}
+\doxysubsubsection{\texorpdfstring{turn}{turn}}
+{\footnotesize\ttfamily \label{class_storm_shape_ability_ae7fa80dc35358bebb1abadc2c0712bf8} 
+int Storm\+Shape\+Ability.\+turn =-\/1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyItemize}
+\item This class implements the Storm\+Shape ability, which allows a piece to target and damage other pieces within a range of 2 tiles. It inherits from the \doxylink{class_ability}{Ability} class and overrides the necessary methods to implement the specific logic for targeting and damaging pieces. The ability can only be activated during the player\textquotesingle{}s turn and targets pieces within a range of 2 tiles. 
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/rzong/\+Desktop/\+ISART/\+Admission\+\_\+\+Preparation/\+Unity\+Project/\+Roshar/\+Assets/\+Scripts/\+Piece\+Scripts/\+Abilities/\+Fus\+Abilities/Storm\+Shape\+Ability.\+cs\end{DoxyCompactItemize}

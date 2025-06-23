@@ -55,9 +55,9 @@ public class TurnManager : MonoBehaviour
     public int getTurnNumber(){
         return turnNumber;
     }
-    public bool getPlayerTurn(){
+    public bool getPlayerTurn(){ /// Returns false if it's the fluctuomancer player's turn, true if it's the fused player's turn
         return turn!=startingPlayer;
-        /**
+        /*
         turn           | true (1st player turn) | false (2d Player turn) | true (1st player turn) | false (2d Player turn)
         startingPlayer | true (Fluct)           | false (Fus)            | false (Fus)            | true (Fluct)
         output         | false (Fluct)          | false (Fluct)          | true (Fus)             | true (Fus)

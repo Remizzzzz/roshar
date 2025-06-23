@@ -1,0 +1,216 @@
+\doxysection{Piece\+Attack Class Reference}
+\hypertarget{class_piece_attack}{}\label{class_piece_attack}\index{PieceAttack@{PieceAttack}}
+Inheritance diagram for Piece\+Attack\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_piece_attack}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_piece_attack_a161e88870568c78e71b272475b289545}{reset\+Lp}} ()
+\begin{DoxyCompactList}\small\item\em To check if the LP changed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_piece_attack_aa87cdce6bac7e1bdf3d1b41243cf25dd}{set\+Immune}} ()
+\item 
+void \mbox{\hyperlink{class_piece_attack_ac92f79ec82c4d6368cc4a21bc82cc689}{Protect}} (int reduc)
+\item 
+\Hypertarget{class_piece_attack_a1f4ca5678117d9e276aeb8bfae87c16f}\label{class_piece_attack_a1f4ca5678117d9e276aeb8bfae87c16f} 
+bool {\bfseries Is\+Distracted} ()
+\item 
+\Hypertarget{class_piece_attack_a366374579dcf75552975b8596b8a3016}\label{class_piece_attack_a366374579dcf75552975b8596b8a3016} 
+void {\bfseries decr\+Cur\+Nb\+Atk} ()
+\item 
+\Hypertarget{class_piece_attack_a6e51c4b21d97a01c4ea8407d0b4d6bb4}\label{class_piece_attack_a6e51c4b21d97a01c4ea8407d0b4d6bb4} 
+int {\bfseries get\+Cur\+Lp} ()
+\begin{DoxyCompactList}\small\item\em Decrement the current number of attacks remaining for the piece. \end{DoxyCompactList}\item 
+\Hypertarget{class_piece_attack_a882f38565b18a4d724ecd89c7b65d882}\label{class_piece_attack_a882f38565b18a4d724ecd89c7b65d882} 
+int {\bfseries get\+Cur\+Nb\+Atk} ()
+\item 
+void \mbox{\hyperlink{class_piece_attack_a653ddcde2d82a2622e1fb07bc45784b3}{boost\+Attack}} (int boost)
+\item 
+void \mbox{\hyperlink{class_piece_attack_abfe61613ea5de2d09e85e3ecb1ba37dd}{damage}} (int dmg)
+\item 
+void \mbox{\hyperlink{class_piece_attack_ac62c3c13282eb4d8b8a5588074e9c641}{true\+Damage}} (int dmg)
+\item 
+void \mbox{\hyperlink{class_piece_attack_a83990964b53c43ecda80c9f64a0f9436}{distract\+Piece}} ()
+\item 
+void \mbox{\hyperlink{class_piece_attack_ae0572f3cff61e26055b4e2163f404b85}{focus\+Piece}} ()
+\item 
+void \mbox{\hyperlink{class_piece_attack_a252a99de2c5d8af307bcf063cfb76eef}{heal}} (int regen)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_piece_attack_a32ae47fd97dbab8300b43571b56d4a33}{lp}} =6
+\item 
+\Hypertarget{class_piece_attack_a6bfce28d69822235797d9eaf10c75eb6}\label{class_piece_attack_a6bfce28d69822235797d9eaf10c75eb6} 
+int {\bfseries range} =1
+\item 
+\Hypertarget{class_piece_attack_afb479f71488bbb2504340957d5c71c42}\label{class_piece_attack_afb479f71488bbb2504340957d5c71c42} 
+int {\bfseries base\+Atk} =2
+\item 
+\Hypertarget{class_piece_attack_adc71fdd1292baa14eea4f98075aa47b0}\label{class_piece_attack_adc71fdd1292baa14eea4f98075aa47b0} 
+int {\bfseries nb\+Atk} =1
+\item 
+\Hypertarget{class_piece_attack_a4a817b9db7e2111f91dd3294184d6e6b}\label{class_piece_attack_a4a817b9db7e2111f91dd3294184d6e6b} 
+int {\bfseries d4\+Atk} =0
+\item 
+\Hypertarget{class_piece_attack_af4d65b405046589b991806a18e4492f3}\label{class_piece_attack_af4d65b405046589b991806a18e4492f3} 
+int {\bfseries dmg\+Reduc} =0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_piece_attack_a5243acd3ad3cb03e07d27494dc395fb0}\label{class_piece_attack_a5243acd3ad3cb03e07d27494dc395fb0} 
+bool {\bfseries lp\+Changed}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em To check if the piece is Protected, used for special cases. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_piece_attack_a8be476dba75255ad39d1e38cbed7a7e0}{refresh\+Attack}} ()
+\item 
+List$<$ Vector3\+Int $>$ \mbox{\hyperlink{class_piece_attack_a34aa2ad76dd7eab363867202a71bf987}{get\+Reachable\+Targets}} ()
+\item 
+void \mbox{\hyperlink{class_piece_attack_a24dc3b4902137c32b86cbd738bd273f7}{On\+Mouse\+Down}} ()
+\item 
+\Hypertarget{class_piece_attack_a4651d887e3a2b73152ca53a1c96623bf}\label{class_piece_attack_a4651d887e3a2b73152ca53a1c96623bf} 
+void {\bfseries Awake} ()
+\item 
+\Hypertarget{class_piece_attack_abbc495a08d6a49961762ca53fb4ff451}\label{class_piece_attack_abbc495a08d6a49961762ca53fb4ff451} 
+void {\bfseries Start} ()
+\item 
+void \mbox{\hyperlink{class_piece_attack_a0cea9345d564faa679ccd85bd413f0bf}{Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_piece_attack_a17614e1e25a9ef47a53eaf529c134050}\label{class_piece_attack_a17614e1e25a9ef47a53eaf529c134050} 
+int {\bfseries cur\+Turn} = 1
+\item 
+\Hypertarget{class_piece_attack_a33597a4523ab3ec45fe97fd1f4d56e48}\label{class_piece_attack_a33597a4523ab3ec45fe97fd1f4d56e48} 
+int {\bfseries cur\+Lp}
+\begin{DoxyCompactList}\small\item\em To reuse the map logic of \doxylink{class_piece_movement}{Piece\+Movement}. \end{DoxyCompactList}\item 
+\Hypertarget{class_piece_attack_ac2521aaf4bda0557df1d62abeeaea122}\label{class_piece_attack_ac2521aaf4bda0557df1d62abeeaea122} 
+int {\bfseries old\+Lp}
+\begin{DoxyCompactList}\small\item\em Current LP of the piece, used to check if the piece is alive. \end{DoxyCompactList}\item 
+\Hypertarget{class_piece_attack_a1309e404af241606ab100a86289d5407}\label{class_piece_attack_a1309e404af241606ab100a86289d5407} 
+int {\bfseries cur\+Nb\+Atk}
+\begin{DoxyCompactList}\small\item\em Used to reset lp to the old value, just in case. \end{DoxyCompactList}\item 
+\Hypertarget{class_piece_attack_a64970d46025ad46c6bb08a8e7cb32d2e}\label{class_piece_attack_a64970d46025ad46c6bb08a8e7cb32d2e} 
+bool {\bfseries is\+Distracted} = false
+\begin{DoxyCompactList}\small\item\em To check if the piece is attacking, used to manage the on\+Mouse\+Down method. \end{DoxyCompactList}\item 
+\Hypertarget{class_piece_attack_a9cd109f15307d3fa7463e13b8e1034b9}\label{class_piece_attack_a9cd109f15307d3fa7463e13b8e1034b9} 
+bool {\bfseries immunity} = false
+\begin{DoxyCompactList}\small\item\em To check if the piece is distracted, so it can\textquotesingle{}t attack. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_piece_attack_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_piece_attack_a653ddcde2d82a2622e1fb07bc45784b3}\index{PieceAttack@{PieceAttack}!boostAttack@{boostAttack}}
+\index{boostAttack@{boostAttack}!PieceAttack@{PieceAttack}}
+\doxysubsubsection{\texorpdfstring{boostAttack()}{boostAttack()}}
+{\footnotesize\ttfamily \label{class_piece_attack_a653ddcde2d82a2622e1fb07bc45784b3} 
+void Piece\+Attack.\+boost\+Attack (\begin{DoxyParamCaption}\item[{int}]{boost}{}\end{DoxyParamCaption})}
+
+Boost the attack of the piece, used for special cases\Hypertarget{class_piece_attack_abfe61613ea5de2d09e85e3ecb1ba37dd}\index{PieceAttack@{PieceAttack}!damage@{damage}}
+\index{damage@{damage}!PieceAttack@{PieceAttack}}
+\doxysubsubsection{\texorpdfstring{damage()}{damage()}}
+{\footnotesize\ttfamily \label{class_piece_attack_abfe61613ea5de2d09e85e3ecb1ba37dd} 
+void Piece\+Attack.\+damage (\begin{DoxyParamCaption}\item[{int}]{dmg}{}\end{DoxyParamCaption})}
+
+Deal damage to the piece, used for attack logic
+
+If the piece is immune, it will not take damage, but the immunity will be removed\Hypertarget{class_piece_attack_a83990964b53c43ecda80c9f64a0f9436}\index{PieceAttack@{PieceAttack}!distractPiece@{distractPiece}}
+\index{distractPiece@{distractPiece}!PieceAttack@{PieceAttack}}
+\doxysubsubsection{\texorpdfstring{distractPiece()}{distractPiece()}}
+{\footnotesize\ttfamily \label{class_piece_attack_a83990964b53c43ecda80c9f64a0f9436} 
+void Piece\+Attack.\+distract\+Piece (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Distract the piece, so it can\textquotesingle{}t attack\Hypertarget{class_piece_attack_ae0572f3cff61e26055b4e2163f404b85}\index{PieceAttack@{PieceAttack}!focusPiece@{focusPiece}}
+\index{focusPiece@{focusPiece}!PieceAttack@{PieceAttack}}
+\doxysubsubsection{\texorpdfstring{focusPiece()}{focusPiece()}}
+{\footnotesize\ttfamily \label{class_piece_attack_ae0572f3cff61e26055b4e2163f404b85} 
+void Piece\+Attack.\+focus\+Piece (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Focus the piece, so it can attack again\Hypertarget{class_piece_attack_a34aa2ad76dd7eab363867202a71bf987}\index{PieceAttack@{PieceAttack}!getReachableTargets@{getReachableTargets}}
+\index{getReachableTargets@{getReachableTargets}!PieceAttack@{PieceAttack}}
+\doxysubsubsection{\texorpdfstring{getReachableTargets()}{getReachableTargets()}}
+{\footnotesize\ttfamily \label{class_piece_attack_a34aa2ad76dd7eab363867202a71bf987} 
+List$<$ Vector3\+Int $>$ Piece\+Attack.\+get\+Reachable\+Targets (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\doxylink{class_piece_attack_a34aa2ad76dd7eab363867202a71bf987}{get\+Reachable\+Targets()} returns a list of Vector3\+Int that are reachable by the piece, based on its range and the tiles occupied by other pieces. It uses the \doxylink{class_piece_interaction_manager}{Piece\+Interaction\+Manager} to get the attack targets.\Hypertarget{class_piece_attack_a252a99de2c5d8af307bcf063cfb76eef}\index{PieceAttack@{PieceAttack}!heal@{heal}}
+\index{heal@{heal}!PieceAttack@{PieceAttack}}
+\doxysubsubsection{\texorpdfstring{heal()}{heal()}}
+{\footnotesize\ttfamily \label{class_piece_attack_a252a99de2c5d8af307bcf063cfb76eef} 
+void Piece\+Attack.\+heal (\begin{DoxyParamCaption}\item[{int}]{regen}{}\end{DoxyParamCaption})}
+
+Heal the piece, used for special cases\Hypertarget{class_piece_attack_a24dc3b4902137c32b86cbd738bd273f7}\index{PieceAttack@{PieceAttack}!OnMouseDown@{OnMouseDown}}
+\index{OnMouseDown@{OnMouseDown}!PieceAttack@{PieceAttack}}
+\doxysubsubsection{\texorpdfstring{OnMouseDown()}{OnMouseDown()}}
+{\footnotesize\ttfamily \label{class_piece_attack_a24dc3b4902137c32b86cbd738bd273f7} 
+void Piece\+Attack.\+On\+Mouse\+Down (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+On\+Mouse\+Down is called when the player clicks on the piece. It checks if the piece is locked, distracted,if an interruption is active and if a piece is casting, and if not, it checks if it\textquotesingle{}s the player\textquotesingle{}s turn. If it\textquotesingle{}s the player\textquotesingle{}s turn and it\textquotesingle{}s the combat phase, it sets the piece as attacking and updates its state. If it\textquotesingle{}s not the player\textquotesingle{}s turn, it checks if the piece is attacked and handles the attack logic accordingly. If the piece has the Deepest or Magnified ability, it checks if the ability can be used and interrupts the attack if possible.\Hypertarget{class_piece_attack_ac92f79ec82c4d6368cc4a21bc82cc689}\index{PieceAttack@{PieceAttack}!Protect@{Protect}}
+\index{Protect@{Protect}!PieceAttack@{PieceAttack}}
+\doxysubsubsection{\texorpdfstring{Protect()}{Protect()}}
+{\footnotesize\ttfamily \label{class_piece_attack_ac92f79ec82c4d6368cc4a21bc82cc689} 
+void Piece\+Attack.\+Protect (\begin{DoxyParamCaption}\item[{int}]{reduc}{}\end{DoxyParamCaption})}
+
+Set the piece as Protected, so it can take less damage\Hypertarget{class_piece_attack_a8be476dba75255ad39d1e38cbed7a7e0}\index{PieceAttack@{PieceAttack}!refreshAttack@{refreshAttack}}
+\index{refreshAttack@{refreshAttack}!PieceAttack@{PieceAttack}}
+\doxysubsubsection{\texorpdfstring{refreshAttack()}{refreshAttack()}}
+{\footnotesize\ttfamily \label{class_piece_attack_a8be476dba75255ad39d1e38cbed7a7e0} 
+void Piece\+Attack.\+refresh\+Attack (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Refresh the attack parameters of the piece, used to check if the piece can attack
+
+Save the current LP to check if it changed
+
+if the piece was protected reset the protection after the turn ends
+
+and reset the damage reduction after the turn ends\Hypertarget{class_piece_attack_a161e88870568c78e71b272475b289545}\index{PieceAttack@{PieceAttack}!resetLp@{resetLp}}
+\index{resetLp@{resetLp}!PieceAttack@{PieceAttack}}
+\doxysubsubsection{\texorpdfstring{resetLp()}{resetLp()}}
+{\footnotesize\ttfamily \label{class_piece_attack_a161e88870568c78e71b272475b289545} 
+void Piece\+Attack.\+reset\+Lp (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+To check if the LP changed. 
+
+Reset the LP to the old value\Hypertarget{class_piece_attack_aa87cdce6bac7e1bdf3d1b41243cf25dd}\index{PieceAttack@{PieceAttack}!setImmune@{setImmune}}
+\index{setImmune@{setImmune}!PieceAttack@{PieceAttack}}
+\doxysubsubsection{\texorpdfstring{setImmune()}{setImmune()}}
+{\footnotesize\ttfamily \label{class_piece_attack_aa87cdce6bac7e1bdf3d1b41243cf25dd} 
+void Piece\+Attack.\+set\+Immune (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Set the piece as immune, so it can\textquotesingle{}t take damage\Hypertarget{class_piece_attack_ac62c3c13282eb4d8b8a5588074e9c641}\index{PieceAttack@{PieceAttack}!trueDamage@{trueDamage}}
+\index{trueDamage@{trueDamage}!PieceAttack@{PieceAttack}}
+\doxysubsubsection{\texorpdfstring{trueDamage()}{trueDamage()}}
+{\footnotesize\ttfamily \label{class_piece_attack_ac62c3c13282eb4d8b8a5588074e9c641} 
+void Piece\+Attack.\+true\+Damage (\begin{DoxyParamCaption}\item[{int}]{dmg}{}\end{DoxyParamCaption})}
+
+Deal true damage to the piece, not used for now\Hypertarget{class_piece_attack_a0cea9345d564faa679ccd85bd413f0bf}\index{PieceAttack@{PieceAttack}!Update@{Update}}
+\index{Update@{Update}!PieceAttack@{PieceAttack}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_piece_attack_a0cea9345d564faa679ccd85bd413f0bf} 
+void Piece\+Attack.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Update is called once per frame. It checks if the turn has changed, and if so, refreshes the attack parameters. It also checks if the piece is attacking and if the mouse button is pressed, and if so, it checks if the piece is a Lancer and has a fluct neighbor. If the piece is a Lancer and has a fluct neighbor, it sets the damage reduction to 1, otherwise it sets it to 0.
+
+\label{doc-variable-members}
+\Hypertarget{class_piece_attack_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_piece_attack_a32ae47fd97dbab8300b43571b56d4a33}\index{PieceAttack@{PieceAttack}!lp@{lp}}
+\index{lp@{lp}!PieceAttack@{PieceAttack}}
+\doxysubsubsection{\texorpdfstring{lp}{lp}}
+{\footnotesize\ttfamily \label{class_piece_attack_a32ae47fd97dbab8300b43571b56d4a33} 
+int Piece\+Attack.\+lp =6}
+
+\doxylink{class_piece_attack}{Piece\+Attack} is a Mono\+Behaviour that handles the attack logic of the piece. It manages the attack range, damage, and other related parameters. Overall it manages all attack-\/related logic of the piece. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/rzong/\+Desktop/\+ISART/\+Admission\+\_\+\+Preparation/\+Unity\+Project/\+Roshar/\+Assets/\+Scripts/\+Piece\+Scripts/Piece\+Attack.\+cs\end{DoxyCompactItemize}

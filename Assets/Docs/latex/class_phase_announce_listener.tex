@@ -1,0 +1,68 @@
+\doxysection{Phase\+Announce\+Listener Class Reference}
+\hypertarget{class_phase_announce_listener}{}\label{class_phase_announce_listener}\index{PhaseAnnounceListener@{PhaseAnnounceListener}}
+
+
+or Unity\+Engine.\+UI  
+
+
+Inheritance diagram for Phase\+Announce\+Listener\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_phase_announce_listener}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{class_phase_announce_listener_a9f6866e30e9642427a09ba0aa35ca99a}{Phase\+Announce}}
+\item 
+\Hypertarget{class_phase_announce_listener_aa2876c4217cdd99c9e1745b6394a3b8b}\label{class_phase_announce_listener_aa2876c4217cdd99c9e1745b6394a3b8b} 
+Game\+Object {\bfseries Special\+Announce}
+\item 
+\Hypertarget{class_phase_announce_listener_ab03f70b98b97073d66979b39e74a155c}\label{class_phase_announce_listener_ab03f70b98b97073d66979b39e74a155c} 
+TMP\+\_\+\+Text {\bfseries special\+Announce\+Text}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_phase_announce_listener_aefc863021783f495510a43b2b305af49}\label{class_phase_announce_listener_aefc863021783f495510a43b2b305af49} 
+void {\bfseries Start} ()
+\item 
+void \mbox{\hyperlink{class_phase_announce_listener_aaaed6f189043055564d7fe9edbf9e0b3}{Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_phase_announce_listener_abce282fcb00177f4a1c777070d759f92}\label{class_phase_announce_listener_abce282fcb00177f4a1c777070d759f92} 
+bool {\bfseries special\+Announce\+Played} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+or Unity\+Engine.\+UI 
+
+\label{doc-func-members}
+\Hypertarget{class_phase_announce_listener_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_phase_announce_listener_aaaed6f189043055564d7fe9edbf9e0b3}\index{PhaseAnnounceListener@{PhaseAnnounceListener}!Update@{Update}}
+\index{Update@{Update}!PhaseAnnounceListener@{PhaseAnnounceListener}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_phase_announce_listener_aaaed6f189043055564d7fe9edbf9e0b3} 
+void Phase\+Announce\+Listener.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+If Animate\+Phase\+Change flag is true We check if this is a new turn and if a special announce has already been played. If it is a new turn, we set the text of the special announce and animate it. We also set the flag to true so we do not play the special announce again.
+
+\label{doc-variable-members}
+\Hypertarget{class_phase_announce_listener_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_phase_announce_listener_a9f6866e30e9642427a09ba0aa35ca99a}\index{PhaseAnnounceListener@{PhaseAnnounceListener}!PhaseAnnounce@{PhaseAnnounce}}
+\index{PhaseAnnounce@{PhaseAnnounce}!PhaseAnnounceListener@{PhaseAnnounceListener}}
+\doxysubsubsection{\texorpdfstring{PhaseAnnounce}{PhaseAnnounce}}
+{\footnotesize\ttfamily \label{class_phase_announce_listener_a9f6866e30e9642427a09ba0aa35ca99a} 
+Game\+Object Phase\+Announce\+Listener.\+Phase\+Announce}
+
+This class listens for phase changes and updates the UI accordingly. It plays an animation when the phase changes and shows a special announce if it\textquotesingle{}s a special summoning turn. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/rzong/\+Desktop/\+ISART/\+Admission\+\_\+\+Preparation/\+Unity\+Project/\+Roshar/\+Assets/\+Scripts/\+Listeners/Phase\+Announce\+Listener.\+cs\end{DoxyCompactItemize}

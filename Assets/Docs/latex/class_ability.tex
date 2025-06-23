@@ -1,0 +1,148 @@
+\doxysection{Ability Class Reference}
+\hypertarget{class_ability}{}\label{class_ability}\index{Ability@{Ability}}
+Inheritance diagram for Ability\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{class_ability}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_ability_aae87ed210e03b55201dda2db91968c44}{cast\+Ability}} ()
+\begin{DoxyCompactList}\small\item\em Turn when the ability was casted, used for cooldown or restoration logic. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_ability_a94737a4e696b9ac6be445a281fd1c5af}{Activate\+Ability}} ()
+\begin{DoxyCompactList}\small\item\em Cost of the ability, to be defined in derived classes. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_ability_a3abf696afae15065d3e56dca90bd2e17}{reset\+Ability}} ()
+\item 
+void \mbox{\hyperlink{class_ability_aa58f84e31e2e80e024db4795e3146be3}{restore}} ()
+\begin{DoxyCompactList}\small\item\em Flag to check if restoration is allowed (to limit restoration to one time every 8 turns) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ability_a4d673a4705f73d6556937e60c906c867}{restore\+Ability}} ()
+\item 
+virtual void \mbox{\hyperlink{class_ability_a654cfec059b15b596a6d023beebf45b6}{start\+Ability}} ()
+\item 
+\Hypertarget{class_ability_a0a6f6c64bf2a24788aa4592c25618a91}\label{class_ability_a0a6f6c64bf2a24788aa4592c25618a91} 
+virtual void {\bfseries Start} ()
+\item 
+virtual void \mbox{\hyperlink{class_ability_a88d799f38be464be5f0a9a315efb2d0b}{Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_ability_a2e23da239a5f11c18f1e6340fd82e90c}\label{class_ability_a2e23da239a5f11c18f1e6340fd82e90c} 
+bool {\bfseries is\+Ability\+Active} = false
+\item 
+\Hypertarget{class_ability_a1cc161af279326c7fb59a99c837b780c}\label{class_ability_a1cc161af279326c7fb59a99c837b780c} 
+bool {\bfseries ability\+Casted} = false
+\begin{DoxyCompactList}\small\item\em Flag to check if the ability is currently active. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_ability_ab70defaac32b369cee3b38b7c6193d91}\label{class_ability_ab70defaac32b369cee3b38b7c6193d91} 
+static int {\bfseries stormlight} = 6
+\begin{DoxyCompactList}\small\item\em Public static property to access voidlight. \end{DoxyCompactList}\item 
+\Hypertarget{class_ability_adc6c550a2842067f71aad4d913cb3a22}\label{class_ability_adc6c550a2842067f71aad4d913cb3a22} 
+static int {\bfseries voidlight} = 6
+\begin{DoxyCompactList}\small\item\em Fulgiflamme, mana for ability of fluct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_ability_a8f8a10305553b5f7e8412621c6575dc5}\label{class_ability_a8f8a10305553b5f7e8412621c6575dc5} 
+static int {\bfseries Stormlight}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+\Hypertarget{class_ability_a7cea0385c30fe23ea73ab0b1f460b61a}\label{class_ability_a7cea0385c30fe23ea73ab0b1f460b61a} 
+static int {\bfseries Voidlight}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Public static property to access stormlight. \end{DoxyCompactList}\item 
+\Hypertarget{class_ability_af2264c3309f0476d7af87196c1172220}\label{class_ability_af2264c3309f0476d7af87196c1172220} 
+Vector3\+Int {\bfseries Cur\+Pos}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Néantiflamme, mana for ability of fus. \end{DoxyCompactList}\item 
+\Hypertarget{class_ability_a80b1a04143c7339a1e5f0375217ebd71}\label{class_ability_a80b1a04143c7339a1e5f0375217ebd71} 
+int {\bfseries ability\+Cost}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_ability_a195bf09f759c2c517be11cc78439f7d1}\label{class_ability_a195bf09f759c2c517be11cc78439f7d1} 
+int {\bfseries turn\+Of\+Cast} = -\/1
+\begin{DoxyCompactList}\small\item\em Flag to check if the ability was casted. \end{DoxyCompactList}\item 
+\Hypertarget{class_ability_a1565cce1e66c4299337ee6a83b23506e}\label{class_ability_a1565cce1e66c4299337ee6a83b23506e} 
+bool {\bfseries can\+Restore} = true
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+\begin{DoxyItemize}
+\item This class is the base class for all abilities in the game. It manages the stormlight and voidlight resources, ability activation, and restoration logic. It should be inherited by specific ability classes that implement the actual ability logic. 
+\end{DoxyItemize}
+
+\label{doc-func-members}
+\Hypertarget{class_ability_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_ability_a94737a4e696b9ac6be445a281fd1c5af}\index{Ability@{Ability}!ActivateAbility@{ActivateAbility}}
+\index{ActivateAbility@{ActivateAbility}!Ability@{Ability}}
+\doxysubsubsection{\texorpdfstring{ActivateAbility()}{ActivateAbility()}}
+{\footnotesize\ttfamily \label{class_ability_a94737a4e696b9ac6be445a281fd1c5af} 
+virtual void Ability.\+Activate\+Ability (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Cost of the ability, to be defined in derived classes. 
+
+This method should be overridden in derived classes to implement the specific ability logic
+
+Reimplemented in \mbox{\hyperlink{class_deepest_ability_a4e372c9dfc5da04fc757d102875a02a6}{Deepest\+Ability}}, \mbox{\hyperlink{class_edgedancer_ability_a2c5a9c4302b36da9b19472c52eb11949}{Edgedancer\+Ability}}, \mbox{\hyperlink{class_heavenly_ability_ac619922948531fdc8624240a8bdf0c4f}{Heavenly\+Ability}}, \mbox{\hyperlink{class_lightweaver_ability_a2c79120e895417d90b69645d06f1b66c}{Lightweaver\+Ability}}, \mbox{\hyperlink{class_magnified_ability_ab226ca42f07e9df72fea9a68bf83c108}{Magnified\+Ability}}, \mbox{\hyperlink{class_masked_ability_a75d7bb1d790ab52d9a878424022e7080}{Masked\+Ability}}, \mbox{\hyperlink{class_pursuer_ability_a3fa598cebad74b922a0a636ff880b44b}{Pursuer\+Ability}}, \mbox{\hyperlink{class_skybreaker_ability_a1826b945d930e270406b6bec199d7598}{Skybreaker\+Ability}}, \mbox{\hyperlink{class_stoneward_ability_a35fcde1c390d6e5da588cd02c43b7c6f}{Stoneward\+Ability}}, \mbox{\hyperlink{class_storm_shape_ability_afea85d7b9d794382da5c73a49dfdbedc}{Storm\+Shape\+Ability}}, and \mbox{\hyperlink{class_windrunner_ability_ae6d1551c488bdd280f73e88f94904f87}{Windrunner\+Ability}}.
+
+\Hypertarget{class_ability_aae87ed210e03b55201dda2db91968c44}\index{Ability@{Ability}!castAbility@{castAbility}}
+\index{castAbility@{castAbility}!Ability@{Ability}}
+\doxysubsubsection{\texorpdfstring{castAbility()}{castAbility()}}
+{\footnotesize\ttfamily \label{class_ability_aae87ed210e03b55201dda2db91968c44} 
+void Ability.\+cast\+Ability (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Turn when the ability was casted, used for cooldown or restoration logic. 
+
+This method is called to cast the ability, deducting the appropriate resource cost\Hypertarget{class_ability_a3abf696afae15065d3e56dca90bd2e17}\index{Ability@{Ability}!resetAbility@{resetAbility}}
+\index{resetAbility@{resetAbility}!Ability@{Ability}}
+\doxysubsubsection{\texorpdfstring{resetAbility()}{resetAbility()}}
+{\footnotesize\ttfamily \label{class_ability_a3abf696afae15065d3e56dca90bd2e17} 
+virtual void Ability.\+reset\+Ability (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+This method should be overridden in derived classes to implement the logic for resetting the ability\Hypertarget{class_ability_aa58f84e31e2e80e024db4795e3146be3}\index{Ability@{Ability}!restore@{restore}}
+\index{restore@{restore}!Ability@{Ability}}
+\doxysubsubsection{\texorpdfstring{restore()}{restore()}}
+{\footnotesize\ttfamily \label{class_ability_aa58f84e31e2e80e024db4795e3146be3} 
+void Ability.\+restore (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Flag to check if restoration is allowed (to limit restoration to one time every 8 turns) 
+
+Every 8 turns, restore stormlight and voidlight\Hypertarget{class_ability_a4d673a4705f73d6556937e60c906c867}\index{Ability@{Ability}!restoreAbility@{restoreAbility}}
+\index{restoreAbility@{restoreAbility}!Ability@{Ability}}
+\doxysubsubsection{\texorpdfstring{restoreAbility()}{restoreAbility()}}
+{\footnotesize\ttfamily \label{class_ability_a4d673a4705f73d6556937e60c906c867} 
+void Ability.\+restore\+Ability (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+This method checks if the ability was casted and restores it if the turn changed since the ability was casted\Hypertarget{class_ability_a654cfec059b15b596a6d023beebf45b6}\index{Ability@{Ability}!startAbility@{startAbility}}
+\index{startAbility@{startAbility}!Ability@{Ability}}
+\doxysubsubsection{\texorpdfstring{startAbility()}{startAbility()}}
+{\footnotesize\ttfamily \label{class_ability_a654cfec059b15b596a6d023beebf45b6} 
+virtual void Ability.\+start\+Ability (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+This method is called to start the ability casting process\Hypertarget{class_ability_a88d799f38be464be5f0a9a315efb2d0b}\index{Ability@{Ability}!Update@{Update}}
+\index{Update@{Update}!Ability@{Ability}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_ability_a88d799f38be464be5f0a9a315efb2d0b} 
+virtual void Ability.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+This method is called every frame to manage the ability state and restoration logic
+
+Reimplemented in \mbox{\hyperlink{class_edgedancer_ability_ae0fe1c022dca58a05468f1183485fc4c}{Edgedancer\+Ability}}, \mbox{\hyperlink{class_heavenly_ability_ae6bbdad9cccff95fc4568b4da2ea2053}{Heavenly\+Ability}}, \mbox{\hyperlink{class_lightweaver_ability_ae10ca3e152dc8f21cb5d008d68901252}{Lightweaver\+Ability}}, \mbox{\hyperlink{class_masked_ability_aca74cb271984e16f0939ab20295165a2}{Masked\+Ability}}, \mbox{\hyperlink{class_pursuer_ability_ae2fa92f88e7b4e3866e3249a6d4c6c36}{Pursuer\+Ability}}, \mbox{\hyperlink{class_skybreaker_ability_a49064f69b9d10ddfa18e9e9a547493b4}{Skybreaker\+Ability}}, \mbox{\hyperlink{class_stoneward_ability_a479786800805128042d4029ebb79cb82}{Stoneward\+Ability}}, \mbox{\hyperlink{class_storm_shape_ability_aace04c33f674a851599ce64dfc830d13}{Storm\+Shape\+Ability}}, and \mbox{\hyperlink{class_windrunner_ability_aa53475b74d59a940067c1a2d34484562}{Windrunner\+Ability}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/rzong/\+Desktop/\+ISART/\+Admission\+\_\+\+Preparation/\+Unity\+Project/\+Roshar/\+Assets/\+Scripts/\+Piece\+Scripts/\+Abilities/Ability.\+cs\end{DoxyCompactItemize}

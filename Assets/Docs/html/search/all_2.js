@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['calculatedamage_0',['calculateDamage',['../class_skybreaker_ability.html#af71c37d3b21ce82738203e9520be1963',1,'SkybreakerAbility']]],
+  ['caller_1',['caller',['../class_window_interruption.html#a3098cfefbf1d966462cca3b988921ed5',1,'WindowInterruption']]],
+  ['callername_2',['callerName',['../class_window_interruption.html#a63eb0b8c01cf376dc2276ceb57d5eacc',1,'WindowInterruption']]],
+  ['cancelactivation_3',['cancelActivation',['../class_deepest_ability.html#a134027f76c19fbc9ad3e67e9bc9d856c',1,'DeepestAbility.cancelActivation()'],['../class_magnified_ability.html#ab2f91314b52749232974ca2777ae08f1',1,'MagnifiedAbility.cancelActivation()']]],
+  ['canmove_4',['canMove',['../class_piece_state_manager.html#a3fe2005fbb32bab56bed566a056e40ef',1,'PieceStateManager']]],
+  ['castability_5',['castAbility',['../class_ability.html#aae87ed210e03b55201dda2db91968c44',1,'Ability']]],
+  ['cellpos_6',['cellPos',['../class_piece_movement.html#a2bbbf760cc76159c313b9aadbb3127ce',1,'PieceMovement']]],
+  ['combattext_7',['combatText',['../class_phase_button.html#ae21e6eb52a889c2b3fe46ac0d6a8198c',1,'PhaseButton']]],
+  ['createwindow_8',['createWindow',['../class_interruption_manager.html#af023e298a213e1d70b8bb072a6f7e36a',1,'InterruptionManager']]],
+  ['curlp_9',['curLp',['../class_piece_attack.html#a33597a4523ab3ec45fe97fd1f4d56e48',1,'PieceAttack']]],
+  ['curmov_10',['curMov',['../class_piece_movement.html#ad18eb62ab41e0b1047388cd12732f313',1,'PieceMovement']]],
+  ['curnbatk_11',['curNbAtk',['../class_piece_attack.html#a1309e404af241606ab100a86289d5407',1,'PieceAttack']]],
+  ['curpos_12',['CurPos',['../class_ability.html#af2264c3309f0476d7af87196c1172220',1,'Ability']]],
+  ['curpos_13',['curPos',['../class_piece_movement.html#a207fe350e2ee76c36d02bc7d5f68271a',1,'PieceMovement']]],
+  ['currentanimationindex_14',['currentAnimationIndex',['../class_animation_creator.html#a390cca888c18ec95ac44eb0c8e86598d',1,'AnimationCreator']]],
+  ['curturn_15',['curTurn',['../class_piece_movement.html#ada6319aba4ba6f97ab2ef1196ec1310a',1,'PieceMovement']]]
+];

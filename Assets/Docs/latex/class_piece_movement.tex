@@ -1,0 +1,312 @@
+\doxysection{Piece\+Movement Class Reference}
+\hypertarget{class_piece_movement}{}\label{class_piece_movement}\index{PieceMovement@{PieceMovement}}
+Inheritance diagram for Piece\+Movement\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_piece_movement}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_piece_movement_ad1f11c258c3aa9645b128a07c9619d23}{lock\+Piece}} ()
+\item 
+void \mbox{\hyperlink{class_piece_movement_af4421cb1c3344bce2a03b33c0122fb17}{unlock\+Piece}} ()
+\item 
+bool \mbox{\hyperlink{class_piece_movement_ad1bb0e895043145c393c051db6a2ac58}{Is\+Locked}} ()
+\item 
+void \mbox{\hyperlink{class_piece_movement_a4c04801b5e78e6082c04c506f3745449}{move\+To}} (Vector3\+Int new\+Pos)
+\item 
+\Hypertarget{class_piece_movement_a24faac7b2e25ad0fca7a78bdfa7d41cd}\label{class_piece_movement_a24faac7b2e25ad0fca7a78bdfa7d41cd} 
+bool {\bfseries get\+On\+Map} ()
+\item 
+\Hypertarget{class_piece_movement_a2a59ccb8791b07df94d9ab219b7e4020}\label{class_piece_movement_a2a59ccb8791b07df94d9ab219b7e4020} 
+void {\bfseries set\+On\+Map} (bool on\+Map)
+\item 
+\Hypertarget{class_piece_movement_ad07f1e0b918cb3430b9cf9faacabdedc}\label{class_piece_movement_ad07f1e0b918cb3430b9cf9faacabdedc} 
+Vector3\+Int {\bfseries get\+Cur\+Pos} ()
+\item 
+\Hypertarget{class_piece_movement_ac5be885c3fb4aab576f713a549352417}\label{class_piece_movement_ac5be885c3fb4aab576f713a549352417} 
+void {\bfseries set\+Cur\+Pos} (Vector3\+Int \mbox{\hyperlink{class_piece_movement_a207fe350e2ee76c36d02bc7d5f68271a}{cur\+Pos}})
+\item 
+\Hypertarget{class_piece_movement_a0362addf5d5c8d0958c0c330bea59dcf}\label{class_piece_movement_a0362addf5d5c8d0958c0c330bea59dcf} 
+Vector3\+Int\mbox{[}$\,$\mbox{]} {\bfseries get\+Neighbour\+Offset} ()
+\item 
+\Hypertarget{class_piece_movement_a14284318034cd3a198a2e8ed4722a14d}\label{class_piece_movement_a14284318034cd3a198a2e8ed4722a14d} 
+Vector3\+Int\mbox{[}$\,$\mbox{]} {\bfseries get\+Neighbour\+Offset\+Odd} ()
+\item 
+\Hypertarget{class_piece_movement_add0e0541aab1c9d384b9616305fe268a}\label{class_piece_movement_add0e0541aab1c9d384b9616305fe268a} 
+int {\bfseries get\+Cur\+Mov} ()
+\item 
+\Hypertarget{class_piece_movement_aa1a5ae49416983eed2e69a06c6958dea}\label{class_piece_movement_aa1a5ae49416983eed2e69a06c6958dea} 
+void {\bfseries set\+Cur\+Mov} (int \mbox{\hyperlink{class_piece_movement_ad18eb62ab41e0b1047388cd12732f313}{cur\+Mov}})
+\item 
+\Hypertarget{class_piece_movement_ab962147226a7e5d03a02c2919b8873ef}\label{class_piece_movement_ab962147226a7e5d03a02c2919b8873ef} 
+int {\bfseries get\+Cur\+Turn} ()
+\item 
+\Hypertarget{class_piece_movement_ad9fc21ba7d230cc0739d775b0ceba24d}\label{class_piece_movement_ad9fc21ba7d230cc0739d775b0ceba24d} 
+void {\bfseries set\+Cur\+Turn} (int \mbox{\hyperlink{class_piece_movement_ada6319aba4ba6f97ab2ef1196ec1310a}{cur\+Turn}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static List$<$ Vector3\+Int $>$ \mbox{\hyperlink{class_piece_movement_ab417f78ec7035c2cc6bf70ad937e17d6}{detect\+Tiles\+In\+Range}} (Vector3\+Int center, int range, Tilemap \mbox{\hyperlink{class_piece_movement_aa104f953fa4a086627093e380e2f9af3}{tile\+Map}})
+\begin{DoxyCompactList}\small\item\em If the troop is enhanced, it will notify the \doxylink{class_turn_manager}{Turn\+Manager} that an enhanced summon was performed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Tilemap \mbox{\hyperlink{class_piece_movement_aa104f953fa4a086627093e380e2f9af3}{tile\+Map}}
+\item 
+\Hypertarget{class_piece_movement_a5a4df360dfa244bed5bec08975a08c69}\label{class_piece_movement_a5a4df360dfa244bed5bec08975a08c69} 
+bool {\bfseries is\+Fluct} = true
+\begin{DoxyCompactList}\small\item\em Reference to the tile of the map, mainly used by reachable\+Tiles and to update the tiles\textquotesingle{}s states. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_piece_movement_a5342341c71f797cb38d2feaf4e9667f3}{nb\+Mov}} =1
+\begin{DoxyCompactList}\small\item\em Specify the type of the piece (basically P1 or P2) \end{DoxyCompactList}\item 
+\Hypertarget{class_piece_movement_af9c57cc74fe56eda158d716cde8b74c1}\label{class_piece_movement_af9c57cc74fe56eda158d716cde8b74c1} 
+bool {\bfseries is\+Special} =false
+\begin{DoxyCompactList}\small\item\em Nb of movement a piece can do. \end{DoxyCompactList}\item 
+\Hypertarget{class_piece_movement_a786af65e360361ca3a3e7e27845a5dd5}\label{class_piece_movement_a786af65e360361ca3a3e7e27845a5dd5} 
+bool {\bfseries enhanced\+Troop} = false
+\begin{DoxyCompactList}\small\item\em The special pieces has different summoning turns, this bool is sent to \doxylink{class_turn_manager}{Turn\+Manager} in is\+Summonable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_piece_movement_a3b66df80d5d7ce3f57a75103238ebc40}{phase\+Validation}} ()
+\begin{DoxyCompactList}\small\item\em This will stock the coordinates of the tiles reachable by the piece. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_piece_movement_adbb927fb7c3934cf6b3aee8d160a8ce3}{refresh\+Moves}} ()
+\item 
+void \mbox{\hyperlink{class_piece_movement_a3427f58907fdbd06f76363eb8cfb1ee6}{use\+Move}} ()
+\item 
+void \mbox{\hyperlink{class_piece_movement_ae9d48d1ae97c1c88482f92f7305d6c7c}{reset\+Map}} ()
+\item 
+bool \mbox{\hyperlink{class_piece_movement_afc20dd6cd191f04fe9548120af7a0456}{is\+Summonable}} ()
+\item 
+List$<$ Vector3\+Int $>$ \mbox{\hyperlink{class_piece_movement_a7a85499dcfea1186de223dda6b860d25}{get\+Reachable\+Tiles}} ()
+\item 
+void \mbox{\hyperlink{class_piece_movement_ae8ee87ac6b84432bac14b3ff87665055}{On\+Mouse\+Down}} ()
+\item 
+void \mbox{\hyperlink{class_piece_movement_a7d2cf21631d9dfceded98264a7cecdce}{On\+Mouse\+Drag}} ()
+\item 
+void \mbox{\hyperlink{class_piece_movement_abf5e65fb6d5fbab1823de9f0d189c0f8}{On\+Mouse\+Up}} ()
+\item 
+\Hypertarget{class_piece_movement_a4a752b4f4033d96b0fcd273f99940bc9}\label{class_piece_movement_a4a752b4f4033d96b0fcd273f99940bc9} 
+void {\bfseries Start} ()
+\item 
+void \mbox{\hyperlink{class_piece_movement_a4877f9164e970d09108d7e748c6714c9}{Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_piece_movement_a42c5037ec324e5802de6ce850ff2364a}\label{class_piece_movement_a42c5037ec324e5802de6ce850ff2364a} 
+bool {\bfseries is\+Locked} = false
+\item 
+\Hypertarget{class_piece_movement_ad18eb62ab41e0b1047388cd12732f313}\label{class_piece_movement_ad18eb62ab41e0b1047388cd12732f313} 
+int {\bfseries cur\+Mov}
+\begin{DoxyCompactList}\small\item\em Used to lock the piece when it is attacked by a Windrunner, so it can\textquotesingle{}t move until it\textquotesingle{}s unlocked. \end{DoxyCompactList}\item 
+\Hypertarget{class_piece_movement_ada6319aba4ba6f97ab2ef1196ec1310a}\label{class_piece_movement_ada6319aba4ba6f97ab2ef1196ec1310a} 
+int {\bfseries cur\+Turn} =1
+\begin{DoxyCompactList}\small\item\em The movement the player used with this piece -\/\texorpdfstring{$>$}{>} Allowing the player to move the same piece two times or more if nb\+Mov\texorpdfstring{$>$}{>}1. \end{DoxyCompactList}\item 
+\Hypertarget{class_piece_movement_aee5b841b51055b7274b6637d09da95f0}\label{class_piece_movement_aee5b841b51055b7274b6637d09da95f0} 
+bool {\bfseries on\+Map} =false
+\item 
+\Hypertarget{class_piece_movement_a3bec1043097722fe2f8f43e5f2edf068}\label{class_piece_movement_a3bec1043097722fe2f8f43e5f2edf068} 
+Sprite\+Renderer {\bfseries sr}
+\begin{DoxyCompactList}\small\item\em Managers only manage pieces on board, so pieces each have its own on\+Map verifier. \end{DoxyCompactList}\item 
+\Hypertarget{class_piece_movement_a2f569dff06ee881f1c0ebcc4d60bf35e}\label{class_piece_movement_a2f569dff06ee881f1c0ebcc4d60bf35e} 
+bool {\bfseries wait\+Click} =false
+\begin{DoxyCompactList}\small\item\em Only used to drag \+: when dragging the piece will appear to be above the others. \end{DoxyCompactList}\item 
+\Hypertarget{class_piece_movement_a207fe350e2ee76c36d02bc7d5f68271a}\label{class_piece_movement_a207fe350e2ee76c36d02bc7d5f68271a} 
+Vector3\+Int {\bfseries cur\+Pos}
+\begin{DoxyCompactList}\small\item\em Used for "{}click and go"{} moves. \end{DoxyCompactList}\item 
+\Hypertarget{class_piece_movement_a2bbbf760cc76159c313b9aadbb3127ce}\label{class_piece_movement_a2bbbf760cc76159c313b9aadbb3127ce} 
+Vector3\+Int {\bfseries cell\+Pos}
+\begin{DoxyCompactList}\small\item\em Current position of the piece. \end{DoxyCompactList}\item 
+\Hypertarget{class_piece_movement_af3f5248128d99e0da0cf887b7955a9c3}\label{class_piece_movement_af3f5248128d99e0da0cf887b7955a9c3} 
+List$<$ Vector3\+Int $>$ {\bfseries reachable\+Tiles}
+\begin{DoxyCompactList}\small\item\em New cell selected. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Vector3\+Int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_piece_movement_a61fca1e21e1f8815a9905a92e14c77c2}{neighbour\+Offset\+Odd}}
+\begin{DoxyCompactList}\small\item\em Used to reset cur\+Mov, as it\textquotesingle{}s its only purpose, it\textquotesingle{}s not in \doxylink{class_turn_manager}{Turn\+Manager} to simplify. Each piece will reset itself instead of a manager doing it. \end{DoxyCompactList}\item 
+static Vector3\+Int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_piece_movement_aeac0fc96fc61d07a47356a34c3f48ea5}{neighbour\+Offset}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_piece_movement_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_piece_movement_ab417f78ec7035c2cc6bf70ad937e17d6}\index{PieceMovement@{PieceMovement}!detectTilesInRange@{detectTilesInRange}}
+\index{detectTilesInRange@{detectTilesInRange}!PieceMovement@{PieceMovement}}
+\doxysubsubsection{\texorpdfstring{detectTilesInRange()}{detectTilesInRange()}}
+{\footnotesize\ttfamily \label{class_piece_movement_ab417f78ec7035c2cc6bf70ad937e17d6} 
+List$<$ Vector3\+Int $>$ Piece\+Movement.\+detect\+Tiles\+In\+Range (\begin{DoxyParamCaption}\item[{Vector3\+Int}]{center}{, }\item[{int}]{range}{, }\item[{Tilemap}]{tile\+Map}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+If the troop is enhanced, it will notify the \doxylink{class_turn_manager}{Turn\+Manager} that an enhanced summon was performed. 
+
+This method will detect the tiles in range of a piece, it will return a list of Vector3\+Int containing the coordinates of the tiles in range. The range is the depth of the search, each loop is one depth. The center is the position of the piece on the map. The tile\+Map is used to get the tiles on the map and to update their state.\Hypertarget{class_piece_movement_a7a85499dcfea1186de223dda6b860d25}\index{PieceMovement@{PieceMovement}!getReachableTiles@{getReachableTiles}}
+\index{getReachableTiles@{getReachableTiles}!PieceMovement@{PieceMovement}}
+\doxysubsubsection{\texorpdfstring{getReachableTiles()}{getReachableTiles()}}
+{\footnotesize\ttfamily \label{class_piece_movement_a7a85499dcfea1186de223dda6b860d25} 
+List$<$ Vector3\+Int $>$ Piece\+Movement.\+get\+Reachable\+Tiles (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+This method is used to get the reachable tiles of the piece based on the number of its move allowed each turn, it will return a list of Vector3\+Int containing the coordinates of the reachable tiles. The method will use a map traversal algorithm to find the reachable tiles. The cur\+Mov is used to determine the depth of the search, each loop is one depth. The on\+Map is used to determine if the piece is on the map or not.\Hypertarget{class_piece_movement_ad1bb0e895043145c393c051db6a2ac58}\index{PieceMovement@{PieceMovement}!IsLocked@{IsLocked}}
+\index{IsLocked@{IsLocked}!PieceMovement@{PieceMovement}}
+\doxysubsubsection{\texorpdfstring{IsLocked()}{IsLocked()}}
+{\footnotesize\ttfamily \label{class_piece_movement_ad1bb0e895043145c393c051db6a2ac58} 
+bool Piece\+Movement.\+Is\+Locked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Return if the piece is locked or not\Hypertarget{class_piece_movement_afc20dd6cd191f04fe9548120af7a0456}\index{PieceMovement@{PieceMovement}!isSummonable@{isSummonable}}
+\index{isSummonable@{isSummonable}!PieceMovement@{PieceMovement}}
+\doxysubsubsection{\texorpdfstring{isSummonable()}{isSummonable()}}
+{\footnotesize\ttfamily \label{class_piece_movement_afc20dd6cd191f04fe9548120af7a0456} 
+bool Piece\+Movement.\+is\+Summonable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+This method is used to check if the piece can be summoned on the selected tile, it will return true if the piece can be summoned.
+
+Base Conditions for a base piece to be summonable \+:
+\begin{DoxyItemize}
+\item The tile selected is on the map
+\item The tile selected is an Summoning Tile
+\item The tile selected is an Summoning Tile of the color of the piece
+\item The tile selected is not occupied
+\item The turn on which the piece has been summoned is a summoning turn
+\item The max number of summon this turn is not reached (managed by \doxylink{class_turn_manager}{Turn\+Manager})
+\end{DoxyItemize}\Hypertarget{class_piece_movement_ad1f11c258c3aa9645b128a07c9619d23}\index{PieceMovement@{PieceMovement}!lockPiece@{lockPiece}}
+\index{lockPiece@{lockPiece}!PieceMovement@{PieceMovement}}
+\doxysubsubsection{\texorpdfstring{lockPiece()}{lockPiece()}}
+{\footnotesize\ttfamily \label{class_piece_movement_ad1f11c258c3aa9645b128a07c9619d23} 
+void Piece\+Movement.\+lock\+Piece (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Lock the piece, it can\textquotesingle{}t move until it\textquotesingle{}s unlocked\Hypertarget{class_piece_movement_a4c04801b5e78e6082c04c506f3745449}\index{PieceMovement@{PieceMovement}!moveTo@{moveTo}}
+\index{moveTo@{moveTo}!PieceMovement@{PieceMovement}}
+\doxysubsubsection{\texorpdfstring{moveTo()}{moveTo()}}
+{\footnotesize\ttfamily \label{class_piece_movement_a4c04801b5e78e6082c04c506f3745449} 
+void Piece\+Movement.\+move\+To (\begin{DoxyParamCaption}\item[{Vector3\+Int}]{new\+Pos}{}\end{DoxyParamCaption})}
+
+This method is used to move the piece to a new position on the map, updating the position of the piece, the tile state and the piece state in the respecting managers.\Hypertarget{class_piece_movement_ae8ee87ac6b84432bac14b3ff87665055}\index{PieceMovement@{PieceMovement}!OnMouseDown@{OnMouseDown}}
+\index{OnMouseDown@{OnMouseDown}!PieceMovement@{PieceMovement}}
+\doxysubsubsection{\texorpdfstring{OnMouseDown()}{OnMouseDown()}}
+{\footnotesize\ttfamily \label{class_piece_movement_ae8ee87ac6b84432bac14b3ff87665055} 
+void Piece\+Movement.\+On\+Mouse\+Down (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+This method is used to handle the mouse down event on the piece, it will update the state of the piece and the reachable tiles if it\textquotesingle{}s the player\textquotesingle{}s turn and if the phase is valid. It will also reset the reachable tiles to avoid bugs. The method will also update the state of the piece in the \doxylink{class_piece_state_manager}{Piece\+State\+Manager}. It enables the "{}selected"{} state of the piece by scaling it up and changing its sorting order (for dragging effect).\Hypertarget{class_piece_movement_a7d2cf21631d9dfceded98264a7cecdce}\index{PieceMovement@{PieceMovement}!OnMouseDrag@{OnMouseDrag}}
+\index{OnMouseDrag@{OnMouseDrag}!PieceMovement@{PieceMovement}}
+\doxysubsubsection{\texorpdfstring{OnMouseDrag()}{OnMouseDrag()}}
+{\footnotesize\ttfamily \label{class_piece_movement_a7d2cf21631d9dfceded98264a7cecdce} 
+void Piece\+Movement.\+On\+Mouse\+Drag (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Just a visual code for the piece to follow the mouse on drag\Hypertarget{class_piece_movement_abf5e65fb6d5fbab1823de9f0d189c0f8}\index{PieceMovement@{PieceMovement}!OnMouseUp@{OnMouseUp}}
+\index{OnMouseUp@{OnMouseUp}!PieceMovement@{PieceMovement}}
+\doxysubsubsection{\texorpdfstring{OnMouseUp()}{OnMouseUp()}}
+{\footnotesize\ttfamily \label{class_piece_movement_abf5e65fb6d5fbab1823de9f0d189c0f8} 
+void Piece\+Movement.\+On\+Mouse\+Up (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+This method is crucial for the class, it is the verifier that allow the move of the piece (or its summon). it will handle the mouse up event on the piece, it will update the state of the piece and the reachable tiles if it\textquotesingle{}s the player\textquotesingle{}s turn and if the phase is valid. It will also reset the reachable tiles to avoid bugs. The method will also update the state of the piece in the \doxylink{class_piece_state_manager}{Piece\+State\+Manager}. It disables the "{}selected"{} state of the piece by scaling it down and changing its sorting order (for dragging effect).\Hypertarget{class_piece_movement_a3b66df80d5d7ce3f57a75103238ebc40}\index{PieceMovement@{PieceMovement}!phaseValidation@{phaseValidation}}
+\index{phaseValidation@{phaseValidation}!PieceMovement@{PieceMovement}}
+\doxysubsubsection{\texorpdfstring{phaseValidation()}{phaseValidation()}}
+{\footnotesize\ttfamily \label{class_piece_movement_a3b66df80d5d7ce3f57a75103238ebc40} 
+bool Piece\+Movement.\+phase\+Validation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This will stock the coordinates of the tiles reachable by the piece. 
+
+This method is used to validate the phase of the game, it will return true if the phase is valid for the piece to move or summon.\Hypertarget{class_piece_movement_adbb927fb7c3934cf6b3aee8d160a8ce3}\index{PieceMovement@{PieceMovement}!refreshMoves@{refreshMoves}}
+\index{refreshMoves@{refreshMoves}!PieceMovement@{PieceMovement}}
+\doxysubsubsection{\texorpdfstring{refreshMoves()}{refreshMoves()}}
+{\footnotesize\ttfamily \label{class_piece_movement_adbb927fb7c3934cf6b3aee8d160a8ce3} 
+void Piece\+Movement.\+refresh\+Moves (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+refresh\+Moves is used to refresh cur\+Mov\Hypertarget{class_piece_movement_ae9d48d1ae97c1c88482f92f7305d6c7c}\index{PieceMovement@{PieceMovement}!resetMap@{resetMap}}
+\index{resetMap@{resetMap}!PieceMovement@{PieceMovement}}
+\doxysubsubsection{\texorpdfstring{resetMap()}{resetMap()}}
+{\footnotesize\ttfamily \label{class_piece_movement_ae9d48d1ae97c1c88482f92f7305d6c7c} 
+void Piece\+Movement.\+reset\+Map (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+This method is used to reset the map after a move or a summon, it will reset the state of the tiles to basic and refresh them.\Hypertarget{class_piece_movement_af4421cb1c3344bce2a03b33c0122fb17}\index{PieceMovement@{PieceMovement}!unlockPiece@{unlockPiece}}
+\index{unlockPiece@{unlockPiece}!PieceMovement@{PieceMovement}}
+\doxysubsubsection{\texorpdfstring{unlockPiece()}{unlockPiece()}}
+{\footnotesize\ttfamily \label{class_piece_movement_af4421cb1c3344bce2a03b33c0122fb17} 
+void Piece\+Movement.\+unlock\+Piece (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Unlock the piece, it can move again\Hypertarget{class_piece_movement_a4877f9164e970d09108d7e748c6714c9}\index{PieceMovement@{PieceMovement}!Update@{Update}}
+\index{Update@{Update}!PieceMovement@{PieceMovement}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_piece_movement_a4877f9164e970d09108d7e748c6714c9} 
+void Piece\+Movement.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Update is the second verifier of the move (for "{}click and go"{} moves), it will check if the player clicked on a tile and if the move is valid.\Hypertarget{class_piece_movement_a3427f58907fdbd06f76363eb8cfb1ee6}\index{PieceMovement@{PieceMovement}!useMove@{useMove}}
+\index{useMove@{useMove}!PieceMovement@{PieceMovement}}
+\doxysubsubsection{\texorpdfstring{useMove()}{useMove()}}
+{\footnotesize\ttfamily \label{class_piece_movement_a3427f58907fdbd06f76363eb8cfb1ee6} 
+void Piece\+Movement.\+use\+Move (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+use\+Move is used to decrement cur\+Mov of the number of moves used by the piece
+
+\label{doc-variable-members}
+\Hypertarget{class_piece_movement_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_piece_movement_a5342341c71f797cb38d2feaf4e9667f3}\index{PieceMovement@{PieceMovement}!nbMov@{nbMov}}
+\index{nbMov@{nbMov}!PieceMovement@{PieceMovement}}
+\doxysubsubsection{\texorpdfstring{nbMov}{nbMov}}
+{\footnotesize\ttfamily \label{class_piece_movement_a5342341c71f797cb38d2feaf4e9667f3} 
+int Piece\+Movement.\+nb\+Mov =1}
+
+
+
+Specify the type of the piece (basically P1 or P2) 
+
+For now, nb\+Mov\textquotesingle{}s range is between 1 and 5 \Hypertarget{class_piece_movement_aeac0fc96fc61d07a47356a34c3f48ea5}\index{PieceMovement@{PieceMovement}!neighbourOffset@{neighbourOffset}}
+\index{neighbourOffset@{neighbourOffset}!PieceMovement@{PieceMovement}}
+\doxysubsubsection{\texorpdfstring{neighbourOffset}{neighbourOffset}}
+{\footnotesize\ttfamily \label{class_piece_movement_aeac0fc96fc61d07a47356a34c3f48ea5} 
+Vector3\+Int \mbox{[}$\,$\mbox{]} Piece\+Movement.\+neighbour\+Offset\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \textcolor{keyword}{new}\ Vector3Int[]\{\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3Int(-\/1,1,0),\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3Int(0,1,0),\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3Int(1,0,0),\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3Int(0,-\/1,0),\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3Int(-\/1,-\/1,0),\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3Int(-\/1,0,0),\ }
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_piece_movement_a61fca1e21e1f8815a9905a92e14c77c2}\index{PieceMovement@{PieceMovement}!neighbourOffsetOdd@{neighbourOffsetOdd}}
+\index{neighbourOffsetOdd@{neighbourOffsetOdd}!PieceMovement@{PieceMovement}}
+\doxysubsubsection{\texorpdfstring{neighbourOffsetOdd}{neighbourOffsetOdd}}
+{\footnotesize\ttfamily \label{class_piece_movement_a61fca1e21e1f8815a9905a92e14c77c2} 
+Vector3\+Int \mbox{[}$\,$\mbox{]} Piece\+Movement.\+neighbour\+Offset\+Odd\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \textcolor{keyword}{new}\ Vector3Int[]\{\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3Int(0,1,0),\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3Int(1,1,0),\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3Int(1,0,0),\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3Int(1,-\/1,0),\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3Int(0,-\/1,0),\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3Int(-\/1,0,0),\ }
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Used to reset cur\+Mov, as it\textquotesingle{}s its only purpose, it\textquotesingle{}s not in \doxylink{class_turn_manager}{Turn\+Manager} to simplify. Each piece will reset itself instead of a manager doing it. 
+
+\Hypertarget{class_piece_movement_aa104f953fa4a086627093e380e2f9af3}\index{PieceMovement@{PieceMovement}!tileMap@{tileMap}}
+\index{tileMap@{tileMap}!PieceMovement@{PieceMovement}}
+\doxysubsubsection{\texorpdfstring{tileMap}{tileMap}}
+{\footnotesize\ttfamily \label{class_piece_movement_aa104f953fa4a086627093e380e2f9af3} 
+Tilemap Piece\+Movement.\+tile\+Map}
+
+This class is used to manage the movement of the pieces on the map. It will handle the movement of the pieces, the detection of reachable tiles, and the interaction with the user. It will also handle the summoning of pieces on the map. The class is used by \doxylink{class_piece_interaction_manager}{Piece\+Interaction\+Manager} to manage the interaction with the user. It is also used by \doxylink{class_turn_manager}{Turn\+Manager} to manage the turn of the pieces. It is also used by \doxylink{class_phase_manager}{Phase\+Manager} to manage the phase of the game. It unfortunately has a lot of global variables (is fluct, offset of tiles research, etc...), but the split will be done later 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/rzong/\+Desktop/\+ISART/\+Admission\+\_\+\+Preparation/\+Unity\+Project/\+Roshar/\+Assets/\+Scripts/\+Piece\+Scripts/Piece\+Movement.\+cs\end{DoxyCompactItemize}

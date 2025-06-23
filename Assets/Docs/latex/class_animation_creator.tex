@@ -1,0 +1,76 @@
+\doxysection{Animation\+Creator Class Reference}
+\hypertarget{class_animation_creator}{}\label{class_animation_creator}\index{AnimationCreator@{AnimationCreator}}
+Inheritance diagram for Animation\+Creator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_animation_creator}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_animation_creator_add8fd9adfad49ff83d30a1f19bbd3f6d}{Animate}} ()
+\begin{DoxyCompactList}\small\item\em index of the current animation \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_animation_creator_a962a61f846dd56b1c88571e5875561cd}\label{class_animation_creator_a962a61f846dd56b1c88571e5875561cd} 
+List$<$ \mbox{\hyperlink{class_slide}{Slide}} $>$ {\bfseries animations} = new List$<$\mbox{\hyperlink{class_slide}{Slide}}$>$()
+\item 
+\Hypertarget{class_animation_creator_a51ad59b813677457b77282347dc30d76}\label{class_animation_creator_a51ad59b813677457b77282347dc30d76} 
+bool {\bfseries reset\+Position} = true
+\begin{DoxyCompactList}\small\item\em list of slides for now, we\textquotesingle{}ll change if we add more animations later \end{DoxyCompactList}\item 
+\Hypertarget{class_animation_creator_a335fa1508c3f9c1b6c20313affd57263}\label{class_animation_creator_a335fa1508c3f9c1b6c20313affd57263} 
+bool {\bfseries is\+Hiding} = true
+\begin{DoxyCompactList}\small\item\em if true, the position is reset after the animation \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_animation_creator_ab5908da6f05657b4e2c1166ecf35f058}{Start}} ()
+\item 
+void \mbox{\hyperlink{class_animation_creator_a806dcfaf3e85e0890a57a6387ea4ac22}{Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_animation_creator_a19588815fda9c48812db5c888d13c4fe}\label{class_animation_creator_a19588815fda9c48812db5c888d13c4fe} 
+Vector3 {\bfseries initial\+Position}
+\begin{DoxyCompactList}\small\item\em if true, the object is hidden when it\textquotesingle{}s not animated \end{DoxyCompactList}\item 
+\Hypertarget{class_animation_creator_a2b9da96ccc0a24968d4d388dbeb2f380}\label{class_animation_creator_a2b9da96ccc0a24968d4d388dbeb2f380} 
+bool {\bfseries animation\+Started} = false
+\begin{DoxyCompactList}\small\item\em initial position of the object, used to reset the position after the animation \end{DoxyCompactList}\item 
+\Hypertarget{class_animation_creator_a390cca888c18ec95ac44eb0c8e86598d}\label{class_animation_creator_a390cca888c18ec95ac44eb0c8e86598d} 
+int {\bfseries current\+Animation\+Index} = 0
+\begin{DoxyCompactList}\small\item\em if true, the animation is started \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_animation_creator_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_animation_creator_add8fd9adfad49ff83d30a1f19bbd3f6d}\index{AnimationCreator@{AnimationCreator}!Animate@{Animate}}
+\index{Animate@{Animate}!AnimationCreator@{AnimationCreator}}
+\doxysubsubsection{\texorpdfstring{Animate()}{Animate()}}
+{\footnotesize\ttfamily \label{class_animation_creator_add8fd9adfad49ff83d30a1f19bbd3f6d} 
+void Animation\+Creator.\+Animate (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+index of the current animation 
+
+This method starts the animation defined in the inspector\Hypertarget{class_animation_creator_ab5908da6f05657b4e2c1166ecf35f058}\index{AnimationCreator@{AnimationCreator}!Start@{Start}}
+\index{Start@{Start}!AnimationCreator@{AnimationCreator}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_animation_creator_ab5908da6f05657b4e2c1166ecf35f058} 
+void Animation\+Creator.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+we store the initial position of the object\Hypertarget{class_animation_creator_a806dcfaf3e85e0890a57a6387ea4ac22}\index{AnimationCreator@{AnimationCreator}!Update@{Update}}
+\index{Update@{Update}!AnimationCreator@{AnimationCreator}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_animation_creator_a806dcfaf3e85e0890a57a6387ea4ac22} 
+void Animation\+Creator.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Each frame, we check if the animation is started and if the current animation is running. If the animation is running, we update the animation. If the animation is not running, we go to the next animation. If we reached the end of the list, we stop the animation and reset the position if needed. If the object is set to hide, we also hide it when the animation is finished.
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/rzong/\+Desktop/\+ISART/\+Admission\+\_\+\+Preparation/\+Unity\+Project/\+Roshar/\+Assets/\+Scripts/\+Animation\+Scripts/Animation\+Creator.\+cs\end{DoxyCompactItemize}

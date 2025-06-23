@@ -1,0 +1,60 @@
+\doxysection{Win\+Condition Class Reference}
+\hypertarget{class_win_condition}{}\label{class_win_condition}\index{WinCondition@{WinCondition}}
+Inheritance diagram for Win\+Condition\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_win_condition}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_win_condition_a7bd64ab4849b1c169e97babfc0475223}\label{class_win_condition_a7bd64ab4849b1c169e97babfc0475223} 
+void {\bfseries Update\+Fluct\+On\+Map} (bool incr)
+\begin{DoxyCompactList}\small\item\em Updates the number of Fluctuomancers on the map. \end{DoxyCompactList}\item 
+\Hypertarget{class_win_condition_a2758fac83497e57ffc3d91b2a718b5e9}\label{class_win_condition_a2758fac83497e57ffc3d91b2a718b5e9} 
+void {\bfseries Update\+Fus\+On\+Map} (bool incr)
+\begin{DoxyCompactList}\small\item\em Updates the number of Fused pieces on the map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_win_condition}{Win\+Condition}} \mbox{\hyperlink{class_win_condition_a98fa5dd48a1131528ddac2dd3ea1f362}{Instance}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_win_condition_a308ce670206928e2e4bcb5e7488d5842}{Verify\+Win\+Condition}} ()
+\item 
+\Hypertarget{class_win_condition_a83f3132655bfbc0135f0bdd44b42c341}\label{class_win_condition_a83f3132655bfbc0135f0bdd44b42c341} 
+void {\bfseries Start} ()
+\item 
+\Hypertarget{class_win_condition_aee2a6e8a754b7023cc050e3706bf8097}\label{class_win_condition_aee2a6e8a754b7023cc050e3706bf8097} 
+void {\bfseries Update} ()
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_win_condition_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_win_condition_a308ce670206928e2e4bcb5e7488d5842}\index{WinCondition@{WinCondition}!VerifyWinCondition@{VerifyWinCondition}}
+\index{VerifyWinCondition@{VerifyWinCondition}!WinCondition@{WinCondition}}
+\doxysubsubsection{\texorpdfstring{VerifyWinCondition()}{VerifyWinCondition()}}
+{\footnotesize\ttfamily \label{class_win_condition_a308ce670206928e2e4bcb5e7488d5842} 
+void Win\+Condition.\+Verify\+Win\+Condition (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Checks the win condition every frame.
+
+\label{doc-variable-members}
+\Hypertarget{class_win_condition_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_win_condition_a98fa5dd48a1131528ddac2dd3ea1f362}\index{WinCondition@{WinCondition}!Instance@{Instance}}
+\index{Instance@{Instance}!WinCondition@{WinCondition}}
+\doxysubsubsection{\texorpdfstring{Instance}{Instance}}
+{\footnotesize\ttfamily \label{class_win_condition_a98fa5dd48a1131528ddac2dd3ea1f362} 
+\mbox{\hyperlink{class_win_condition}{Win\+Condition}} Win\+Condition.\+Instance\hspace{0.3cm}{\ttfamily [static]}}
+
+\doxylink{class_win_condition}{Win\+Condition} is a singleton that manages the win condition of the game. It keeps track of the number of Fluctuomancers and Fused pieces on the map. If there are no Fluctuomancers left, the Fused player wins, and vice versa. The win condition is checked every frame. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/rzong/\+Desktop/\+ISART/\+Admission\+\_\+\+Preparation/\+Unity\+Project/\+Roshar/\+Assets/\+Scripts/\+Game\+Managers/Win\+Condition.\+cs\end{DoxyCompactItemize}

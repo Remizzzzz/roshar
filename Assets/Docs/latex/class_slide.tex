@@ -1,0 +1,73 @@
+\doxysection{Slide Class Reference}
+\hypertarget{class_slide}{}\label{class_slide}\index{Slide@{Slide}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_slide_a8c71af2eccbdbff04f06a35bb3c240d9}{Start\+Animation}} (Transform target)
+\begin{DoxyCompactList}\small\item\em Initial position of the object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_slide_a3c22d6d8bb5d937b2dceeb54123e9927}{Update\+Animation}} (Transform transform)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_slide_a6b541e176aeb8ded15467acf0f34a651}\label{class_slide_a6b541e176aeb8ded15467acf0f34a651} 
+float {\bfseries slide\+Speed} = 5f
+\item 
+\Hypertarget{class_slide_af989fb67f8ec6a6a9c0e79134609a549}\label{class_slide_af989fb67f8ec6a6a9c0e79134609a549} 
+int {\bfseries degree} = 0
+\begin{DoxyCompactList}\small\item\em speed \end{DoxyCompactList}\item 
+\Hypertarget{class_slide_a001fe2dda456433f23f62de56428bff0}\label{class_slide_a001fe2dda456433f23f62de56428bff0} 
+float {\bfseries duration} = 1f
+\begin{DoxyCompactList}\small\item\em direction in degrees (0 = right, 90 = up, 180 = left, 270 = down) \end{DoxyCompactList}\item 
+\Hypertarget{class_slide_ab3170530940f5f0f08746b8d1b1178fa}\label{class_slide_ab3170530940f5f0f08746b8d1b1178fa} 
+bool {\bfseries reset\+Position} = true
+\begin{DoxyCompactList}\small\item\em Duration of the slide in seconds. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_slide_afe1421680eaa185bdd37d8a5b25d146c}\label{class_slide_afe1421680eaa185bdd37d8a5b25d146c} 
+bool {\bfseries Is\+Sliding}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Whether to reset the position after sliding. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_slide_a7a9e9ad009c0a8788d99dc1c0c318b1e}\label{class_slide_a7a9e9ad009c0a8788d99dc1c0c318b1e} 
+float {\bfseries time\+Remaining} = 0f
+\begin{DoxyCompactList}\small\item\em Property to check if the object is currently sliding. \end{DoxyCompactList}\item 
+\Hypertarget{class_slide_a92b259d1a194094f9e8b819763c2de18}\label{class_slide_a92b259d1a194094f9e8b819763c2de18} 
+bool {\bfseries is\+Sliding} = false
+\begin{DoxyCompactList}\small\item\em Time remaining for the slide. \end{DoxyCompactList}\item 
+\Hypertarget{class_slide_aab13d05a32178a92142bf64a27ff2022}\label{class_slide_aab13d05a32178a92142bf64a27ff2022} 
+Vector3 {\bfseries slide\+Direction}
+\item 
+\Hypertarget{class_slide_a92db089b5fc275d7858717447bd9eca1}\label{class_slide_a92db089b5fc275d7858717447bd9eca1} 
+Vector3 {\bfseries initial\+Position}
+\begin{DoxyCompactList}\small\item\em Direction of the slide. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_slide_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_slide_a8c71af2eccbdbff04f06a35bb3c240d9}\index{Slide@{Slide}!StartAnimation@{StartAnimation}}
+\index{StartAnimation@{StartAnimation}!Slide@{Slide}}
+\doxysubsubsection{\texorpdfstring{StartAnimation()}{StartAnimation()}}
+{\footnotesize\ttfamily \label{class_slide_a8c71af2eccbdbff04f06a35bb3c240d9} 
+void Slide.\+Start\+Animation (\begin{DoxyParamCaption}\item[{Transform}]{target}{}\end{DoxyParamCaption})}
+
+
+
+Initial position of the object. 
+
+Convert the \textquotesingle{}degree\textquotesingle{} value (in degrees) into a direction vector. Unity\textquotesingle{}s trigonometric functions use radians, so we convert degrees to radians. Cosine gives the X (horizontal) component of the direction. Sine gives the Y (vertical) component of the direction. This creates a 2D vector pointing in the specified angle on the XY plane. We normalize the vector to ensure its length is always 1, so that the slide speed remains consistent regardless of the angle.
+
+Then store the initial position of the object and activate the flag to start animation\Hypertarget{class_slide_a3c22d6d8bb5d937b2dceeb54123e9927}\index{Slide@{Slide}!UpdateAnimation@{UpdateAnimation}}
+\index{UpdateAnimation@{UpdateAnimation}!Slide@{Slide}}
+\doxysubsubsection{\texorpdfstring{UpdateAnimation()}{UpdateAnimation()}}
+{\footnotesize\ttfamily \label{class_slide_a3c22d6d8bb5d937b2dceeb54123e9927} 
+void Slide.\+Update\+Animation (\begin{DoxyParamCaption}\item[{Transform}]{transform}{}\end{DoxyParamCaption})}
+
+This method updates the position of the object during the slide animation. It moves the object in the specified direction at the defined speed for the duration of the slide
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/rzong/\+Desktop/\+ISART/\+Admission\+\_\+\+Preparation/\+Unity\+Project/\+Roshar/\+Assets/\+Scripts/\+Animation\+Scripts/Slide.\+cs\end{DoxyCompactItemize}

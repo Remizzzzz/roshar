@@ -1,0 +1,100 @@
+\doxysection{Interruption\+Manager Class Reference}
+\hypertarget{class_interruption_manager}{}\label{class_interruption_manager}\index{InterruptionManager@{InterruptionManager}}
+Inheritance diagram for Interruption\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_interruption_manager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_interruption_manager_a43ba85819be261f654e0d60ce235e30a}\label{class_interruption_manager_a43ba85819be261f654e0d60ce235e30a} 
+bool {\bfseries is\+Interruption\+Active} ()
+\begin{DoxyCompactList}\small\item\em Flag to check if an interruption is currently active. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_interruption_manager_a6a652e1c346d65928665bb1deb0cb29f}{activate\+Interruption}} ()
+\begin{DoxyCompactList}\small\item\em List to keep track of active interruption windows. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_interruption_manager_ac31435a4e8abef9831d04eebc0a43a48}{end\+Interruption}} ()
+\item 
+void \mbox{\hyperlink{class_interruption_manager_af023e298a213e1d70b8bb072a6f7e36a}{create\+Window}} (Game\+Object caller, Game\+Object Window\+Pre\+Fab, string caller\+Name="{}"{})
+\item 
+void \mbox{\hyperlink{class_interruption_manager_ab11dbbf478ba46cb1cca60bb1d0311a6}{destroy\+Windows}} (int indice=-\/1)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_interruption_manager}{Interruption\+Manager}} \mbox{\hyperlink{class_interruption_manager_a3a3e3e2f2a9a4ccccc24c462151bd709}{Instance}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_interruption_manager_ab010cb97843d2b5d21d9e308a5e1775b}\label{class_interruption_manager_ab010cb97843d2b5d21d9e308a5e1775b} 
+void {\bfseries Start} ()
+\item 
+\Hypertarget{class_interruption_manager_ab2af4d38d39c5ded4c1377fefb9cec01}\label{class_interruption_manager_ab2af4d38d39c5ded4c1377fefb9cec01} 
+void {\bfseries Update} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_interruption_manager_a082c132877d850246ec0ca5d88e12cfd}\label{class_interruption_manager_a082c132877d850246ec0ca5d88e12cfd} 
+bool {\bfseries interruption} = false
+\item 
+\Hypertarget{class_interruption_manager_a8e52d0661168d91e07366be9f34085b3}\label{class_interruption_manager_a8e52d0661168d91e07366be9f34085b3} 
+List$<$ Game\+Object $>$ {\bfseries interruption\+Windows} = new List$<$Game\+Object$>$()
+\begin{DoxyCompactList}\small\item\em Property to check if an interruption is active. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_interruption_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_interruption_manager_a6a652e1c346d65928665bb1deb0cb29f}\index{InterruptionManager@{InterruptionManager}!activateInterruption@{activateInterruption}}
+\index{activateInterruption@{activateInterruption}!InterruptionManager@{InterruptionManager}}
+\doxysubsubsection{\texorpdfstring{activateInterruption()}{activateInterruption()}}
+{\footnotesize\ttfamily \label{class_interruption_manager_a6a652e1c346d65928665bb1deb0cb29f} 
+void Interruption\+Manager.\+activate\+Interruption (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+List to keep track of active interruption windows. 
+
+Set the interruption as active\Hypertarget{class_interruption_manager_af023e298a213e1d70b8bb072a6f7e36a}\index{InterruptionManager@{InterruptionManager}!createWindow@{createWindow}}
+\index{createWindow@{createWindow}!InterruptionManager@{InterruptionManager}}
+\doxysubsubsection{\texorpdfstring{createWindow()}{createWindow()}}
+{\footnotesize\ttfamily \label{class_interruption_manager_af023e298a213e1d70b8bb072a6f7e36a} 
+void Interruption\+Manager.\+create\+Window (\begin{DoxyParamCaption}\item[{Game\+Object}]{caller}{, }\item[{Game\+Object}]{Window\+Pre\+Fab}{, }\item[{string}]{caller\+Name}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})}
+
+Create a new interruption window and set the caller
+
+Add the new window to the list of active windows
+
+Activate the interruption\Hypertarget{class_interruption_manager_ab11dbbf478ba46cb1cca60bb1d0311a6}\index{InterruptionManager@{InterruptionManager}!destroyWindows@{destroyWindows}}
+\index{destroyWindows@{destroyWindows}!InterruptionManager@{InterruptionManager}}
+\doxysubsubsection{\texorpdfstring{destroyWindows()}{destroyWindows()}}
+{\footnotesize\ttfamily \label{class_interruption_manager_ab11dbbf478ba46cb1cca60bb1d0311a6} 
+void Interruption\+Manager.\+destroy\+Windows (\begin{DoxyParamCaption}\item[{int}]{indice}{ = {\ttfamily -\/1}}\end{DoxyParamCaption})}
+
+If no specific index is provided, destroy all windows and clear the list after destroying all windows
+
+If a valid index is provided, destroy the specific window and remove it from the list\Hypertarget{class_interruption_manager_ac31435a4e8abef9831d04eebc0a43a48}\index{InterruptionManager@{InterruptionManager}!endInterruption@{endInterruption}}
+\index{endInterruption@{endInterruption}!InterruptionManager@{InterruptionManager}}
+\doxysubsubsection{\texorpdfstring{endInterruption()}{endInterruption()}}
+{\footnotesize\ttfamily \label{class_interruption_manager_ac31435a4e8abef9831d04eebc0a43a48} 
+void Interruption\+Manager.\+end\+Interruption (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Set the interruption as inactive
+
+\label{doc-variable-members}
+\Hypertarget{class_interruption_manager_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_interruption_manager_a3a3e3e2f2a9a4ccccc24c462151bd709}\index{InterruptionManager@{InterruptionManager}!Instance@{Instance}}
+\index{Instance@{Instance}!InterruptionManager@{InterruptionManager}}
+\doxysubsubsection{\texorpdfstring{Instance}{Instance}}
+{\footnotesize\ttfamily \label{class_interruption_manager_a3a3e3e2f2a9a4ccccc24c462151bd709} 
+\mbox{\hyperlink{class_interruption_manager}{Interruption\+Manager}} Interruption\+Manager.\+Instance\hspace{0.3cm}{\ttfamily [static]}}
+
+This class manages interruptions in the game. It handles the creation and destruction of interruption windows, as well as the activation and deactivation of interruptions. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/rzong/\+Desktop/\+ISART/\+Admission\+\_\+\+Preparation/\+Unity\+Project/\+Roshar/\+Assets/\+Scripts/\+Game\+Managers/Interruption\+Manager.\+cs\end{DoxyCompactItemize}

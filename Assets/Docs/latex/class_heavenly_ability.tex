@@ -1,0 +1,212 @@
+\doxysection{Heavenly\+Ability Class Reference}
+\hypertarget{class_heavenly_ability}{}\label{class_heavenly_ability}\index{HeavenlyAbility@{HeavenlyAbility}}
+Inheritance diagram for Heavenly\+Ability\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_heavenly_ability}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_heavenly_ability_a787b1253407b725938574547aa6bbbd5}{allies\+Teleportable}} = 2
+\item 
+\Hypertarget{class_heavenly_ability_af135ceb2ff0a3e1497d2172b99b30c93}\label{class_heavenly_ability_af135ceb2ff0a3e1497d2172b99b30c93} 
+Game\+Object {\bfseries selected\+Sprite\+Appearance\+One}
+\begin{DoxyCompactList}\small\item\em Number of allies that can be teleported. \end{DoxyCompactList}\item 
+\Hypertarget{class_heavenly_ability_ada897dfb8eae6c6f355d1bcf1d9966c8}\label{class_heavenly_ability_ada897dfb8eae6c6f355d1bcf1d9966c8} 
+Game\+Object {\bfseries selected\+Sprite\+Appearance\+Two}
+\begin{DoxyCompactList}\small\item\em Appearance\+Sprite for the first part of the ability. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_heavenly_ability_ac619922948531fdc8624240a8bdf0c4f}{Activate\+Ability}} ()
+\begin{DoxyCompactList}\small\item\em Cost of the ability, to be defined in derived classes. \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{class_heavenly_ability_a7fe5491d24e59142783867cc013199ad}{reset\+Ability}} ()
+\item 
+override void \mbox{\hyperlink{class_heavenly_ability_a49815f4ac8320220fd2bc7c8d0bf9791}{Start}} ()
+\item 
+override void \mbox{\hyperlink{class_heavenly_ability_ae6bbdad9cccff95fc4568b4da2ea2053}{Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_ability}{Ability}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_ability_aae87ed210e03b55201dda2db91968c44}{cast\+Ability}} ()
+\begin{DoxyCompactList}\small\item\em Turn when the ability was casted, used for cooldown or restoration logic. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ability_aa58f84e31e2e80e024db4795e3146be3}{restore}} ()
+\begin{DoxyCompactList}\small\item\em Flag to check if restoration is allowed (to limit restoration to one time every 8 turns) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ability_a4d673a4705f73d6556937e60c906c867}{restore\+Ability}} ()
+\item 
+virtual void \mbox{\hyperlink{class_ability_a654cfec059b15b596a6d023beebf45b6}{start\+Ability}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_heavenly_ability_ac6311db67e16bfdf9b471cbe09c347a2}\label{class_heavenly_ability_ac6311db67e16bfdf9b471cbe09c347a2} 
+override int {\bfseries ability\+Cost}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Properties inherited from \mbox{\hyperlink{class_ability}{Ability}}}
+\begin{DoxyCompactItemize}
+\item 
+static int {\bfseries Stormlight}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+static int {\bfseries Voidlight}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Public static property to access stormlight. \end{DoxyCompactList}\item 
+Vector3\+Int {\bfseries Cur\+Pos}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Néantiflamme, mana for ability of fus. \end{DoxyCompactList}\item 
+int {\bfseries ability\+Cost}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_heavenly_ability_a56a9c4665f8146388aa39ee9b85bbce3}{select\+Ally}} (Vector3\+Int pos)
+\item 
+void \mbox{\hyperlink{class_heavenly_ability_ae6c23ae2f9a80fc8370cab00467602b8}{switch\+Phase}} ()
+\item 
+void \mbox{\hyperlink{class_heavenly_ability_addd08b12344a9c16c52af396beeca558}{detect\+Allies}} ()
+\item 
+void \mbox{\hyperlink{class_heavenly_ability_aaba8abfe0ac86e9026922d9031d2b7ec}{detect\+Tiles}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_heavenly_ability_ad86fbf820901501df185e34f95b8c93a}\label{class_heavenly_ability_ad86fbf820901501df185e34f95b8c93a} 
+List$<$ Game\+Object $>$ {\bfseries selection\+Sprite\+List} =new()
+\begin{DoxyCompactList}\small\item\em Appearance\+Sprite for the second part of the ability. \end{DoxyCompactList}\item 
+\Hypertarget{class_heavenly_ability_abb11267ab59484c3d299c38ed977ac71}\label{class_heavenly_ability_abb11267ab59484c3d299c38ed977ac71} 
+List$<$ Vector3\+Int $>$ {\bfseries ability\+Targets} =new()
+\begin{DoxyCompactList}\small\item\em List to hold the selection sprites for allies. \end{DoxyCompactList}\item 
+\Hypertarget{class_heavenly_ability_a002fd7557c68318087bdf82ecd2faa8e}\label{class_heavenly_ability_a002fd7557c68318087bdf82ecd2faa8e} 
+List$<$ \mbox{\hyperlink{class_piece_movement}{Piece\+Movement}} $>$ {\bfseries targeted\+Allies} = new List$<$\mbox{\hyperlink{class_piece_movement}{Piece\+Movement}}$>$()
+\begin{DoxyCompactList}\small\item\em List of tiles that can be targeted by the ability. \end{DoxyCompactList}\item 
+\Hypertarget{class_heavenly_ability_a364d180aac39984632db7a3bcc1bfd7d}\label{class_heavenly_ability_a364d180aac39984632db7a3bcc1bfd7d} 
+bool {\bfseries is\+Targeting\+Allies} = false
+\begin{DoxyCompactList}\small\item\em List of pieces targeted by the ability. \end{DoxyCompactList}\item 
+\Hypertarget{class_heavenly_ability_abe02eb9e8c4d0edf62753a57865a4d2f}\label{class_heavenly_ability_abe02eb9e8c4d0edf62753a57865a4d2f} 
+bool {\bfseries is\+Targeting\+Tiles} = true
+\begin{DoxyCompactList}\small\item\em Flag to indicate if the ability targets are allies. \end{DoxyCompactList}\item 
+\Hypertarget{class_heavenly_ability_a529dff694fbdff5f75d76dbfc6ebb428}\label{class_heavenly_ability_a529dff694fbdff5f75d76dbfc6ebb428} 
+int {\bfseries allies\+Targeted} = 0
+\begin{DoxyCompactList}\small\item\em Flag to indicate if the ability targets are tiles. \end{DoxyCompactList}\item 
+\Hypertarget{class_heavenly_ability_a0d77949362b311a71474bd82c5b6cfdd}\label{class_heavenly_ability_a0d77949362b311a71474bd82c5b6cfdd} 
+int {\bfseries \+\_\+ability\+Cost} = 2
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_ability}{Ability}}}
+\begin{DoxyCompactItemize}
+\item 
+bool {\bfseries is\+Ability\+Active} = false
+\item 
+bool {\bfseries ability\+Casted} = false
+\begin{DoxyCompactList}\small\item\em Flag to check if the ability is currently active. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes inherited from \mbox{\hyperlink{class_ability}{Ability}}}
+\begin{DoxyCompactItemize}
+\item 
+static int {\bfseries stormlight} = 6
+\begin{DoxyCompactList}\small\item\em Public static property to access voidlight. \end{DoxyCompactList}\item 
+static int {\bfseries voidlight} = 6
+\begin{DoxyCompactList}\small\item\em Fulgiflamme, mana for ability of fluct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_heavenly_ability_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_heavenly_ability_ac619922948531fdc8624240a8bdf0c4f}\index{HeavenlyAbility@{HeavenlyAbility}!ActivateAbility@{ActivateAbility}}
+\index{ActivateAbility@{ActivateAbility}!HeavenlyAbility@{HeavenlyAbility}}
+\doxysubsubsection{\texorpdfstring{ActivateAbility()}{ActivateAbility()}}
+{\footnotesize\ttfamily \label{class_heavenly_ability_ac619922948531fdc8624240a8bdf0c4f} 
+override void Heavenly\+Ability.\+Activate\+Ability (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Cost of the ability, to be defined in derived classes. 
+
+This method should be overridden in derived classes to implement the specific ability logic
+
+Reimplemented from \mbox{\hyperlink{class_ability_a94737a4e696b9ac6be445a281fd1c5af}{Ability}}.
+
+\Hypertarget{class_heavenly_ability_addd08b12344a9c16c52af396beeca558}\index{HeavenlyAbility@{HeavenlyAbility}!detectAllies@{detectAllies}}
+\index{detectAllies@{detectAllies}!HeavenlyAbility@{HeavenlyAbility}}
+\doxysubsubsection{\texorpdfstring{detectAllies()}{detectAllies()}}
+{\footnotesize\ttfamily \label{class_heavenly_ability_addd08b12344a9c16c52af396beeca558} 
+void Heavenly\+Ability.\+detect\+Allies (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyItemize}
+\item This method is called to detect allies within a range of 1 tile. It checks if the ability is targeting allies, and if so, it sets the targets accordingly. If the ability is targeting tiles, it switches the phase to tile targeting.
+\end{DoxyItemize}\Hypertarget{class_heavenly_ability_aaba8abfe0ac86e9026922d9031d2b7ec}\index{HeavenlyAbility@{HeavenlyAbility}!detectTiles@{detectTiles}}
+\index{detectTiles@{detectTiles}!HeavenlyAbility@{HeavenlyAbility}}
+\doxysubsubsection{\texorpdfstring{detectTiles()}{detectTiles()}}
+{\footnotesize\ttfamily \label{class_heavenly_ability_aaba8abfe0ac86e9026922d9031d2b7ec} 
+void Heavenly\+Ability.\+detect\+Tiles (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyItemize}
+\item This method is called to detect tiles where allies can be teleported. It checks if the ability is targeting tiles, and if so, it updates the tile states and adds the tiles to the ability targets list.
+\end{DoxyItemize}\Hypertarget{class_heavenly_ability_a7fe5491d24e59142783867cc013199ad}\index{HeavenlyAbility@{HeavenlyAbility}!resetAbility@{resetAbility}}
+\index{resetAbility@{resetAbility}!HeavenlyAbility@{HeavenlyAbility}}
+\doxysubsubsection{\texorpdfstring{resetAbility()}{resetAbility()}}
+{\footnotesize\ttfamily \label{class_heavenly_ability_a7fe5491d24e59142783867cc013199ad} 
+override void Heavenly\+Ability.\+reset\+Ability (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_ability_a3abf696afae15065d3e56dca90bd2e17}{Ability}}.
+
+\Hypertarget{class_heavenly_ability_a56a9c4665f8146388aa39ee9b85bbce3}\index{HeavenlyAbility@{HeavenlyAbility}!selectAlly@{selectAlly}}
+\index{selectAlly@{selectAlly}!HeavenlyAbility@{HeavenlyAbility}}
+\doxysubsubsection{\texorpdfstring{selectAlly()}{selectAlly()}}
+{\footnotesize\ttfamily \label{class_heavenly_ability_a56a9c4665f8146388aa39ee9b85bbce3} 
+void Heavenly\+Ability.\+select\+Ally (\begin{DoxyParamCaption}\item[{Vector3\+Int}]{pos}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyItemize}
+\item This method is called to select an ally at the specified position. It instantiates the appropriate selection sprite based on the number of allies targeted and adds it to the selection\+Sprite\+List.
+\end{DoxyItemize}\Hypertarget{class_heavenly_ability_a49815f4ac8320220fd2bc7c8d0bf9791}\index{HeavenlyAbility@{HeavenlyAbility}!Start@{Start}}
+\index{Start@{Start}!HeavenlyAbility@{HeavenlyAbility}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_heavenly_ability_a49815f4ac8320220fd2bc7c8d0bf9791} 
+override void Heavenly\+Ability.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_ability}{Ability}}.
+
+\Hypertarget{class_heavenly_ability_ae6c23ae2f9a80fc8370cab00467602b8}\index{HeavenlyAbility@{HeavenlyAbility}!switchPhase@{switchPhase}}
+\index{switchPhase@{switchPhase}!HeavenlyAbility@{HeavenlyAbility}}
+\doxysubsubsection{\texorpdfstring{switchPhase()}{switchPhase()}}
+{\footnotesize\ttfamily \label{class_heavenly_ability_ae6c23ae2f9a80fc8370cab00467602b8} 
+void Heavenly\+Ability.\+switch\+Phase (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Switches the targeting phase of the ability\Hypertarget{class_heavenly_ability_ae6bbdad9cccff95fc4568b4da2ea2053}\index{HeavenlyAbility@{HeavenlyAbility}!Update@{Update}}
+\index{Update@{Update}!HeavenlyAbility@{HeavenlyAbility}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_heavenly_ability_ae6bbdad9cccff95fc4568b4da2ea2053} 
+override void Heavenly\+Ability.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyItemize}
+\item This method is called every frame to check for user input and handle the ability activation. If the left mouse button is clicked and the ability is active, it checks if the clicked tile is a valid target. If it is, it either selects an ally or teleports an ally to the selected tile.
+\end{DoxyItemize}
+
+Reimplemented from \mbox{\hyperlink{class_ability_a88d799f38be464be5f0a9a315efb2d0b}{Ability}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_heavenly_ability_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_heavenly_ability_a787b1253407b725938574547aa6bbbd5}\index{HeavenlyAbility@{HeavenlyAbility}!alliesTeleportable@{alliesTeleportable}}
+\index{alliesTeleportable@{alliesTeleportable}!HeavenlyAbility@{HeavenlyAbility}}
+\doxysubsubsection{\texorpdfstring{alliesTeleportable}{alliesTeleportable}}
+{\footnotesize\ttfamily \label{class_heavenly_ability_a787b1253407b725938574547aa6bbbd5} 
+int Heavenly\+Ability.\+allies\+Teleportable = 2}
+
+
+\begin{DoxyItemize}
+\item This class implements the Heavenly ability, which allows a piece to teleport allies to a tile. It inherits from the \doxylink{class_ability}{Ability} class and overrides the necessary methods to implement the specific logic for teleporting allies. The ability can only be activated during the player\textquotesingle{}s turn and targets allies within a range of 1 tile. 
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/rzong/\+Desktop/\+ISART/\+Admission\+\_\+\+Preparation/\+Unity\+Project/\+Roshar/\+Assets/\+Scripts/\+Piece\+Scripts/\+Abilities/\+Fus\+Abilities/Heavenly\+Ability.\+cs\end{DoxyCompactItemize}

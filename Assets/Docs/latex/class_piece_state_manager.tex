@@ -1,0 +1,129 @@
+\doxysection{Piece\+State\+Manager Class Reference}
+\hypertarget{class_piece_state_manager}{}\label{class_piece_state_manager}\index{PieceStateManager@{PieceStateManager}}
+Inheritance diagram for Piece\+State\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_piece_state_manager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_piece_state_manager_adc31d1fe3498d26e9bd0e0ffd9b42b1f}{update\+State}} (Game\+Object p, Piece\+State s, bool is\+Fluct)
+\item 
+Piece\+State \mbox{\hyperlink{class_piece_state_manager_a9df3c5d7ea23201a8b44c190df475ec1}{get\+State}} (Game\+Object p, bool is\+Fluct)
+\item 
+void \mbox{\hyperlink{class_piece_state_manager_aba5588e3808a47d8249f96b9e539e92a}{remove}} (Game\+Object g)
+\item 
+bool \mbox{\hyperlink{class_piece_state_manager_a3fe2005fbb32bab56bed566a056e40ef}{can\+Move}} (bool is\+Fluct)
+\item 
+bool \mbox{\hyperlink{class_piece_state_manager_a7dbad058c0dbb27c172e01c774253213}{is\+Attacked}} (bool is\+Fluct)
+\item 
+bool \mbox{\hyperlink{class_piece_state_manager_a6624e4c47c503c2aa9186bec8d6ab93a}{is\+Casting}} ()
+\item 
+void \mbox{\hyperlink{class_piece_state_manager_a6443e4b8dfc9b6f5c6bb90bf4984d657}{add\+Piece}} (Game\+Object p, bool is\+Fluct)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_piece_state_manager_a8f3372874fd52233956375d08b74c1b1}\label{class_piece_state_manager_a8f3372874fd52233956375d08b74c1b1} 
+Game\+Object {\bfseries fused}
+\item 
+\Hypertarget{class_piece_state_manager_ae9b7bbc69999183f61b116fb20997aad}\label{class_piece_state_manager_ae9b7bbc69999183f61b116fb20997aad} 
+Game\+Object {\bfseries fluctuomancers}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_piece_state_manager}{Piece\+State\+Manager}} \mbox{\hyperlink{class_piece_state_manager_a8d12a4d5bbb9d945a537a4e6ab6058af}{Instance}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_piece_state_manager_a91e1258f54173250b0309525d59d5b40}\label{class_piece_state_manager_a91e1258f54173250b0309525d59d5b40} 
+void {\bfseries init\+Dicts} ()
+\item 
+\Hypertarget{class_piece_state_manager_ae695b8b79b1c317f5514a7ad395ef238}\label{class_piece_state_manager_ae695b8b79b1c317f5514a7ad395ef238} 
+void {\bfseries Awake} ()
+\item 
+\Hypertarget{class_piece_state_manager_a3585c1264bf3053cb1472e6c333cd724}\label{class_piece_state_manager_a3585c1264bf3053cb1472e6c333cd724} 
+void {\bfseries Start} ()
+\item 
+\Hypertarget{class_piece_state_manager_ae5b57a45ad14629ab6dd23ddad70fdb3}\label{class_piece_state_manager_ae5b57a45ad14629ab6dd23ddad70fdb3} 
+void {\bfseries Update} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_piece_state_manager_a091be10784707391c04f9a162630ec64}\label{class_piece_state_manager_a091be10784707391c04f9a162630ec64} 
+Dictionary$<$ Game\+Object, Piece\+State $>$ {\bfseries states\+Fus} = new()
+\item 
+\Hypertarget{class_piece_state_manager_ae9c8a22b4ab7057140c679cb656473c8}\label{class_piece_state_manager_ae9c8a22b4ab7057140c679cb656473c8} 
+Dictionary$<$ Game\+Object, Piece\+State $>$ {\bfseries states\+Fluct} = new()
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_piece_state_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_piece_state_manager_a6443e4b8dfc9b6f5c6bb90bf4984d657}\index{PieceStateManager@{PieceStateManager}!addPiece@{addPiece}}
+\index{addPiece@{addPiece}!PieceStateManager@{PieceStateManager}}
+\doxysubsubsection{\texorpdfstring{addPiece()}{addPiece()}}
+{\footnotesize\ttfamily \label{class_piece_state_manager_a6443e4b8dfc9b6f5c6bb90bf4984d657} 
+void Piece\+State\+Manager.\+add\+Piece (\begin{DoxyParamCaption}\item[{Game\+Object}]{p}{, }\item[{bool}]{is\+Fluct}{}\end{DoxyParamCaption})}
+
+Adds a piece to the state manager\Hypertarget{class_piece_state_manager_a3fe2005fbb32bab56bed566a056e40ef}\index{PieceStateManager@{PieceStateManager}!canMove@{canMove}}
+\index{canMove@{canMove}!PieceStateManager@{PieceStateManager}}
+\doxysubsubsection{\texorpdfstring{canMove()}{canMove()}}
+{\footnotesize\ttfamily \label{class_piece_state_manager_a3fe2005fbb32bab56bed566a056e40ef} 
+bool Piece\+State\+Manager.\+can\+Move (\begin{DoxyParamCaption}\item[{bool}]{is\+Fluct}{}\end{DoxyParamCaption})}
+
+Checks if a piece can move. If there is a piece already moving, it cannot move.\Hypertarget{class_piece_state_manager_a9df3c5d7ea23201a8b44c190df475ec1}\index{PieceStateManager@{PieceStateManager}!getState@{getState}}
+\index{getState@{getState}!PieceStateManager@{PieceStateManager}}
+\doxysubsubsection{\texorpdfstring{getState()}{getState()}}
+{\footnotesize\ttfamily \label{class_piece_state_manager_a9df3c5d7ea23201a8b44c190df475ec1} 
+Piece\+State Piece\+State\+Manager.\+get\+State (\begin{DoxyParamCaption}\item[{Game\+Object}]{p}{, }\item[{bool}]{is\+Fluct}{}\end{DoxyParamCaption})}
+
+Retrieves the state of a piece.\Hypertarget{class_piece_state_manager_a7dbad058c0dbb27c172e01c774253213}\index{PieceStateManager@{PieceStateManager}!isAttacked@{isAttacked}}
+\index{isAttacked@{isAttacked}!PieceStateManager@{PieceStateManager}}
+\doxysubsubsection{\texorpdfstring{isAttacked()}{isAttacked()}}
+{\footnotesize\ttfamily \label{class_piece_state_manager_a7dbad058c0dbb27c172e01c774253213} 
+bool Piece\+State\+Manager.\+is\+Attacked (\begin{DoxyParamCaption}\item[{bool}]{is\+Fluct}{}\end{DoxyParamCaption})}
+
+Checks if a piece is being attacked.\Hypertarget{class_piece_state_manager_a6624e4c47c503c2aa9186bec8d6ab93a}\index{PieceStateManager@{PieceStateManager}!isCasting@{isCasting}}
+\index{isCasting@{isCasting}!PieceStateManager@{PieceStateManager}}
+\doxysubsubsection{\texorpdfstring{isCasting()}{isCasting()}}
+{\footnotesize\ttfamily \label{class_piece_state_manager_a6624e4c47c503c2aa9186bec8d6ab93a} 
+bool Piece\+State\+Manager.\+is\+Casting (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Checks if a piece is casting an ability.\Hypertarget{class_piece_state_manager_aba5588e3808a47d8249f96b9e539e92a}\index{PieceStateManager@{PieceStateManager}!remove@{remove}}
+\index{remove@{remove}!PieceStateManager@{PieceStateManager}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily \label{class_piece_state_manager_aba5588e3808a47d8249f96b9e539e92a} 
+void Piece\+State\+Manager.\+remove (\begin{DoxyParamCaption}\item[{Game\+Object}]{g}{}\end{DoxyParamCaption})}
+
+Removes a piece from the state manager.\Hypertarget{class_piece_state_manager_adc31d1fe3498d26e9bd0e0ffd9b42b1f}\index{PieceStateManager@{PieceStateManager}!updateState@{updateState}}
+\index{updateState@{updateState}!PieceStateManager@{PieceStateManager}}
+\doxysubsubsection{\texorpdfstring{updateState()}{updateState()}}
+{\footnotesize\ttfamily \label{class_piece_state_manager_adc31d1fe3498d26e9bd0e0ffd9b42b1f} 
+void Piece\+State\+Manager.\+update\+State (\begin{DoxyParamCaption}\item[{Game\+Object}]{p}{, }\item[{Piece\+State}]{s}{, }\item[{bool}]{is\+Fluct}{}\end{DoxyParamCaption})}
+
+Updates the state of a piece.
+
+\label{doc-variable-members}
+\Hypertarget{class_piece_state_manager_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_piece_state_manager_a8d12a4d5bbb9d945a537a4e6ab6058af}\index{PieceStateManager@{PieceStateManager}!Instance@{Instance}}
+\index{Instance@{Instance}!PieceStateManager@{PieceStateManager}}
+\doxysubsubsection{\texorpdfstring{Instance}{Instance}}
+{\footnotesize\ttfamily \label{class_piece_state_manager_a8d12a4d5bbb9d945a537a4e6ab6058af} 
+\mbox{\hyperlink{class_piece_state_manager}{Piece\+State\+Manager}} Piece\+State\+Manager.\+Instance\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyItemize}
+\item \doxylink{class_piece_state_manager}{Piece\+State\+Manager} is a singleton that manages the state of all pieces in the game. It keeps track of the state of each piece, whether it is a Fluctuomancer or a Fused piece. The states are stored in two dictionaries, one for Fluctuomancers and one for Fused pieces. The states can be updated, retrieved, and removed. 
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/rzong/\+Desktop/\+ISART/\+Admission\+\_\+\+Preparation/\+Unity\+Project/\+Roshar/\+Assets/\+Scripts/\+Game\+Managers/Piece\+State\+Manager.\+cs\end{DoxyCompactItemize}

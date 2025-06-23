@@ -1,0 +1,86 @@
+\doxysection{Tile\+State\+Manager Class Reference}
+\hypertarget{class_tile_state_manager}{}\label{class_tile_state_manager}\index{TileStateManager@{TileStateManager}}
+Inheritance diagram for Tile\+State\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_tile_state_manager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_tile_state_manager_ae52c817576b738a642da2f2533bb6208}\label{class_tile_state_manager_ae52c817576b738a642da2f2533bb6208} 
+void {\bfseries update\+State} (Vector3\+Int p, Tile\+State s)
+\item 
+\Hypertarget{class_tile_state_manager_a91364404206b987fb47eaa5ab2e87084}\label{class_tile_state_manager_a91364404206b987fb47eaa5ab2e87084} 
+Tile\+State {\bfseries get\+State} (Vector3\+Int p)
+\item 
+\Hypertarget{class_tile_state_manager_a0918cca0696289117bece3a6ca1d33f5}\label{class_tile_state_manager_a0918cca0696289117bece3a6ca1d33f5} 
+bool {\bfseries is\+Not\+Occupied} (Vector3\+Int p)
+\item 
+void \mbox{\hyperlink{class_tile_state_manager_a939084598c88aae65ea20e99f9cf4ebc}{reset\+Map}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_tile_state_manager_af90c509d1fbc4877f3c18645b09f77e2}\label{class_tile_state_manager_af90c509d1fbc4877f3c18645b09f77e2} 
+Tilemap {\bfseries tile\+Map}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_tile_state_manager}{Tile\+State\+Manager}} \mbox{\hyperlink{class_tile_state_manager_aee06c405aae9095a57cbf44ca08846ae}{Instance}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_tile_state_manager_a71babff2b32595df0f3bfd822a9b7dff}\label{class_tile_state_manager_a71babff2b32595df0f3bfd822a9b7dff} 
+void {\bfseries init\+Dict} ()
+\item 
+\Hypertarget{class_tile_state_manager_a98017f0ffb15af21ceac53a8ebff9679}\label{class_tile_state_manager_a98017f0ffb15af21ceac53a8ebff9679} 
+void {\bfseries Awake} ()
+\item 
+\Hypertarget{class_tile_state_manager_ac344e4ffeec2ff4bb7fdcddf14a0252a}\label{class_tile_state_manager_ac344e4ffeec2ff4bb7fdcddf14a0252a} 
+void {\bfseries Start} ()
+\item 
+\Hypertarget{class_tile_state_manager_aa4e8cae9e7cbfeac7c99d4c53fda3e87}\label{class_tile_state_manager_aa4e8cae9e7cbfeac7c99d4c53fda3e87} 
+void {\bfseries Update} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_tile_state_manager_a41923943eb235d35eef1b6c551d1054f}\label{class_tile_state_manager_a41923943eb235d35eef1b6c551d1054f} 
+Dictionary$<$ Vector3\+Int, Tile\+State $>$ {\bfseries states} = new()
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_tile_state_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_tile_state_manager_a939084598c88aae65ea20e99f9cf4ebc}\index{TileStateManager@{TileStateManager}!resetMap@{resetMap}}
+\index{resetMap@{resetMap}!TileStateManager@{TileStateManager}}
+\doxysubsubsection{\texorpdfstring{resetMap()}{resetMap()}}
+{\footnotesize\ttfamily \label{class_tile_state_manager_a939084598c88aae65ea20e99f9cf4ebc} 
+void Tile\+State\+Manager.\+reset\+Map (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Set the boundaries of the map
+
+Go through each tile and reset those that aren\textquotesingle{}t occupied
+
+\label{doc-variable-members}
+\Hypertarget{class_tile_state_manager_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_tile_state_manager_aee06c405aae9095a57cbf44ca08846ae}\index{TileStateManager@{TileStateManager}!Instance@{Instance}}
+\index{Instance@{Instance}!TileStateManager@{TileStateManager}}
+\doxysubsubsection{\texorpdfstring{Instance}{Instance}}
+{\footnotesize\ttfamily \label{class_tile_state_manager_aee06c405aae9095a57cbf44ca08846ae} 
+\mbox{\hyperlink{class_tile_state_manager}{Tile\+State\+Manager}} Tile\+State\+Manager.\+Instance\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyItemize}
+\item \doxylink{class_tile_state_manager}{Tile\+State\+Manager} is a singleton that manages the state of each tile in the tilemap. It keeps track of the state of each tile and allows for updating and checking the state of tiles. The states are stored in a dictionary with the tile position as the key. 
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/rzong/\+Desktop/\+ISART/\+Admission\+\_\+\+Preparation/\+Unity\+Project/\+Roshar/\+Assets/\+Scripts/\+Game\+Managers/Tile\+State\+Manager.\+cs\end{DoxyCompactItemize}

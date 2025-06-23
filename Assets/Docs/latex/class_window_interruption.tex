@@ -1,0 +1,76 @@
+\doxysection{Window\+Interruption Class Reference}
+\hypertarget{class_window_interruption}{}\label{class_window_interruption}\index{WindowInterruption@{WindowInterruption}}
+Inheritance diagram for Window\+Interruption\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_window_interruption}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_window_interruption_aa80914f0456efc6facaa61d28a599e05}\label{class_window_interruption_aa80914f0456efc6facaa61d28a599e05} 
+void {\bfseries set\+Caller\+Name} (string name)
+\begin{DoxyCompactList}\small\item\em The name of the caller, used to identify the ability that is being activated. \end{DoxyCompactList}\item 
+\Hypertarget{class_window_interruption_ada9f74153f09c61dfc6b66596efb9077}\label{class_window_interruption_ada9f74153f09c61dfc6b66596efb9077} 
+void {\bfseries set\+Caller} (Game\+Object Caller)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Text\+Mesh\+Pro \mbox{\hyperlink{class_window_interruption_adb4629a1ceda31f82d3c67b1fde4baa8}{window\+Text}}
+\item 
+\Hypertarget{class_window_interruption_a6288b7e14c7c8c2ad89be88b1b5725be}\label{class_window_interruption_a6288b7e14c7c8c2ad89be88b1b5725be} 
+Game\+Object {\bfseries button}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_window_interruption_ad52477725934b0c87c182bf8e0422ead}\label{class_window_interruption_ad52477725934b0c87c182bf8e0422ead} 
+void {\bfseries Set\+Order\+In\+Layer} (Game\+Object go, int order)
+\begin{DoxyCompactList}\small\item\em Set the sorting order of the Game\+Object and its children Sprite\+Renderers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_window_interruption_a79f1b97fa00546f6d9786eb54d369883}{Start}} ()
+\item 
+\Hypertarget{class_window_interruption_afe524dca4875ef86de1d3ea99b6a8d56}\label{class_window_interruption_afe524dca4875ef86de1d3ea99b6a8d56} 
+void {\bfseries Update} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_window_interruption_a3098cfefbf1d966462cca3b988921ed5}\label{class_window_interruption_a3098cfefbf1d966462cca3b988921ed5} 
+Game\+Object {\bfseries caller}
+\begin{DoxyCompactList}\small\item\em The button prefab to instantiate for the interruption window. \end{DoxyCompactList}\item 
+\Hypertarget{class_window_interruption_a63eb0b8c01cf376dc2276ceb57d5eacc}\label{class_window_interruption_a63eb0b8c01cf376dc2276ceb57d5eacc} 
+string {\bfseries caller\+Name}
+\begin{DoxyCompactList}\small\item\em The Game\+Object that called the interruption. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_window_interruption_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_window_interruption_a79f1b97fa00546f6d9786eb54d369883}\index{WindowInterruption@{WindowInterruption}!Start@{Start}}
+\index{Start@{Start}!WindowInterruption@{WindowInterruption}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_window_interruption_a79f1b97fa00546f6d9786eb54d369883} 
+void Window\+Interruption.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+At the instanciation of the \doxylink{class_window_interruption}{Window\+Interruption}, we set the text of the window and the buttons. The text is set to ask the player if they want to activate the ability of the caller. The buttons are set to accept or cancel the activation of the ability. The window is set to be in front of all other objects in the scene. The sorting order of the window is set to 50, so it is always in front of other objects. The sorting layer of the window is set to the same as the parent Sprite\+Renderer.
+
+Set the sorting order of the window
+
+Destroy all interruption windows
+
+\label{doc-variable-members}
+\Hypertarget{class_window_interruption_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_window_interruption_adb4629a1ceda31f82d3c67b1fde4baa8}\index{WindowInterruption@{WindowInterruption}!windowText@{windowText}}
+\index{windowText@{windowText}!WindowInterruption@{WindowInterruption}}
+\doxysubsubsection{\texorpdfstring{windowText}{windowText}}
+{\footnotesize\ttfamily \label{class_window_interruption_adb4629a1ceda31f82d3c67b1fde4baa8} 
+Text\+Mesh\+Pro Window\+Interruption.\+window\+Text}
+
+\doxylink{class_window_interruption}{Window\+Interruption} is a class that manages the interruption windows in the game. It creates a window with a text and two buttons (Yes and No (for now, but it is can be changed)) when an interruption occurs. The window is used to ask the player if they want to activate a specific ability. The buttons are used to accept or cancel the activation of the ability. The window is destroyed when the interruption ends. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/rzong/\+Desktop/\+ISART/\+Admission\+\_\+\+Preparation/\+Unity\+Project/\+Roshar/\+Assets/\+Scripts/\+Interruption\+Scripts/Window\+Interruption.\+cs\end{DoxyCompactItemize}

@@ -1,0 +1,83 @@
+\doxysection{Phase\+Manager Class Reference}
+\hypertarget{class_phase_manager}{}\label{class_phase_manager}\index{PhaseManager@{PhaseManager}}
+Inheritance diagram for Phase\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_phase_manager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_phase_manager_a46a177a40601ab373d6ea33a4e3e2df5}\label{class_phase_manager_a46a177a40601ab373d6ea33a4e3e2df5} 
+Game\+Phase {\bfseries get\+Phase} ()
+\begin{DoxyCompactList}\small\item\em The current game phase, initialized to summoning phase. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_phase_manager_a4a0f062bb9ce25a06349c8b90d7d56c4}{Movement\+Phase}} ()
+\item 
+\Hypertarget{class_phase_manager_aeffb6329ab54e43e0498f0f542c57c7f}\label{class_phase_manager_aeffb6329ab54e43e0498f0f542c57c7f} 
+bool {\bfseries Summoning\+Phase} ()
+\item 
+\Hypertarget{class_phase_manager_af43715ed184f30039a25485a9306eb00}\label{class_phase_manager_af43715ed184f30039a25485a9306eb00} 
+bool {\bfseries Combat\+Phase} ()
+\item 
+void \mbox{\hyperlink{class_phase_manager_a6a62c990ca952f45fa5b7e9655964177}{next\+Phase}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_phase_manager_a4a95a0c544e9c5b402a26537140f9402}\label{class_phase_manager_a4a95a0c544e9c5b402a26537140f9402} 
+bool {\bfseries Animate\+Phase\+Change} = true
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_phase_manager}{Phase\+Manager}} \mbox{\hyperlink{class_phase_manager_a74193a544af3d7a5a0c303efccd16d82}{Instance}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_phase_manager_ad836b5d5bbf0c4f91906de640a73e0ca}\label{class_phase_manager_ad836b5d5bbf0c4f91906de640a73e0ca} 
+void {\bfseries Start} ()
+\item 
+\Hypertarget{class_phase_manager_af0ac9eb565a9aa73729014d9f4ec0a0c}\label{class_phase_manager_af0ac9eb565a9aa73729014d9f4ec0a0c} 
+void {\bfseries Update} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_phase_manager_a8ba5fb50c00f3ebb748e88775f8097ae}\label{class_phase_manager_a8ba5fb50c00f3ebb748e88775f8097ae} 
+Game\+Phase {\bfseries game\+Phase} = Game\+Phase.\+summon
+\begin{DoxyCompactList}\small\item\em If true, the phase change will be animated, this is a flag that an object of the interface use. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_phase_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_phase_manager_a4a0f062bb9ce25a06349c8b90d7d56c4}\index{PhaseManager@{PhaseManager}!MovementPhase@{MovementPhase}}
+\index{MovementPhase@{MovementPhase}!PhaseManager@{PhaseManager}}
+\doxysubsubsection{\texorpdfstring{MovementPhase()}{MovementPhase()}}
+{\footnotesize\ttfamily \label{class_phase_manager_a4a0f062bb9ce25a06349c8b90d7d56c4} 
+bool Phase\+Manager.\+Movement\+Phase (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+The three methods \+: Movement\+Phase, Summoning\+Phase, and Combat\+Phase check if the current game phase is movement, summoning, or combat respectively. They return true if the current phase matches the specified phase. \Hypertarget{class_phase_manager_a6a62c990ca952f45fa5b7e9655964177}\index{PhaseManager@{PhaseManager}!nextPhase@{nextPhase}}
+\index{nextPhase@{nextPhase}!PhaseManager@{PhaseManager}}
+\doxysubsubsection{\texorpdfstring{nextPhase()}{nextPhase()}}
+{\footnotesize\ttfamily \label{class_phase_manager_a6a62c990ca952f45fa5b7e9655964177} 
+void Phase\+Manager.\+next\+Phase (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+This method advances the game to the next phase. It checks the current phase and transitions to the next one accordingly. it also updates the Animate\+Phase\+Change flag to true, so the interface will animate the phase change.
+
+\label{doc-variable-members}
+\Hypertarget{class_phase_manager_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_phase_manager_a74193a544af3d7a5a0c303efccd16d82}\index{PhaseManager@{PhaseManager}!Instance@{Instance}}
+\index{Instance@{Instance}!PhaseManager@{PhaseManager}}
+\doxysubsubsection{\texorpdfstring{Instance}{Instance}}
+{\footnotesize\ttfamily \label{class_phase_manager_a74193a544af3d7a5a0c303efccd16d82} 
+\mbox{\hyperlink{class_phase_manager}{Phase\+Manager}} Phase\+Manager.\+Instance\hspace{0.3cm}{\ttfamily [static]}}
+
+This class manages the game phases. It handles the transitions between movement, summoning, and combat phases. It also provides methods to check the current phase and to advance to the next phase. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/rzong/\+Desktop/\+ISART/\+Admission\+\_\+\+Preparation/\+Unity\+Project/\+Roshar/\+Assets/\+Scripts/\+Game\+Managers/Phase\+Manager.\+cs\end{DoxyCompactItemize}

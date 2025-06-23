@@ -1,0 +1,201 @@
+\doxysection{Magnified\+Ability Class Reference}
+\hypertarget{class_magnified_ability}{}\label{class_magnified_ability}\index{MagnifiedAbility@{MagnifiedAbility}}
+Inheritance diagram for Magnified\+Ability\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_magnified_ability}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_magnified_ability_a8d3204f43acd258b487928a36087fed8}\label{class_magnified_ability_a8d3204f43acd258b487928a36087fed8} 
+bool {\bfseries get\+Ability\+Casted} ()
+\begin{DoxyCompactList}\small\item\em Position of the defender piece, use for interruption logic. \end{DoxyCompactList}\item 
+\Hypertarget{class_magnified_ability_a55e9bcd3a19d1f1952896d7e0be73cac}\label{class_magnified_ability_a55e9bcd3a19d1f1952896d7e0be73cac} 
+int {\bfseries get\+Voidlight} ()
+\begin{DoxyCompactList}\small\item\em Getter for ability\+Casted, use to check if the ability was casted. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_magnified_ability_ae538454cc34d64db1d3f0f6645f1de91}{interrupt\+Attack}} (Vector3\+Int defender)
+\begin{DoxyCompactList}\small\item\em Getter for voidlight, use to check if the ability can be activated. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_magnified_ability_a62d8d0e20ad7f18793342c7c0a859c78}{accept\+Activation}} ()
+\item 
+void \mbox{\hyperlink{class_magnified_ability_ab2f91314b52749232974ca2777ae08f1}{cancel\+Activation}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_magnified_ability_aaa3157b649ba63d2a5edb78ce0881fa8}\label{class_magnified_ability_aaa3157b649ba63d2a5edb78ce0881fa8} 
+Game\+Object {\bfseries ability\+Window}
+\item 
+\Hypertarget{class_magnified_ability_aa107273c7822bd0c0df608075c63e054}\label{class_magnified_ability_aa107273c7822bd0c0df608075c63e054} 
+int {\bfseries dmg\+Reduction} = 1
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_magnified_ability_ab226ca42f07e9df72fea9a68bf83c108}{Activate\+Ability}} ()
+\begin{DoxyCompactList}\small\item\em Cost of the ability, to be defined in derived classes. \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{class_magnified_ability_a485b2e8d448b646fd9225bbe638ee536}{reset\+Ability}} ()
+\item 
+override void \mbox{\hyperlink{class_magnified_ability_a70c02cead9355a5b7278c4e477b9a4bc}{Start}} ()
+\item 
+override void \mbox{\hyperlink{class_magnified_ability_a0f23ad94bc433c1e9e8217fb74d2cfb0}{Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_ability}{Ability}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_ability_aae87ed210e03b55201dda2db91968c44}{cast\+Ability}} ()
+\begin{DoxyCompactList}\small\item\em Turn when the ability was casted, used for cooldown or restoration logic. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ability_aa58f84e31e2e80e024db4795e3146be3}{restore}} ()
+\begin{DoxyCompactList}\small\item\em Flag to check if restoration is allowed (to limit restoration to one time every 8 turns) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ability_a4d673a4705f73d6556937e60c906c867}{restore\+Ability}} ()
+\item 
+virtual void \mbox{\hyperlink{class_ability_a654cfec059b15b596a6d023beebf45b6}{start\+Ability}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_magnified_ability_ac56d418fef45adea48f38f2e02c87003}\label{class_magnified_ability_ac56d418fef45adea48f38f2e02c87003} 
+override int {\bfseries ability\+Cost}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Properties inherited from \mbox{\hyperlink{class_ability}{Ability}}}
+\begin{DoxyCompactItemize}
+\item 
+static int {\bfseries Stormlight}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+static int {\bfseries Voidlight}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Public static property to access stormlight. \end{DoxyCompactList}\item 
+Vector3\+Int {\bfseries Cur\+Pos}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Néantiflamme, mana for ability of fus. \end{DoxyCompactList}\item 
+int {\bfseries ability\+Cost}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_magnified_ability_aeb8d978f77b31a8c0a4dbdf6120a7f6f}{launch\+Attack}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{class_magnified_ability_a878cc1ddc909f18f3edf09d1e36b0fd1}{attacker}} =null
+\item 
+\Hypertarget{class_magnified_ability_a580933933d68a9038f1493f0d478502e}\label{class_magnified_ability_a580933933d68a9038f1493f0d478502e} 
+Vector3\+Int {\bfseries defender}
+\item 
+\Hypertarget{class_magnified_ability_ab9e9672826bb847d41cfbfc062a0b2ce}\label{class_magnified_ability_ab9e9672826bb847d41cfbfc062a0b2ce} 
+List$<$ Vector3\+Int $>$ {\bfseries ability\+Targets} = new List$<$Vector3\+Int$>$()
+\begin{DoxyCompactList}\small\item\em Amount of damage reduction provided by the ability. \end{DoxyCompactList}\item 
+\Hypertarget{class_magnified_ability_ad02bc0cb401eb89bfee4e718b58b96e4}\label{class_magnified_ability_ad02bc0cb401eb89bfee4e718b58b96e4} 
+int {\bfseries \+\_\+ability\+Cost} = 1
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_ability}{Ability}}}
+\begin{DoxyCompactItemize}
+\item 
+bool {\bfseries is\+Ability\+Active} = false
+\item 
+bool {\bfseries ability\+Casted} = false
+\begin{DoxyCompactList}\small\item\em Flag to check if the ability is currently active. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes inherited from \mbox{\hyperlink{class_ability}{Ability}}}
+\begin{DoxyCompactItemize}
+\item 
+static int {\bfseries stormlight} = 6
+\begin{DoxyCompactList}\small\item\em Public static property to access voidlight. \end{DoxyCompactList}\item 
+static int {\bfseries voidlight} = 6
+\begin{DoxyCompactList}\small\item\em Fulgiflamme, mana for ability of fluct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_magnified_ability_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_magnified_ability_a62d8d0e20ad7f18793342c7c0a859c78}\index{MagnifiedAbility@{MagnifiedAbility}!acceptActivation@{acceptActivation}}
+\index{acceptActivation@{acceptActivation}!MagnifiedAbility@{MagnifiedAbility}}
+\doxysubsubsection{\texorpdfstring{acceptActivation()}{acceptActivation()}}
+{\footnotesize\ttfamily \label{class_magnified_ability_a62d8d0e20ad7f18793342c7c0a859c78} 
+void Magnified\+Ability.\+accept\+Activation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Method to accept the activation of the ability\Hypertarget{class_magnified_ability_ab226ca42f07e9df72fea9a68bf83c108}\index{MagnifiedAbility@{MagnifiedAbility}!ActivateAbility@{ActivateAbility}}
+\index{ActivateAbility@{ActivateAbility}!MagnifiedAbility@{MagnifiedAbility}}
+\doxysubsubsection{\texorpdfstring{ActivateAbility()}{ActivateAbility()}}
+{\footnotesize\ttfamily \label{class_magnified_ability_ab226ca42f07e9df72fea9a68bf83c108} 
+override void Magnified\+Ability.\+Activate\+Ability (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Cost of the ability, to be defined in derived classes. 
+
+This method should be overridden in derived classes to implement the specific ability logic
+
+Reimplemented from \mbox{\hyperlink{class_ability_a94737a4e696b9ac6be445a281fd1c5af}{Ability}}.
+
+\Hypertarget{class_magnified_ability_ab2f91314b52749232974ca2777ae08f1}\index{MagnifiedAbility@{MagnifiedAbility}!cancelActivation@{cancelActivation}}
+\index{cancelActivation@{cancelActivation}!MagnifiedAbility@{MagnifiedAbility}}
+\doxysubsubsection{\texorpdfstring{cancelActivation()}{cancelActivation()}}
+{\footnotesize\ttfamily \label{class_magnified_ability_ab2f91314b52749232974ca2777ae08f1} 
+void Magnified\+Ability.\+cancel\+Activation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Method to cancel the activation of the ability\Hypertarget{class_magnified_ability_ae538454cc34d64db1d3f0f6645f1de91}\index{MagnifiedAbility@{MagnifiedAbility}!interruptAttack@{interruptAttack}}
+\index{interruptAttack@{interruptAttack}!MagnifiedAbility@{MagnifiedAbility}}
+\doxysubsubsection{\texorpdfstring{interruptAttack()}{interruptAttack()}}
+{\footnotesize\ttfamily \label{class_magnified_ability_ae538454cc34d64db1d3f0f6645f1de91} 
+void Magnified\+Ability.\+interrupt\+Attack (\begin{DoxyParamCaption}\item[{Vector3\+Int}]{defender}{}\end{DoxyParamCaption})}
+
+
+
+Getter for voidlight, use to check if the ability can be activated. 
+
+Method to interrupt the attack and display the ability window\Hypertarget{class_magnified_ability_aeb8d978f77b31a8c0a4dbdf6120a7f6f}\index{MagnifiedAbility@{MagnifiedAbility}!launchAttack@{launchAttack}}
+\index{launchAttack@{launchAttack}!MagnifiedAbility@{MagnifiedAbility}}
+\doxysubsubsection{\texorpdfstring{launchAttack()}{launchAttack()}}
+{\footnotesize\ttfamily \label{class_magnified_ability_aeb8d978f77b31a8c0a4dbdf6120a7f6f} 
+void Magnified\+Ability.\+launch\+Attack (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Method to launch the attack with the current targeter and defender, after the interruption\Hypertarget{class_magnified_ability_a485b2e8d448b646fd9225bbe638ee536}\index{MagnifiedAbility@{MagnifiedAbility}!resetAbility@{resetAbility}}
+\index{resetAbility@{resetAbility}!MagnifiedAbility@{MagnifiedAbility}}
+\doxysubsubsection{\texorpdfstring{resetAbility()}{resetAbility()}}
+{\footnotesize\ttfamily \label{class_magnified_ability_a485b2e8d448b646fd9225bbe638ee536} 
+override void Magnified\+Ability.\+reset\+Ability (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_ability_a3abf696afae15065d3e56dca90bd2e17}{Ability}}.
+
+\Hypertarget{class_magnified_ability_a70c02cead9355a5b7278c4e477b9a4bc}\index{MagnifiedAbility@{MagnifiedAbility}!Start@{Start}}
+\index{Start@{Start}!MagnifiedAbility@{MagnifiedAbility}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_magnified_ability_a70c02cead9355a5b7278c4e477b9a4bc} 
+override void Magnified\+Ability.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_ability}{Ability}}.
+
+\Hypertarget{class_magnified_ability_a0f23ad94bc433c1e9e8217fb74d2cfb0}\index{MagnifiedAbility@{MagnifiedAbility}!Update@{Update}}
+\index{Update@{Update}!MagnifiedAbility@{MagnifiedAbility}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_magnified_ability_a0f23ad94bc433c1e9e8217fb74d2cfb0} 
+override void Magnified\+Ability.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_ability_a88d799f38be464be5f0a9a315efb2d0b}{Ability}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_magnified_ability_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_magnified_ability_a878cc1ddc909f18f3edf09d1e36b0fd1}\index{MagnifiedAbility@{MagnifiedAbility}!attacker@{attacker}}
+\index{attacker@{attacker}!MagnifiedAbility@{MagnifiedAbility}}
+\doxysubsubsection{\texorpdfstring{attacker}{attacker}}
+{\footnotesize\ttfamily \label{class_magnified_ability_a878cc1ddc909f18f3edf09d1e36b0fd1} 
+Game\+Object Magnified\+Ability.\+attacker =null\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyItemize}
+\item This class implements the Magnified ability, which allows a piece to protect allies. It inherits from the \doxylink{class_ability}{Ability} class and overrides the necessary methods to implement the specific logic for protection and attack. The ability can only be activated during each player\textquotesingle{}s turn and targets allies within a range of 1 tile. 
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/rzong/\+Desktop/\+ISART/\+Admission\+\_\+\+Preparation/\+Unity\+Project/\+Roshar/\+Assets/\+Scripts/\+Piece\+Scripts/\+Abilities/\+Fus\+Abilities/Magnified\+Ability.\+cs\end{DoxyCompactItemize}

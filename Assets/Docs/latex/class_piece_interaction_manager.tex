@@ -1,0 +1,232 @@
+\doxysection{Piece\+Interaction\+Manager Class Reference}
+\hypertarget{class_piece_interaction_manager}{}\label{class_piece_interaction_manager}\index{PieceInteractionManager@{PieceInteractionManager}}
+Inheritance diagram for Piece\+Interaction\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_piece_interaction_manager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_piece_interaction_manager_a3d336b8fe0fde8215bf0a4a31bd24687}\label{class_piece_interaction_manager_a3d336b8fe0fde8215bf0a4a31bd24687} 
+bool {\bfseries is\+APiece} (Vector3\+Int coor)
+\begin{DoxyCompactList}\small\item\em The piece that is currently selecting targets (the one that is attacking or using an effect) \end{DoxyCompactList}\item 
+\Hypertarget{class_piece_interaction_manager_ae656357203d42ab136c3aebaa21f1e39}\label{class_piece_interaction_manager_ae656357203d42ab136c3aebaa21f1e39} 
+Dictionary$<$ Vector3\+Int, Game\+Object $>$ {\bfseries get\+Fluct\+Dictionnary} ()
+\item 
+\Hypertarget{class_piece_interaction_manager_a3cb898789dc3e75bec54158ba92b8797}\label{class_piece_interaction_manager_a3cb898789dc3e75bec54158ba92b8797} 
+Dictionary$<$ Vector3\+Int, Game\+Object $>$ {\bfseries get\+Fus\+Dictionnary} ()
+\item 
+Game\+Object \mbox{\hyperlink{class_piece_interaction_manager_ad28370bb8f512a40d2426a4ed9a4ad96}{get\+Piece}} (Vector3\+Int coor)
+\item 
+\Hypertarget{class_piece_interaction_manager_a910e7fbbee5bebbb182615c9c5827355}\label{class_piece_interaction_manager_a910e7fbbee5bebbb182615c9c5827355} 
+bool {\bfseries is\+ATarget} (Vector3\+Int coor)
+\item 
+\Hypertarget{class_piece_interaction_manager_a4e0e510f1284c9f4f97870878356fdba}\label{class_piece_interaction_manager_a4e0e510f1284c9f4f97870878356fdba} 
+void {\bfseries set\+Targeter} (Game\+Object a)
+\begin{DoxyCompactList}\small\item\em This method checks if the given coordinates are in the list of targets. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_piece_interaction_manager_a54a03def4fc22eb3ce1136b9a8185dae}{add\+Target}} (Vector3\+Int target)
+\begin{DoxyCompactList}\small\item\em This method sets the targeter Game\+Object, which is the piece that is currently selecting targets. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_piece_interaction_manager_afba2efa5253066a21e8c2dc85b78d7e7}{update\+Pos}} (Game\+Object p, Vector3\+Int pos, bool is\+Fluct)
+\item 
+void \mbox{\hyperlink{class_piece_interaction_manager_a541d988751f82093c9351d0c1e3b93f3}{add\+Piece}} (Game\+Object p, Vector3\+Int pos, bool is\+Fluct)
+\item 
+void \mbox{\hyperlink{class_piece_interaction_manager_a921e03492f9db5ff968989a0b945fe0d}{remove}} (Vector3\+Int key)
+\item 
+List$<$ Vector3\+Int $>$ \mbox{\hyperlink{class_piece_interaction_manager_afc0629d4904c1851e891ebffae5245e1}{get\+Attack\+Targets}} (List$<$ Vector3\+Int $>$ tiles, bool is\+Fluct)
+\item 
+List$<$ Vector3\+Int $>$ \mbox{\hyperlink{class_piece_interaction_manager_a9893a8ea421c86e27a8da0a89a5af7ad}{get\+Target\+On\+Map}} (bool is\+Fluct)
+\item 
+List$<$ Vector3\+Int $>$ \mbox{\hyperlink{class_piece_interaction_manager_a4133a1267bc09936470e6ee460b4d747}{are\+Targeted}} (List$<$ Vector3\+Int $>$ target\+Zone, bool is\+Fluct)
+\item 
+void \mbox{\hyperlink{class_piece_interaction_manager_ac3203598d5c62630165987b7bd970369}{reset\+Targets}} (bool allies=false)
+\item 
+bool \mbox{\hyperlink{class_piece_interaction_manager_ac2ad682202e320c2bdaa6eac3de4f4b8}{has\+Neighbor$<$ T $>$}} (Vector3\+Int pos, bool player=false, bool is\+Fluct=false)
+\item 
+T \mbox{\hyperlink{class_piece_interaction_manager_aedf384b38466d130b254e388b5620187}{get\+Neighbor\+Component$<$ T $>$}} (Vector3\+Int pos, bool player=false, bool is\+Fluct=false)
+\item 
+void \mbox{\hyperlink{class_piece_interaction_manager_ad8b1b858a270b2ecd0ad8c83ba2d6af9}{attack}} (Vector3\+Int defender, bool is\+Fluct)
+\item 
+void \mbox{\hyperlink{class_piece_interaction_manager_a94b4472c18018b5653d7fff835e6c614}{protect}} (int dmg\+Reduction)
+\item 
+List$<$ Game\+Object $>$ \mbox{\hyperlink{class_piece_interaction_manager_af2d2cc345ba4fcfbf23a47a7f8e46498}{find\+Name}} (string name)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_piece_interaction_manager_a92eb60a9cc21bd80c225bb317b4ae738}\label{class_piece_interaction_manager_a92eb60a9cc21bd80c225bb317b4ae738} 
+Game\+Object {\bfseries fused}
+\item 
+\Hypertarget{class_piece_interaction_manager_afb5a466c819c513aa1f10f9fa18cbdee}\label{class_piece_interaction_manager_afb5a466c819c513aa1f10f9fa18cbdee} 
+Game\+Object {\bfseries fluctuomancers}
+\item 
+\Hypertarget{class_piece_interaction_manager_abdf746ae56491272234f7303b4d8e542}\label{class_piece_interaction_manager_abdf746ae56491272234f7303b4d8e542} 
+Color {\bfseries target\+Color} = new Color(165f/255f,165f/255f,165f/255f)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_piece_interaction_manager}{Piece\+Interaction\+Manager}} \mbox{\hyperlink{class_piece_interaction_manager_ab9589d4619d17409b178b3b14f4ba16e}{Instance}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_piece_interaction_manager_aa28a2acc17c573caf6aeda850a4cd316}{init\+Dicts}} ()
+\item 
+\Hypertarget{class_piece_interaction_manager_a853ca9564e70341a5a31fe3a0ef168d1}\label{class_piece_interaction_manager_a853ca9564e70341a5a31fe3a0ef168d1} 
+void {\bfseries Awake} ()
+\item 
+void \mbox{\hyperlink{class_piece_interaction_manager_abf01d3eabc20fd92b9d2db6140b4af1a}{Start}} ()
+\item 
+\Hypertarget{class_piece_interaction_manager_abdacb0a8f46ce00b56ca3fecf62e0f67}\label{class_piece_interaction_manager_abdacb0a8f46ce00b56ca3fecf62e0f67} 
+void {\bfseries Update} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_piece_interaction_manager_a236d2c5eed7e18771fd29468a4cd26b6}\label{class_piece_interaction_manager_a236d2c5eed7e18771fd29468a4cd26b6} 
+Dictionary$<$ Vector3\+Int, Game\+Object $>$ {\bfseries fluct} =new()
+\item 
+\Hypertarget{class_piece_interaction_manager_a015b13262b2c939664ce10609ab4e2f7}\label{class_piece_interaction_manager_a015b13262b2c939664ce10609ab4e2f7} 
+Dictionary$<$ Vector3\+Int, Game\+Object $>$ {\bfseries fus} =new()
+\begin{DoxyCompactList}\small\item\em Dictionary to store fluctuomancer pieces with their coordinates as keys. \end{DoxyCompactList}\item 
+\Hypertarget{class_piece_interaction_manager_a947ecb4bad9b35d0cd959a9585fcc650}\label{class_piece_interaction_manager_a947ecb4bad9b35d0cd959a9585fcc650} 
+List$<$ Vector3\+Int $>$ {\bfseries list\+Of\+Targets} =new()
+\begin{DoxyCompactList}\small\item\em Dictionary to store fused pieces with their coordinates as keys. \end{DoxyCompactList}\item 
+\Hypertarget{class_piece_interaction_manager_ac7b855918f35778f250adfe05eb44324}\label{class_piece_interaction_manager_ac7b855918f35778f250adfe05eb44324} 
+List$<$ Vector3\+Int $>$ {\bfseries attack\+Range} =new()
+\begin{DoxyCompactList}\small\item\em List to store the coordinates of targeted pieces. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_piece_interaction_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_piece_interaction_manager_a541d988751f82093c9351d0c1e3b93f3}\index{PieceInteractionManager@{PieceInteractionManager}!addPiece@{addPiece}}
+\index{addPiece@{addPiece}!PieceInteractionManager@{PieceInteractionManager}}
+\doxysubsubsection{\texorpdfstring{addPiece()}{addPiece()}}
+{\footnotesize\ttfamily \label{class_piece_interaction_manager_a541d988751f82093c9351d0c1e3b93f3} 
+void Piece\+Interaction\+Manager.\+add\+Piece (\begin{DoxyParamCaption}\item[{Game\+Object}]{p}{, }\item[{Vector3\+Int}]{pos}{, }\item[{bool}]{is\+Fluct}{}\end{DoxyParamCaption})}
+
+This method adds a piece to the interaction dictionaries. It checks if the piece is a fluctuomancer or a fused piece and adds it to the corresponding dictionary. If a piece already exists at the given position, it logs a warning.\Hypertarget{class_piece_interaction_manager_a54a03def4fc22eb3ce1136b9a8185dae}\index{PieceInteractionManager@{PieceInteractionManager}!addTarget@{addTarget}}
+\index{addTarget@{addTarget}!PieceInteractionManager@{PieceInteractionManager}}
+\doxysubsubsection{\texorpdfstring{addTarget()}{addTarget()}}
+{\footnotesize\ttfamily \label{class_piece_interaction_manager_a54a03def4fc22eb3ce1136b9a8185dae} 
+void Piece\+Interaction\+Manager.\+add\+Target (\begin{DoxyParamCaption}\item[{Vector3\+Int}]{target}{}\end{DoxyParamCaption})}
+
+
+
+This method sets the targeter Game\+Object, which is the piece that is currently selecting targets. 
+
+This method adds a target to the list of targets if it is not already present\Hypertarget{class_piece_interaction_manager_a4133a1267bc09936470e6ee460b4d747}\index{PieceInteractionManager@{PieceInteractionManager}!areTargeted@{areTargeted}}
+\index{areTargeted@{areTargeted}!PieceInteractionManager@{PieceInteractionManager}}
+\doxysubsubsection{\texorpdfstring{areTargeted()}{areTargeted()}}
+{\footnotesize\ttfamily \label{class_piece_interaction_manager_a4133a1267bc09936470e6ee460b4d747} 
+List$<$ Vector3\+Int $>$ Piece\+Interaction\+Manager.\+are\+Targeted (\begin{DoxyParamCaption}\item[{List$<$ Vector3\+Int $>$}]{target\+Zone}{, }\item[{bool}]{is\+Fluct}{}\end{DoxyParamCaption})}
+
+This method targets the pieces in the given area. If we enter is\+Fluct as true, it will target all fused in the area, and vice versa. It updates the color of the targeted pieces to indicate that they are selected as targets. It returns a list of coordinates of the targeted pieces. So this method also works as a filter to take only pieces from the zone target.\Hypertarget{class_piece_interaction_manager_ad8b1b858a270b2ecd0ad8c83ba2d6af9}\index{PieceInteractionManager@{PieceInteractionManager}!attack@{attack}}
+\index{attack@{attack}!PieceInteractionManager@{PieceInteractionManager}}
+\doxysubsubsection{\texorpdfstring{attack()}{attack()}}
+{\footnotesize\ttfamily \label{class_piece_interaction_manager_ad8b1b858a270b2ecd0ad8c83ba2d6af9} 
+void Piece\+Interaction\+Manager.\+attack (\begin{DoxyParamCaption}\item[{Vector3\+Int}]{defender}{, }\item[{bool}]{is\+Fluct}{}\end{DoxyParamCaption})}
+
+This method handles the attack action. It checks if the targeter is not null and if the defender is in the list of targets. If so, it calculates the damage based on the attacker\textquotesingle{}s current attack and a random d4 roll (if the attacker has d4 roll atk). It then applies the damage to the defender\textquotesingle{}s \doxylink{class_piece_attack}{Piece\+Attack} component. Finally, it resets the targets and clears the targeter.\Hypertarget{class_piece_interaction_manager_af2d2cc345ba4fcfbf23a47a7f8e46498}\index{PieceInteractionManager@{PieceInteractionManager}!findName@{findName}}
+\index{findName@{findName}!PieceInteractionManager@{PieceInteractionManager}}
+\doxysubsubsection{\texorpdfstring{findName()}{findName()}}
+{\footnotesize\ttfamily \label{class_piece_interaction_manager_af2d2cc345ba4fcfbf23a47a7f8e46498} 
+List$<$ Game\+Object $>$ Piece\+Interaction\+Manager.\+find\+Name (\begin{DoxyParamCaption}\item[{string}]{name}{}\end{DoxyParamCaption})}
+
+This method will return a list of Game\+Objects that have the specified name in their \doxylink{class_piece_attributes}{Piece\+Attributes} component\Hypertarget{class_piece_interaction_manager_afc0629d4904c1851e891ebffae5245e1}\index{PieceInteractionManager@{PieceInteractionManager}!getAttackTargets@{getAttackTargets}}
+\index{getAttackTargets@{getAttackTargets}!PieceInteractionManager@{PieceInteractionManager}}
+\doxysubsubsection{\texorpdfstring{getAttackTargets()}{getAttackTargets()}}
+{\footnotesize\ttfamily \label{class_piece_interaction_manager_afc0629d4904c1851e891ebffae5245e1} 
+List$<$ Vector3\+Int $>$ Piece\+Interaction\+Manager.\+get\+Attack\+Targets (\begin{DoxyParamCaption}\item[{List$<$ Vector3\+Int $>$}]{tiles}{, }\item[{bool}]{is\+Fluct}{}\end{DoxyParamCaption})}
+
+This method retrieves the attack targets based on the given tiles and whether the piece is a fluctuomancer or a fused piece. It updates the tile states to indicate that they are in attack range and returns a list of target coordinates. If targeter is a fluctuomancer, it will look for and return fused pieces as targets, and vice versa.\Hypertarget{class_piece_interaction_manager_aedf384b38466d130b254e388b5620187}\index{PieceInteractionManager@{PieceInteractionManager}!getNeighborComponent$<$ T $>$@{getNeighborComponent$<$ T $>$}}
+\index{getNeighborComponent$<$ T $>$@{getNeighborComponent$<$ T $>$}!PieceInteractionManager@{PieceInteractionManager}}
+\doxysubsubsection{\texorpdfstring{getNeighborComponent$<$ T $>$()}{getNeighborComponent< T >()}}
+{\footnotesize\ttfamily \label{class_piece_interaction_manager_aedf384b38466d130b254e388b5620187} 
+T Piece\+Interaction\+Manager.\+get\+Neighbor\+Component$<$ T $>$ (\begin{DoxyParamCaption}\item[{Vector3\+Int}]{pos}{, }\item[{bool}]{player}{ = {\ttfamily false}, }\item[{bool}]{is\+Fluct}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+This method checks if there is a neighboring piece of type T at the given position. If player is true, it will only check for pieces that belong to the player of the selected piece. If is\+Fluct is true, it will check for fluctuomancers, otherwise it will check for fused pieces. It returns the first found neighbor piece of type T or null if none is found.\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em Component}]\end{description}
+\end{Desc}
+\Hypertarget{class_piece_interaction_manager_ad28370bb8f512a40d2426a4ed9a4ad96}\index{PieceInteractionManager@{PieceInteractionManager}!getPiece@{getPiece}}
+\index{getPiece@{getPiece}!PieceInteractionManager@{PieceInteractionManager}}
+\doxysubsubsection{\texorpdfstring{getPiece()}{getPiece()}}
+{\footnotesize\ttfamily \label{class_piece_interaction_manager_ad28370bb8f512a40d2426a4ed9a4ad96} 
+Game\+Object Piece\+Interaction\+Manager.\+get\+Piece (\begin{DoxyParamCaption}\item[{Vector3\+Int}]{coor}{}\end{DoxyParamCaption})}
+
+This method returns the Game\+Object of a piece at the given coordinates\Hypertarget{class_piece_interaction_manager_a9893a8ea421c86e27a8da0a89a5af7ad}\index{PieceInteractionManager@{PieceInteractionManager}!getTargetOnMap@{getTargetOnMap}}
+\index{getTargetOnMap@{getTargetOnMap}!PieceInteractionManager@{PieceInteractionManager}}
+\doxysubsubsection{\texorpdfstring{getTargetOnMap()}{getTargetOnMap()}}
+{\footnotesize\ttfamily \label{class_piece_interaction_manager_a9893a8ea421c86e27a8da0a89a5af7ad} 
+List$<$ Vector3\+Int $>$ Piece\+Interaction\+Manager.\+get\+Target\+On\+Map (\begin{DoxyParamCaption}\item[{bool}]{is\+Fluct}{}\end{DoxyParamCaption})}
+
+This method retrieves the target pieces on the map based on whether the piece is a fluctuomancer or a fused piece. if we select fluctuomancers, it will return the coordinates of all fluctuomancers that are on the map, and vice versa.\Hypertarget{class_piece_interaction_manager_ac2ad682202e320c2bdaa6eac3de4f4b8}\index{PieceInteractionManager@{PieceInteractionManager}!hasNeighbor$<$ T $>$@{hasNeighbor$<$ T $>$}}
+\index{hasNeighbor$<$ T $>$@{hasNeighbor$<$ T $>$}!PieceInteractionManager@{PieceInteractionManager}}
+\doxysubsubsection{\texorpdfstring{hasNeighbor$<$ T $>$()}{hasNeighbor< T >()}}
+{\footnotesize\ttfamily \label{class_piece_interaction_manager_ac2ad682202e320c2bdaa6eac3de4f4b8} 
+bool Piece\+Interaction\+Manager.\+has\+Neighbor$<$ T $>$ (\begin{DoxyParamCaption}\item[{Vector3\+Int}]{pos}{, }\item[{bool}]{player}{ = {\ttfamily false}, }\item[{bool}]{is\+Fluct}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+If player is true, it will only check the player\textquotesingle{}s pieces
+
+This method checks if there is a neighboring piece of type T at the given position. If player is true, it will only check for pieces that belong to the player of the selected piece. If is\+Fluct is true, it will check for fluctuomancers, otherwise it will check for fused pieces.\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em Component}]\end{description}
+\end{Desc}
+\Hypertarget{class_piece_interaction_manager_aa28a2acc17c573caf6aeda850a4cd316}\index{PieceInteractionManager@{PieceInteractionManager}!initDicts@{initDicts}}
+\index{initDicts@{initDicts}!PieceInteractionManager@{PieceInteractionManager}}
+\doxysubsubsection{\texorpdfstring{initDicts()}{initDicts()}}
+{\footnotesize\ttfamily \label{class_piece_interaction_manager_aa28a2acc17c573caf6aeda850a4cd316} 
+void Piece\+Interaction\+Manager.\+init\+Dicts (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+This method initializes the interaction dictionaries with the current pieces in the scene.\Hypertarget{class_piece_interaction_manager_a94b4472c18018b5653d7fff835e6c614}\index{PieceInteractionManager@{PieceInteractionManager}!protect@{protect}}
+\index{protect@{protect}!PieceInteractionManager@{PieceInteractionManager}}
+\doxysubsubsection{\texorpdfstring{protect()}{protect()}}
+{\footnotesize\ttfamily \label{class_piece_interaction_manager_a94b4472c18018b5653d7fff835e6c614} 
+void Piece\+Interaction\+Manager.\+protect (\begin{DoxyParamCaption}\item[{int}]{dmg\+Reduction}{}\end{DoxyParamCaption})}
+
+This method handles the protection action. It checks if the targeter is not null and applies the damage reduction to all targeted pieces. It iterates through the list of targets and applies the damage reduction to each piece\textquotesingle{}s \doxylink{class_piece_attack}{Piece\+Attack} component.\Hypertarget{class_piece_interaction_manager_a921e03492f9db5ff968989a0b945fe0d}\index{PieceInteractionManager@{PieceInteractionManager}!remove@{remove}}
+\index{remove@{remove}!PieceInteractionManager@{PieceInteractionManager}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily \label{class_piece_interaction_manager_a921e03492f9db5ff968989a0b945fe0d} 
+void Piece\+Interaction\+Manager.\+remove (\begin{DoxyParamCaption}\item[{Vector3\+Int}]{key}{}\end{DoxyParamCaption})}
+
+This method removes a piece from the interaction dictionaries based on its coordinates.\Hypertarget{class_piece_interaction_manager_ac3203598d5c62630165987b7bd970369}\index{PieceInteractionManager@{PieceInteractionManager}!resetTargets@{resetTargets}}
+\index{resetTargets@{resetTargets}!PieceInteractionManager@{PieceInteractionManager}}
+\doxysubsubsection{\texorpdfstring{resetTargets()}{resetTargets()}}
+{\footnotesize\ttfamily \label{class_piece_interaction_manager_ac3203598d5c62630165987b7bd970369} 
+void Piece\+Interaction\+Manager.\+reset\+Targets (\begin{DoxyParamCaption}\item[{bool}]{allies}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+This method resets the targets\textquotesingle{} colors and clears the list of targets. It also updates the tile states to indicate that they are no longer in attack range. If the bool allies is true, it will reset the colors of the allies\textquotesingle{} pieces, otherwise it will reset the enemies\textquotesingle{} pieces.\Hypertarget{class_piece_interaction_manager_abf01d3eabc20fd92b9d2db6140b4af1a}\index{PieceInteractionManager@{PieceInteractionManager}!Start@{Start}}
+\index{Start@{Start}!PieceInteractionManager@{PieceInteractionManager}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_piece_interaction_manager_abf01d3eabc20fd92b9d2db6140b4af1a} 
+void Piece\+Interaction\+Manager.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Activate all unlocked pieces in the game until now\Hypertarget{class_piece_interaction_manager_afba2efa5253066a21e8c2dc85b78d7e7}\index{PieceInteractionManager@{PieceInteractionManager}!updatePos@{updatePos}}
+\index{updatePos@{updatePos}!PieceInteractionManager@{PieceInteractionManager}}
+\doxysubsubsection{\texorpdfstring{updatePos()}{updatePos()}}
+{\footnotesize\ttfamily \label{class_piece_interaction_manager_afba2efa5253066a21e8c2dc85b78d7e7} 
+void Piece\+Interaction\+Manager.\+update\+Pos (\begin{DoxyParamCaption}\item[{Game\+Object}]{p}{, }\item[{Vector3\+Int}]{pos}{, }\item[{bool}]{is\+Fluct}{}\end{DoxyParamCaption})}
+
+This method updates the position of a piece in the interaction dictionaries. It checks if the piece is a fluctuomancer or a fused piece and updates the corresponding dictionary. If the piece already exists in the dictionnary, it updates its coordinates. If it doesn\textquotesingle{}t exist, it adds the piece to the dictionary at the new position.
+
+fus\mbox{[}old\+Key\mbox{]}=null;
+
+\label{doc-variable-members}
+\Hypertarget{class_piece_interaction_manager_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_piece_interaction_manager_ab9589d4619d17409b178b3b14f4ba16e}\index{PieceInteractionManager@{PieceInteractionManager}!Instance@{Instance}}
+\index{Instance@{Instance}!PieceInteractionManager@{PieceInteractionManager}}
+\doxysubsubsection{\texorpdfstring{Instance}{Instance}}
+{\footnotesize\ttfamily \label{class_piece_interaction_manager_ab9589d4619d17409b178b3b14f4ba16e} 
+\mbox{\hyperlink{class_piece_interaction_manager}{Piece\+Interaction\+Manager}} Piece\+Interaction\+Manager.\+Instance\hspace{0.3cm}{\ttfamily [static]}}
+
+This class manages the interactions between pieces in the game. It handles the addition, removal, and updating of pieces on the map, as well as managing target selection and filtering target for attacks or effects. It also provides methods to check for neighboring pieces and to handle attacks. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/rzong/\+Desktop/\+ISART/\+Admission\+\_\+\+Preparation/\+Unity\+Project/\+Roshar/\+Assets/\+Scripts/\+Game\+Managers/Piece\+Interaction\+Manager.\+cs\end{DoxyCompactItemize}

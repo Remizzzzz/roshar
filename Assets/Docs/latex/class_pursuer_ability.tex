@@ -1,0 +1,141 @@
+\doxysection{Pursuer\+Ability Class Reference}
+\hypertarget{class_pursuer_ability}{}\label{class_pursuer_ability}\index{PursuerAbility@{PursuerAbility}}
+Inheritance diagram for Pursuer\+Ability\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_pursuer_ability}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_pursuer_ability_a3fa598cebad74b922a0a636ff880b44b}{Activate\+Ability}} ()
+\begin{DoxyCompactList}\small\item\em Cost of the ability, to be defined in derived classes. \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{class_pursuer_ability_a2097204bf2473599639201ff6b5d0e2e}{reset\+Ability}} ()
+\item 
+override void \mbox{\hyperlink{class_pursuer_ability_af7c8dfbd85cbdbd488b7d749d2d58078}{Start}} ()
+\item 
+override void \mbox{\hyperlink{class_pursuer_ability_ae2fa92f88e7b4e3866e3249a6d4c6c36}{Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_ability}{Ability}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_ability_aae87ed210e03b55201dda2db91968c44}{cast\+Ability}} ()
+\begin{DoxyCompactList}\small\item\em Turn when the ability was casted, used for cooldown or restoration logic. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ability_aa58f84e31e2e80e024db4795e3146be3}{restore}} ()
+\begin{DoxyCompactList}\small\item\em Flag to check if restoration is allowed (to limit restoration to one time every 8 turns) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ability_a4d673a4705f73d6556937e60c906c867}{restore\+Ability}} ()
+\item 
+virtual void \mbox{\hyperlink{class_ability_a654cfec059b15b596a6d023beebf45b6}{start\+Ability}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_pursuer_ability_ab88d4c5dc17db41f6cce7a17b642945a}\label{class_pursuer_ability_ab88d4c5dc17db41f6cce7a17b642945a} 
+override int {\bfseries ability\+Cost}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Properties inherited from \mbox{\hyperlink{class_ability}{Ability}}}
+\begin{DoxyCompactItemize}
+\item 
+static int {\bfseries Stormlight}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+static int {\bfseries Voidlight}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Public static property to access stormlight. \end{DoxyCompactList}\item 
+Vector3\+Int {\bfseries Cur\+Pos}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Néantiflamme, mana for ability of fus. \end{DoxyCompactList}\item 
+int {\bfseries ability\+Cost}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ Vector3\+Int $>$ \mbox{\hyperlink{class_pursuer_ability_a921bf50aaf8c7202899497bcfa395566}{ability\+Targets}} =new()
+\item 
+\Hypertarget{class_pursuer_ability_a6218d91eac9a830676324a7f08e03887}\label{class_pursuer_ability_a6218d91eac9a830676324a7f08e03887} 
+int {\bfseries \+\_\+ability\+Cost} = 1
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_ability}{Ability}}}
+\begin{DoxyCompactItemize}
+\item 
+bool {\bfseries is\+Ability\+Active} = false
+\item 
+bool {\bfseries ability\+Casted} = false
+\begin{DoxyCompactList}\small\item\em Flag to check if the ability is currently active. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes inherited from \mbox{\hyperlink{class_ability}{Ability}}}
+\begin{DoxyCompactItemize}
+\item 
+static int {\bfseries stormlight} = 6
+\begin{DoxyCompactList}\small\item\em Public static property to access voidlight. \end{DoxyCompactList}\item 
+static int {\bfseries voidlight} = 6
+\begin{DoxyCompactList}\small\item\em Fulgiflamme, mana for ability of fluct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_pursuer_ability_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_pursuer_ability_a3fa598cebad74b922a0a636ff880b44b}\index{PursuerAbility@{PursuerAbility}!ActivateAbility@{ActivateAbility}}
+\index{ActivateAbility@{ActivateAbility}!PursuerAbility@{PursuerAbility}}
+\doxysubsubsection{\texorpdfstring{ActivateAbility()}{ActivateAbility()}}
+{\footnotesize\ttfamily \label{class_pursuer_ability_a3fa598cebad74b922a0a636ff880b44b} 
+override void Pursuer\+Ability.\+Activate\+Ability (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Cost of the ability, to be defined in derived classes. 
+
+This method should be overridden in derived classes to implement the specific ability logic
+
+Reimplemented from \mbox{\hyperlink{class_ability_a94737a4e696b9ac6be445a281fd1c5af}{Ability}}.
+
+\Hypertarget{class_pursuer_ability_a2097204bf2473599639201ff6b5d0e2e}\index{PursuerAbility@{PursuerAbility}!resetAbility@{resetAbility}}
+\index{resetAbility@{resetAbility}!PursuerAbility@{PursuerAbility}}
+\doxysubsubsection{\texorpdfstring{resetAbility()}{resetAbility()}}
+{\footnotesize\ttfamily \label{class_pursuer_ability_a2097204bf2473599639201ff6b5d0e2e} 
+override void Pursuer\+Ability.\+reset\+Ability (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_ability_a3abf696afae15065d3e56dca90bd2e17}{Ability}}.
+
+\Hypertarget{class_pursuer_ability_af7c8dfbd85cbdbd488b7d749d2d58078}\index{PursuerAbility@{PursuerAbility}!Start@{Start}}
+\index{Start@{Start}!PursuerAbility@{PursuerAbility}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_pursuer_ability_af7c8dfbd85cbdbd488b7d749d2d58078} 
+override void Pursuer\+Ability.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_ability}{Ability}}.
+
+\Hypertarget{class_pursuer_ability_ae2fa92f88e7b4e3866e3249a6d4c6c36}\index{PursuerAbility@{PursuerAbility}!Update@{Update}}
+\index{Update@{Update}!PursuerAbility@{PursuerAbility}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_pursuer_ability_ae2fa92f88e7b4e3866e3249a6d4c6c36} 
+override void Pursuer\+Ability.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyItemize}
+\item This method is called every frame to check for user input and handle the ability activation. If the left mouse button is clicked and the ability is active, it checks if the clicked tile is a valid target. If it is, it moves the piece to that tile and boosts its attack, then resets the ability.
+\end{DoxyItemize}
+
+Reimplemented from \mbox{\hyperlink{class_ability_a88d799f38be464be5f0a9a315efb2d0b}{Ability}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_pursuer_ability_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_pursuer_ability_a921bf50aaf8c7202899497bcfa395566}\index{PursuerAbility@{PursuerAbility}!abilityTargets@{abilityTargets}}
+\index{abilityTargets@{abilityTargets}!PursuerAbility@{PursuerAbility}}
+\doxysubsubsection{\texorpdfstring{abilityTargets}{abilityTargets}}
+{\footnotesize\ttfamily \label{class_pursuer_ability_a921bf50aaf8c7202899497bcfa395566} 
+List$<$Vector3\+Int$>$ Pursuer\+Ability.\+ability\+Targets =new()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyItemize}
+\item This class implements the Pursuer ability, which allows a piece to move to a tile and boost its attack. It inherits from the \doxylink{class_ability}{Ability} class and overrides the necessary methods to implement the specific logic for moving and boosting attack. The ability can only be activated during the player\textquotesingle{}s turn and targets tiles within a range of 1 tile. 
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/rzong/\+Desktop/\+ISART/\+Admission\+\_\+\+Preparation/\+Unity\+Project/\+Roshar/\+Assets/\+Scripts/\+Piece\+Scripts/\+Abilities/\+Fus\+Abilities/Pursuer\+Ability.\+cs\end{DoxyCompactItemize}

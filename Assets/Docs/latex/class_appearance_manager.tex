@@ -1,0 +1,124 @@
+\doxysection{Appearance\+Manager Class Reference}
+\hypertarget{class_appearance_manager}{}\label{class_appearance_manager}\index{AppearanceManager@{AppearanceManager}}
+Inheritance diagram for Appearance\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_appearance_manager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_appearance_manager_aecd411ce0c7c2744e202a9bdd1d1c7c5}{is\+Protected\+Event}} (Game\+Object piece)
+\item 
+void \mbox{\hyperlink{class_appearance_manager_ac07bbe68bf9de408f3b30337ad9b7557}{is\+Not\+Protected\+Event}} (Game\+Object piece)
+\item 
+void \mbox{\hyperlink{class_appearance_manager_abaf7a7692e2ffe6cbccae696ecd80b36}{is\+Locked\+Event}} (Game\+Object piece)
+\item 
+void \mbox{\hyperlink{class_appearance_manager_a267be38cdd54acfc6164603db5ed470b}{is\+Not\+Locked\+Event}} (Game\+Object piece)
+\item 
+void \mbox{\hyperlink{class_appearance_manager_aa9766522386b29428c881f41b7ff1416}{is\+Distracted\+Event}} (Game\+Object piece)
+\item 
+void \mbox{\hyperlink{class_appearance_manager_acbf9acb30fd2712cb2eea5ca0263a72f}{is\+Not\+Distracted\+Event}} (Game\+Object piece)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_appearance_manager_a38b7e4e0438f66621a45d57c22b112a6}\label{class_appearance_manager_a38b7e4e0438f66621a45d57c22b112a6} 
+Game\+Object {\bfseries protected\+Prefab}
+\item 
+\Hypertarget{class_appearance_manager_a45a01c6438a4471e6de57ccc79cf767d}\label{class_appearance_manager_a45a01c6438a4471e6de57ccc79cf767d} 
+Game\+Object {\bfseries locked\+Prefab}
+\begin{DoxyCompactList}\small\item\em Prefab for the protected visual effect. \end{DoxyCompactList}\item 
+\Hypertarget{class_appearance_manager_af471306959380f3e3584687b5ac410f6}\label{class_appearance_manager_af471306959380f3e3584687b5ac410f6} 
+Game\+Object {\bfseries distracted\+Prefab}
+\begin{DoxyCompactList}\small\item\em Prefab for the locked visual effect. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_appearance_manager}{Appearance\+Manager}} \mbox{\hyperlink{class_appearance_manager_a21ff75d25b2cdf1e7917bf8cebcd6631}{Instance}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_appearance_manager_a696fc9bfa31230d92c4759df53166b80}\label{class_appearance_manager_a696fc9bfa31230d92c4759df53166b80} 
+void {\bfseries Start} ()
+\item 
+\Hypertarget{class_appearance_manager_a0ee12f956a29207bbcbe07caed8d6cfd}\label{class_appearance_manager_a0ee12f956a29207bbcbe07caed8d6cfd} 
+void {\bfseries Update} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Dictionary$<$ Vector3\+Int, Game\+Object $>$ \mbox{\hyperlink{class_appearance_manager_a8c490ffc5fefb862243118cd20722cf5}{fluct}} =new()
+\begin{DoxyCompactList}\small\item\em Prefab for the distracted visual effect. \end{DoxyCompactList}\item 
+\Hypertarget{class_appearance_manager_ae378cefb906dbe67e6f37a553975c6d8}\label{class_appearance_manager_ae378cefb906dbe67e6f37a553975c6d8} 
+Dictionary$<$ Vector3\+Int, Game\+Object $>$ {\bfseries fus} =new()
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_appearance_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_appearance_manager_aa9766522386b29428c881f41b7ff1416}\index{AppearanceManager@{AppearanceManager}!isDistractedEvent@{isDistractedEvent}}
+\index{isDistractedEvent@{isDistractedEvent}!AppearanceManager@{AppearanceManager}}
+\doxysubsubsection{\texorpdfstring{isDistractedEvent()}{isDistractedEvent()}}
+{\footnotesize\ttfamily \label{class_appearance_manager_aa9766522386b29428c881f41b7ff1416} 
+void Appearance\+Manager.\+is\+Distracted\+Event (\begin{DoxyParamCaption}\item[{Game\+Object}]{piece}{}\end{DoxyParamCaption})}
+
+This method is called when a piece is distracted. It checks if the "{}distracted"{} visual effect already exists, and if not, it creates one. The effect is instantiated as a child of the piece\textquotesingle{}s transform and positioned at the piece\textquotesingle{}s position.\Hypertarget{class_appearance_manager_abaf7a7692e2ffe6cbccae696ecd80b36}\index{AppearanceManager@{AppearanceManager}!isLockedEvent@{isLockedEvent}}
+\index{isLockedEvent@{isLockedEvent}!AppearanceManager@{AppearanceManager}}
+\doxysubsubsection{\texorpdfstring{isLockedEvent()}{isLockedEvent()}}
+{\footnotesize\ttfamily \label{class_appearance_manager_abaf7a7692e2ffe6cbccae696ecd80b36} 
+void Appearance\+Manager.\+is\+Locked\+Event (\begin{DoxyParamCaption}\item[{Game\+Object}]{piece}{}\end{DoxyParamCaption})}
+
+This method is called when a piece is locked. It checks if the "{}locked"{} visual effect already exists, and if not, it creates one. The effect is instantiated as a child of the piece\textquotesingle{}s transform and positioned at the piece\textquotesingle{}s position.\Hypertarget{class_appearance_manager_acbf9acb30fd2712cb2eea5ca0263a72f}\index{AppearanceManager@{AppearanceManager}!isNotDistractedEvent@{isNotDistractedEvent}}
+\index{isNotDistractedEvent@{isNotDistractedEvent}!AppearanceManager@{AppearanceManager}}
+\doxysubsubsection{\texorpdfstring{isNotDistractedEvent()}{isNotDistractedEvent()}}
+{\footnotesize\ttfamily \label{class_appearance_manager_acbf9acb30fd2712cb2eea5ca0263a72f} 
+void Appearance\+Manager.\+is\+Not\+Distracted\+Event (\begin{DoxyParamCaption}\item[{Game\+Object}]{piece}{}\end{DoxyParamCaption})}
+
+This method is called when a piece is no longer distracted. It checks if the "{}distracted"{} visual effect exists, and if so, it destroys it. This effectively removes the visual effect from the piece.\Hypertarget{class_appearance_manager_a267be38cdd54acfc6164603db5ed470b}\index{AppearanceManager@{AppearanceManager}!isNotLockedEvent@{isNotLockedEvent}}
+\index{isNotLockedEvent@{isNotLockedEvent}!AppearanceManager@{AppearanceManager}}
+\doxysubsubsection{\texorpdfstring{isNotLockedEvent()}{isNotLockedEvent()}}
+{\footnotesize\ttfamily \label{class_appearance_manager_a267be38cdd54acfc6164603db5ed470b} 
+void Appearance\+Manager.\+is\+Not\+Locked\+Event (\begin{DoxyParamCaption}\item[{Game\+Object}]{piece}{}\end{DoxyParamCaption})}
+
+This method is called when a piece is no longer locked. It checks if the "{}locked"{} visual effect exists, and if so, it destroys it. This effectively removes the visual effect from the piece.\Hypertarget{class_appearance_manager_ac07bbe68bf9de408f3b30337ad9b7557}\index{AppearanceManager@{AppearanceManager}!isNotProtectedEvent@{isNotProtectedEvent}}
+\index{isNotProtectedEvent@{isNotProtectedEvent}!AppearanceManager@{AppearanceManager}}
+\doxysubsubsection{\texorpdfstring{isNotProtectedEvent()}{isNotProtectedEvent()}}
+{\footnotesize\ttfamily \label{class_appearance_manager_ac07bbe68bf9de408f3b30337ad9b7557} 
+void Appearance\+Manager.\+is\+Not\+Protected\+Event (\begin{DoxyParamCaption}\item[{Game\+Object}]{piece}{}\end{DoxyParamCaption})}
+
+This method is called when a piece is no longer protected. It checks if the "{}protected"{} visual effect exists, and if so, it destroys it. This effectively removes the visual effect from the piece.\Hypertarget{class_appearance_manager_aecd411ce0c7c2744e202a9bdd1d1c7c5}\index{AppearanceManager@{AppearanceManager}!isProtectedEvent@{isProtectedEvent}}
+\index{isProtectedEvent@{isProtectedEvent}!AppearanceManager@{AppearanceManager}}
+\doxysubsubsection{\texorpdfstring{isProtectedEvent()}{isProtectedEvent()}}
+{\footnotesize\ttfamily \label{class_appearance_manager_aecd411ce0c7c2744e202a9bdd1d1c7c5} 
+void Appearance\+Manager.\+is\+Protected\+Event (\begin{DoxyParamCaption}\item[{Game\+Object}]{piece}{}\end{DoxyParamCaption})}
+
+This method is called when a piece is protected. It checks if the "{}protected"{} visual effect already exists, and if not, it creates one. The effect is instantiated as a child of the piece\textquotesingle{}s transform and positioned at the piece\textquotesingle{}s position.
+
+\label{doc-variable-members}
+\Hypertarget{class_appearance_manager_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_appearance_manager_a8c490ffc5fefb862243118cd20722cf5}\index{AppearanceManager@{AppearanceManager}!fluct@{fluct}}
+\index{fluct@{fluct}!AppearanceManager@{AppearanceManager}}
+\doxysubsubsection{\texorpdfstring{fluct}{fluct}}
+{\footnotesize\ttfamily \label{class_appearance_manager_a8c490ffc5fefb862243118cd20722cf5} 
+Dictionary$<$Vector3\+Int,Game\+Object$>$ Appearance\+Manager.\+fluct =new()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Prefab for the distracted visual effect. 
+
+Dictionaries to hold references to fluctuating pieces and fusion pieces. These dictionaries are used to manage the visual effects associated with these pieces. They\textquotesingle{}re linked to \doxylink{class_piece_interaction_manager}{Piece\+Interaction\+Manager} to get access to the position of the pieces. \Hypertarget{class_appearance_manager_a21ff75d25b2cdf1e7917bf8cebcd6631}\index{AppearanceManager@{AppearanceManager}!Instance@{Instance}}
+\index{Instance@{Instance}!AppearanceManager@{AppearanceManager}}
+\doxysubsubsection{\texorpdfstring{Instance}{Instance}}
+{\footnotesize\ttfamily \label{class_appearance_manager_a21ff75d25b2cdf1e7917bf8cebcd6631} 
+\mbox{\hyperlink{class_appearance_manager}{Appearance\+Manager}} Appearance\+Manager.\+Instance\hspace{0.3cm}{\ttfamily [static]}}
+
+This class manages the appearance of pieces in the game. It handles visual effects such as protection, locking, and distraction. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/rzong/\+Desktop/\+ISART/\+Admission\+\_\+\+Preparation/\+Unity\+Project/\+Roshar/\+Assets/\+Scripts/\+Game\+Managers/Appearance\+Manager.\+cs\end{DoxyCompactItemize}

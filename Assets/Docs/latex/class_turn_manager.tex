@@ -1,0 +1,126 @@
+\doxysection{Turn\+Manager Class Reference}
+\hypertarget{class_turn_manager}{}\label{class_turn_manager}\index{TurnManager@{TurnManager}}
+Inheritance diagram for Turn\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_turn_manager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_turn_manager_ae9885181fe84ab0fe56e3ca6eb1e357f}\label{class_turn_manager_ae9885181fe84ab0fe56e3ca6eb1e357f} 
+bool {\bfseries is\+Player\+Turn} (bool is\+Fluct)
+\begin{DoxyCompactList}\small\item\em \doxylink{class_turn_manager}{Turn\+Manager} manage also the number of summon per turn (only one by default) \end{DoxyCompactList}\item 
+\Hypertarget{class_turn_manager_a3e4955e7f27c414cb3e7d2d82ca7716f}\label{class_turn_manager_a3e4955e7f27c414cb3e7d2d82ca7716f} 
+bool {\bfseries nb\+Summon\+Verif} ()
+\item 
+\Hypertarget{class_turn_manager_afdc6cb8d72a3078ab07d7763a852da73}\label{class_turn_manager_afdc6cb8d72a3078ab07d7763a852da73} 
+bool {\bfseries is\+Summonable} (bool is\+Special, bool is\+Fluct)
+\begin{DoxyCompactList}\small\item\em Checks if a piece can be summoned. \end{DoxyCompactList}\item 
+\Hypertarget{class_turn_manager_a1d5bce8ee2377bedc29b04270a02c7cc}\label{class_turn_manager_a1d5bce8ee2377bedc29b04270a02c7cc} 
+void {\bfseries incr\+Summon} ()
+\item 
+void \mbox{\hyperlink{class_turn_manager_ae5e1aa64d29c6f1f88639c6e24890337}{enhanced\+Summon\+Performed}} (bool is\+Fluct)
+\begin{DoxyCompactList}\small\item\em Increments the number of summons made in the current turn. \end{DoxyCompactList}\item 
+\Hypertarget{class_turn_manager_a2910809b35e3416ff38bdd5097cd6ce6}\label{class_turn_manager_a2910809b35e3416ff38bdd5097cd6ce6} 
+void {\bfseries update\+Turn} ()
+\begin{DoxyCompactList}\small\item\em Updates the turn, increments the turn number, and resets the number of summons made in the current turn. \end{DoxyCompactList}\item 
+\Hypertarget{class_turn_manager_a48d163bf3a27f302d9685f0ff292c4b0}\label{class_turn_manager_a48d163bf3a27f302d9685f0ff292c4b0} 
+int {\bfseries get\+Turn\+Number} ()
+\item 
+bool \mbox{\hyperlink{class_turn_manager_a2902f59c5b014496919d3d2f5058b7d2}{get\+Player\+Turn}} ()
+\item 
+\Hypertarget{class_turn_manager_a2359544760565b47a5a72aa01ec22c29}\label{class_turn_manager_a2359544760565b47a5a72aa01ec22c29} 
+bool {\bfseries get\+Enhanced\+Summon\+Fus} ()
+\item 
+\Hypertarget{class_turn_manager_a97c8956ee6f7787a172d6a092254816a}\label{class_turn_manager_a97c8956ee6f7787a172d6a092254816a} 
+bool {\bfseries get\+Enhanced\+Summon\+Fluct} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_turn_manager_ad3a53d8324612dafb2425bc94029e668}\label{class_turn_manager_ad3a53d8324612dafb2425bc94029e668} 
+\mbox{\hyperlink{class_map_parameters}{Map\+Parameters}} {\bfseries map\+Parameters}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_turn_manager}{Turn\+Manager}} \mbox{\hyperlink{class_turn_manager_a5d482b750bc3fbffd3bc9b46aab66df6}{Instance}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_turn_manager_a294517d4c55df2b3074c27526043132d}\label{class_turn_manager_a294517d4c55df2b3074c27526043132d} 
+void {\bfseries Awake} ()
+\item 
+\Hypertarget{class_turn_manager_a198ec7d1f1bebbc43297b878e0e540e1}\label{class_turn_manager_a198ec7d1f1bebbc43297b878e0e540e1} 
+void {\bfseries Start} ()
+\item 
+\Hypertarget{class_turn_manager_a93e1f2507ce3a0fbfcd121b3676d9d39}\label{class_turn_manager_a93e1f2507ce3a0fbfcd121b3676d9d39} 
+void {\bfseries Update} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_turn_manager_ae2ab71dd2649b025ab7995b139ca8a86}\label{class_turn_manager_ae2ab71dd2649b025ab7995b139ca8a86} 
+bool {\bfseries turn} =true
+\begin{DoxyCompactList}\small\item\em \doxylink{class_map_parameters}{Map\+Parameters} is a scriptable object that contains the parameters of the map, such as the number of summons per turn, the turns when special summoning is allowed and the troops that the map unlocks. \end{DoxyCompactList}\item 
+\Hypertarget{class_turn_manager_a04e65ad8bd85b6dd2aa3810d3ea4db8c}\label{class_turn_manager_a04e65ad8bd85b6dd2aa3810d3ea4db8c} 
+bool {\bfseries enhanced\+Summon\+Fus} = false
+\begin{DoxyCompactList}\small\item\em true if it\textquotesingle{}s the first player turn, false if it\textquotesingle{}s the second player turn \end{DoxyCompactList}\item 
+\Hypertarget{class_turn_manager_a746ae0e7c11b00a998c721ff3fa9d1ec}\label{class_turn_manager_a746ae0e7c11b00a998c721ff3fa9d1ec} 
+int {\bfseries enhanced\+Summon\+Fus\+Turn} = 0
+\begin{DoxyCompactList}\small\item\em True if the fused player has performed an enhanced summon (and if so, it can summon for one turn), false otherwise. \end{DoxyCompactList}\item 
+\Hypertarget{class_turn_manager_a81243b023dd3b31a1955c6000eb17de2}\label{class_turn_manager_a81243b023dd3b31a1955c6000eb17de2} 
+bool {\bfseries enhanced\+Summon\+Fluct} = false
+\item 
+\Hypertarget{class_turn_manager_ac4e5b77d5c5a751be16550aed47dc9f7}\label{class_turn_manager_ac4e5b77d5c5a751be16550aed47dc9f7} 
+int {\bfseries enhanced\+Summon\+Fluct\+Turn} = 0
+\begin{DoxyCompactList}\small\item\em True if the fluctuomancer player has performed an enhanced summon (and if so, it can summon for one turn), false otherwise. \end{DoxyCompactList}\item 
+\Hypertarget{class_turn_manager_aecc1d79c7655e6795ebfd6ff0e296e31}\label{class_turn_manager_aecc1d79c7655e6795ebfd6ff0e296e31} 
+bool {\bfseries starting\+Player} = true
+\begin{DoxyCompactList}\small\item\em Turn when the enhanced summon was performed, used to check if the enhanced summon malus is still active. \end{DoxyCompactList}\item 
+\Hypertarget{class_turn_manager_a80afe8c3b9535b2fecb1ddbff79cff04}\label{class_turn_manager_a80afe8c3b9535b2fecb1ddbff79cff04} 
+int {\bfseries turn\+Number} =1
+\begin{DoxyCompactList}\small\item\em True if fluctuomancers start first, false if fused start first. \end{DoxyCompactList}\item 
+\Hypertarget{class_turn_manager_a31c957960c8565d3426bedf1289c9bbb}\label{class_turn_manager_a31c957960c8565d3426bedf1289c9bbb} 
+int {\bfseries has\+Summoned} =0
+\begin{DoxyCompactList}\small\item\em Turns start at 1. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_turn_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_turn_manager_ae5e1aa64d29c6f1f88639c6e24890337}\index{TurnManager@{TurnManager}!enhancedSummonPerformed@{enhancedSummonPerformed}}
+\index{enhancedSummonPerformed@{enhancedSummonPerformed}!TurnManager@{TurnManager}}
+\doxysubsubsection{\texorpdfstring{enhancedSummonPerformed()}{enhancedSummonPerformed()}}
+{\footnotesize\ttfamily \label{class_turn_manager_ae5e1aa64d29c6f1f88639c6e24890337} 
+void Turn\+Manager.\+enhanced\+Summon\+Performed (\begin{DoxyParamCaption}\item[{bool}]{is\+Fluct}{}\end{DoxyParamCaption})}
+
+
+
+Increments the number of summons made in the current turn. 
+
+Marks that an enhanced summon has been performed\Hypertarget{class_turn_manager_a2902f59c5b014496919d3d2f5058b7d2}\index{TurnManager@{TurnManager}!getPlayerTurn@{getPlayerTurn}}
+\index{getPlayerTurn@{getPlayerTurn}!TurnManager@{TurnManager}}
+\doxysubsubsection{\texorpdfstring{getPlayerTurn()}{getPlayerTurn()}}
+{\footnotesize\ttfamily \label{class_turn_manager_a2902f59c5b014496919d3d2f5058b7d2} 
+bool Turn\+Manager.\+get\+Player\+Turn (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Returns false if it\textquotesingle{}s the fluctuomancer player\textquotesingle{}s turn, true if it\textquotesingle{}s the fused player\textquotesingle{}s turn
+
+\label{doc-variable-members}
+\Hypertarget{class_turn_manager_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_turn_manager_a5d482b750bc3fbffd3bc9b46aab66df6}\index{TurnManager@{TurnManager}!Instance@{Instance}}
+\index{Instance@{Instance}!TurnManager@{TurnManager}}
+\doxysubsubsection{\texorpdfstring{Instance}{Instance}}
+{\footnotesize\ttfamily \label{class_turn_manager_a5d482b750bc3fbffd3bc9b46aab66df6} 
+\mbox{\hyperlink{class_turn_manager}{Turn\+Manager}} Turn\+Manager.\+Instance\hspace{0.3cm}{\ttfamily [static]}}
+
+\doxylink{class_turn_manager}{Turn\+Manager} is a singleton that manages the turns of the game. It keeps track of the current turn, whether it\textquotesingle{}s the first or second player\textquotesingle{}s turn, and whether enhanced summoning is available for either player. It also manages the number of summons per turn and the turn number. The map parameters are used to determine the rules for summoning and turns. it pretty much manages the game flow and all turn related stuff. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/rzong/\+Desktop/\+ISART/\+Admission\+\_\+\+Preparation/\+Unity\+Project/\+Roshar/\+Assets/\+Scripts/\+Game\+Managers/Turn\+Manager.\+cs\end{DoxyCompactItemize}
