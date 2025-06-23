@@ -6,17 +6,30 @@ using System;
 
 public class PieceMovement : MonoBehaviour
 {
+    /** This class is used to manage the movement of the pieces on the map.
+     * It will handle the movement of the pieces, the detection of reachable tiles, and the interaction with the user.
+     * It will also handle the summoning of pieces on the map.
+     * The class is used by PieceInteractionManager to manage the interaction with the user.
+     * It is also used by TurnManager to manage the turn of the pieces.
+     * It is also used by PhaseManager to manage the phase of the game.
+     * It unfortunately has a lot of global variables (is fluct, offset of tiles research, etc...), but the split will be done later
+     */
     //Public objects
-    public Tilemap tileMap; // Reference to the tile of the map, mainly used by reachableTiles and to update the tiles's states
-    public bool isFluct = true; //Specify the type of the piece (basically P1 or P2)
-    [Range(1,5)] //For now, nbMov's range is between 1 and 5
-    public int nbMov=1; //Nb of movement a piece can do
-    public bool isSpecial=false; // The special pieces has different summoning turns, this bool is sent to TurnManager in isSummonable
-    public bool enhancedTroop = false;
+    public Tilemap tileMap; /// Reference to the tile of the map, mainly used by reachableTiles and to update the tiles's states
+    public bool isFluct = true; ///Specify the type of the piece (basically P1 or P2)
+    [Range(1,5)] ///For now, nbMov's range is between 1 and 5
+    public int nbMov=1; ///Nb of movement a piece can do
+    public bool isSpecial=false; /// The special pieces has different summoning turns, this bool is sent to TurnManager in isSummonable
+    public bool enhancedTroop = false; /// If the troop is enhanced, it will notify the TurnManager that an enhanced summon was performed
     
     //public method
     public static List<Vector3Int> detectTilesInRange(Vector3Int center, int range, Tilemap tileMap) //A lot of methods need a tile detection algorithm. As I started with PieceMovement, all elements are in it, it's not worth the time of relocating so I create this function here.
     {
+        /** This method will detect the tiles in range of a piece, it will return a list of Vector3Int containing the coordinates of the tiles in range.
+         * The range is the depth of the search, each loop is one depth.
+         * The center is the position of the piece on the map.
+         * The tileMap is used to get the tiles on the map and to update their state.
+         */
         List<Vector3Int> validCoor = new List<Vector3Int> { center }; //The List where we'll keep our valid coordinates
         if (tileMap.GetTile(center)!=null)
         {
@@ -37,16 +50,16 @@ public class PieceMovement : MonoBehaviour
         return validCoor;
     }
     public void lockPiece() {
-        isLocked=true; //Lock the piece, it can't move until it's unlocked
+        isLocked=true; ///Lock the piece, it can't move until it's unlocked
     }
     public void unlockPiece() {
-        isLocked=false; //Unlock the piece, it can move again
+        isLocked=false; ///Unlock the piece, it can move again
     }
     public bool IsLocked(){
-        return isLocked; //Return if the piece is locked or not
+        return isLocked; ///Return if the piece is locked or not
     }
 
-    public void moveTo(Vector3Int newPos){
+    public void moveTo(Vector3Int newPos){ /// This method is used to move the piece to a new position on the map, updating the position of the piece, the tile state and the piece state in the respecting managers.
         PieceStateManager.Instance.updateState(gameObject,PieceState.moving,isFluct);
         if (tileMap.GetTile(newPos)!=null){//If the tile selected is on the map
             transform.position = tileMap.GetCellCenterWorld(newPos);
@@ -58,11 +71,13 @@ public class PieceMovement : MonoBehaviour
         PieceStateManager.Instance.updateState(gameObject,PieceState.basic,isFluct); 
         resetMap();
     }
+
+
     //private & internal properties
-    private bool isLocked = false; //Used to lock the piece when it is attacked by a Windrunner, so it can't move until it's unlocked
-    private int curMov; //The movement the player used with this piece -> Allowing the player to move the same piece two times or more if nbMov>1
-    private int curTurn=1; //Used to reset curMov, as it's its only purpose, it's not in TurnManager to simplify. Each piece will reset itself instead of a manager doing it.
-    private static Vector3Int[] neighbourOffsetOdd = new Vector3Int[]{ //In an hexagonal point top map, the offset changes depending if y is odd or not.
+    private bool isLocked = false; ///Used to lock the piece when it is attacked by a Windrunner, so it can't move until it's unlocked
+    private int curMov; ///The movement the player used with this piece -> Allowing the player to move the same piece two times or more if nbMov>1
+    private int curTurn=1; ///Used to reset curMov, as it's its only purpose, it's not in TurnManager to simplify. Each piece will reset itself instead of a manager doing it.
+    private static Vector3Int[] neighbourOffsetOdd = new Vector3Int[]{ /// This is the neighbour offset values for an Odd coordinates tiles In an hexagonal point top map, the offset changes depending if y is odd or not.
         new Vector3Int(0,1,0), //up left
         new Vector3Int(1,1,0), //up right
         new Vector3Int(1,0,0), // right
@@ -70,7 +85,7 @@ public class PieceMovement : MonoBehaviour
         new Vector3Int(0,-1,0), //down left
         new Vector3Int(-1,0,0), //left
     };
-    private static Vector3Int[] neighbourOffset = new Vector3Int[]{
+    private static Vector3Int[] neighbourOffset = new Vector3Int[]{ /// This is the neighbour offset values for an Even coordinates tiles In an hexagonal point top map, the offset changes depending if y is odd or not.
         new Vector3Int(-1,1,0), //up left
         new Vector3Int(0,1,0), //up right
         new Vector3Int(1,0,0), // right
@@ -78,21 +93,21 @@ public class PieceMovement : MonoBehaviour
         new Vector3Int(-1,-1,0), //down left
         new Vector3Int(-1,0,0), //left
     };
-    private bool onMap=false; //Managers only manage pieces on board, so pieces each have its own onMap verifier. It is used only for summon
-    SpriteRenderer sr; //Only used to drag : when dragging the piece will appear to be above the others
-    private bool waitClick=false; //Used for click and go moves
+    private bool onMap=false; ///Managers only manage pieces on board, so pieces each have its own onMap verifier.
+    SpriteRenderer sr; ///Only used to drag : when dragging the piece will appear to be above the others
+    private bool waitClick=false; ///Used for "click and go" moves
     //Cur pos and cellPos are the current coordinates and the destination coordinates : those are the main variables
-    private Vector3Int curPos; 
-    private Vector3Int cellPos; //New cell selected
-    private List<Vector3Int> reachableTiles; //This will stock the coordinates of the tiles reachable by the piece.
+    private Vector3Int curPos; ///Current position of the piece
+    private Vector3Int cellPos; ///New cell selected
+    private List<Vector3Int> reachableTiles; ///This will stock the coordinates of the tiles reachable by the piece.
 
 
     //Private methods
-    private bool phaseValidation() {
+    private bool phaseValidation() { /// This method is used to validate the phase of the game, it will return true if the phase is valid for the piece to move or summon.
         return ((PhaseManager.Instance.MovementPhase() && onMap)||(PhaseManager.Instance.SummoningPhase()&& !onMap));
     }
-    //refreshMoves is used to refresh curMov
     private void refreshMoves(){
+        ///refreshMoves is used to refresh curMov
         if (!isLocked){
             if (curTurn<TurnManager.Instance.getTurnNumber()){
                 curMov=nbMov;
@@ -103,8 +118,7 @@ public class PieceMovement : MonoBehaviour
         }
     }
 
-    //useMove is used to decrement curMov of the usedMoves
-    private void useMove(){
+    private void useMove(){ ///useMove is used to decrement curMov of the number of moves used by the piece
         bool notFound=true;
         int usedMoves=0;
         while (notFound){
@@ -134,7 +148,7 @@ public class PieceMovement : MonoBehaviour
     //Reset map is here to reset the "reachable" tiles after the move. It can be optimized 
     // but strange bugs appear when I don't check the whole map (some tile stays reachable) 
     // so it will be optimized later, for now the purpose is for the code to be functionnal
-    private void resetMap(){
+    private void resetMap(){ ///This method is used to reset the map after a move or a summon, it will reset the state of the tiles to basic and refresh them.
         BoundsInt bounds = tileMap.cellBounds;
         foreach (Vector3Int pos in bounds.allPositionsWithin) //Set the boundaries of the map
         {
@@ -147,11 +161,11 @@ public class PieceMovement : MonoBehaviour
     }
 
     //The conditions of summoning started to be overwhelming so I condensed them here
-    private bool isSummonable(){
+    private bool isSummonable(){ /// This method is used to check if the piece can be summoned on the selected tile, it will return true if the piece can be summoned.
         bool summonable=true;
         TileBase tileS = tileMap.GetTile(cellPos);
         BaseTile tileSelected = tileS as BaseTile;
-        /*
+        /**
         Base Conditions for a base piece to be summonable : 
         - The tile selected is on the map
         - The tile selected is an Summoning Tile
@@ -164,8 +178,15 @@ public class PieceMovement : MonoBehaviour
         return summonable;
     } 
     //Main method of the class, returns the coordinates of the tiles reachable and update them in the TileStateManager for visual selection
-    private List<Vector3Int> getReachableTiles() //Created before detectTilesInRange, not worth modifying
-    { //Should only be called once onMap is true and if the game has started
+    private List<Vector3Int> getReachableTiles() 
+    { 
+        /** This method is used to get the reachable tiles of the piece based on the number of its move allowed each turn, it will return a list of Vector3Int containing the coordinates of the reachable tiles.
+         * The method will use a map traversal algorithm to find the reachable tiles.
+         * The curMov is used to determine the depth of the search, each loop is one depth.
+         * The onMap is used to determine if the piece is on the map or not.
+         */
+        //Created before detectTilesInRange, not worth modifying
+        //Should only be called once onMap is true and if the game has started
         List<Vector3Int> validCoor = new List<Vector3Int> { curPos }; //The List where we'll keep our valid coordinates
         if (onMap)
         {
@@ -214,6 +235,11 @@ public class PieceMovement : MonoBehaviour
 
     //All the onMouse methods are below : they manage almost all interaction with the user, they works only if it's the player's turn (Asking to turn manager)
     void OnMouseDown(){
+        /** This method is used to handle the mouse down event on the piece, it will update the state of the piece and the reachable tiles if it's the player's turn and if the phase is valid.
+         * It will also reset the reachable tiles to avoid bugs.
+         * The method will also update the state of the piece in the PieceStateManager.
+         * It enables the "selected" state of the piece by scaling it up and changing its sorting order (for dragging effect).
+         */
         if (TurnManager.Instance.isPlayerTurn(isFluct) && phaseValidation() && curMov>0 && !InterruptionManager.Instance.isInterruptionActive()){ //remember, isFluct is P1 or P2
             reachableTiles=null; //reset reachable tiles because of some bugs, didn't find where so I fixed it here
 
@@ -232,7 +258,7 @@ public class PieceMovement : MonoBehaviour
             }
         }
     }
-    void OnMouseDrag(){   //Just a visual code for the piece to follow the mouse on drag
+    void OnMouseDrag(){   ///Just a visual code for the piece to follow the mouse on drag
         if (TurnManager.Instance.isPlayerTurn(isFluct) && phaseValidation() && curMov>0 && !InterruptionManager.Instance.isInterruptionActive()){
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = 0; // Assure que l'objet reste sur le plan 2D
@@ -240,6 +266,12 @@ public class PieceMovement : MonoBehaviour
         }
     }
     void OnMouseUp(){
+        /** This method is crucial for the class, it is the verifier that allow the move of the piece (or its summon).
+         * it will handle the mouse up event on the piece, it will update the state of the piece and the reachable tiles if it's the player's turn and if the phase is valid.
+         * It will also reset the reachable tiles to avoid bugs.
+         * The method will also update the state of the piece in the PieceStateManager.
+         * It disables the "selected" state of the piece by scaling it down and changing its sorting order (for dragging effect).
+         */
         transform.localScale = new Vector3(1,1,1); // Reset the selected state of the piece
         sr.sortingOrder=1;
 
@@ -323,6 +355,7 @@ public class PieceMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ///Update is the second verifier of the move (for "click and go" moves), it will check if the player clicked on a tile and if the move is valid.
         refreshMoves(); //Verify if the turn changed
         if (waitClick && Input.GetMouseButtonDown(0)) 
         {

@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class PieceAppearance : MonoBehaviour
 {
+    /** PieceAppearance is a MonoBehaviour that handles the appearance of the piece.
+     * It listens for changes in the piece's state and updates its appearance accordingly, by asking the AppearanceManager.
+     */
     private SpriteRenderer spriteRenderer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class MenuWindow : MonoBehaviour
 {
+    /** For now the menu only loads the map selection window.
+     * In the future, it may include options for settings, credits, etc.
+    */
 
     public static MenuWindow Instance;
     public void playButton()

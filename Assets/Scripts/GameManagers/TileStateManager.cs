@@ -5,6 +5,10 @@ using System.Collections.Generic;
 public enum TileState {reachable,occupied,basic,inAttackRange,summoningTile}
 public class TileStateManager : MonoBehaviour
 {
+    /** * TileStateManager is a singleton that manages the state of each tile in the tilemap.
+     * It keeps track of the state of each tile and allows for updating and checking the state
+        * of tiles. The states are stored in a dictionary with the tile position as the key.
+    */
     public static TileStateManager Instance;
     public Tilemap tileMap;
     private Dictionary<Vector3Int, TileState> states = new();
@@ -13,9 +17,9 @@ public class TileStateManager : MonoBehaviour
     public bool isNotOccupied(Vector3Int p){return states[p]!=TileState.occupied;}
     public void resetMap(){
         BoundsInt bounds = tileMap.cellBounds;
-        foreach (Vector3Int pos in bounds.allPositionsWithin) //Set the boundaries of the map
+        foreach (Vector3Int pos in bounds.allPositionsWithin) ///Set the boundaries of the map
         {
-            if (tileMap.HasTile(pos) && TileStateManager.Instance.isNotOccupied(pos)) //Go through each tile and reset those that aren't occupied
+            if (tileMap.HasTile(pos) && TileStateManager.Instance.isNotOccupied(pos)) ///Go through each tile and reset those that aren't occupied
             {
                 TileStateManager.Instance.updateState(pos,TileState.basic);
                 tileMap.RefreshTile(pos);

@@ -4,6 +4,10 @@ using TMPro; // ou UnityEngine.UI si tu utilises le Text classique
 
 public class InterfaceManager : MonoBehaviour
 {
+    /** This class manages the user interface of the game.
+     It updates the phase, turn, stormlight, and voidlight counts,
+     and displays the status of pieces and tiles when the right mouse button is clicked.
+    */
     public Tilemap tilemap;
     public Camera cam;
     public TextMeshProUGUI phaseText; 
@@ -14,13 +18,17 @@ public class InterfaceManager : MonoBehaviour
 
     void Update()
     {
-        // Update stormlight and voidlight counts
+        /** This method updates the user interface elements every frame.
+         It retrieves the current phase, turn number, stormlight, and voidlight counts,
+         and updates the corresponding text elements.
+         It also handles right-click interactions to display piece or tile status.
+        */
         StormlightCount.text = Ability.Stormlight.ToString();
         VoidlightCount.text = Ability.Voidlight.ToString();
         
         phaseText.text = "Phase : "+PhaseManager.Instance.getPhase().ToString()+"\nTurn : "+ (!TurnManager.Instance.getPlayerTurn() ? "Fluctuomancers " : "Fused ")+TurnManager.Instance.getTurnNumber().ToString();
         phaseAnnounceText.text = PhaseManager.Instance.CombatPhase()? "Fight !": (PhaseManager.Instance.MovementPhase() ? "Move !" : "Summon !");
-        if (Input.GetMouseButtonDown(1)) // clic droit
+        if (Input.GetMouseButtonDown(1)) /// clic droit
         {
             Vector3 mouseWorldPos = cam.ScreenToWorldPoint(Input.mousePosition);
             mouseWorldPos.z = 0;

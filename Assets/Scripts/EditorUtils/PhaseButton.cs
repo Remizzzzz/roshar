@@ -3,6 +3,9 @@ using TMPro;
 using UnityEngine.UI;
 
 public class PhaseButton : MonoBehaviour {
+    /** This class is used to manage the phase button in the UI.
+     * It will change the text and color of the button depending on the current phase of the game.
+     */
     private string combatText = "End of Turn";
     private string nextText = "Next Phase";
     private Color colorSummoning = new Color (60f/255f,100f/255f,1f);

@@ -3,6 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class MapSelectionWindow : MonoBehaviour
 {
+    /**
+     * MapSelectionWindow is a singleton class that manages the map selection window.
+     * It allows the user to select different maps to load.
+     * The maps are loaded using Unity's SceneManager.
+     */
     public static MapSelectionWindow Instance;
     public void Akinah(){SceneManager.LoadScene("Akinah");}
     public void Azimir(){SceneManager.LoadScene("Azimir");}

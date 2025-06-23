@@ -4,6 +4,10 @@ using TMPro; // ou UnityEngine.UI si tu utilises le Text classique
 
 public class HonorVictoryWindow : MonoBehaviour
 {
+    /**This class is used to manage the victory window for the Honor forces.
+     * It will display the victory text and the buttons to go to the menu or the next game (depending on if the player won one battle or won the game).
+     * It is a singleton, so it can be accessed from anywhere in the code.
+     */
     public static HonorVictoryWindow Instance;
     public GameObject menuButtonObject;
     public GameObject nextGameButtonObject;
