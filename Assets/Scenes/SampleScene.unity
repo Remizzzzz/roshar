@@ -2214,7 +2214,7 @@ Transform:
   m_GameObject: {fileID: 651940752}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.112337, y: -0.687366, z: 0}
+  m_LocalPosition: {x: -14.1, y: 2.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2276,7 +2276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &758374124
 Transform:
   m_ObjectHideFlags: 0
@@ -3636,7 +3636,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1230653800
 Transform:
   m_ObjectHideFlags: 0
@@ -6989,6 +6989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stormShapeAnimation: {fileID: 5840485911062136986, guid: 2972b10509277d34ca6271579be0282e, type: 3}
   damageAnimation: {fileID: 6697804300759051717, guid: 899fe365631bc3b4394cb7f5c78c0f90, type: 3}
+  deathAnimation: {fileID: 7205391204185325404, guid: d3564c0edc793864d84fabcbdf373b37, type: 3}
 --- !u!114 &2046805524
 MonoBehaviour:
   m_ObjectHideFlags: 0

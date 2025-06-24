@@ -66,6 +66,7 @@ public class PieceAttack : MonoBehaviour {
             PieceStateManager.Instance.remove(gameObject);
             if (pM.isFluct) WinCondition.Instance.UpdateFluctOnMap(false);
             else WinCondition.Instance.UpdateFusOnMap(false);
+            AnimationManager.Instance.animate(pM.tileMap.GetCellCenterWorld(pM.getCurPos()), AnimationCode.death); //Animate the death
             Destroy(gameObject);
         }
     }
@@ -86,6 +87,7 @@ public class PieceAttack : MonoBehaviour {
             PieceStateManager.Instance.remove(gameObject);
             if (pM.isFluct) WinCondition.Instance.UpdateFluctOnMap(false);
             else WinCondition.Instance.UpdateFusOnMap(false);
+            AnimationManager.Instance.animate(pM.tileMap.GetCellCenterWorld(pM.getCurPos()), AnimationCode.death); //Animate the death
             Destroy(gameObject);
         }
     }

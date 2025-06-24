@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro; // Ensure you have TextMeshPro package installed for text animations
-public enum AnimationCode {stormShape, damage} /// Define your animation codes here
+public enum AnimationCode {stormShape, damage, death} /// Define your animation codes here
 public class AnimationManager : MonoBehaviour
 {
     /**
@@ -9,6 +9,7 @@ public class AnimationManager : MonoBehaviour
     public static AnimationManager Instance;
     public GameObject stormShapeAnimation;
     public GameObject damageAnimation;
+    public GameObject deathAnimation;
 
     public GameObject animate(Vector3 position, AnimationCode codeAnimation, int damage = 0 /*optional parameter for damage animations*/){
         /** This method instantiates an animation at the given position based on the provided AnimationCode.
@@ -50,6 +51,10 @@ public class AnimationManager : MonoBehaviour
                 else fx.GetComponent<TextMeshPro>().text = "+" + (-damage).ToString();
                 fx.GetComponent<MeshRenderer>().sortingOrder = 49; // Ensure the text is rendered on top
                 fx.GetComponent<AnimationCreator>().Animate();
+                Destroy(fx, 1f); // Duration of the animation
+                break;
+            case AnimationCode.death :
+                fx = Instantiate(deathAnimation, position, Quaternion.identity); //Quaternion.identity for no rotation
                 Destroy(fx, 1f); // Duration of the animation
                 break;
             // Add more cases for different animations as needed
