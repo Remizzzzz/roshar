@@ -50,8 +50,14 @@ public class PieceAttack : MonoBehaviour {
         curAtk += boost;
     }
     public void damage(int dmg){ ///Deal damage to the piece, used for attack logic
-        if (!immunity) curLp-=(dmg-dmgReduc);
-        else immunity = false; ///If the piece is immune, it will not take damage, but the immunity will be removed
+        if (!immunity) {
+            curLp-=(dmg-dmgReduc);
+            AnimationManager.Instance.animate(pM.tileMap.GetCellCenterWorld(pM.getCurPos()), AnimationCode.damage, dmg-dmgReduc); //Animate the damage
+        }
+        else {
+            AnimationManager.Instance.animate(pM.tileMap.GetCellCenterWorld(pM.getCurPos()), AnimationCode.damage); //Animate the immunity
+            immunity = false; ///If the piece is immune, it will not take damage, but the immunity will be removed
+        }
         if (curLp <= 0)
         {
             TileStateManager.Instance.updateState(pM.getCurPos(), TileState.basic);
@@ -64,8 +70,14 @@ public class PieceAttack : MonoBehaviour {
         }
     }
     public void trueDamage(int dmg){ ///Deal true damage to the piece, not used for now
-        if (!immunity) curLp-=dmg;
-        else immunity = false; 
+        if (!immunity) {
+            curLp-=dmg;
+            AnimationManager.Instance.animate(pM.tileMap.GetCellCenterWorld(pM.getCurPos()), AnimationCode.damage, dmg); //Animate the damage
+        }
+        else {
+            immunity = false; 
+            AnimationManager.Instance.animate(pM.tileMap.GetCellCenterWorld(pM.getCurPos()), AnimationCode.damage); //Animate the immunity
+        }
         if (curLp <= 0)
         {
             TileStateManager.Instance.updateState(pM.getCurPos(), TileState.basic);
@@ -85,6 +97,7 @@ public class PieceAttack : MonoBehaviour {
         isDistracted = false;
     }
     public void heal(int regen){ ///Heal the piece, used for special cases
+        AnimationManager.Instance.animate(pM.tileMap.GetCellCenterWorld(pM.getCurPos()), AnimationCode.damage, -regen); //Animate the heal
         curLp+=regen;
         if (curLp>lp) curLp=lp;
     }

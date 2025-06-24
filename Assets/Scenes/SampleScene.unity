@@ -6988,6 +6988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stormShapeAnimation: {fileID: 5840485911062136986, guid: 2972b10509277d34ca6271579be0282e, type: 3}
+  damageAnimation: {fileID: 6697804300759051717, guid: 899fe365631bc3b4394cb7f5c78c0f90, type: 3}
 --- !u!114 &2046805524
 MonoBehaviour:
   m_ObjectHideFlags: 0

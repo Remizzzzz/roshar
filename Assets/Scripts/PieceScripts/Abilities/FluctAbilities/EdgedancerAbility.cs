@@ -52,7 +52,7 @@ public class EdgedancerAbility : Ability
         if (Input.GetMouseButtonDown(0) && isAbilityActive) // 0 = left click
         {
             Vector3Int mousePosition = Utils.getMousePositionOnTilemap(gameObject.GetComponent<PieceMovement>().tileMap);
-            if (abilityTargets.Contains(mousePosition) && mousePosition != CurPos)
+            if (abilityTargets.Contains(mousePosition) || mousePosition == CurPos)
             {
                 GameObject targetPiece = PieceInteractionManager.Instance.getPiece(mousePosition);
                 targetPiece.GetComponent<PieceAttack>().heal(healAmount); // heal the target piece
