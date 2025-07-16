@@ -12,13 +12,13 @@ public class WinCondition : MonoBehaviour
     public static WinCondition Instance;
     internal int fluctOnMap = 0;
     internal int fusOnMap=0;
-    public void UpdateFluctOnMap(bool incr) /// Updates the number of Fluctuomancers on the map.
+    public void UpdateFluctOnMap(bool incr) /// Updates the number of Fluctuomancers on the map (true to increment, false to decrement).
     {
         if (incr) fluctOnMap++;
         else fluctOnMap--;
         if (fluctOnMap < 0) fluctOnMap = 0;
     }
-    public void UpdateFusOnMap(bool incr) /// Updates the number of Fused pieces on the map.
+    public void UpdateFusOnMap(bool incr) /// Updates the number of Fused pieces on the map (true to increment, false to decrement).
     {
         if (incr) fusOnMap++;
         else fusOnMap--;

@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 15490305}
   - component: {fileID: 15490309}
   - component: {fileID: 15490310}
+  - component: {fileID: 15490311}
   m_Layer: 0
   m_Name: AgilityShape
   m_TagString: Untagged
@@ -352,6 +353,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceName: AgilityShape
+--- !u!114 &15490311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15490303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa673eb3e471999429e8273cbce62299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &128158250
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,6 +636,7 @@ GameObject:
   - component: {fileID: 205083463}
   - component: {fileID: 205083467}
   - component: {fileID: 205083468}
+  - component: {fileID: 205083469}
   m_Layer: 0
   m_Name: Archer
   m_TagString: Untagged
@@ -796,6 +810,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceName: Archer
+--- !u!114 &205083469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205083461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa673eb3e471999429e8273cbce62299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &269958393
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,6 +838,7 @@ GameObject:
   - component: {fileID: 269958396}
   - component: {fileID: 269958395}
   - component: {fileID: 269958401}
+  - component: {fileID: 269958402}
   m_Layer: 0
   m_Name: Lightweaver
   m_TagString: Untagged
@@ -999,6 +1026,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceName: Lightweaver
+--- !u!114 &269958402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269958393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa673eb3e471999429e8273cbce62299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &313139113
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,6 +1280,7 @@ GameObject:
   - component: {fileID: 393028339}
   - component: {fileID: 393028340}
   - component: {fileID: 393028341}
+  - component: {fileID: 393028342}
   m_Layer: 0
   m_Name: ShardBearer
   m_TagString: Untagged
@@ -1414,6 +1454,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceName: ShardBearer
+--- !u!114 &393028342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393028334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa673eb3e471999429e8273cbce62299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &430544271
 GameObject:
   m_ObjectHideFlags: 0
@@ -1429,6 +1481,7 @@ GameObject:
   - component: {fileID: 430544276}
   - component: {fileID: 430544277}
   - component: {fileID: 430544278}
+  - component: {fileID: 430544279}
   m_Layer: 0
   m_Name: Lancer
   m_TagString: Untagged
@@ -1602,6 +1655,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceName: Lancer
+--- !u!114 &430544279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430544271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa673eb3e471999429e8273cbce62299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &458875230
 GameObject:
   m_ObjectHideFlags: 0
@@ -1618,6 +1683,7 @@ GameObject:
   - component: {fileID: 458875237}
   - component: {fileID: 458875232}
   - component: {fileID: 458875238}
+  - component: {fileID: 458875239}
   m_Layer: 0
   m_Name: Magnified
   m_TagString: Untagged
@@ -1806,6 +1872,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceName: Magnified One
+--- !u!114 &458875239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458875230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa673eb3e471999429e8273cbce62299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2969,6 +3047,7 @@ GameObject:
   - component: {fileID: 981417925}
   - component: {fileID: 981417924}
   - component: {fileID: 981417930}
+  - component: {fileID: 981417931}
   m_Layer: 0
   m_Name: Edgedancer
   m_TagString: Untagged
@@ -3156,6 +3235,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceName: Edgedancer
+--- !u!114 &981417931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981417922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa673eb3e471999429e8273cbce62299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &995360169
 GameObject:
   m_ObjectHideFlags: 0
@@ -3172,6 +3263,7 @@ GameObject:
   - component: {fileID: 995360176}
   - component: {fileID: 995360171}
   - component: {fileID: 995360177}
+  - component: {fileID: 995360178}
   m_Layer: 0
   m_Name: Pursuer
   m_TagString: Untagged
@@ -3358,6 +3450,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceName: The Pursuer
+--- !u!114 &995360178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995360169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa673eb3e471999429e8273cbce62299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1139001223
 GameObject:
   m_ObjectHideFlags: 0
@@ -3374,6 +3478,7 @@ GameObject:
   - component: {fileID: 1139001231}
   - component: {fileID: 1139001225}
   - component: {fileID: 1139001232}
+  - component: {fileID: 1139001233}
   m_Layer: 0
   m_Name: Deepest
   m_TagString: Untagged
@@ -3561,6 +3666,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceName: Deepest One
+--- !u!114 &1139001233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139001223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa673eb3e471999429e8273cbce62299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1295110581
 GameObject:
   m_ObjectHideFlags: 0
@@ -3713,6 +3830,7 @@ GameObject:
   - component: {fileID: 1332004304}
   - component: {fileID: 1332004299}
   - component: {fileID: 1332004305}
+  - component: {fileID: 1332004306}
   m_Layer: 0
   m_Name: Masked
   m_TagString: Untagged
@@ -3900,6 +4018,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceName: Masked One
+--- !u!114 &1332004306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332004297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa673eb3e471999429e8273cbce62299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1441448359
 GameObject:
   m_ObjectHideFlags: 0
@@ -3916,6 +4046,7 @@ GameObject:
   - component: {fileID: 1441448366}
   - component: {fileID: 1441448361}
   - component: {fileID: 1441448367}
+  - component: {fileID: 1441448368}
   m_Layer: 0
   m_Name: Heavenly
   m_TagString: Untagged
@@ -4105,6 +4236,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceName: Heavenly One
+--- !u!114 &1441448368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441448359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa673eb3e471999429e8273cbce62299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1625622009
 GameObject:
   m_ObjectHideFlags: 0
@@ -4168,6 +4311,7 @@ GameObject:
   - component: {fileID: 1675737353}
   - component: {fileID: 1675737348}
   - component: {fileID: 1675737354}
+  - component: {fileID: 1675737355}
   m_Layer: 0
   m_Name: Skybreaker
   m_TagString: Untagged
@@ -4354,6 +4498,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceName: Skybreaker
+--- !u!114 &1675737355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675737346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa673eb3e471999429e8273cbce62299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1757212977
 GameObject:
   m_ObjectHideFlags: 0
@@ -4593,6 +4749,7 @@ GameObject:
   - component: {fileID: 1841820141}
   - component: {fileID: 1841820142}
   - component: {fileID: 1841820143}
+  - component: {fileID: 1841820144}
   m_Layer: 0
   m_Name: WarShape
   m_TagString: Untagged
@@ -4766,6 +4923,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceName: WarShape
+--- !u!114 &1841820144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841820136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa673eb3e471999429e8273cbce62299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1889943123
 GameObject:
   m_ObjectHideFlags: 0
@@ -5685,6 +5854,7 @@ GameObject:
   - component: {fileID: 2033899466}
   - component: {fileID: 2033899465}
   - component: {fileID: 2033899471}
+  - component: {fileID: 2033899472}
   m_Layer: 0
   m_Name: Stoneward
   m_TagString: Untagged
@@ -5872,6 +6042,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceName: Stoneward
+--- !u!114 &2033899472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033899463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa673eb3e471999429e8273cbce62299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2046805514
 GameObject:
   m_ObjectHideFlags: 0
@@ -6026,6 +6208,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stormShapeAnimation: {fileID: 5840485911062136986, guid: 2972b10509277d34ca6271579be0282e, type: 3}
+  damageAnimation: {fileID: 6697804300759051717, guid: 899fe365631bc3b4394cb7f5c78c0f90, type: 3}
+  deathAnimation: {fileID: 7205391204185325404, guid: d3564c0edc793864d84fabcbdf373b37, type: 3}
 --- !u!114 &2046805524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6069,6 +6253,7 @@ GameObject:
   - component: {fileID: 2071792405}
   - component: {fileID: 2071792406}
   - component: {fileID: 2071792407}
+  - component: {fileID: 2071792408}
   m_Layer: 0
   m_Name: StormShape
   m_TagString: Untagged
@@ -6255,6 +6440,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceName: StormShape
+--- !u!114 &2071792408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071792399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa673eb3e471999429e8273cbce62299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2078945512
 GameObject:
   m_ObjectHideFlags: 0
@@ -6271,6 +6468,7 @@ GameObject:
   - component: {fileID: 2078945518}
   - component: {fileID: 2078945519}
   - component: {fileID: 2078945520}
+  - component: {fileID: 2078945521}
   m_Layer: 0
   m_Name: Windrunner
   m_TagString: Untagged
@@ -6458,6 +6656,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceName: Windrunner
+--- !u!114 &2078945521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078945512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa673eb3e471999429e8273cbce62299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

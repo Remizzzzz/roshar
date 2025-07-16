@@ -13,21 +13,10 @@ public class AppearanceManager : MonoBehaviour
     public GameObject lockedPrefab; /// Prefab for the locked visual effect
     public GameObject distractedPrefab; /// Prefab for the distracted visual effect
 
-    /** Dictionaries to hold references to fluctuating pieces and fusion pieces.
-     These dictionaries are used to manage the visual effects associated with these pieces.
-     They're linked to PieceInteractionManager to get access to the position of the pieces.
-    */
-    private Dictionary<Vector3Int,GameObject> fluct=new();
-    private Dictionary<Vector3Int,GameObject> fus=new();
-    internal Tilemap tileMap;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         Instance=this;
-        tileMap = TileStateManager.Instance.tileMap;
-        fluct = PieceInteractionManager.Instance.getFluctDictionnary();
-        fus = PieceInteractionManager.Instance.getFusDictionnary();
     }
 
     public void isProtectedEvent(GameObject piece){

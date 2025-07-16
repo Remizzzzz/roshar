@@ -318,6 +318,7 @@ public class PieceMovement : MonoBehaviour
                         curPos = cellPos;
                         PieceInteractionManager.Instance.updatePos(gameObject, curPos, isFluct);
                         TileStateManager.Instance.updateState(curPos, TileState.occupied);
+                        GetComponent<PieceGenerator>().generatePiece(); //Generate a new copy of the piece at the generating position of the piece
                         onMap = true;
                         if (isFluct) WinCondition.Instance.UpdateFluctOnMap(true); //Update the number of pieces on the map
                         else WinCondition.Instance.UpdateFusOnMap(true);

@@ -67,6 +67,12 @@ public class PieceAttack : MonoBehaviour {
             if (pM.isFluct) WinCondition.Instance.UpdateFluctOnMap(false);
             else WinCondition.Instance.UpdateFusOnMap(false);
             AnimationManager.Instance.animate(pM.tileMap.GetCellCenterWorld(pM.getCurPos()), AnimationCode.death); //Animate the death
+
+            
+            if (GetComponent<PieceAttributes>().isMinion){
+                if (GetComponent<PieceAttributes>().summoner.GetComponent<StonewardAbility>() != null)
+                    GetComponent<PieceAttributes>().summoner.GetComponent<StonewardAbility>().minionDestroyed(); //If the piece is a minion, notify the summoner
+            }
             Destroy(gameObject);
         }
     }
@@ -88,6 +94,11 @@ public class PieceAttack : MonoBehaviour {
             if (pM.isFluct) WinCondition.Instance.UpdateFluctOnMap(false);
             else WinCondition.Instance.UpdateFusOnMap(false);
             AnimationManager.Instance.animate(pM.tileMap.GetCellCenterWorld(pM.getCurPos()), AnimationCode.death); //Animate the death
+
+            if (GetComponent<PieceAttributes>().isMinion){
+                if (GetComponent<PieceAttributes>().summoner.GetComponent<StonewardAbility>() != null)
+                    GetComponent<PieceAttributes>().summoner.GetComponent<StonewardAbility>().minionDestroyed(); //If the piece is a minion, notify the summoner
+            }
             Destroy(gameObject);
         }
     }

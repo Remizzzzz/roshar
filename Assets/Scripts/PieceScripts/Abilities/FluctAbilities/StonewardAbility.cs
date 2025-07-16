@@ -11,6 +11,11 @@ public class StonewardAbility : Ability
     //Ability specific properties
     public GameObject minionPrefab; /// Prefab for the Stoneward minion
     private List<Vector3Int> summoningTiles = new(); /// Tiles where the minion can be summoned
+    private int minionCount = 0; /// Counter for the number of minions summoned
+    public void minionDestroyed()
+    {
+        minionCount--; /// Decrement the minion count when a minion is destroyed
+    }
     private void summonMinion(Vector3Int mousePosition){
         /** * This method is called to summon a minion on the selected tile position.
          * It checks if the tile is valid for summoning, instantiates the minion prefab,
@@ -19,6 +24,8 @@ public class StonewardAbility : Ability
         // Instantiate the minion at the selected tile position
         GameObject minion = Instantiate(minionPrefab, gameObject.GetComponent<PieceMovement>().tileMap.GetCellCenterWorld(mousePosition), Quaternion.identity);
         minion.GetComponent<PieceMovement>().tileMap = gameObject.GetComponent<PieceMovement>().tileMap; // Set the tilemap for the minion
+        minion.GetComponent<PieceAttributes>().isMinion = true; // Set the minion as a minion
+        minion.GetComponent<PieceAttributes>().setSummoner(gameObject); // Set the summoner of the minion to the current piece
 
         //register the minion in the gameManagers
         PieceInteractionManager.Instance.addPiece(minion, minion.GetComponent<PieceMovement>().getCurPos(), true); // Update the interaction manager with the new minion
@@ -30,6 +37,7 @@ public class StonewardAbility : Ability
         TileStateManager.Instance.updateState(minion.GetComponent<PieceMovement>().getCurPos(), TileState.occupied);
         
         WinCondition.Instance.UpdateFluctOnMap(true); //Update the number of pieces on the map
+        minionCount++; // Increment the minion count
     }
     //Inherited properties
     [SerializeField] private int _abilityCost = 2;
@@ -41,7 +49,7 @@ public class StonewardAbility : Ability
          * It checks if the ability can be activated, detects the tiles in range,
          * and updates the tile states to indicate summoning tiles.
          */
-        if (TurnManager.Instance.isPlayerTurn(true) && !PhaseManager.Instance.MovementPhase()){
+        if (TurnManager.Instance.isPlayerTurn(true) && !PhaseManager.Instance.MovementPhase() && minionCount < 2){
             List<Vector3Int> possibleTiles = PieceMovement.detectTilesInRange(CurPos, 1, gameObject.GetComponent<PieceMovement>().tileMap);
             foreach (Vector3Int tilePos in possibleTiles){
                 if (TileStateManager.Instance.getState(tilePos) == TileState.occupied) continue; // Skip occupied tiles
