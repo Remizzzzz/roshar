@@ -13,7 +13,7 @@ var searchData=
   ['alliestargeted_10',['alliesTargeted',['../class_heavenly_ability.html#a529dff694fbdff5f75d76dbfc6ebb428',1,'HeavenlyAbility']]],
   ['alliesteleportable_11',['alliesTeleportable',['../class_heavenly_ability.html#a787b1253407b725938574547aa6bbbd5',1,'HeavenlyAbility']]],
   ['animate_12',['Animate',['../class_animation_creator.html#add8fd9adfad49ff83d30a1f19bbd3f6d',1,'AnimationCreator']]],
-  ['animate_13',['animate',['../class_animation_manager.html#ad946fd7c369d9608423598f42f2b01db',1,'AnimationManager']]],
+  ['animate_13',['animate',['../class_animation_manager.html#a1159816c0944183e644932a657ba5a15',1,'AnimationManager']]],
   ['animationcreator_14',['AnimationCreator',['../class_animation_creator.html',1,'']]],
   ['animationmanager_15',['AnimationManager',['../class_animation_manager.html',1,'']]],
   ['animationstarted_16',['animationStarted',['../class_animation_creator.html#a2b9da96ccc0a24968d4d388dbeb2f380',1,'AnimationCreator']]],
@@ -21,5 +21,6 @@ var searchData=
   ['aretargeted_18',['areTargeted',['../class_piece_interaction_manager.html#a4133a1267bc09936470e6ee460b4d747',1,'PieceInteractionManager']]],
   ['attack_19',['attack',['../class_piece_interaction_manager.html#ad8b1b858a270b2ecd0ad8c83ba2d6af9',1,'PieceInteractionManager']]],
   ['attacker_20',['attacker',['../class_deepest_ability.html#ac0d3036ae7d9db3bbf3ebe7b3409552c',1,'DeepestAbility.attacker'],['../class_magnified_ability.html#a878cc1ddc909f18f3edf09d1e36b0fd1',1,'MagnifiedAbility.attacker']]],
-  ['attackrange_21',['attackRange',['../class_piece_interaction_manager.html#ac7b855918f35778f250adfe05eb44324',1,'PieceInteractionManager']]]
+  ['attackrange_21',['attackRange',['../class_piece_interaction_manager.html#ac7b855918f35778f250adfe05eb44324',1,'PieceInteractionManager']]],
+  ['awake_22',['Awake',['../class_appearance_manager.html#ac0b168fbbb7ac0d2ca151fa36d450aa9',1,'AppearanceManager']]]
 ];

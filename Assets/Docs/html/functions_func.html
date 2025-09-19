@@ -98,9 +98,10 @@ $(function(){initNavTree('functions_func.html','',''); });
 <li>addPiece()&#160;:&#160;<a class="el" href="class_piece_interaction_manager.html#a541d988751f82093c9351d0c1e3b93f3">PieceInteractionManager</a>, <a class="el" href="class_piece_state_manager.html#a6443e4b8dfc9b6f5c6bb90bf4984d657">PieceStateManager</a></li>
 <li>addTarget()&#160;:&#160;<a class="el" href="class_piece_interaction_manager.html#a54a03def4fc22eb3ce1136b9a8185dae">PieceInteractionManager</a></li>
 <li>Animate()&#160;:&#160;<a class="el" href="class_animation_creator.html#add8fd9adfad49ff83d30a1f19bbd3f6d">AnimationCreator</a></li>
-<li>animate()&#160;:&#160;<a class="el" href="class_animation_manager.html#ad946fd7c369d9608423598f42f2b01db">AnimationManager</a></li>
+<li>animate()&#160;:&#160;<a class="el" href="class_animation_manager.html#a1159816c0944183e644932a657ba5a15">AnimationManager</a></li>
 <li>areTargeted()&#160;:&#160;<a class="el" href="class_piece_interaction_manager.html#a4133a1267bc09936470e6ee460b4d747">PieceInteractionManager</a></li>
 <li>attack()&#160;:&#160;<a class="el" href="class_piece_interaction_manager.html#ad8b1b858a270b2ecd0ad8c83ba2d6af9">PieceInteractionManager</a></li>
+<li>Awake()&#160;:&#160;<a class="el" href="class_appearance_manager.html#ac0b168fbbb7ac0d2ca151fa36d450aa9">AppearanceManager</a></li>
 </ul>
 
 
@@ -141,6 +142,7 @@ $(function(){initNavTree('functions_func.html','',''); });
 
 
 <h3 class="doxsection"><a id="index_g" name="index_g"></a>- g -</h3><ul>
+<li>generatePiece()&#160;:&#160;<a class="el" href="class_piece_generator.html#acaa8c37dc21022f294c47a850152f8b1">PieceGenerator</a></li>
 <li>getAbilityCasted()&#160;:&#160;<a class="el" href="class_deepest_ability.html#acf247166d1a328942a92744c5f2f2137">DeepestAbility</a>, <a class="el" href="class_magnified_ability.html#a8d3204f43acd258b487928a36087fed8">MagnifiedAbility</a></li>
 <li>getAttackTargets()&#160;:&#160;<a class="el" href="class_piece_interaction_manager.html#afc0629d4904c1851e891ebffae5245e1">PieceInteractionManager</a></li>
 <li>getCurLp()&#160;:&#160;<a class="el" href="class_piece_attack.html#a6e51c4b21d97a01c4ea8407d0b4d6bb4">PieceAttack</a></li>
@@ -152,6 +154,7 @@ $(function(){initNavTree('functions_func.html','',''); });
 <li>getPlayerTurn()&#160;:&#160;<a class="el" href="class_turn_manager.html#a2902f59c5b014496919d3d2f5058b7d2">TurnManager</a></li>
 <li>getReachableTargets()&#160;:&#160;<a class="el" href="class_piece_attack.html#a34aa2ad76dd7eab363867202a71bf987">PieceAttack</a></li>
 <li>getReachableTiles()&#160;:&#160;<a class="el" href="class_piece_movement.html#a7a85499dcfea1186de223dda6b860d25">PieceMovement</a></li>
+<li>getStartingPlayer()&#160;:&#160;<a class="el" href="class_turn_manager.html#a16c29d5d7d17cd48f042d5ee8863a085">TurnManager</a></li>
 <li>getState()&#160;:&#160;<a class="el" href="class_piece_state_manager.html#a9df3c5d7ea23201a8b44c190df475ec1">PieceStateManager</a></li>
 <li>getTargetOnMap()&#160;:&#160;<a class="el" href="class_piece_interaction_manager.html#a9893a8ea421c86e27a8da0a89a5af7ad">PieceInteractionManager</a></li>
 <li>getVoidlight()&#160;:&#160;<a class="el" href="class_magnified_ability.html#a55e9bcd3a19d1f1952896d7e0be73cac">MagnifiedAbility</a></li>
@@ -192,12 +195,14 @@ $(function(){initNavTree('functions_func.html','',''); });
 
 
 <h3 class="doxsection"><a id="index_m" name="index_m"></a>- m -</h3><ul>
+<li>minionDestroyed()&#160;:&#160;<a class="el" href="class_stoneward_ability.html#a0ceef0694bd26a5828267af26ab08d10">StonewardAbility</a></li>
 <li>MovementPhase()&#160;:&#160;<a class="el" href="class_phase_manager.html#a4a0f062bb9ce25a06349c8b90d7d56c4">PhaseManager</a></li>
 <li>moveTo()&#160;:&#160;<a class="el" href="class_piece_movement.html#a4c04801b5e78e6082c04c506f3745449">PieceMovement</a></li>
 </ul>
 
 
 <h3 class="doxsection"><a id="index_n" name="index_n"></a>- n -</h3><ul>
+<li>nbSummonVerif()&#160;:&#160;<a class="el" href="class_turn_manager.html#a3e4955e7f27c414cb3e7d2d82ca7716f">TurnManager</a></li>
 <li>nextPhase()&#160;:&#160;<a class="el" href="class_phase_manager.html#a6a62c990ca952f45fa5b7e9655964177">PhaseManager</a></li>
 </ul>
 
@@ -231,11 +236,13 @@ $(function(){initNavTree('functions_func.html','',''); });
 
 <h3 class="doxsection"><a id="index_s" name="index_s"></a>- s -</h3><ul>
 <li>selectAlly()&#160;:&#160;<a class="el" href="class_heavenly_ability.html#a56a9c4665f8146388aa39ee9b85bbce3">HeavenlyAbility</a></li>
+<li>setBoardSide()&#160;:&#160;<a class="el" href="class_tile_state_manager.html#a0262b71ac00fd31d8ea904d441967ac6">TileStateManager</a></li>
 <li>setCallerName()&#160;:&#160;<a class="el" href="class_window_interruption.html#aa80914f0456efc6facaa61d28a599e05">WindowInterruption</a></li>
 <li>setColor()&#160;:&#160;<a class="el" href="class_button_for_interruption.html#a6b49506b5473485a9383416a2e2c3cae">ButtonForInterruption</a></li>
 <li>setImmune()&#160;:&#160;<a class="el" href="class_piece_attack.html#aa87cdce6bac7e1bdf3d1b41243cf25dd">PieceAttack</a></li>
 <li>setOnClickAction()&#160;:&#160;<a class="el" href="class_button_for_interruption.html#a96691d4ad374624f6fbaebad50024a79">ButtonForInterruption</a></li>
 <li>SetOrderInLayer()&#160;:&#160;<a class="el" href="class_window_interruption.html#ad52477725934b0c87c182bf8e0422ead">WindowInterruption</a></li>
+<li>setSummoner()&#160;:&#160;<a class="el" href="class_piece_attributes.html#a677f7ab6dba25323c9792d0e76e6a1ff">PieceAttributes</a></li>
 <li>setTargeter()&#160;:&#160;<a class="el" href="class_piece_interaction_manager.html#a4e0e510f1284c9f4f97870878356fdba">PieceInteractionManager</a></li>
 <li>setText()&#160;:&#160;<a class="el" href="class_button_for_interruption.html#aa88b70725ecffb207a925493af2d8db5">ButtonForInterruption</a></li>
 <li>Start()&#160;:&#160;<a class="el" href="class_animation_creator.html#ab5908da6f05657b4e2c1166ecf35f058">AnimationCreator</a>, <a class="el" href="class_animation_manager.html#a24e3383ca8d2acf1cf37211f8e9f2131">AnimationManager</a>, <a class="el" href="class_piece_interaction_manager.html#abf01d3eabc20fd92b9d2db6140b4af1a">PieceInteractionManager</a>, <a class="el" href="class_window_interruption.html#a79f1b97fa00546f6d9786eb54d369883">WindowInterruption</a></li>

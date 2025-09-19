@@ -108,11 +108,20 @@ TileState&#160;</td><td class="memItemRight" valign="bottom"><b>getState</b> (Ve
 <tr class="memitem:a0918cca0696289117bece3a6ca1d33f5" id="r_a0918cca0696289117bece3a6ca1d33f5"><td class="memItemLeft" align="right" valign="top"><a id="a0918cca0696289117bece3a6ca1d33f5" name="a0918cca0696289117bece3a6ca1d33f5"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>isNotOccupied</b> (Vector3Int p)</td></tr>
 <tr class="memitem:a939084598c88aae65ea20e99f9cf4ebc" id="r_a939084598c88aae65ea20e99f9cf4ebc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a939084598c88aae65ea20e99f9cf4ebc">resetMap</a> ()</td></tr>
+<tr class="memitem:a0262b71ac00fd31d8ea904d441967ac6" id="r_a0262b71ac00fd31d8ea904d441967ac6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0262b71ac00fd31d8ea904d441967ac6">setBoardSide</a> (bool fluctIsHighPlayer)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:af90c509d1fbc4877f3c18645b09f77e2" id="r_af90c509d1fbc4877f3c18645b09f77e2"><td class="memItemLeft" align="right" valign="top"><a id="af90c509d1fbc4877f3c18645b09f77e2" name="af90c509d1fbc4877f3c18645b09f77e2"></a>
 Tilemap&#160;</td><td class="memItemRight" valign="bottom"><b>tileMap</b></td></tr>
+<tr class="memitem:adef8c56d362b690eac28cf05c3c2e686" id="r_adef8c56d362b690eac28cf05c3c2e686"><td class="memItemLeft" align="right" valign="top"><a id="adef8c56d362b690eac28cf05c3c2e686" name="adef8c56d362b690eac28cf05c3c2e686"></a>
+Tile&#160;</td><td class="memItemRight" valign="bottom"><b>fluctSummoningTile</b></td></tr>
+<tr class="memitem:acf92ec7f39c331cf6a36433b8a839ca2" id="r_acf92ec7f39c331cf6a36433b8a839ca2"><td class="memItemLeft" align="right" valign="top"><a id="acf92ec7f39c331cf6a36433b8a839ca2" name="acf92ec7f39c331cf6a36433b8a839ca2"></a>
+List&lt; Vector3Int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>highPlayerPos</b></td></tr>
+<tr class="memitem:a751eba9c18b78fe017d4772a92aa4034" id="r_a751eba9c18b78fe017d4772a92aa4034"><td class="memItemLeft" align="right" valign="top"><a id="a751eba9c18b78fe017d4772a92aa4034" name="a751eba9c18b78fe017d4772a92aa4034"></a>
+Tile&#160;</td><td class="memItemRight" valign="bottom"><b>fusSummoningTile</b></td></tr>
+<tr class="memitem:ada86384674c4894be532c863d9c9520a" id="r_ada86384674c4894be532c863d9c9520a"><td class="memItemLeft" align="right" valign="top"><a id="ada86384674c4894be532c863d9c9520a" name="ada86384674c4894be532c863d9c9520a"></a>
+List&lt; Vector3Int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>lowPlayerPos</b></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -151,6 +160,24 @@ Dictionary&lt; Vector3Int, TileState &gt;&#160;</td><td class="memItemRight" val
 </div><div class="memdoc">
 <p>Set the boundaries of the map</p>
 <p>Go through each tile and reset those that aren't occupied</p>
+
+</div>
+</div>
+<a id="a0262b71ac00fd31d8ea904d441967ac6" name="a0262b71ac00fd31d8ea904d441967ac6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0262b71ac00fd31d8ea904d441967ac6">&#9670;&#160;</a></span>setBoardSide()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TileStateManager.setBoardSide </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>fluctIsHighPlayer</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the board side depending on which player is the high player</p>
 
 </div>
 </div>

@@ -6,6 +6,11 @@ Inheritance diagram for Stoneward\+Ability\+:\begin{figure}[H]
 \includegraphics[height=3.000000cm]{class_stoneward_ability}
 \end{center}
 \end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_stoneward_ability_a0ceef0694bd26a5828267af26ab08d10}{minion\+Destroyed}} ()
+\begin{DoxyCompactList}\small\item\em Counter for the number of minions summoned. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -54,13 +59,16 @@ int {\bfseries ability\+Cost}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{class_stoneward_ability_ae8a2f33619b50f76f8db701c8e782979}{summon\+Minion}} (Vector3\+Int mouse\+Position)
-\begin{DoxyCompactList}\small\item\em Tiles where the minion can be summoned. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{class_stoneward_ability_a17bf32c20e6b120782a69a4ec48bf0a7}\label{class_stoneward_ability_a17bf32c20e6b120782a69a4ec48bf0a7} 
 List$<$ Vector3\+Int $>$ {\bfseries summoning\+Tiles} = new()
 \begin{DoxyCompactList}\small\item\em Prefab for the Stoneward minion. \end{DoxyCompactList}\item 
+\Hypertarget{class_stoneward_ability_af3f20db16c3d9bee7627ab365b393ff7}\label{class_stoneward_ability_af3f20db16c3d9bee7627ab365b393ff7} 
+int {\bfseries minion\+Count} = 0
+\begin{DoxyCompactList}\small\item\em Tiles where the minion can be summoned. \end{DoxyCompactList}\item 
 \Hypertarget{class_stoneward_ability_aeabdab77989e539068b4c8319dbe7cc6}\label{class_stoneward_ability_aeabdab77989e539068b4c8319dbe7cc6} 
 int {\bfseries \+\_\+ability\+Cost} = 2
 \end{DoxyCompactItemize}
@@ -103,7 +111,17 @@ This method should be overridden in derived classes to implement the specific ab
 
 Reimplemented from \mbox{\hyperlink{class_ability_a94737a4e696b9ac6be445a281fd1c5af}{Ability}}.
 
-\Hypertarget{class_stoneward_ability_a57f8cfc937e14f5f9f42eacb71dfef97}\index{StonewardAbility@{StonewardAbility}!resetAbility@{resetAbility}}
+\Hypertarget{class_stoneward_ability_a0ceef0694bd26a5828267af26ab08d10}\index{StonewardAbility@{StonewardAbility}!minionDestroyed@{minionDestroyed}}
+\index{minionDestroyed@{minionDestroyed}!StonewardAbility@{StonewardAbility}}
+\doxysubsubsection{\texorpdfstring{minionDestroyed()}{minionDestroyed()}}
+{\footnotesize\ttfamily \label{class_stoneward_ability_a0ceef0694bd26a5828267af26ab08d10} 
+void Stoneward\+Ability.\+minion\+Destroyed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Counter for the number of minions summoned. 
+
+Decrement the minion count when a minion is destroyed\Hypertarget{class_stoneward_ability_a57f8cfc937e14f5f9f42eacb71dfef97}\index{StonewardAbility@{StonewardAbility}!resetAbility@{resetAbility}}
 \index{resetAbility@{resetAbility}!StonewardAbility@{StonewardAbility}}
 \doxysubsubsection{\texorpdfstring{resetAbility()}{resetAbility()}}
 {\footnotesize\ttfamily \label{class_stoneward_ability_a57f8cfc937e14f5f9f42eacb71dfef97} 
@@ -128,10 +146,6 @@ Reimplemented from \mbox{\hyperlink{class_ability}{Ability}}.
 \doxysubsubsection{\texorpdfstring{summonMinion()}{summonMinion()}}
 {\footnotesize\ttfamily \label{class_stoneward_ability_ae8a2f33619b50f76f8db701c8e782979} 
 void Stoneward\+Ability.\+summon\+Minion (\begin{DoxyParamCaption}\item[{Vector3\+Int}]{mouse\+Position}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Tiles where the minion can be summoned. 
 
 
 \begin{DoxyItemize}

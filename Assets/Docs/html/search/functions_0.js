@@ -6,7 +6,8 @@ var searchData=
   ['addpiece_3',['addPiece',['../class_piece_interaction_manager.html#a541d988751f82093c9351d0c1e3b93f3',1,'PieceInteractionManager.addPiece()'],['../class_piece_state_manager.html#a6443e4b8dfc9b6f5c6bb90bf4984d657',1,'PieceStateManager.addPiece()']]],
   ['addtarget_4',['addTarget',['../class_piece_interaction_manager.html#a54a03def4fc22eb3ce1136b9a8185dae',1,'PieceInteractionManager']]],
   ['animate_5',['Animate',['../class_animation_creator.html#add8fd9adfad49ff83d30a1f19bbd3f6d',1,'AnimationCreator']]],
-  ['animate_6',['animate',['../class_animation_manager.html#ad946fd7c369d9608423598f42f2b01db',1,'AnimationManager']]],
+  ['animate_6',['animate',['../class_animation_manager.html#a1159816c0944183e644932a657ba5a15',1,'AnimationManager']]],
   ['aretargeted_7',['areTargeted',['../class_piece_interaction_manager.html#a4133a1267bc09936470e6ee460b4d747',1,'PieceInteractionManager']]],
-  ['attack_8',['attack',['../class_piece_interaction_manager.html#ad8b1b858a270b2ecd0ad8c83ba2d6af9',1,'PieceInteractionManager']]]
+  ['attack_8',['attack',['../class_piece_interaction_manager.html#ad8b1b858a270b2ecd0ad8c83ba2d6af9',1,'PieceInteractionManager']]],
+  ['awake_9',['Awake',['../class_appearance_manager.html#ac0b168fbbb7ac0d2ca151fa36d450aa9',1,'AppearanceManager']]]
 ];

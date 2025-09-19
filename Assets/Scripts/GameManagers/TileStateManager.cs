@@ -11,6 +11,11 @@ public class TileStateManager : MonoBehaviour
     */
     public static TileStateManager Instance;
     public Tilemap tileMap;
+    public Tile fluctSummoningTile;
+    public List<Vector3Int> highPlayerPos;
+    public Tile fusSummoningTile;
+    public List<Vector3Int> lowPlayerPos;
+
     private Dictionary<Vector3Int, TileState> states = new();
     public void updateState(Vector3Int p,TileState s){states[p]=s;}
     public TileState getState(Vector3Int p){return states[p];}
@@ -36,6 +41,30 @@ public class TileStateManager : MonoBehaviour
             }
         }
     }
+    public void setBoardSide(bool fluctIsHighPlayer){ /// Sets the board side depending on which player is the high player
+        if (fluctIsHighPlayer) //If the fluctuomancer player starts first, set the first player tiles as fluct summoning tiles
+        {
+            foreach (Vector3Int pos in highPlayerPos)
+            {
+                tileMap.SetTile(pos, fluctSummoningTile);
+            }
+            foreach(Vector3Int pos in lowPlayerPos) //Set the second player tiles as fused summoning tiles
+            {
+                tileMap.SetTile(pos, fusSummoningTile);
+            }
+        }
+        else //If the fused player starts first, set the first player tiles as fused summoning tiles
+        {
+            foreach (Vector3Int pos in highPlayerPos)
+            {
+                tileMap.SetTile(pos, fusSummoningTile);
+            }
+            foreach(Vector3Int pos in lowPlayerPos) //Set the second player tiles as fused summoning tile
+            {
+                tileMap.SetTile(pos, fluctSummoningTile);
+            }
+        }
+    }
     void Awake(){
         Instance=this;
     }
@@ -43,6 +72,7 @@ public class TileStateManager : MonoBehaviour
     void Start()
     {
         initDict();
+        setBoardSide(GameData.highPlayer); // Set the board side depending on which player is the high player
     }
 
     // Update is called once per frame

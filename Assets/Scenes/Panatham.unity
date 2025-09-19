@@ -6102,6 +6102,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileMap: {fileID: 2015020734}
+  fluctSummoningTile: {fileID: 11400000, guid: 890387333d72491418ab7647c0440e29, type: 2}
+  highPlayerPos:
+  - {x: -2, y: 2, z: 0}
+  fusSummoningTile: {fileID: 11400000, guid: 1c212f3332103744cad45cd77f1c8189, type: 2}
+  lowPlayerPos:
+  - {x: -2, y: -2, z: 0}
 --- !u!114 &2046805518
 MonoBehaviour:
   m_ObjectHideFlags: 0

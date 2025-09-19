@@ -16,4 +16,5 @@ public static class GameData
     public static int fluctScore = 0;
     public static int fusScore = 0;
     public static int winScore = 2;
+    public static bool highPlayer = true; ///True if the fluctuomancer player starts first, false if the fused player starts first 
 }

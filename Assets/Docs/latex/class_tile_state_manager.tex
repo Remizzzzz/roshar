@@ -19,12 +19,26 @@ Tile\+State {\bfseries get\+State} (Vector3\+Int p)
 bool {\bfseries is\+Not\+Occupied} (Vector3\+Int p)
 \item 
 void \mbox{\hyperlink{class_tile_state_manager_a939084598c88aae65ea20e99f9cf4ebc}{reset\+Map}} ()
+\item 
+void \mbox{\hyperlink{class_tile_state_manager_a0262b71ac00fd31d8ea904d441967ac6}{set\+Board\+Side}} (bool fluct\+Is\+High\+Player)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{class_tile_state_manager_af90c509d1fbc4877f3c18645b09f77e2}\label{class_tile_state_manager_af90c509d1fbc4877f3c18645b09f77e2} 
 Tilemap {\bfseries tile\+Map}
+\item 
+\Hypertarget{class_tile_state_manager_adef8c56d362b690eac28cf05c3c2e686}\label{class_tile_state_manager_adef8c56d362b690eac28cf05c3c2e686} 
+Tile {\bfseries fluct\+Summoning\+Tile}
+\item 
+\Hypertarget{class_tile_state_manager_acf92ec7f39c331cf6a36433b8a839ca2}\label{class_tile_state_manager_acf92ec7f39c331cf6a36433b8a839ca2} 
+List$<$ Vector3\+Int $>$ {\bfseries high\+Player\+Pos}
+\item 
+\Hypertarget{class_tile_state_manager_a751eba9c18b78fe017d4772a92aa4034}\label{class_tile_state_manager_a751eba9c18b78fe017d4772a92aa4034} 
+Tile {\bfseries fus\+Summoning\+Tile}
+\item 
+\Hypertarget{class_tile_state_manager_ada86384674c4894be532c863d9c9520a}\label{class_tile_state_manager_ada86384674c4894be532c863d9c9520a} 
+List$<$ Vector3\+Int $>$ {\bfseries low\+Player\+Pos}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
@@ -65,7 +79,13 @@ void Tile\+State\+Manager.\+reset\+Map (\begin{DoxyParamCaption}{}{}\end{DoxyPar
 
 Set the boundaries of the map
 
-Go through each tile and reset those that aren\textquotesingle{}t occupied
+Go through each tile and reset those that aren\textquotesingle{}t occupied\Hypertarget{class_tile_state_manager_a0262b71ac00fd31d8ea904d441967ac6}\index{TileStateManager@{TileStateManager}!setBoardSide@{setBoardSide}}
+\index{setBoardSide@{setBoardSide}!TileStateManager@{TileStateManager}}
+\doxysubsubsection{\texorpdfstring{setBoardSide()}{setBoardSide()}}
+{\footnotesize\ttfamily \label{class_tile_state_manager_a0262b71ac00fd31d8ea904d441967ac6} 
+void Tile\+State\+Manager.\+set\+Board\+Side (\begin{DoxyParamCaption}\item[{bool}]{fluct\+Is\+High\+Player}{}\end{DoxyParamCaption})}
+
+Sets the board side depending on which player is the high player
 
 \label{doc-variable-members}
 \Hypertarget{class_tile_state_manager_doc-variable-members}

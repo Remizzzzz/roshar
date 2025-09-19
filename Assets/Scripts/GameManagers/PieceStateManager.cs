@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
-
+using System.Linq;
 
 public enum PieceState {moving,basic,attacking,casting,locked,distracted}
 public class PieceStateManager : MonoBehaviour
@@ -53,6 +53,19 @@ public class PieceStateManager : MonoBehaviour
             if (!statesFus.ContainsKey(p)) statesFus.Add(p,PieceState.basic);
         }
     }
+    public void setBoardSide(bool fluctIsHighPlayer){
+        if (!fluctIsHighPlayer)
+        {
+            List<GameObject> fluctPieces = statesFluct.Keys.ToList();
+            List<GameObject> fusPieces = statesFus.Keys.ToList();
+            for (int i = 0; i < fluctPieces.Count; i++)
+            {
+                Vector3 fluctPos = fluctPieces[i].transform.position;
+                fluctPieces[i].transform.position = fusPieces[i].transform.position;
+                fusPieces[i].transform.position = fluctPos;
+            }
+        }
+    }
     private void initDicts(){
         foreach (Transform piece in fused.transform)
         {
@@ -74,6 +87,7 @@ public class PieceStateManager : MonoBehaviour
     void Start()
     {
         initDicts();
+        setBoardSide(GameData.highPlayer); // Set the board side depending on which player is the high player
     }
 
     // Update is called once per frame

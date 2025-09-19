@@ -14,13 +14,19 @@ Inheritance diagram for Animation\+Manager\+:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-Game\+Object \mbox{\hyperlink{class_animation_manager_ad946fd7c369d9608423598f42f2b01db}{animate}} (Vector3 position, Animation\+Code code\+Animation)
+Game\+Object \mbox{\hyperlink{class_animation_manager_a1159816c0944183e644932a657ba5a15}{animate}} (Vector3 position, Animation\+Code code\+Animation, int damage=0)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{class_animation_manager_ab3f082b41146ca22b4165b9ae9fcaf14}\label{class_animation_manager_ab3f082b41146ca22b4165b9ae9fcaf14} 
 Game\+Object {\bfseries storm\+Shape\+Animation}
+\item 
+\Hypertarget{class_animation_manager_a782a979fcf6b9b901878f855fb2f83fc}\label{class_animation_manager_a782a979fcf6b9b901878f855fb2f83fc} 
+Game\+Object {\bfseries damage\+Animation}
+\item 
+\Hypertarget{class_animation_manager_a8fe34a6abc9dac0f43d323eb896c39f5}\label{class_animation_manager_a8fe34a6abc9dac0f43d323eb896c39f5} 
+Game\+Object {\bfseries death\+Animation}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
@@ -44,11 +50,11 @@ Define your animation codes here.
 \label{doc-func-members}
 \Hypertarget{class_animation_manager_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_animation_manager_ad946fd7c369d9608423598f42f2b01db}\index{AnimationManager@{AnimationManager}!animate@{animate}}
+\Hypertarget{class_animation_manager_a1159816c0944183e644932a657ba5a15}\index{AnimationManager@{AnimationManager}!animate@{animate}}
 \index{animate@{animate}!AnimationManager@{AnimationManager}}
 \doxysubsubsection{\texorpdfstring{animate()}{animate()}}
-{\footnotesize\ttfamily \label{class_animation_manager_ad946fd7c369d9608423598f42f2b01db} 
-Game\+Object Animation\+Manager.\+animate (\begin{DoxyParamCaption}\item[{Vector3}]{position}{, }\item[{Animation\+Code}]{code\+Animation}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_animation_manager_a1159816c0944183e644932a657ba5a15} 
+Game\+Object Animation\+Manager.\+animate (\begin{DoxyParamCaption}\item[{Vector3}]{position}{, }\item[{Animation\+Code}]{code\+Animation}{, }\item[{int}]{damage}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
 
 This method instantiates an animation at the given position based on the provided Animation\+Code. It returns the instantiated Game\+Object for further manipulation if needed.
 

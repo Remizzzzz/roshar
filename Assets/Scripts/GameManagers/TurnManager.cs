@@ -24,6 +24,8 @@ public class TurnManager : MonoBehaviour
 
     //Public method
     public bool isPlayerTurn(bool isFluct) {return (turn==isFluct);}
+    public void setStartingPlayer(bool isFluct) {startingPlayer = isFluct;} /// Sets the starting player, true if fluctuomancer starts first, false if fused starts first
+    public bool getStartingPlayer() {return startingPlayer;} /// Returns true if the fluctuomancer player starts first, false if the fused player starts first
     public bool nbSummonVerif(){ return (hasSummoned == mapParameters.numberOfSummon); }
     public bool isSummonable(bool isSpecial, bool isFluct) /// Checks if a piece can be summoned
     {

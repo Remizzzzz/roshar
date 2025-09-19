@@ -102,6 +102,11 @@ Inheritance diagram for StonewardAbility:</div>
   </map>
 </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a0ceef0694bd26a5828267af26ab08d10" id="r_a0ceef0694bd26a5828267af26ab08d10"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ceef0694bd26a5828267af26ab08d10">minionDestroyed</a> ()</td></tr>
+<tr class="memdesc:a0ceef0694bd26a5828267af26ab08d10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counter for the number of minions summoned.  <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a20c02fef4e916d2e3b1053eb7a44c711" id="r_a20c02fef4e916d2e3b1053eb7a44c711"><td class="memItemLeft" align="right" valign="top">GameObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20c02fef4e916d2e3b1053eb7a44c711">minionPrefab</a></td></tr>
@@ -140,13 +145,15 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>abilityCost</b><code> 
 <tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:ae8a2f33619b50f76f8db701c8e782979" id="r_ae8a2f33619b50f76f8db701c8e782979"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8a2f33619b50f76f8db701c8e782979">summonMinion</a> (Vector3Int mousePosition)</td></tr>
-<tr class="memdesc:ae8a2f33619b50f76f8db701c8e782979"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tiles where the minion can be summoned.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a17bf32c20e6b120782a69a4ec48bf0a7" id="r_a17bf32c20e6b120782a69a4ec48bf0a7"><td class="memItemLeft" align="right" valign="top"><a id="a17bf32c20e6b120782a69a4ec48bf0a7" name="a17bf32c20e6b120782a69a4ec48bf0a7"></a>
 List&lt; Vector3Int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>summoningTiles</b> = new()</td></tr>
 <tr class="memdesc:a17bf32c20e6b120782a69a4ec48bf0a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prefab for the Stoneward minion. <br /></td></tr>
+<tr class="memitem:af3f20db16c3d9bee7627ab365b393ff7" id="r_af3f20db16c3d9bee7627ab365b393ff7"><td class="memItemLeft" align="right" valign="top"><a id="af3f20db16c3d9bee7627ab365b393ff7" name="af3f20db16c3d9bee7627ab365b393ff7"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>minionCount</b> = 0</td></tr>
+<tr class="memdesc:af3f20db16c3d9bee7627ab365b393ff7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tiles where the minion can be summoned. <br /></td></tr>
 <tr class="memitem:aeabdab77989e539068b4c8319dbe7cc6" id="r_aeabdab77989e539068b4c8319dbe7cc6"><td class="memItemLeft" align="right" valign="top"><a id="aeabdab77989e539068b4c8319dbe7cc6" name="aeabdab77989e539068b4c8319dbe7cc6"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>_abilityCost</b> = 2</td></tr>
 </table><table class="memberdecls">
@@ -197,6 +204,26 @@ static int&#160;</td><td class="memItemRight" valign="bottom"><b>voidlight</b> =
 <p>This method should be overridden in derived classes to implement the specific ability logic</p>
 
 <p>Reimplemented from <a class="el" href="class_ability.html#a94737a4e696b9ac6be445a281fd1c5af">Ability</a>.</p>
+
+</div>
+</div>
+<a id="a0ceef0694bd26a5828267af26ab08d10" name="a0ceef0694bd26a5828267af26ab08d10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ceef0694bd26a5828267af26ab08d10">&#9670;&#160;</a></span>minionDestroyed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StonewardAbility.minionDestroyed </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Counter for the number of minions summoned. </p>
+<p>Decrement the minion count when a minion is destroyed</p>
 
 </div>
 </div>
@@ -276,8 +303,6 @@ static int&#160;</td><td class="memItemRight" valign="bottom"><b>voidlight</b> =
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Tiles where the minion can be summoned. </p>
 <ul>
 <li>This method is called to summon a minion on the selected tile position. It checks if the tile is valid for summoning, instantiates the minion prefab, and updates the necessary managers to register the new minion.</li>
 </ul>

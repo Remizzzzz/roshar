@@ -25,6 +25,14 @@ public class PieceAttack : MonoBehaviour {
     private int curLp; ///Current LP of the piece, used to check if the piece is alive
     private int oldLp; ///Used to reset lp to the old value, just in case
     private int curNbAtk; ///Current number of attacks remaining for the piece, used to check if the piece can attack
+    private static Vector3[] directions = new Vector3[] { ///Directional vectors used for getReachableTargets
+        new Vector3(1, 0, 0),   // Right
+        new Vector3(0.5f, 1, 0),  // Top-Right
+        new Vector3(-0.5f, 1, 0),  // Top-Left
+        new Vector3(-1, 0, 0),  // Left
+        new Vector3(-0.5f, -1, 0),  // Bottom-Left
+        new Vector3(0.5f, -1, 0)    // Bottom-Right
+    };
     internal int curAtk; ///Current attack of the piece, used to check the atk after modifiers
     internal bool isAttacking=false; ///To check if the piece is attacking, used to manage the onMouseDown method
     private bool isDistracted = false; ///To check if the piece is distracted, so it can't attack
@@ -116,7 +124,13 @@ public class PieceAttack : MonoBehaviour {
     }
 
     //Private methods
-    
+    private Vector3Int convertDirection(Vector3 dir, Vector3Int from, int range){ ///Mathematical conversion for the use of directional vectors in getReachableTargets
+        if ((from.y%2==0)){ //If the Y is even and the direction is right, or if the Y is odd and the direction is left
+            return new Vector3Int((int)(from.x + Mathf.FloorToInt(dir.x * range)),(int)(from.y + dir.y * range), 0);
+        } else {
+            return new Vector3Int((int)(from.x + Mathf.CeilToInt(dir.x * range)), (int)(from.y + dir.y * range), 0);
+        }
+    }
     private void refreshAttack(){ ///Refresh the attack parameters of the piece, used to check if the piece can attack
         if (curTurn<TurnManager.Instance.getTurnNumber() && TurnManager.Instance.isPlayerTurn(pM.isFluct)){
             curNbAtk=nbAtk;
@@ -129,24 +143,38 @@ public class PieceAttack : MonoBehaviour {
             }
         }
     }
-
-    private List<Vector3Int> getReachableTargets(){ //Created after pM.detectTilesInRange, not worth modifying
+    private List<Vector3Int> getReachableTargets(){
+        List<Vector3Int> tilesReachables= new List<Vector3Int>(); //The List where we'll keep our valid coordinates
+        if (pM.getOnMap()){
+            for (int i=1;i<=range;i++){
+                foreach (Vector3 dir in directions){ //For each direction
+                    Vector3Int rSearch = convertDirection(dir,pM.getCurPos(),i);
+                    if (!tilesReachables.Contains(rSearch) && pM.tileMap.GetTile(rSearch)!=null) { //If the coor isn't in tilesReachables and is in the map, add it to search
+                        tilesReachables.Add(rSearch);
+                    }
+                }
+            }
+        }
+        //Now that we have all the tiles in range, we select only the one with a valid target on it
+        return PieceInteractionManager.Instance.getAttackTargets(tilesReachables,pM.isFluct);
+    }/*
+    private List<Vector3Int> getReachableTargetsRe(){ //Created after pM.detectTilesInRange, not worth modifying
         /** getReachableTargets() returns a list of Vector3Int that are reachable by the piece, 
          * based on its range and the tiles occupied by other pieces.
          * It uses the PieceInteractionManager to get the attack targets.
-         */
+         *//*
         List<Vector3Int> tilesReachables= new List<Vector3Int>{pM.getCurPos()}; //The List where we'll keep our valid coordinates
             if(pM.getOnMap()){
                 List<Vector3Int> search = new List<Vector3Int>(); //The tempList used for searching
 
                 for (int i=0; i<range;i++){ //range determines the depth of search, each loop is one depth
-                    foreach(Vector3Int rSearch in tilesReachables){ //Search will go through each neighbor of the tiles in tilesReachables, and add them to tilesReachables if they're not alreday in it
+                    foreach(Vector3Int rSearch in tilesReachables){ //Search will go through each neighbor of the tiles in tilesReachables, and add them to tilesReachables if they're not already in it
                         foreach(Vector3Int neighbour in (Math.Abs(rSearch.y)%2==1?pM.getNeighbourOffsetOdd():pM.getNeighbourOffset())){ //Change the offset depending on Y (odd or not)
                             if (!tilesReachables.Contains(neighbour+rSearch) && !search.Contains(neighbour+rSearch) && pM.tileMap.GetTile(neighbour+rSearch)!=null) { //Of course, we don't add coordinates that aren't on the map
-                                search.Add(neighbour+rSearch); //If the coor isn't in tilesReachable or search and is in the map, add it to search
-                            //I thought of only taking occupied tiles, but if I do, my depth algorithm don't work,
-                            // if I select afterwards only tiles occupied, it costs the same as I already filter
-                            // in getAttackTarget() so there's no point doing it
+                                else search.Add(neighbour+rSearch); //If the coor isn't in tilesReachable or search and is in the map, add it to search
+                            /*I thought of only taking occupied tiles, but if I do, my depth algorithm don't work,
+                            * if I select afterwards only tiles occupied, it costs the same as I already filter
+                            * in getAttackTarget() so there's no point doing it*//*
                             }
                         }
                     }
@@ -157,7 +185,7 @@ public class PieceAttack : MonoBehaviour {
             tilesReachables.Remove(pM.getCurPos());
             //Now that we have all the tiles in range, we select only the one with a valid target on it
             return PieceInteractionManager.Instance.getAttackTargets(tilesReachables,pM.isFluct);
-    }
+    }*/
 
     //On Mouse methods
     void OnMouseDown(){

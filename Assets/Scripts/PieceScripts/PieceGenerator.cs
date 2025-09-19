@@ -9,7 +9,7 @@ public class PieceGenerator : MonoBehaviour
         piece.GetComponent<PieceMovement>().tileMap = gameObject.GetComponent<PieceMovement>().tileMap; // Set the tilemap for the piece
         piece.GetComponent<PieceAttributes>().pieceName = GetComponent<PieceAttributes>().pieceName; // Set the name of the piece
         //register the piece in the gameManagers
-        PieceInteractionManager.Instance.addPiece(piece, piece.GetComponent<PieceMovement>().getCurPos(), piece.GetComponent<PieceMovement>().isFluct); // Update the interaction manager with the new piece
+        PieceInteractionManager.Instance.addPiece(piece, GetComponent<PieceMovement>().tileMap.WorldToCell(generationCoordinate), piece.GetComponent<PieceMovement>().isFluct); // Update the interaction manager with the new piece
         PieceStateManager.Instance.addPiece(piece, piece.GetComponent<PieceMovement>().isFluct); // Add the piece to the piece state manager
         
         piece.GetComponent<PieceMovement>().setOnMap(false); // Set the piece as not on the map

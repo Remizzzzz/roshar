@@ -8,11 +8,12 @@ var searchData=
   ['pieceappearance_5',['PieceAppearance',['../class_piece_appearance.html',1,'']]],
   ['pieceattack_6',['PieceAttack',['../class_piece_attack.html',1,'']]],
   ['pieceattributes_7',['PieceAttributes',['../class_piece_attributes.html',1,'']]],
-  ['pieceinteractionmanager_8',['PieceInteractionManager',['../class_piece_interaction_manager.html',1,'']]],
-  ['piecemovement_9',['PieceMovement',['../class_piece_movement.html',1,'']]],
-  ['piecename_10',['pieceName',['../class_piece_attributes.html#a1f120588fe7b6aac0e0f610831c00b53',1,'PieceAttributes']]],
-  ['piecestatemanager_11',['PieceStateManager',['../class_piece_state_manager.html',1,'']]],
-  ['protect_12',['Protect',['../class_piece_attack.html#ac92f79ec82c4d6368cc4a21bc82cc689',1,'PieceAttack']]],
-  ['protect_13',['protect',['../class_piece_interaction_manager.html#a94b4472c18018b5653d7fff835e6c614',1,'PieceInteractionManager']]],
-  ['pursuerability_14',['PursuerAbility',['../class_pursuer_ability.html',1,'']]]
+  ['piecegenerator_8',['PieceGenerator',['../class_piece_generator.html',1,'']]],
+  ['pieceinteractionmanager_9',['PieceInteractionManager',['../class_piece_interaction_manager.html',1,'']]],
+  ['piecemovement_10',['PieceMovement',['../class_piece_movement.html',1,'']]],
+  ['piecename_11',['pieceName',['../class_piece_attributes.html#a1f120588fe7b6aac0e0f610831c00b53',1,'PieceAttributes']]],
+  ['piecestatemanager_12',['PieceStateManager',['../class_piece_state_manager.html',1,'']]],
+  ['protect_13',['Protect',['../class_piece_attack.html#ac92f79ec82c4d6368cc4a21bc82cc689',1,'PieceAttack']]],
+  ['protect_14',['protect',['../class_piece_interaction_manager.html#a94b4472c18018b5653d7fff835e6c614',1,'PieceInteractionManager']]],
+  ['pursuerability_15',['PursuerAbility',['../class_pursuer_ability.html',1,'']]]
 ];

@@ -6,8 +6,9 @@ var searchData=
   ['pieceappearance_3',['PieceAppearance',['../class_piece_appearance.html',1,'']]],
   ['pieceattack_4',['PieceAttack',['../class_piece_attack.html',1,'']]],
   ['pieceattributes_5',['PieceAttributes',['../class_piece_attributes.html',1,'']]],
-  ['pieceinteractionmanager_6',['PieceInteractionManager',['../class_piece_interaction_manager.html',1,'']]],
-  ['piecemovement_7',['PieceMovement',['../class_piece_movement.html',1,'']]],
-  ['piecestatemanager_8',['PieceStateManager',['../class_piece_state_manager.html',1,'']]],
-  ['pursuerability_9',['PursuerAbility',['../class_pursuer_ability.html',1,'']]]
+  ['piecegenerator_6',['PieceGenerator',['../class_piece_generator.html',1,'']]],
+  ['pieceinteractionmanager_7',['PieceInteractionManager',['../class_piece_interaction_manager.html',1,'']]],
+  ['piecemovement_8',['PieceMovement',['../class_piece_movement.html',1,'']]],
+  ['piecestatemanager_9',['PieceStateManager',['../class_piece_state_manager.html',1,'']]],
+  ['pursuerability_10',['PursuerAbility',['../class_pursuer_ability.html',1,'']]]
 ];
